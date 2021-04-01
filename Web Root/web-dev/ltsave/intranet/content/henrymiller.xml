@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../XSL/lts_internal.xslt"?>
+<content>
+	<topic title="Henry Miller" file="../content/henrymiller.xml" fileid="$Id: //main/2005/road/LTS-Intranet/web/content/henrymiller.xml#3 $$Change: 4184 $" fileChange="$DateTime: 2005/10/07 17:02:03 $$Author: bbarber $">
+		<p>Obviously, this template page can be used to describe the topic's overall purpose, goals and/or obstacles in broad, general terms. Don't list any specific Sections or Items in this opening paragraph, because those clickable links already exist in the Nav Column. If you're really feeling the need to kill some space, consider using graphics (screenshots, logos, photos) instead. You can probably get the LTSave Art Department to knock out some pretty pictures for you. In the meantime, <a href="http://henrymiller.org" target="out">learn more about Henry Miller</a>.</p>
+		<p>Test , this template page can be used to describe the topic's overall purpose, goals and/or obstacles in broad, general terms. Don't list any specific Sections or Items in this opening paragraph, because those clickable links already exist in the Nav Column. If you're really feeling the need to kill some space, consider using graphics (screenshots, logos, photos) instead. You can probably get the LTSave Art Department to knock out some pretty pictures for you. In the meantime, <a href="http://henrymiller.org" target="out">learn more about Henry Miller</a>.</p>
+	</topic>
+	<section id="HM-Books" title="Henry Miller Books (selected)">
+		This selected list is customized for the sole purpose of rendering a paragraph tag. That, and I didn't feel like writing even more phoney content.
+	
+		<item id="nexus" author="dmarshall" published="1960" updated="2005-05-15" title="Nexus (Book Three of The Rosy Crucifixion) (1960)">
+			<p>This book description ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items. <iref item="tcapricorn" page="000"/></p>
+		</item>
+		<item id="plexus" author="dmarshall" published="1953" updated="2005-05-15" title="Plexus (Book Two of The Rosy Crucifixion) (1953)">
+			<p>This book description ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items. <iref item="tcapricorn" page="000"/></p>
+		</item>
+		<item id="sexus" author="dmarshall" published="1949" updated="2005-05-15" title="Sexus (Book One of The Rosy Crucifixion) (1949)">
+			<p>This book description ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items. <iref item="tcapricorn" page="000"/></p>
+		</item>
+		<item id="sunday" author="dmarshall" published="1944" updated="2005-05-15" title="Sunday after the War (1944)">
+			<p>This book description ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items. <iref item="tcapricorn" page="000"/></p>
+		</item>
+		<item id="nightmare" author="dmarshall" published="1945" updated="2005-05-15" title="The Air-Conditioned Nightmare (1945)">
+			<p>This book description ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items. <iref item="tcapricorn" page="000"/></p>
+		</item>
+		<item id="plight" author="dmarshall" published="1944" updated="2005-05-15" title="The Plight of the Creative Artist in the United States of America (1944)">
+			<p>This book description ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items. <iref item="tcapricorn" page="000"/></p>
+		</item>
+		<item id="world" author="dmarshall" published="1940" updated="2005-05-15" title="The World of Sex (1940)">
+			<p>This book description ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items. <iref item="tcapricorn" page="000"/></p>
+		</item>
+		<item id="tcancer" author="dmarshall" published="1934" updated="2005-05-15" title="Tropic of Cancer (1934)">
+			<p>This book description ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items:</p>
+			<p>Ut wisi enim ad minim veniam, <a href="foo.html">quis nostrud exercitation</a> ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  Duis autem vel eum iriure dolor.<iref item="tcancer" page="000"/></p>
+		</item>
+		<item id="tcapricorn" author="dmarshall" published="1939" updated="2005-05-15" title="Tropic of Capricorn (1939)">
+			<p>This book description ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items. <iref item="tcapricorn" page="000"/></p>
+		</item>
+	</section>
+	<section id="HM-Methods" title="Miller's Methods">
+		<item id="approach" order="2" author="dmarshall" updated="2005-05-15" title="Approach the Ladies with Your Liquid Courage">
+			<p>This item description ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items:<iref item="approach" page="000"/></p>
+		</item>
+		<item id="drinking" order="1" author="dmarshall" updated="2005-05-15" title="Drinking to Excess">
+			<p>This item description ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items:</p>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.<iref item="drinking" page="000"/></p>
+		</item>
+		<item id="rejection" order="3" author="dmarshall" updated="2005-05-15" title="Get Rejected">
+			<p>This item description ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items:</p>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+			<p>Ut wisi enim ad minim veniam, <a href="http://www.illdave.com">quis nostrud exercitation</a> ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  Duis autem vel eum iriure dolor.<iref item="rejection" page="100"/></p>
+		</item>
+		<item id="repeat" order="5" author="cbukowski" updated="2005-05-15" title="Repeat the Process">
+			<p>Ut wisi enim ad minim veniam, <a href="foo.html">quis nostrud exercitation</a> ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  Duis autem vel eum iriure dolor.<iref item="repeat" page="000"/></p>
+		</item>
+		<item id="revenge" order="4" author="dmarshall" updated="2005-05-15" title="Revenge through Writing">
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.<iref item="revenge" page="000"/></p>
+		</item>
+	</section>
+	<section id="HM-Legacy" title="Lasting Legacy">
+		<item id="bukowski" author="dmarshall" updated="2005-05-15" title="Charles Bukowski">
+			<p>This description of Mickey Roarke's portrail ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items:<iref item="bukowski" page="000"/></p>
+		</item>
+		<item id="henryandjune" author="dmarshall" updated="2005-05-15" title="Henry and June">
+			<p>This eighties art-house film sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items:<iref item="howardstern" page="000"/></p>
+		</item>
+		<item id="howardstern" author="dmarshall" updated="2005-05-15" title="Howard Stern">
+			<p>Who's "High Pitch"? ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items:<iref item="howardstern" page="000"/></p>
+		</item>
+		<item id="jkerouac" author="dmarshall" updated="2005-05-15" title="Jack Kerouac">
+			<p>The Official Web Site of Jack Kerouac has everything you want to know about the writer who helped define the Beat Generation. Read his biography and learn more about this talented and troubled author.</p>
+		</item>
+		<item id="kcadams" author="dmarshall" updated="2005-05-15" title="K. C. Adams">
+			<p>Letter from Charles Kendall Adams to William Henry Miller, December 15, 1887 (dictated)</p>
+			<p>At a meeting of the Library Building Committee, held last evening, it was decided to ask you to make studies of the library building, in accordance with instructions herewith enclosed.</p>
+			<p>William Henry Miller, a noted Ithaca architect, was selected to build the University Library. Buildings for which he was responsible include the Andrew Dickson White House, Barnes Hall, Stimson Hall, and Risley Hall, as well as a number of churches and homes in Ithaca. He prepared plans for improving the south entrance to the University at Cascadilla Gorge, designing a new roadway closer to the gorge bank, an entrance gate at the end of Eddy Street, and a new stone-arched bridge across the gorge.</p>
+		</item>
+		<item id="pattismith" author="dmarshall" updated="2005-05-15" title="Patti Smith">
+			<p>People Got the Power ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items:<iref item="howardstern" page="000"/></p>
+		</item>
+		<item id="rcrumb" author="dmarshall" updated="2005-05-15" title="Robert Crumb">
+			<p>Description of Crumb's work ... sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, about these items:<iref item="rcrumb" page="000"/></p>
+			<p>Ut wisi enim ad minim veniam, <a href="foo.html">quis nostrud exercitation</a> ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  Duis autem vel eum iriure dolor.</p>
+		</item>
+		<item id="rsyder" author="dmarshall" updated="2005-05-15" title="Robin Snyder">
+			<p>Documentary filmmaker who won an Academy Award in 1950 for "The Titan: The Story of Michelangelo", whose subjects included Henry Miller, Anais Nin, and Snyder's father-in-law, futurist R. Buckminster Fuller, and who last year completed a feature-length documentary on the life of cellist Pablo Casals, died in Los Angeles after a long illness. He was 88 years old.</p>
+		</item>
+	</section>
+</content>

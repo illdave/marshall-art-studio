@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../XSL/lts_internal.xslt"?>
+<content>
+
+	<topic title="Intranet" file="../content/intranet.xml" fileid="$Id: //main/2005/road/LTS-Intranet/web/content/intranet.xml#6 $$Change: 4245 $" fileChange="$DateTime: 2005/10/12 14:45:13 $$Author: bbarber $">
+	</topic>
+	
+	<section id="Phone" title="Phones">
+	
+		<item id="reboot" title="How to reboot the phone system">
+			<p>To reboot the phone system:</p>
+			<ol>
+				<li>Pull the plug on Units 1 and 2 in the equipment closet.  They are the flat units near the wall mounted modem.</li>
+				<li>Check the white and grey cables between Units 1 and 2</li>
+				<li>Push in both power plugs at the same time.</li>
+				<li>Wait for about a minute.  Unit 1 will announce the current time.</li>
+				<li>Optionally, run self-test by pushing the red button on Unit 1.  It checks dial-tone (quick), phone line quality (takes a couple of minutes), and rings each of the extensions.</li>
+			</ol>
+		</item>
+		<item id="reset" title="How to reset an extension">
+			<p>To reset an extension</p>
+			<ol>
+				<li>From any phone, dial 7-200</li>
+				<li>Enter the system password.  It is in the BizPhone folder</li>
+				<li>To reset a password, dial 1-1 and the extension number.  If there isn't a password, no one can access the extension from outside.  Any internal phone can be used to configure the extension.</li>
+				<li>To reset an extension to factor defaults, dial 1-2 and the extension number</li>
+				<li>If 'Invalid Extension', reboot the phone system.  Unit 1 has extensions 201-208, Unit 2 has extensions 209-216, Virtual extensions are 251-264</li>
+			</ol>
+		</item>
+		<item id="phone-config" title="LTSave's phone system">
+			LTSave has a <a href="http://www.bizfon.com/products/680.htm">Bizfon 680</a> from Bizfon of New Hampshire, 877-603-4100.  Lead Technical Support is Leo Egan.
+			<p>Notes:</p>
+			<ul>
+				<li>[2005] Phones hacked, expensive! bill.</li>
+				<li>[2005-09-15]  Called by Verison and AT&amp;T about unusual calling activity.  Leo identified multiple extensions with simple passwords.   Reset passwords on all extensions.</li>
+			</ul>
+		</item>
+	</section>
+	<section id="Remote-Access" title="Remote Access">
+		<item id="ra-general" title="Ways to remotely connect to LTSave">
+			<p>LTSave employees that have necessary permissions can connect to LTSave's LAN (office network) and their workstations from anywhere in the Internet.  To have remote access enabled, please contact an administrator.</p>
+			<p>There are two levels of remote connection:</p>
+			<p><b>1st level - connection to the office LAN (VPN)</b>.  It enables you to browse and edit files on Master and other computers on the LAN. It also allows to print documents located on your remote computer to a printer in the office.</p>
+			<p><b>2nd level - connection to a workstation in the office (RDP)</b>. There might be an application installed on your workstation that you need to use.  Therefore, you need to login to your workstation.</p>
+			<p>Please use the following links to learn how to establish a remote connection:</p>
+			<ul>
+				<li><iref item="ra-vpn-create"/></li>
+				<li><iref item="ra-vpn-login"/></li>
+				<li><iref item="ra-rdp"/></li>
+			</ul>
+		</item>
+		<item id="ra-vpn-create" title="1.1 How to create a new VPN connection">
+			<p>To create a new Virtual Private Network (VPN) connection in Windows, please follow these steps on your remote computer:</p>
+			<ol>
+				<li>Go to <b>Control Panel</b> and click on <b>Network Connections</b></li>
+				<li>Click on <b>Create a new connection</b>. A New Connection Wizard should open up.</li>
+				<li>Click <b>Next</b></li>
+				<li>Select <b>Connect to the network at my workplace</b>, click <b>Next</b></li>
+				<li>Select <b>Virtual Private Network connection</b>, click <b>Next</b></li>
+				<li>In "Compnay Name" field type <em><b>LTSave, Inc. VPN</b></em>, click <b>Next</b></li>
+				<li>Select <b>Do not dial the initial connection</b>, click <b>Next</b></li>
+				<li>In "Host name or IP address" field type <em><b>intranet.ltsave.com</b></em> or <em><b>155.212.252.154</b></em>, click <b>Next</b></li>
+				<li>Choose any <b>Connection Availability</b> that is suitable for your PC and click <b>Next</b></li>
+				<li>Check <b>Add a shortcut to this connection to my desktop</b> and click <b>Finish</b></li>
+			</ol>
+			<p>Your VPN connection has now been defined and created. A connection dialog box should appear on your screen, prompting for user name and password.</p>
+			<p><b>NEXT:</b> <iref item="ra-vpn-login"/></p>
+		</item>
+		
+		<item id="ra-vpn-login" title="1.2 How to establish a VPN connection">
+			<p>To establish a Virtual Private Network (VPN) connection your LTSave user account needs to have a special permission set. <b>Please contact administrator to have VPN enabled for your account.</b></p>
+			<p>If this is the first time you are trying to connect to LTSave's office network, you need to <iref item="ra-vpn-create">create a new VPN connection</iref></p>
+			<p>If you've previously created and configured a VPN connection, you simply need to login to VPN. Please follow these instructions:</p>
+			<ol>
+				<li>Double click "LTSave, Inc. VPN" icon on your desktop to open up a connection dialog box.</li>
+				<li>In the "User name" field enter your LTSave username. (If you don't know your username, contact an administrator.)</li>
+				<li>In the "Password" field enter your LTSave password.</li>
+				<li>You may want to check "Save this user name and password..." if your computer is secure.  That is, if nobody else can potentially use your credentials to establish a VPN connection.</li>
+				<li>Click <b>Connect</b></li>
+			</ol>
+			<p>You should see some of the following messages while connection is being established:</p>
+			<ul>
+				<li>Connecting to intranet.ltsave.com... (or 155.212.252.154)</li>
+				<li>Verifying user name and password...</li>
+				<li>Registering your computer on the network...</li>
+				<li>Authenticated</li>
+			</ul>
+			<p>If all is well, you should see a two-computer icon in the system tray of the taskbar (next to the clock).</p>
+		</item>
+		<item id="ra-rdp" title="2 How to establish a Remote Desktop connection">
+			<p>Before you can use Remote Desktop to connect to your workstation, a VPN connection must be present (<iref item="ra-vpn-login"/>). Also, LTSave user account needs to have a special permission set for RDP connection to be established. <b>Please contact administrator to have RDP enabled for your account.</b></p>
+			<p>To establish an RDP connection to your workstation, follow these steps:</p>
+			<ol>
+				<li><iref item="ra-vpn-login"/></li>
+				<li>Click <b>Start</b>, <b>Run...</b></li>
+				<li>Type <em> <b>mstsc /f /console /v:<b>[computer]</b> </b> </em>, where [computer] should be substituted for your workstation's name (if it is on the domain) or your workstations's IP address.</li>
+				<li>When prompted, provide your credentials to login onto your workstation in the office.</li>
+			</ol>
+			<p>NOTE: If you have OS other than Windows XP or Windows Server 2003, you will need to download and install RDP client software from <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=80111f21-d48d-426e-96c2-08aa2bd23a49&amp;DisplayLang=en" target="_blank"> Microsoft website</a>.</p>
+		</item>
+	</section>
+	<section id="Domain" title="Migrating to Domain">
+		<item id="dc-create" title="How to create a user account on Domain">
+			<p>Here's what a Domain Administrator needs to do to create a new user's account on Domain Controller (DC):</p>
+			<ol>
+				<li>Open <b>Active Directory Users and Computers</b>.  The easiest way to do so is to open <b>LTSave Control Center</b> by double-clicking it's icon on a desktop and going into <b>Users, Email and Policies</b>.</li>
+				<li>Then right-click on <b>LTSave Users</b> OU (Organizational Unit) and choose <b>New &gt; User</b></li>
+				<li>Follow the <b>New Object - User</b> wizard, creating an Exchange mail account as needed.</li>
+			</ol>
+			<p>Once a user is created, add the new user to appropriate Roles.  Here's a list of roles and what they are needed for:</p>
+			<ul>
+				<li>Domain Users - needed for all users on a domain</li>
+				<li>LTSave Groups\VPN Users - add to enable user to connect remotely using VPN.</li>
+				<li>Remote Desktop Users - add to enable user to logon remotely via RDP. Please note, that VPN connection is required in order to establish a RDP connection.</li>
+				<li>LTSave Groups\Wireless Users - add to enable a user to connect to LTSave's wireless network.</li>
+			</ul>
+			<p><b>Note:</b> If domain isn't listed in Locations..., then check DNS for LAN.  It must point to DC server for primary DNS.</p>
+		</item>
+		<item id="dc-migrate-user" title="How to migrate a user account from Workgroup to Domain">
+			<p>The first thing thathas to be done in order to transfer a user's Workgroup profile to a Domain account is for Domain Administrator to create a new user's account on Domain Controller (DC). Please read <iref item="dc-create">how this has to be done</iref>.</p> <p>Next, follow these steps:</p>
+			<ol>
+				<li>Join PC to the new Domain - LTSave. (System Properties &gt; Computer Name tab)</li>
+				<li>Restart PC and logon using new domain user name.</li>
+				<li>Logout</li>
+				<li>Login as <b>local</b> admin</li>
+				<li>Goto user profiles (System Properties &gt; Advanced tab).</li>
+				<li>Select needed profile and click Copy To</li>
+				<li>Browse to the location of new domain profile. Normally it is - "C:\Documents and Settings\<em>username</em>" or "C:\Documents and Settings\<em>username</em>.LTSAVE".</li>
+				<li>In "Permitted to use", select the new domain user account and click OK</li>
+				<li>Manually copy current outlook.pst to domain user's directory. ("%userprofile%\Local Settings\Application Data\Microsoft\Outlook\*.pst")</li>
+				<li>Change password for local administrator account - Username must be Administrator, password taken from PINS.</li>
+				<li>Remove all other unnecessary local users</li>
+				<li>Logout</li>
+				<li>Login as a new domain user</li>
+				<li>Goto Mail Setup (Control Panel &gt; Mail) and:
+					<ul>
+						<li>Add new data file mapped to PST file copied in step 9</li>
+						<li>Change Email Accounts to Deliver To new PST</li>
+						<li>Delete old PST data file from Workgroup user's account</li>
+					</ul>
+				</li>
+			</ol>
+		</item>
+	</section>
+	<section id="server" title="Server management">
+		<item id="odin" title="Odin" >
+			<p>To reboot odin</p>
+			<ul>
+				<li>Cycle power </li>
+				<li>Set the monitor swith to 'odin', and press 'enter'.  This allows the boot to continue. </li>
+			</ul>
+		</item> 
+		<item id="backup" title="Backup" >
+			<p>Syan stores backups in d:/backups. The primary directories are "d:/backups/Syan DB" for databases and d:/backups/Syan for archives.  See  <iref p4="//main/2005/road/setup/syan/README-backup.txt"/>.   Archives are in zip format with a zzip extension (prevents internel access by Windows explorer). The backup files are:</p>
+			<ul>
+				<li>Master-all-2004-12-22.zzip -- All files on \\Master\LTSaveDrive, including the Bugzilla backup in LTSaveDrive/Barber</li>
+				<li>Master-2004-12-22-to-2005-09-21.zzip -- All updated files on \\Master\LTSaveDrive.  Must be less than 4 GBytes.</li>
+				<li>Perforce-all-2005-09-22.zzip -- Perforce depot and checkpoint</li>
+				<li>New-Master-P4-2005-10-10.zzip -- Recently modified files in Perforce and LTSaveDrive.  The start date is in master-all-date.txt.</li>
+				<li>Other large files from LTSaveDrive, for example, Larry's backup file.   Review the incremental file if it suddenly becomes to big.</li>
+			</ul>
+      
+			<p>Periodicially do the following</p>
+			<ul>
+				<li>Check /d/backups/Syan.  There should be new backups everyday.  If not, check the Application event log.  The back-new event should explain the reason.  For example, access to LTSaveDrive (/z) may need renewal via Windows Explorer.</li>
+				<li>Use 'df' to check disk space on Syan and /e (the REV drive).   If more than 90% full, you need to clean up the backups.  Also delete old /d/Perforce/journal files.</li>
+				<li>If the zzip files are larger than a gig or so, run 'back-master' and 'back-perforce' from  //main/2005/road/cygwin/usr/local/bin.   These create new full backups on Syan and the REV drive.</li>
+				<li>Rotate the REV drives once every week.  There should always be two REV drives off-site.   Check that there is enough room on the REV drive.  Make sure that the recent full backups are on the drive (Perforce-all, Master-2004-12-22-to-2005..., and Master-all).  Cull old files as needed.</li>
+				<li>Consider copying a Zip file of //main/2005/product/... and Syan/LTDev offsite every night.  Also check the backup and diskspace every day.</li>
+			</ul>
+			<p>To recover from backup</p>
+			<ul>
+				<li>Move /d/Perforce/depots to depots-old</li>
+				<li>Move /c/Perforce/journal to /d/Perforce/journal-recent.txt</li>
+				<li>Delete all db.* files</li>
+				<li>Install the Perforce server into /d/Perforce</li>
+				<li>Extract the latest Perforce-all....zzip file into /d/Perforce/depots</li>
+				<li>Extract the recent Peforce/depot files from New-Master-P4....zzip</li>
+				<li>Check spelling of /d/Perforce/depots and check for /d/Perforce/depots/checkpoint.txt</li>
+				<li>Check the date of depots/checkpoint.txt.  Find all /d/Perforce/journal*.gz files at least an hour younger.   Along with journal-recent.txt, these contain the journal entries since the last backup.</li>
+				<li>Execute -- p4d -jr depots/checkpoint.txt</li>
+				<li>On the recent journal archives, execute -- p4d -jr -z journal...</li>
+				<li>Then execute -- p4d -jr journal-recent.txt</li>
+				<li>Verify your work by executing -- p4 verify -q //...#1,#1</li>
+				<li>The verify should complain about all files submitted after the last backup. Rotate the REV drives once every week.  There should always be two REV drives off-site.   Check that there is enough room on the REV drive.  Make sure that the recent full backups are on the drive (Perforce-all, Master-2004-12-22-to-2005..., and Master-all).  Cull old files as needed.</li>
+				<li>Consider copying a Zip file of //main/2005/product/... and Syan/LTDev offsite every night.  Also check the backup and diskspace every day.</li>
+			</ul>
+		</item>
+		<item id="bugzilla" title="Bugzilla">
+			<p>Bugzilla is hosted at http://master:8080</p>
+			<ul>
+				<li>LTSave runs <a href="http://www.bugzilla.org/">Bugzilla</a> 2.18rc.  Ilya installed the system August 2004.</li>
+				<li>Bugzilla is Perl scripts accessing a MySQL database.   See /d/Bugzilla/localconfig for the configuration.</li>
+				<li>/c/Scripts/dumpbugs.bat -- Nightly backup of Bugzilla DB to /d/Bugzilla/Backups and /d/LTSaveDrive/Barber/BugzillaBackup</li>
+				<li>/c/my.cnf -- defines client access for 'mysql', etc.</li>
+			</ul>
+			<p>Periodic maintenance:</p>
+			<ul>
+				<li>Clean old backups from /d/Bugzilla/Backups</li>
+			</ul>
+		</item>
+	</section>
+  
+	<section id="Suggestions" title="Suggestions">
+		<item id="nav-menu" title="Nav menu improvements" author="Ilya Karlik" date="2005-09-30">
+			<p>It would be great to implement nav menu as a tree, so it could have an unlimited (or limited to 5-6 levels) depth.</p>
+			<p>Also, it would be great to keep all section one after another, without the "More Topics" part.  Lets say we have
+			<b>LTSave FAQ</b>, <b>Dev FAQ</b>, and <b>Software FAQ</b>, each containing items.  All sections would be collapsed at
+			first, making it easy to see what's available. A user can then expand any of the sections to view their contents.</p>
+			<p>This is how a nav menu is implemented on many sites, including a great resource - <a href="http://msdn.microsoft.com" target="_blank">MSDN Library</a>.</p>
+  
+			<pre>
+			<b>Example:</b>
+			+ Dev FAQ
+			- LTSave FAQ
+			  - Remote Access
+				o About Remote Access
+				o How to get Remote Access
+				- Virual Private Network (VPN)
+				  o How to create a VPN connection
+				  o How to login to LTSave VPN
+				+ Remote Desktop Protocol (RDP)
+			  o Phones
+			  - Air Conditioning
+				o Turning AC on/off
+				o Using timers
+			+ Software FAQ
+			- Intranet
+			  + How-To...
+			  - Suggestions
+				o Nav menu improvements
+				o Inner XML structure
+			</pre>
+		</item>
+	</section>
+</content>

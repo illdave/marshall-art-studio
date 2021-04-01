@@ -1,0 +1,32 @@
+/* color scheme changes for section
+/* end - color scheme changes */
+
+.maincolumn p {line-height: 150%; margin-top: 0px; margin-bottom: 20px; margin-right: 20px;}
+.maincolumn p a {color: #003399; text-decoration: underline; font-weight: bold;}
+.maincolumn p a:hover {color: orange; text-decoration: none;}
+
+a.topofpage				{color: orange; font-weight: bold;}
+a.topofpage:hover		{color: orange; text-decoration: none;}
+
+hr.gray					{color: #cccccc; height: 1px; shade: none;}
+hr.faq					{color: #cccccc; height: 1px; shade: none; margin-top: 10px; margin-bottom: 10px}
+
+/* Variation of current p, ul, and li styles customized for FAQ (two-column approach) */
+p.newsheader 			{color: #ff6600; font-size: 14px; font-weight: bold; padding: 0px; margin: 0px; margin-top: 0em; margin-bottom: 0.3em;}
+p.faq					{color: #000000; padding: 0px; margin: 0px; line-height: 150%}
+ul.faq					{margin: 0px; padding: 0px;}
+li.faq					{margin-bottom: 8px;}
+.faq a					{text-decoration: underline; font-size: 12px; font-weight: normal; }
+.faq a:hover			{color: orange;text-decoration: underline;}
+
+/* Boxed data charts (Education / Uncertain Returns, Customer Care / Get-Started, etc. */
+td.chartheader			{background: #003366; color: #ffffff; font-weight: bold; text-align: center;}
+td.chartlabel			{background: #ffffff; color: #003366; font-weight: bold; text-align: right;}
+td.chartdata			{background: #e6e6e6; text-align: center;}
+td.chartdatal			{background: #e6e6e6; text-align: left;}
+td.chartdataloss		{background: #e6e6e6; text-align: center; color: #990000;}
+table.chart 			{width: 90%; margin-bottom: 30px}
+table.review 
+
+/* Variation of current Boxheader customized for Customer Care */
+.ltslightgold td		{font-weight: bold; font-size: 11px; padding: 4px; background-color: #fce882; color: #CC6600; text-transform: uppercase;letter-spacing: .1em}

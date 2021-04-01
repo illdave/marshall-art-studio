@@ -1,0 +1,22 @@
+/* slider styles */
+.sld_name		{ text-align: left; }
+.sld_rangemin	{ width:  25px;	text-align: right;	font-size: 11px;	padding-right: 5px; }
+.sld_contrib	{ width: 200px;	text-align: left;	font-size: 11px; }
+.sld_rangemax	{ width:  55px;	text-align: left;	font-size: 11px;	padding-left: 5px; }
+.sld_value		{ width:  60px;	text-align: left; }
+.sld_freq		{ width:  30px;	text-align: left;	font-size: 11px;	line-height: 10px; }
+.sld_output		{ width:  70px;	text-align: right; }
+.result_set		{ }
+.slider_set		{ border-top: 1px solid black; border-bottom: 1px solid black; }
+.slider_qual	{ background-color: white; height: 35px; }
+.output_qual	{ background-color: white;		border: 0px;	text-align: right; }
+.slider_myira	{ background-color: #e1e8f6; height: 35px; }
+.output_myira	{ background-color: #e1e8f6;	border: 0px;	text-align: right; }
+.slider_spira	{ background-color: #FFF8DC; height: 35px; }
+.output_spira	{ background-color: #EEE8AA;		border: 0px;	text-align: right; }
+.slider_nosld	{ background-color: #f6f6f6; height: 20px;}
+.output_nosld	{ background-color: #f6f6f6;	border: 0px;	text-align: right; }
+.first td		{ border-top: 4px solid white; }
+.total			{ border: 0px; text-align: right; font-weight: bold;}
+.slidertotalred	{font-size: 12px; color: red; text-align: right; border: 0px; font-weight: bold;}
+.slidertotalgreen	{font-size: 12px; color: green; text-align: right; border: 0px; font-weight: bold;}

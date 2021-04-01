@@ -1,0 +1,53 @@
+/*  Basic type elements ----------------- */
+html, body {
+  height: 100%;
+}
+body 		{background-color: #fff; margin: 0; padding: 0; font-family: verdana, arial, helvetica, sans-serif; font-size: 11px;}
+
+p			{font-family: verdana, arial, helvetica, sans-serif; text-align: left; color: #000; font-size: 11px; line-height: 1.5;}
+p, ul, li 	{font-size: 100%;}
+h2			{font-size: 300%; font-family: georgia, times, serif; text-align: center; font-weight: normal; margin: 0; padding: 0; color: #666;}
+h3			{font-size: 116%; color: #f00; text-align: center; margin: 0; margin-bottom: .5em; padding: .5em 0 .5em 0; border: solid #000; border-width: 1px 0 1px 0;}
+h4			{font-size: 100%; color: #006; line-height: 1; margin: 0; border: 0; padding-bottom: 5px;}
+
+a:link, a:visited	{color: #33c; text-decoration: underline;}
+a:hover				{color: #69f; text-decoration: underline;}
+
+img					{border: 0; display: block; margin: 0; padding: 0}
+img.centerX			{display: inline; text-align: right; border: 1px solid blue;}
+img.logo			{border: 0; width: 50px;}
+.alt , .preload		{display: none;}
+
+.date				{color: #f00;}
+.strong				{font-weight: bold;}
+
+.hr					{border-bottom: 1px dashed #ccc; height: 1px; padding: 0; margin: 1em 0 1em 0;}
+
+/* Two-column "Table" layout ----------------- */
+#contentLayout 		{float: left; clear: both; height: 100%;}
+#columns			{float: left; width: 900px; border: 0; margin: 25px 0 0 25px; padding: 0;}
+#masthead			{float: left; width: 175px; height: 100%; border: 0; margin: 0; padding: 0; text-align: center; border-right: 1px solid #ccc; margin-right: 25px;}
+#masthead p			{text-align: center; margin-top: 0; padding-top: 0;}
+#masthead img		{margin: 25px auto 0;}
+
+#main				{margin: 0; margin-left: 175px; padding: 0;}
+#main .content		{margin: 0; width: auto; padding: 25px;}
+#main .content img	{margin-left: auto; margin-right: auto; border: 0;}
+#main .party		{color: #33c; font-family: georgia, times, serif; font-weight: bold; text-align: center; font-size: 130%;}
+#main .party img	{padding-bottom: .5em;}
+
+#main.backpage h2	{font-size: 200%; text-align: left;}
+#main.backpage h3	{font-size: 100%; text-align: left; color: #33c; border-top: 0; border-bottom: 1px dotted #ccc;}
+
+#main .huntMember		{position: relative; padding-bottom: 2em;}
+.huntMember p			{font-weight: bold; margin-bottom: 0; padding-bottom: .25em;}
+
+#main .huntInfo			{background-color: #69f; margin: 0; margin-bottom: 1em; padding: 0;  border: 0;}
+#main .huntInfo h3		{color: #fff; background-color: #000; padding: .25em; border: 0; text-align: center; font-size: 116%;}
+table.huntInput 		{width: 700px; margin: 15px;}
+.huntInput tr.form td	{padding-bottom: 1em;}
+.huntInput td.formName	{width: 33%;}
+.huntInput td.formEmail	{width: 33%;}
+.huntInput td.formData	{width: 33%;}
+.huntInput input		{margin-right: 1em;}
+.huntInput tr.yearClass td	{border-top: 1px dashed #6cf; padding-top: .5em;}

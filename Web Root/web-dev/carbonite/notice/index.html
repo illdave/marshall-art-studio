@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head id="Head1">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Carbonite Expiration Notice: Visual Design Review (Round 3</title>
+	<style type="text/css" media="all">
+		/*<![CDATA[*/
+		 @import "css/popup-alerts.css"; 
+		/*]]>*/
+	</style>
+</head>
+<body>
+
+	<div class="popup" id="days">
+		<h1>5 Days Left!</h1>
+		<div class="margin">
+			<form method="post" action="exp_notice.aspx?daysleft=5" id="days_wording" />
+			<input type="hidden" name="VIEWSTATE" id="VIEWSTATE1" value="/wEPDwUKMjE0MTc5NjEzMg9kFgICAw9kFgQCAw9kFgJmDw8WAh4EVGV4dAUuWW91ciBDYXJib25pdGUgVHJpYWw8YnI+IDxiPmV4cGlyZXMgdG9kYXkhPC9iPmRkAgUPDxYCHgdWaXNpYmxlaGRkZHP03LoN8K7SNNTwFkf4qR94Qovh" />
+			
+			<p>Your Carbonite Trial <span class="alert">expires in 5 days</span>. Subscribe now to continue your backup without interruption.</p>
+			<div class="button"><a href="https://www.carbonite.com/manage//orders/order.aspx?" title="Carbonite Online Backup: Subscribe Now!" target="_blank" rel="noopener noreferrer"><img src="images/button-subscribenow.gif" width="180" height="37" alt="decorative button" /></a></div>
+			<p class="footnote">You'll still get the remaining 5 days of your trial FREE!</p>
+			<input id="Hidden1" type="hidden" value="/ui/marketing/exp_notice.aspx?daysleft=5" />
+		</div>
+	</div>
+
+	<div class="popup" id="today">
+		<h1>0 Days Left!</h1>
+		<div class="margin">
+			<form method="post" action="exp_notice.aspx?daysleft=0" id="today_wording" />
+			<input type="hidden" name="VIEWSTATE" id="VIEWSTATE2" value="/wEPDwUKMjE0MTc5NjEzMg9kFgICAw9kFgQCAw9kFgJmDw8WAh4EVGV4dAUuWW91ciBDYXJib25pdGUgVHJpYWw8YnI+IDxiPmV4cGlyZXMgdG9kYXkhPC9iPmRkAgUPDxYCHgdWaXNpYmxlaGRkZHP03LoN8K7SNNTwFkf4qR94Qovh" />
+			
+			<p>Your Carbonite Trial <span class="alert">expires today</span>. Subscribe now to continue your backup without interruption.</p>
+			<div class="button"><a href="https://www.carbonite.com/manage//orders/order.aspx?" title="Carbonite Online Backup: Subscribe Now!" target="_blank" rel="noopener noreferrer"><img src="images/button-subscribenow.gif" width="180" height="37" alt="decorative button" /></a></div>
+			<input id="Hidden2" type="hidden" value="/ui/marketing/exp_notice.aspx?daysleft=0" />
+		</div>
+	</div>
+
+	<div class="popup" id="expired">
+		<h1>Trial <br />Expired!</h1>
+		<div class="margin">
+			<form method="post" action="exp_notice.aspx?daysleft=0" id="expired_wording" />
+			<input type="hidden" name="VIEWSTATE" id="VIEWSTATE3" value="/wEPDwUKMjE0MTc5NjEzMg9kFgICAw9kFgQCAw9kFgJmDw8WAh4EVGV4dAUuWW91ciBDYXJib25pdGUgVHJpYWw8YnI+IDxiPmV4cGlyZXMgdG9kYXkhPC9iPmRkAgUPDxYCHgdWaXNpYmxlaGRkZHP03LoN8K7SNNTwFkf4qR94Qovh" />
+			
+			<p>Your Carbonite Trial has ended. We are no longer backing up your files. Unless you subscribe, <span class="alert">your backup will be deleted from our servers in [x] days</span>. Subscribe now to continue your backup without interruption.</p>
+			<div class="button"><a href="https://www.carbonite.com/manage//orders/order.aspx?" title="Carbonite Online Backup: Subscribe Now!" target="_blank" rel="noopener noreferrer"><img src="images/button-subscribenow.gif" width="180" height="37" alt="decorative button" /></a></div>
+			<input id="Hidden3" type="hidden" value="/ui/marketing/exp_notice.aspx?daysleft=0" />
+		</div>
+	</div>
+
+</body>
+</html>

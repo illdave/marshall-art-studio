@@ -1,0 +1,82 @@
+/* Basic type elements ----------------- */
+table, td, th, tr, p, li	{font-family: verdana, arial, helvetica, sans-serif; color: #000; font-size: 11px; line-height: 1.5;}
+body 	{background: #fff url('../images/nav/bg.gif') repeat-y 0 0; border: 0; margin: 0; padding: 0; font-family: verdana, arial, helvetica, sans-serif; font-size: 11px;}
+
+h1, h2, h3, h4, h5, p, table, td, th, div		{border: 0; margin: 0; padding: 0;}
+h1		{font-size: 170%;}
+h2		{font-size: 160%;}
+h3		{font-size: 150%;}
+h4		{font-size: 120%;}
+h5		{font-size: 100%;}
+img		{border: 0; display: block;}
+li		{margin-bottom: 10px; margin-top: 0px;}
+table		{position: relative; width: 100%; border-spacing: 0; border-collapse: collapse;}
+tr			{vertical-align: top;}
+pre			{color: red;}
+
+a:link, a:visited	{color: #33c; text-decoration: underline;}
+a:hover				{color: #69f; text-decoration: underline;}
+
+.alt , .preload	{display: none;}
+.strong			{font-weight: bold;}
+ul.nolink li	{color: #000;}
+	
+/* Uber div for Entire Contents (much respect to IE6') ----------------- */
+#page		{position: relative; margin: 0; padding: 0; border: 0; width: 100%;}	
+
+/* Up Arrow for "Top of Page" links ----------------- */
+.uparrow 	{display: inline; margin-right: 5px;}
+
+/* Two-column layout  ----------------- */
+.twocol			{float: left; width: 100%;}
+.col			{width: 48%; margin: 0; padding: 0; vertical-align: top;}
+.col.leftcol	{float: left;}
+.col.rightcol	{float: right;}
+
+/* Banner on top of every page ----------------- */
+#banner		{float: left; width: 100%; height: 41px; background: #36c url('../images/bg/banner.gif') repeat-x 0 0; border: 0; clear: right}
+#banner h1	{color: #fff; font-weight: normal; text-align: left; line-height: 41px;}
+.ban_logo	{position: absolute; top: 5px; left: 5px;}
+.ban_head	{position: absolute; right: 20px;}
+
+/* Navigation column ----------------- */
+#navcol		{float: left; top: 41px; left: 0; width: 149px; border-bottom: 1px solid #a9b9cc; background: #fff url('../images/bg/navcurr.gif') repeat-y right 0;}
+#navcol ul	{padding: 5px 10px;}
+#navcol li	{font-size: 90%; font-weight: bold; margin-left: 0; padding-left: 0; list-style: none; line-height: 1.3em;}
+#navcol ul li ul	{margin-bottom: 0; padding-bottom: 0;}
+#navcol ul li ul li	{font-weight: normal;}
+#navcol li.L1		{font-weight: bold;}
+#navcol li.L2		{margin-left: 20px; font-size: 80%; color: orange; list-style: square;}
+.selected			{margin-bottom: 5px;}
+.selected a:link, .selected a:visited	{text-decoration: none;}
+.selected a:hover						{color: #33c;}
+
+#navcol h4	{font-size: 100%; color: #fff; text-align: center; line-height: 19px; background: url('../images/nav/title.gif') repeat-x 0 0;  border-bottom: 1px solid #8f9cb5;}
+#navcol h4 a:link, #navcurr h4 a:visited	{text-decoration: none; color: #fff;}
+#navcol h4 a:hover							{color: #fff;}
+
+#navcurr	{float: left; width: 150px; border-bottom: 1px solid #a9b9cc; clear: both; background-color: #fff;}
+#navcurr ul	{margin: 0 10px 20px 10px;}
+#navcurr li	{font-size: 90%; margin-left: 0; padding-left: 0; list-style: none; font-weight: bold;}
+#navcurr h4	{font-size: 100%; color: #fff; text-align: center; line-height: 19px; margin-bottom: 5px; background: url('../images/nav/title.gif') repeat-x 0 0; border-bottom: 1px solid #8f9cb5;}
+
+/* Main Content area ----------------- */
+#content	{position: absolute; left: 170px; top: 50px; padding-bottom: 20px; width: 600px;}
+#content h3	{margin-bottom: 5px; margin-top: 10px; }
+#content h4	{padding-bottom: 5px; padding-top: 20px; color: #039; border-bottom: 1px solid #a9b9cc;}
+#content h5	{color: #f90; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 1px dotted #ccc; display: inline;}
+#content p	{margin-top: 10px;}
+#content ul	{margin-bottom: 5px;}
+
+/* Answers area (below the TOC') ----------------- */
+#answers	{position: relative; background: #efefef url('../images/bg/answers.gif') repeat 0 19px; padding: 0 20px 10px; margin-top: 20px; border: 1px solid #fc3; width: 100%;}
+#answers h3	{margin-bottom: 10px;}
+#answers h4	{margin-bottom: 10px; border-bottom: 1px dotted #a9b9cc;}
+#answers h5	{border-bottom: 0;}
+#answers p	{margin-top: 0; margin-bottom: 10px;}
+
+/* Quote box ----------------- */
+#quote	{display: none;}
+
+#content .twocol.data h4	{margin-bottom: 10px;}
+

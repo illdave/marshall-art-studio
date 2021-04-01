@@ -1,0 +1,38 @@
+/* home ------------------------------- */
+
+.home {
+	&.mas-content {
+		padding-bottom: 0;
+		section {
+			&.picture-header {
+				.image {
+					background-image: url("#{$pictures-image-path}/dave-at-cvs-innovation-7.jpg");
+				}
+			}		
+			&.skills {
+				padding: 0;
+				min-height: 0;
+				.item {
+					text-align: center;
+					padding: 2rem 0;
+					margin-bottom: 0;
+					p {
+						text-align: center;
+					}
+					&.even {
+					}
+					&.web-dev {
+					}
+					&.graphic-design {
+					}
+					&.illustration {
+					}
+					&.comic-books {
+					}
+				}
+			}
+		}	
+	}
+}
+
+

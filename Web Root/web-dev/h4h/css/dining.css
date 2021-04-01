@@ -1,0 +1,11 @@
+#left a img, #left a:visited img  	{background-image: url(../images/dining/leftoff.gif); visibility: visible;}
+#left a:hover img 					{background-image: url(../images/dining/lefton.gif);  visibility: visible;}
+
+#top a img, #top a:visited img  	{background-image: url(../images/dining/topoff.gif); visibility: visible;}
+#top a:hover img 					{background-image: url(../images/dining/topon.gif);  visibility: visible;}
+
+#right a img, #right a:visited img	{background-image: url(../images/dining/rightoff.gif); visibility: visible;}
+#right a:hover img					{background-image: url(../images/dining/righton.gif);  visibility: visible;}
+
+#bot a img, #bot a:visited img  	{background-image: url(../images/dining/botoff.gif); visibility: visible;}
+#bot a:hover img 					{background-image: url(../images/dining/boton.gif);  visibility: visible;}

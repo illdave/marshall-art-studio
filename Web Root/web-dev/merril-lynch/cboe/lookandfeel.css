@@ -1,0 +1,134 @@
+.ignore {COLOR:black}
+BODY 	{COLOR:black;FONT-FAMILY:times,serif;FONT-SIZE:14px;}
+TABLE.control 	{BACKGROUND-COLOR:#eeeeee;BORDER-BOTTOM:medium none;BORDER-LEFT:medium none;BORDER-RIGHT:medium none;BORDER-TOP:medium none;MARGIN-TOP:5px}
+TABLE.maxprintablewidth	{WIDTH:735px}
+TH.desc,TH.symbol,TH.date,TH.time,TH.miscl	{BACKGROUND-IMAGE:none;BACKGROUND-REPEAT:repeat;COLOR:firebrick;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:11px;FONT-STYLE:normal;FONT-WEIGHT:normal;TEXT-ALIGN:left}
+TH.money,TH.quant,TH.ticker,TH.miscr	{BACKGROUND-IMAGE:none;BACKGROUND-REPEAT:repeat;COLOR:firebrick;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:11px;FONT-STYLE:normal;FONT-WEIGHT:normal;TEXT-ALIGN:right}
+TD.desc,TD.date,TD.time,.miscl	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:left}
+TD.desc2	{COLOR:#707070;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:10px;FONT-STYLE:normal;TEXT-ALIGN:left}
+TD.symbol	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;FONT-WEIGHT:bold;TEXT-ALIGN:left}
+TD.money,TD.quant,TD.ticker, .miscr	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:right}
+TD.insightstitle	{color:#5e846b;font-family:arial,helvetica,sans-serif;font-size:16px;font-weight:bold;text-align:left}
+TD.pill		{color:black;font-family:arial,helvetica,sans-serif;font-size:13px;text-align:left}
+a.pill		{color:black;text-decoration:none}
+a.pill:hover	{text-decoration:underline}
+.uticker	{COLOR:#006600;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:right}
+.dticker	{COLOR:#cc0000;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:right}
+.umoney	{COLOR:#006600;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:right}
+.dmoney	{COLOR:#cc0000;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:right}
+.miscc	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:center}
+TD.triggeredalertodd	{COLOR:#c00000;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;FONT-WEIGHT:bold;TEXT-ALIGN:left}
+TD.triggeredalerteven	{COLOR:#c00000;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;FONT-WEIGHT:bold;TEXT-ALIGN:left}
+TD.disclaimer	{COLOR:#666666;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:left}
+TD.subtotal		{BORDER-TOP:gray 1px solid;COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:left}
+TD.subtotall	{BORDER-TOP:gray 1px solid;COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:left}
+TD.subtotalr	{BORDER-TOP:gray 1px solid;COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:right}
+TD.subtotalc	{BORDER-TOP:gray 1px solid;COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:center}
+TD.subtotal-noline	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:left}
+TD.subtotal-noline-l	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:left}
+TD.subtotal-noline-r	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:right}
+TD.subtotal-noline-c	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:center}
+TD.title	{COLOR:black;FONT-FAMILY:Arial,Helvetica,sans-serif;FONT-SIZE:18px;FONT-STYLE:normal;FONT-WEIGHT:bold;TEXT-ALIGN:left}
+TD.subtitle	{COLOR:black;FONT-FAMILY:Arial,Helvetica,sans-serif;FONT-SIZE:14px;FONT-STYLE:normal;FONT-WEIGHT:bold;TEXT-ALIGN:left}
+TD.qualifier	{COLOR:dimgray;FONT-FAMILY:arial,helvetica,sans-serif;PADDING-BOTTOM:5px;TEXT-ALIGN:left}
+TD.value	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;FONT-WEIGHT:bold}
+TR.odd	{BACKGROUND-COLOR:#ededf8}
+TR.even	{BACKGROUND-COLOR:white}
+.disclaimer	{COLOR:slategray;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;VERTICAL-ALIGN:bottom}
+.qualifier	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:11px;FONT-STYLE:normal;VERTICAL-ALIGN:bottom}
+.newsattrib	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;VERTICAL-ALIGN:bottom}
+.instruction	{COLOR:darkblue;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:left}
+TD.footer	{COLOR:gray;FONT-FAMILY:Arial,helvetica,sans-serif;FONT-SIZE:10px}
+TD.sidebar	{BACKGROUND-COLOR:#d6be96;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:16pt}
+TABLE.sidebarwrapper	{MARGIN:0px}
+.pagetitle	{COLOR:lime;FONT-FAMILY:Times New Roman,Times,serif;FONT-SIZE:large;FONT-STYLE:normal;FONT-WEIGHT:bolder;MARGIN-LEFT:0px}
+.sidebartitle	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:11px;FONT-STYLE:normal;FONT-WEIGHT:bold;PADDING-LEFT:5px;TEXT-ALIGN:left;VERTICAL-ALIGN:bottom}
+TH.miscc	{BACKGROUND-IMAGE:none;BACKGROUND-REPEAT:repeat;COLOR:firebrick;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:11px;FONT-STYLE:normal;FONT-WEIGHT:normal;TEXT-ALIGN:center}
+.redmkt	{COLOR:#990000;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-WEIGHT:bold}
+.grnmkt	{COLOR:#005529;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-WEIGHT:bold}
+.bluemkt	{COLOR:#375b9d;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-WEIGHT:bold}
+TD.sidebarcontent	{FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:9pt}
+.subtotal	{FONT-WEIGHT:bold}
+TD.subtotalrunused	{BORDER-TOP:gray 1px solid;COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:right}
+.sidebaroptiontitle	{COLOR:#333333;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:14px;FONT-STYLE:normal;FONT-WEIGHT:bold;PADDING-LEFT:5px;TEXT-ALIGN:left;VERTICAL-ALIGN:bottom}
+TD.sectiontitle	{FONT-FAMILY:Arial,Helvetica,sans-serif;FONT-SIZE:15px;FONT-STYLE:normal;FONT-WEIGHT:bold;PADDING-TOP:25px;TEXT-ALIGN:left}
+TD.percent	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:right}
+TH.percent	{COLOR:firebrick;FONT-FAMILY:Arial,Helvetica;FONT-SIZE:11px;FONT-STYLE:normal;FONT-WEIGHT:normal;TEXT-ALIGN:right}
+TD.white	{BACKGROUND-COLOR:white;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px}
+.no-vertical-margin	{MARGIN-TOP:0px;MARGIN-BOTTOM:0px;}
+DIV.content	{MARGIN-LEFT:15px;MARGIN-TOP:12px}
+DIV.content-no-vertical-margin	{MARGIN-LEFT:15px;MARGIN-TOP:0px;MARGIN-BOTTOM:0px;}
+DIV.footer	{MARGIN-LEFT:20px;MARGIN-TOP:25px}
+DIV.sidebar	{FLOAT:none;LEFT:600px;POSITION:absolute;TOP:79px;VISIBILITY:visible}
+DIV.navbar	{}
+TH.headergroup	{COLOR:black;FONT-FAMILY:Arial,Helvetica,sans-serif;FONT-SIZE:14px;FONT-STYLE:normal;FONT-WEIGHT:bold;TEXT-ALIGN:center}
+.sidebarhome	{BACKGROUND-COLOR:#c86d7e}
+.sidebaraccounts	{BACKGROUND-COLOR:#d6be95}
+.sidebarboladmin	{BACKGROUND-COLOR:#9c8cb4}
+.sidebarbanking	{BACKGROUND-COLOR:#1b971b}
+.sidebartrade	{BACKGROUND-COLOR:#acc6c6}
+.sidebarresearch	{BACKGROUND-COLOR:#95b4a4}
+.sidebarplanning	{BACKGROUND-COLOR:#b4a4be}
+.sidebarcustomerservice	{BACKGROUND-COLOR:#d6be95}
+.desc2	{COLOR:#808080;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:10px}
+.headergroup	{COLOR:black;FONT-FAMILY:Arial,Helvetica,sans-serif;FONT-SIZE:14px;FONT-WEIGHT:bold}
+TD.oddshadedr	{BACKGROUND-COLOR:#cccce3;COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:right}
+TD.evenshadedr	{BACKGROUND-COLOR:#e3e3e3;COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:right}
+TH.shadedr	{BACKGROUND-COLOR:#e3e3e3;COLOR:firebrick;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:11px;FONT-STYLE:normal;FONT-WEIGHT:normal;TEXT-ALIGN:right}
+TD.subtitler	{COLOR:black;FONT-FAMILY:Arial,Helvetica,sans-serif;FONT-SIZE:14px;FONT-STYLE:normal;FONT-WEIGHT:bold;TEXT-ALIGN:right}
+.orderdesc		{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:14px}
+.orderemphasis	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:14px;FONT-WEIGHT:bold}
+.fixedwidth	{FONT-FAMILY:monospace;FONT-SIZE:12px}
+.helpemphasis	{COLOR:#cc6600;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-WEIGHT:bold}
+.nodata	{FONT-FAMILY:Arial,Helvetica,sans-serif;FONT-SIZE:12px}
+.error	{COLOR:red;FONT-FAMILY:Arial,Helvetica,sans-serif;FONT-SIZE:14px}
+.confirmation	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:14px;FONT-WEIGHT:bold}
+.minibutton			{BACKGROUND-COLOR:dimgray;FONT-FAMILY:Arial,Helvetica,sans-serif;FONT-SIZE:11px;TEXT-DECORATION:none}
+.minibutton A		{BACKGROUND-COLOR:lightgrey;COLOR:black;TEXT-DECORATION:none}
+.minibuttondisabled	{BACKGROUND-COLOR:lightgrey;COLOR:gray;FONT-FAMILY:Arial,Helvetica,sans-serif;FONT-SIZE:11px;TEXT-DECORATION:none}
+DIV.sidebarfc	{LEFT:600px;FLOAT:none;VISIBILITY:visible;POSITION:absolute;TOP:111px}
+.broadcast	{BACKGROUND:lightgoldenrodyellow;BORDER-BOTTOM:red 1px solid;BORDER-LEFT:red 1px solid;BORDER-RIGHT:red 1px solid;BORDER-TOP:red 1px solid;COLOR:black;FONT-FAMILY:Arial,Helvetica,sans-serif;FONT-SIZE:16px;FONT-WEIGHT:bold}
+.warning	{COLOR:red;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;FONT-WEIGHT:bold;TEXT-ALIGN:left}
+.gingreen	{COLOR:#3c6528;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;FONT-WEIGHT:bold;TEXT-ALIGN:left}
+.footnote	{COLOR:#666666;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:11px;FONT-STYLE:normal;TEXT-ALIGN:left}
+TD.rowheadl	{BACKGROUND-IMAGE:none;BACKGROUND-REPEAT:repeat;COLOR:firebrick;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:left}
+TD.rowheadc	{BACKGROUND-IMAGE:none;BACKGROUND-REPEAT:repeat;COLOR:firebrick;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:center}
+TD.rowheadr	{BACKGROUND-IMAGE:none;BACKGROUND-REPEAT:repeat;COLOR:firebrick;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;TEXT-ALIGN:right}
+TD.glossaryalphabet A	{COLOR:darkslateblue;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-WEIGHT:bold}
+.bold	{FONT-WEIGHT:bold}
+TD.webnoteteaser	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:10px}
+P.pagebreakbefore	{FONT-SIZE:1px;MARGIN:0px;PADDING-BOTTOM:0px;PADDING-LEFT:0px;PADDING-RIGHT:0px;PADDING-TOP:0px}
+.chartlink		{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:11px;FONT-STYLE:normal}
+.chartlink A	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:11px;FONT-STYLE:normal}
+.miniquotetitle		{BACKGROUND-COLOR:white;COLOR:black;FONT-FAMILY:Arial,Helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;FONT-WEIGHT:bold;TEXT-ALIGN:left}
+.miniquotesubtitle	{BACKGROUND-COLOR:white;COLOR:black;FONT-FAMILY:Arial,Helvetica,sans-serif;FONT-SIZE:11px;FONT-STYLE:normal;FONT-WEIGHT:bold;TEXT-ALIGN:left}
+.miniquotequalifier	{BACKGROUND-COLOR:white;COLOR:dimgray;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:10px;TEXT-ALIGN:left}
+.miniquoteuticker		{COLOR:#006600;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:10px;FONT-STYLE:normal;TEXT-ALIGN:right}
+.miniquotedticker		{COLOR:#660000;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:10px;FONT-STYLE:normal;TEXT-ALIGN:right}
+.miniquotemiscr		{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:10px;FONT-STYLE:normal;TEXT-ALIGN:right}
+.miniquotemiscl		{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:10px;FONT-STYLE:normal;TEXT-ALIGN:left}
+TD.enrollmentheaderl	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-WEIGHT:bold;TEXT-ALIGN:left}
+TD.enrollmentheaderr	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-WEIGHT:bold;TEXT-ALIGN:right}
+.actionlink			{FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:11px}
+.actionlinkdisabled	{COLOR:#999999;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:11px;}
+TD.symboldisabled	{COLOR:gray;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:12px;FONT-STYLE:normal;FONT-WEIGHT:bold;TEXT-ALIGN:left}
+.fielddisabled	{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;text-decoration:none;text-align:right;color:black;background-color:dimgray;}
+a.footer		{text-decoration:none;color:black;}
+a.footer:visited	{text-decoration:none;color:black;}
+a.footer:hover	{text-decoration:underline;color:#0000FF;}
+.printerfriendly			{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:11px;}
+.printerfriendly a		{text-decoration:none;color:black;}
+.printerfriendly a:visited	{text-decoration:none;color:black;}
+.printerfriendly a:hover	{text-decoration:underline;color:#0000FF;}
+.toolbarr	{COLOR:black;FONT-FAMILY:arial,helvetica,sans-serif;FONT-SIZE:11px;FONT-STYLE:normal;TEXT-ALIGN:right}
+DIV.menucontrol	{position:absolute;visibility:hidden;border-style:outset;}
+.menucontroloptiondisabled	{font-size:12px;font-family:Arial,helvetica,sans-serif;text-decoration:none;color:#7F7F7F;BACKGROUND-COLOR:#DFDFDF;}
+.menucontroloption		{font-size:12px;font-family:Arial,helvetica,sans-serif;text-decoration:none;color:black;BACKGROUND-COLOR:#DFDFDF;}
+A.menucontrollink		{font-size:12px;font-family:Arial,helvetica,sans-serif;text-decoration:none;color:000000;}
+A.menucontrollink:hover	{font-size:12px;font-family:Arial,helvetica,sans-serif;text-decoration:none;BACKGROUND-COLOR:#063279;color:white;}
+.printonly	{display:none;}
+.smallmiscl 	{color:black;font-family:Arial,helvetica,sans-serif;font-size:10px;text-align:left;}
+ .smallmiscr 	{color:black;font-family:arial,helvetica,sans-serif;font-size:10px; text-align:right;}
+ .smallmiscc	{color:black;font-family:arial,helvetica,sans-serif;font-size:10px; text-align:center;}
+ .chart-verticalbar-gray 	{border-left:1px solid white; font-size:11px; font-family:arial,helvetica,sans-serif; background-color:#e2e2e2;}
+ 

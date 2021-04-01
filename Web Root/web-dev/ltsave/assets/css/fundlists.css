@@ -1,0 +1,15 @@
+/* styles for fund chooser windows */
+body, table, td {font-family: arial, helvetica, sans-serif; font-size: 11px;}
+table { background-color: White;}
+body { padding: 0px; margin: 0px; background-color: #f2f2f2; }
+td { padding-bottom: 2px; padding-top: 2px; BORDER-bottom: #cccccc 1px solid }
+
+.alphastyle td { padding-top: 10px; background-color: #ffffff; font-weight: bold; font-size: 12px; text-indent: 20px; color: Black; border-bottom: 2px solid black;}
+.selection { background-color: yellow; color: Green; }
+.fund_remove { background-color: yellow; color: OrangeRed; }
+
+#empty { margin: 20px 10px 10px; text-align: left; }
+#error { margin: 20px 10px 10px; text-align: left; }
+#error { color: red; }
+
+.hide {display: none;}

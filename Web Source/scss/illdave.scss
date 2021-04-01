@@ -1,0 +1,47 @@
+/* Marshall Art Studio 8.0
+ * Copyright 2021 and beyond Marshall Art Studio.
+ * From David Marshall, America's Artist */
+
+
+// Dependencies -------------------------------------------------- //
+
+/* Bootstrap: visual design framework
+https://github.com/twbs/bootstrap */
+@import "../lib/bootstrap-5.0.0/scss/bootstrap.scss";
+
+/* Font Awesome: font icon library
+https://github.com/FortAwesome/Font-Awesome */
+@import "../lib/fontawesome-5.12.0/scss/fontawesome.scss";
+
+/* Animate: cross-browser animations
+https://github.com/geoffgraham/animate.scss */
+@import "../lib/animate.scss-master/animate.scss";
+
+/* Sass Rem: Sass function and mixin to use rem units with optional pixel fallback
+https://www.npmjs.com/package/sass-rem */
+@import "../node_modules/sass-rem/_rem.scss";
+
+/* Lightbox 2 by Lokesh Dhakar: the original lightbox 
+https://github.com/lokesh/lightbox2 */
+@import "../../lib/lightbox-2.11.1/css/lightbox.css";
+
+
+// Marshall Art Studio Dependencies ---------------------------- //
+
+@import "variables";
+@import "fonts";
+@import "html-elements";
+@import "layout";
+@import "main-navigation";
+@import "home";
+@import "web";
+@import "graphic-design";
+@import "illustration";
+@import "comics";
+@import "about";
+@import "footer";
+@import "utility";
+@import "theme";
+
+
+

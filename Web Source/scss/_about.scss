@@ -1,0 +1,13 @@
+/* about ------------------------------ */
+
+.about {
+	section {
+		&.picture-header {
+			padding: 0;
+			border: 0;
+			.image {
+				background-image: url("#{$pictures-image-path}/dave-chin-pose-2.jpg");
+			}
+		}		
+	}
+}

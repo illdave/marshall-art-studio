@@ -1,0 +1,427 @@
+<!--
+-------/ Comments
+-------/ Build Date: 9/30/2004 3:46:50 PM
+-------/ Build Version: 1.0.1.2
+-------/ End Comments
+-->
+<html>
+<head>
+<title>LTSave - My Accounts</title>
+<link href="../assets/css/lts_styles.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/print_styles.css" rel="stylesheet" type="text/css" media="print">
+<link href="../assets/css/navbar_styles.css" rel="stylesheet" type="text/css">
+<script src="../assets/scripts/ltscripts.js" language="javascript"></script>
+<!-- START EXTRAS -->
+<LINK href="../assets/css/planner_styles.css" type=text/CSS rel=stylesheet>
+<script language="JavaScript">
+document.onreadystatechange=Init;
+function Init()
+{
+   if( document.readyState == "complete" )
+   {
+		var obj = document.getElementById( 'reopen' );
+		if( null != obj )
+		{
+			accountToggle( obj.value );
+		}
+	}
+}
+</script>
+
+<!-- END EXTRAS -->
+</head>
+<body>
+<div id="bodyframe">
+<!-- START HEADER -->
+
+<div class="newbar_top">
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tr valign="bottom">
+			<td id="logo"><a href="../LTSave.aspx"><img src="../assets/images/brand/lts-logo-bg-none.gif" width="165" height="38" hspace="10" vspace="15" border="0" alt="LTSave - Advice for Retirement"></a></td>
+			
+			<td width="100%" align="center">
+				<table cellpadding="0" cellspacing="0" border="0" class="tabset">
+					<tr>					
+						<td class="pl"><a id="EntHeader_plannerlink" title="Retirement Planner" href="../UserHome.aspx"><img title="Retirement Planner" src="../assets/images/nav/pl_on.gif" alt="" border="0" /></a></td>	
+						<td class="sv"><a id="EntHeader_educationlink" title="Savings 101" href="../education/education/index.htm"><img title="Savings 101" src="../assets/images/nav/sv_off.gif" alt="" border="0" /></a></td>
+						<td class="cc"><a id="EntHeader_cclink" title="Customer Care" href="../CustomerCare/CareCenter/CustomerCareCenter.aspx"><img title="Customer Care" src="../assets/images/nav/cc_off.gif" alt="" border="0" /></a></td>
+						<td class="lts"><a id="EntHeader_aboutlink" title="About LTSave" href="../Company/About/WhoWeAre.aspx"><img title="About LTSave" src="../assets/images/nav/lts_off.gif" alt="" border="0" /></a></td>
+					</tr>
+				</table>
+			</td>
+			
+			<td align="right" style="padding-right: 3px;" nowrap>
+				<table cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td><a id="EntHeader_subscribelink"></a></td>
+						<td><a id="EntHeader_loginlink" title="Sign Out" href="../logout.aspx"><img title="Sign Out" src="../assets/images/nav/signout_off.gif" alt="" border="0" /></a></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<!-- END HEADER -->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="content_area">
+<tr valign="top">
+<td valign="top" class="navcolumn">
+<!-- START SIDENAV -->
+
+<!--- This is the planner left navigation table --->
+<div id="nav">
+	<ul>
+		<li class="level1"><a href="../UserHome.aspx">Your Homepage</a></li>
+		<li class="level1 currentsect"><a href="../Interview/Summary.aspx">Profile</a></li>
+		<li class="level2 completed"><a href="../Interview/Household.aspx">Personal</a></li>
+		<li class="level2 completed"><a href="../Interview/RetGoals.aspx">Retirement Goals</a></li>
+		<li class="level2 completed"><a href="../Interview/RiskResults.aspx">Risk Tolerance</a></li>
+		<li class="level2 completed currentpage"><a href="../Interview/Plans.aspx">Your Accounts</a></li>
+		<li class="level1"><a href="../Analysis/AdviceHome.aspx">Retirement</a></li>
+		<li class="level2 hide"><a href="../Analysis/WebSimulator.aspx">Current Plan</a></li>
+		<li class="level2 hide"><a href="../Analysis/LTSaveAdvice.aspx">LTSave Advice</a></li>
+		<li class="level2 hide"><a href="../Analysis/CompareProjection.aspx">Compare Projection</a></li>
+		<li class="level2 hide"><a href="../Analysis/CompareAllocation.aspx">Compare Allocation</a></li>
+		<li class="level2 hide"><a href="../Analysis/SaveMore.aspx">Save More</a></li>
+		<li class="level1"><a href="../ActionSteps/ActionSteps.aspx">Action Steps</a></li>
+		<li class="level2 hide"><a href="../ActionSteps/ActionSteps.aspx?step=1">Buy and Sell</a></li>
+		<li class="level2 hide"><a href="../ActionSteps/ActionSteps.aspx?step=2">Allocate</a></li>
+		<li class="level2 hide"><a href="../ActionSteps/ActionSteps.aspx?step=3">Contribute</a></li>
+		<li class="level1"><a href="../Reports/ReportList.aspx">Reports</a></li>
+		<li class="level2 hide"><a href="../Reports/BigReport.aspx">Retirement Guide</a></li>
+		<li class="level2 hide"><a href="../Reports/InvestmentOptions.aspx">Recommended Investment Options</a></li>
+	</ul>
+</div>
+
+<!-- END SIDENAV -->
+<!-- START CAREBOX -->
+<div class="help_box">
+
+<script language="javascript">
+<!--
+function popQuest(id){
+	popWindow(550,560,'../Help/Answers.aspx?answer=' + id ,'yes','no');
+}
+-->
+</script>
+<div id="cbox_helparea" style="padding: 5px;">
+	<img src="../assets/images/icons/quest_mark2.gif" align="absmiddle" style="margin-right: 3px;" alt="Question mark"><strong>Common Questions</strong>
+	<div class="help_quest">
+		<!-- questions -->
+		
+		<span id="cbox_whyacct">
+			<a href="javascript:popQuest('whyacct');">Why only these account types?</a>
+		</span>
+		<!-- end of questions -->
+	</div>
+</div>
+<div class="help_email">
+	<a href="javascript:popWindow(500,560,'../CustomerCare/CarePopup.aspx?chn=email','yes','no');">
+		<img src="../assets/images/icons/quest_mail.gif" border="0" align="absmiddle" style="margin-right: 3px;" alt="mail us">Contact LTSave</a>
+</div>
+</div>
+<!-- END CAREBOX -->
+</td>
+<td width="100%" valign="top" class='maincolumn'>
+<table border="0" cellpadding="0" cellspacing="0" class='screen_meta'>
+<tr>
+<td width="100%" valign="bottom">
+<!-- START SCREENNAME -->
+<p class='screenname'>My Accounts
+</p>
+<!-- END SCREENNAME -->
+<table class='exposition' border="0" cellpadding="0" cellspacing="0">
+<tr><td valign="top" class=smiley><!-- START CHARACTER --><img src='../assets/images/layout/blank.gif' border=0 height=55 width=78 alt='Your LTSave advisor'><!-- END CHARACTER -->
+</td>
+<td valign="top" width="100%"><!-- START DIALOGUE -->
+<div class='expositiontext'>
+
+Below is a summary of the retirement accounts you have added. You may view or 
+change an existing account by clicking on its name and selecting the appropriate Edit function.
+</div><!-- END DIALOGUE -->
+</td>
+</tr></table></td><td valign="bottom">
+</td>
+</tr>
+</table>
+<form name="PlanForm" method="post" action="Plans.aspx" id="PlanForm">
+<input type="hidden" name="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" value="dDwtMTk2NzY1Mjk4MTt0PDtsPGk8ND47aTwxNz47aTwyMz47aTwzNz47PjtsPHQ8cDxsPFZpc2libGU7PjtsPG88Zj47Pj47Oz47dDw7bDxpPDA+Oz47bDx0PDtsPGk8MD47aTwxPjtpPDI+O2k8Mz47aTw1Pjs+O2w8dDxwPHA8bDxUb29sVGlwO05hdmlnYXRlVXJsO0ltYWdlVXJsOz47bDxSZXRpcmVtZW50IFBsYW5uZXI7aHR0cHM6Ly93d3cubHRzYXZlLmNvbS9Vc2VySG9tZS5hc3B4O2h0dHBzOi8vd3d3Lmx0c2F2ZS5jb20vaW1hZ2VzL25hdi9wbF9vbi5naWY7Pj47Pjs7Pjt0PHA8cDxsPFRvb2xUaXA7TmF2aWdhdGVVcmw7SW1hZ2VVcmw7PjtsPFNhdmluZ3MgMTAxO2h0dHBzOi8vd3d3Lmx0c2F2ZS5jb20vRWR1Y2F0aW9uL0VkdWNhdGlvbi9FZHVjYXRpb24uYXNweDtodHRwczovL3d3dy5sdHNhdmUuY29tL2ltYWdlcy9uYXYvc3Zfb2ZmLmdpZjs+Pjs+Ozs+O3Q8cDxwPGw8VG9vbFRpcDtOYXZpZ2F0ZVVybDtJbWFnZVVybDs+O2w8Q3VzdG9tZXIgQ2FyZTtodHRwczovL3d3dy5sdHNhdmUuY29tL0N1c3RvbWVyQ2FyZS9DYXJlQ2VudGVyL0N1c3RvbWVyQ2FyZUNlbnRlci5hc3B4O2h0dHBzOi8vd3d3Lmx0c2F2ZS5jb20vaW1hZ2VzL25hdi9jY19vZmYuZ2lmOz4+Oz47Oz47dDxwPHA8bDxUb29sVGlwO05hdmlnYXRlVXJsO0ltYWdlVXJsOz47bDxBYm91dCBMVFNhdmU7aHR0cHM6Ly93d3cubHRzYXZlLmNvbS9Db21wYW55L0Fib3V0L1dob1dlQXJlLmFzcHg7aHR0cHM6Ly93d3cubHRzYXZlLmNvbS9pbWFnZXMvbmF2L2x0c19vZmYuZ2lmOz4+Oz47Oz47dDxwPHA8bDxUb29sVGlwO05hdmlnYXRlVXJsO0ltYWdlVXJsOz47bDxTaWduIE91dDtodHRwczovL3d3dy5sdHNhdmUuY29tL2xvZ291dC5hc3B4O2h0dHBzOi8vd3d3Lmx0c2F2ZS5jb20vaW1hZ2VzL25hdi9zaWdub3V0X29mZi5naWY7Pj47Pjs7Pjs+Pjs+Pjt0PDtsPGk8MD47PjtsPHQ8O2w8aTwwPjs+O2w8dDxwPGw8VmlzaWJsZTs+O2w8bzx0Pjs+PjtsPGk8MT47PjtsPHQ8cDxwPGw8VmlzaWJsZTs+O2w8bzx0Pjs+Pjs+Ozs+Oz4+Oz4+Oz4+O3Q8O2w8aTwwPjs+O2w8dDw7bDxpPDU+O2k8Nz47PjtsPHQ8cDxwPGw8VGV4dDs+O2w8R28gQmFja1w8YnJcPlw8c3BhbiBjbGFzcz1zdWJuYXZsaW5rXD4odG8gUHJvZmlsZSBTdW1tYXJ5KVw8L3NwYW5cPjs+Pjs+Ozs+O3Q8cDxwPGw8VGV4dDs+O2w8U2F2ZTs+Pjs+Ozs+Oz4+Oz4+Oz4+Oz4FGga9tXPonJMVIsC301j5HSqYVA==" />
+
+<script language="javascript" type="text/javascript">
+<!--
+	function __doPostBack(eventTarget, eventArgument) {
+		var theform;
+		if (window.navigator.appName.toLowerCase().indexOf("microsoft") > -1) {
+			theform = document.PlanForm;
+		}
+		else {
+			theform = document.forms["PlanForm"];
+		}
+		theform.__EVENTTARGET.value = eventTarget.split("$").join(":");
+		theform.__EVENTARGUMENT.value = eventArgument;
+		theform.submit();
+	}
+// -->
+</script>
+
+	<input type=hidden name=row> 
+	
+	<table id="AccountsTable" cellspacing="0" cellpadding="0" border="0" border="0" width="100%">
+	<tr>
+		<td><DIV id=allaccounts><TABLE cellSpacing=0 cellPadding=3 width="100%" border=0><TR valign="bottom"><TD noWrap width=190><STRONG>Name</STRONG></TD><TD noWrap><STRONG>Type</STRONG></TD><TD noWrap align=right><STRONG>Value</STRONG><br><span class=fineprint>&nbsp;(as of 9/30/2004)</span></TD></TR></TABLE><table class="account" cellSpacing="0" cellPadding="3" width="100%" border="0">
+			<tr>
+				<td width="10"><A class="view" id=arrow_up0 href="javascript: accountToggle(0);"><IMG src="../assets/images/buttons/arrow_right.gif" border=0></A><A class="hide" id=arrow_down0 href="javascript: accountToggle(0);"><IMG src="../assets/images/buttons/arrow_down.gif" border=0></A></td>
+				<td width="175"><A href="javascript: accountToggle(0);">ITG Alumni Fund</A></td>
+				<td>401(k)</td>
+				<td align="right">$6,937</td>
+			</tr>
+		</table>
+		<DIV class="hide" id="plan0"><TABLE class=meta cellSpacing=0 cellPadding=3 width="100%" border=0><TR><TD noWrap width=10>&nbsp;</TD><TD noWrap><TABLE><TR><TD>Periodic Contribution:</TD><TD>0% of your salary.</TD></TR><TR><TD>Employer Match: </TD><TD>0% of your salary.</TD></TR><TR><TD>Advice Preference:</TD><TD>LTSave Recommended Funds.</TD></TR></TABLE></TD><TD noWrap>&nbsp;</TD><TD noWrap align=right><select name="EditDrop_0" id="EditDrop_0">
+			<option value="99">Edit</option>
+			<option value="100">- Your Account</option>
+			<option value="2">- Mutual Funds</option>
+			<option value="102">- Advice Preferences</option>
+			<option value="-1">--------------------</option>
+			<option value="101">Delete this Account</option>
+		</select><span class='navgo'><a id="0" href="javascript:__doPostBack('0','')">Go</a></span></TR></TABLE><DIV id="fundtable"><table width="100%" cellspacing="0" cellpadding="2" border="0">
+			<tr class="labels">
+				<td align="left"><STRONG>Name</STRONG></td>
+				<td align="left"><STRONG>Symbol</STRONG></td>
+				<td align="right"><STRONG>Shares</td>
+				<td align="right"><STRONG>Price</STRONG></td>
+				<td align="right"><STRONG>Balance</STRONG></td>
+			</tr>
+			<tr class="broadasset">
+				<td colspan="5">Equity</td>
+			</tr>
+			<tr class="fundname">
+				<td style="text-indent: 5px;"><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=AMCGX');">Alger:MidCap Growth;B</a></td>
+				<td><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=AMCGX');">AMCGX</a></td>
+				<td align="right">100</td>
+				<td align="right">$7.07</td>
+				<td align="right">$707.00</td>
+			</tr>
+			<tr class="fundname">
+				<td style="text-indent: 5px;"><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=PEIZX');">JennDry Jenn Value;Z</a></td>
+				<td><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=PEIZX');">PEIZX</a></td>
+				<td align="right">200</td>
+				<td align="right">$16.51</td>
+				<td align="right">$3,302.00</td>
+			</tr>
+			<tr class="broadasset">
+				<td colspan="5">Fixed Income</td>
+			</tr>
+			<tr class="fundname">
+				<td style="text-indent: 5px;"><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=CPFRX');">CIGNA:TSq Core Pls;Rtl</a></td>
+				<td><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=CPFRX');">CPFRX</a></td>
+				<td align="right">300</td>
+				<td align="right">$9.76</td>
+				<td align="right">$2,928.00</td>
+			</tr>
+		</table>
+		</DIV></DIV><div class="betweenaccounts"></DIV><table class="account" cellSpacing="0" cellPadding="3" width="100%" border="0">
+			<tr>
+				<td width="10"><A class="view" id=arrow_up1 href="javascript: accountToggle(1);"><IMG src="../assets/images/buttons/arrow_right.gif" border=0></A><A class="hide" id=arrow_down1 href="javascript: accountToggle(1);"><IMG src="../assets/images/buttons/arrow_down.gif" border=0></A></td>
+				<td width="175"><A href="javascript: accountToggle(1);">Marshall Art Fund</A></td>
+				<td>401(k)</td>
+				<td align="right">$18,452</td>
+			</tr>
+		</table>
+		<DIV class="hide" id="plan1"><TABLE class=meta cellSpacing=0 cellPadding=3 width="100%" border=0><TR><TD noWrap width=10>&nbsp;</TD><TD noWrap><TABLE><TR><TD>Periodic Contribution:</TD><TD>6% of your salary.</TD></TR><TR><TD>Employer Match: </TD><TD>1.2% of your salary.</TD></TR><TR><TD>Advice Preference:</TD><TD>LTSave Recommended Funds.</TD></TR></TABLE></TD><TD noWrap>&nbsp;</TD><TD noWrap align=right><select name="EditDrop_1" id="EditDrop_1">
+			<option value="99">Edit</option>
+			<option value="100">- Your Account</option>
+			<option value="2">- Mutual Funds</option>
+			<option value="102">- Advice Preferences</option>
+			<option value="-1">--------------------</option>
+			<option value="101">Delete this Account</option>
+		</select><span class='navgo'><a id="1" href="javascript:__doPostBack('1','')">Go</a></span></TR></TABLE><DIV id="fundtable"><table width="100%" cellspacing="0" cellpadding="2" border="0">
+			<tr class="labels">
+				<td align="left"><STRONG>Name</STRONG></td>
+				<td align="left"><STRONG>Symbol</STRONG></td>
+				<td align="right"><STRONG>Shares</td>
+				<td align="right"><STRONG>Price</STRONG></td>
+				<td align="right"><STRONG>Balance</STRONG></td>
+			</tr>
+			<tr class="broadasset">
+				<td colspan="5">Equity</td>
+			</tr>
+			<tr class="fundname">
+				<td style="text-indent: 5px;"><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=ALGBX');">Alger:Balanced;B</a></td>
+				<td><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=ALGBX');">ALGBX</a></td>
+				<td align="right">100</td>
+				<td align="right">$17.98</td>
+				<td align="right">$1,798.00</td>
+			</tr>
+			<tr class="fundname">
+				<td style="text-indent: 5px;"><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=IBMSX');">INVESCO Mul-Sector;B</a></td>
+				<td><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=IBMSX');">IBMSX</a></td>
+				<td align="right">100</td>
+				<td align="right">$19.89</td>
+				<td align="right">$1,989.00</td>
+			</tr>
+			<tr class="fundname">
+				<td style="text-indent: 5px;"><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=NAGPX');">Nich-App Instl:I GO;I</a></td>
+				<td><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=NAGPX');">NAGPX</a></td>
+				<td align="right">500</td>
+				<td align="right">$29.33</td>
+				<td align="right">$14,665.00</td>
+			</tr>
+		</table>
+		</DIV></DIV><div class="betweenaccounts"></DIV><table class="account" cellSpacing="0" cellPadding="3" width="100%" border="0">
+			<tr>
+				<td width="10"><A class="view" id=arrow_up2 href="javascript: accountToggle(2);"><IMG src="../assets/images/buttons/arrow_right.gif" border=0></A><A class="hide" id=arrow_down2 href="javascript: accountToggle(2);"><IMG src="../assets/images/buttons/arrow_down.gif" border=0></A></td>
+				<td width="175"><A href="javascript: accountToggle(2);">Modest Mouse Acct</A></td>
+				<td>401(k)</td>
+				<td align="right">$16,281</td>
+			</tr>
+		</table>
+		<DIV class="hide" id="plan2"><TABLE class=meta cellSpacing=0 cellPadding=3 width="100%" border=0><TR><TD noWrap width=10>&nbsp;</TD><TD noWrap><TABLE><TR><TD>Periodic Contribution:</TD><TD>0% of your salary.</TD></TR><TR><TD>Employer Match: </TD><TD>0% of your salary.</TD></TR><TR><TD>Advice Preference:</TD><TD>LTSave Recommended Funds.</TD></TR></TABLE></TD><TD noWrap>&nbsp;</TD><TD noWrap align=right><select name="EditDrop_2" id="EditDrop_2">
+			<option value="99">Edit</option>
+			<option value="100">- Your Account</option>
+			<option value="2">- Mutual Funds</option>
+			<option value="102">- Advice Preferences</option>
+			<option value="-1">--------------------</option>
+			<option value="101">Delete this Account</option>
+		</select><span class='navgo'><a id="2" href="javascript:__doPostBack('2','')">Go</a></span></TR></TABLE><DIV id="fundtable"><table width="100%" cellspacing="0" cellpadding="2" border="0">
+			<tr class="labels">
+				<td align="left"><STRONG>Name</STRONG></td>
+				<td align="left"><STRONG>Symbol</STRONG></td>
+				<td align="right"><STRONG>Shares</td>
+				<td align="right"><STRONG>Price</STRONG></td>
+				<td align="right"><STRONG>Balance</STRONG></td>
+			</tr>
+			<tr class="broadasset">
+				<td colspan="5">Equity</td>
+			</tr>
+			<tr class="fundname">
+				<td style="text-indent: 5px;"><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=MDCPX');">Merrill Bal Cap;A</a></td>
+				<td><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=MDCPX');">MDCPX</a></td>
+				<td align="right">500</td>
+				<td align="right">$26.64</td>
+				<td align="right">$13,320.00</td>
+			</tr>
+			<tr class="fundname">
+				<td style="text-indent: 5px;"><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=MRBPX');">Merrill Bal Cap;R</a></td>
+				<td><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=MRBPX');">MRBPX</a></td>
+				<td align="right">10</td>
+				<td align="right">$25.99</td>
+				<td align="right">$259.90</td>
+			</tr>
+			<tr class="fundname">
+				<td style="text-indent: 5px;"><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=MBSWX');">Merrill Sm Cap Gro;B</a></td>
+				<td><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=MBSWX');">MBSWX</a></td>
+				<td align="right">50</td>
+				<td align="right">$10.83</td>
+				<td align="right">$541.50</td>
+			</tr>
+			<tr class="fundname">
+				<td style="text-indent: 5px;"><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=MDTGX');">Merrill Strat Gr&Inc;A</a></td>
+				<td><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=MDTGX');">MDTGX</a></td>
+				<td align="right">10</td>
+				<td align="right">$8.95</td>
+				<td align="right">$89.50</td>
+			</tr>
+			<tr class="fundname">
+				<td style="text-indent: 5px;"><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=MDSPX');">Merrill Value Oppty;A</a></td>
+				<td><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=MDSPX');">MDSPX</a></td>
+				<td align="right">60</td>
+				<td align="right">$24.70</td>
+				<td align="right">$1,482.00</td>
+			</tr>
+			<tr class="broadasset">
+				<td colspan="5">Fixed Income</td>
+			</tr>
+			<tr class="fundname">
+				<td style="text-indent: 5px;"><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=MBCMX');">Merrill CA Muni:Ins;B</a></td>
+				<td><a href="javascript: popFundDetail('../Reports/FundDetail.aspx?ticker=MBCMX');">MBCMX</a></td>
+				<td align="right">50</td>
+				<td align="right">$11.77</td>
+				<td align="right">$588.50</td>
+			</tr>
+		</table>
+		</DIV></DIV><div class="betweenaccounts"></DIV><table cellSpacing="0" cellPadding="3" width="100%" border="0">
+			<tr>
+				<td align="right"><strong>Total:&nbsp;</strong>$41,670</td>
+			</tr>
+		</table>
+		</DIV><table cellSpacing="0" cellPadding="5" align="left" border="0" class="addacct">
+			<tr>
+				<td><select name="AddAccountDropDown" id="AddAccountDropDown">
+					<option value="401(k)">401(k)</option>
+					<option value="403(b)(7)">403(b)(7)</option>
+					<option value="457">457</option>
+					<option value="Traditional IRA">Traditional IRA</option>
+					<option value="Roth IRA">Roth IRA</option>
+					<option value="Pension">Pension</option>
+
+				</select><span class='navgo'><a id="AddAccount" href="javascript:__doPostBack('AddAccount','')">Add Account</a></span></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+	<!-- <div class="navlink">
+			<A onclick="javascript:popWindow(500,500,'HelpAcctType.aspx','yes','no');" href="#">Why only these account types?</A>
+	  </div> -->
+	<div class="linkset">
+	<TABLE cellSpacing=0 cellPadding=0 cellspacing=0 border=0>
+		<TR>
+			<TD align="left">
+				<span class="navback">
+					<a id="GoBack" href="javascript:__doPostBack('GoBack','')">Go Back<br><span class=subnavlink>(to Profile Summary)</span></a>
+				</span>
+			</TD>
+			<TD align="right" colspan="2">
+				<span class="navnext">
+					<a id="Proceed" href="javascript:__doPostBack('Proceed','')">Save</a>					
+				</span>
+			</TD>
+		</TR>
+	</TABLE>
+	</div>
+</form></td>
+</tr>
+</table>
+</div>
+<!-- START FOOTER -->
+
+<div id="footer">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="floorspace">
+			<!-- left stuff -->
+			<TABLE cellSpacing="0" cellPadding="0" border="0" class="credentials">
+				<TR vAlign="center" align="middle">
+					<TD width="34%"><script src=https://seal.verisign.com/getseal?host_name=WWW.LTSAVE.COM&size=S&use_flash=NO&use_transparent=NO></script></TD>
+					<TD width="34%"><a href="http://www.bbb.com" target="new"><IMG border="0" height="65" src="../assets/images/buttons/bbb.gif" width="43" alt="Better Business Bureau logo"></TD>
+				</TR>
+			</TABLE>
+		</td>
+		<td>
+			<!-- right stuff -->
+			<hr style="color: black; height: 1px; width: 95%;" align="left">
+			<table border="0" cellspacing="0" cellpadding="5" class="footerlinks">
+				<tr>
+				<td>
+				<a href="javascript:popWindow(500,500,'../Terms.aspx','yes','no');">Terms of Use</a> | 
+				<a href="javascript:popWindow(500,500,'../Privacy.aspx','yes','no');">Your Privacy</a> | 
+				<a href="javascript:popWindow(500,500,'../YourSecurity.aspx','yes','no');">Your Security</a>
+				</td>
+				</tr>
+				<tr> 
+					<td class="statusbar">
+					All advisory services are delivered by LTSave, Inc., a federally registered investment advisor. <br>
+					Copyright &copy; 2003-2004 LTSave, Inc. All rights reserved. Version 1.2 rev 1
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+</div>
+<div style="margin-bottom: 30px;"></div><!-- END FOOTER -->
+</body>
+</html>

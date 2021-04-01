@@ -1,0 +1,34 @@
+/* Long List, to work with H2 headers */
+#long_list		{position: relative; margin: 0; padding: 0; border: 0;}
+#long_list h2	{margin-top: 0; margin-bottom: 5px; font-size: 14px; color: #5f83ba;}
+#long_list p	{margin-top: 0;}
+
+/* Style with CSS/rollover on H2 header */
+#pic_list		{position: relative; margin: 0; padding: 0; border: 0;}
+#pic_list h2	{margin-top: 0px; margin-bottom: 2px; font-size: 14px;}
+#pic_list h2 a:link, #pic_list h2 a:visited	{background-image: url('../Images/Icons/more.gif'); text-decoration: none; padding-left: 20px; background-repeat: no-repeat; background-position: top left; font-size: 14px; color: #5f83ba;}
+#pic_list h2 a:hover						{background-image: url('../Images/Icons/morex.gif'); text-decoration: underline;}
+#pic_list p		{margin-top: 0;}
+
+/* Generic 2-column "table" style */
+#twocol			{position: relative; top: 0; left: 0; width: 570px; height: 420px; display: block; margin: 0; padding: 0; border: 0;}
+#twocol_left	{position: relative; top: 0; left: 0; width: 275px; margin: 0; padding: 0; border: 0;}
+#twocol_right	{position: absolute; top: 0; left: 295px; width: 275px; margin: 0; padding: 0; border: 0;}
+
+/* Boxed data charts (Education / Uncertain Returns, Customer Care / Get-Started, etc. */
+table.chart 	{width: 100%; margin-bottom: 10px; border: 1px solid #87aafc;}
+.chart tr		{vertical-align: top;}
+.chart th		{background: #dee8fe; color: #000; padding: 5px; margin: 0; border-bottom: 3px solid #87aafc; vertical-align: bottom;}
+.chart th.first	{background: #fff;}
+.chart td		{background: #fff; text-align: center; padding: 5px; margin: 0; border-bottom: 1px solid #87aafc; border-left: 1px solid #87aafc;}
+.chart td.label	{background: #fff; font-weight: bold; text-align: left; border-left: 0; padding-left: 10px;}
+.chart td.left	{text-align: left;}
+.chart td.loss	{color: #f00;}
+.chart.end td	{border-bottom: 0;}
+.chart ul		{margin-left: 10px; padding-left: 0px; margin-bottom: 0;}
+.chart li		{margin-left: 10px; list-style: square;}
+/* Top of Page link */
+.top						{border-bottom: 1px dotted #ccc; padding: 0; margin: 0; margin-bottom: 10px;}
+.top a:link, .top a:visited	{background-image: url('../Images/Icons/top.gif');  text-decoration: none; padding-left: 15px; background-repeat: no-repeat; background-position: top left; color: #999;}
+.top a:hover				{background-image: url('../Images/Icons/topx.gif'); text-decoration: underline; color: #f90;}
+.top p	

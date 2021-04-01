@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../XSL/lts_internal.xslt"?>
+<content>
+
+   <topic title=" Windows OS" file="../content/win-os.xml" fileid="$Id: //main/2005/road/LTS-Intranet/web/content/win-os.xml#5 $$Change: 4185 $" fileChange="$DateTime: 2005/10/07 17:08:48 $$Author: bbarber $">
+      <table width="100%">
+         <tr><td valign="top">
+            <h4>Links</h4>
+            <br/><a href="http://msdn.microsoft.com/">Microsoft MSDN</a>
+         </td><td valign="top">
+            <h4> </h4>
+
+         </td></tr></table>
+   </topic>
+   <section id="Files" title="Files and Directories" order="sorted">
+
+      <item id="FileSystemWatcher" title="FileSystemWatcher">
+         <p><b>System.IO.FileSystemWatcher</b> reports events when a file or directory gets changed.   For an example, see XMLHotDocument <iref file="xml-faq.xml" item="espoD_2003" page="236"/></p>
+		
+      </item>
+   </section>
+   <section id="cmd" title="Command line access">
+      <item id="cmd-configure" title="Configure the command window">
+         To configure a command window (e.g., Start->Run->cmd or Start->Programs->Cygwin->bash)
+         <ul><li>
+               Right-click on the title bar, Select Properties
+         </li><li>
+               Options->QuickEdit Mode -- Copy text by selecting->CR.  Paste text with right button
+         </li><li>
+            Options-> Buffer Size = 999
+         </li><li>
+            Font->Font>Lucinda Console
+         </li><li>
+            Layout->Screen Buffer->Height = 999
+         </li><li>
+            Layout->Window Size->Height = 55
+         </li><li>
+            Colors->Screen Background = White
+         </li><li>
+            Colors->Screen Text = Black
+         </li><li>
+            OK->Modify shortcut->OK
+         </li></ul>
+      </item>
+   </section>
+   <section id="ltsave-ref" title="Windows and Linux References" order="sorted">
+      <item id="Win_cmd" title="[Win_cmd] Microsoft Windows Command-Line">
+         <p>Stanek, Microsoft, 2004</p>
+         <p>Command line access to all things Microsoft.  Use in conjunction with cygwin.</p>
+      </item>
+      <item  id="Linux_nutshell" title="Linux in a Nutshell">
+         <p>Siever, Figgins, Weber, O'Reilly 2003</p>
+         <p>Complete reference to Linux, bash, emacs, vi, sed, and gawk.  All useable via <iref item="cmd-cygwin"/></p>
+      </item>
+      <item id="stanWR_2003" title="[stanWR_2003] Microsoft Windows Server 2003">
+         <p>Stanek, Microsoft, 2004</p>
+         <p>Stanek's administrator's pocket consultant for Windows Server 2003.   Thorough coverage of adminstrator control panels, security, remote access, active directory, 
+            user and group administration, file systems, shared folders, network drives, backup and recovery, networking, print services, DHCP, and DNS.</p>
+      </item>
+     <item id="hassJ_2004" title="[hassJ_2004] Hardening Windows">
+        <p>Hassel, Apress, 2004</p>
+        <p>Lots of concrete suggestions on improving windows security.  For example, using pwdump to identify weak passwords.hfnetchk for scanning a network for patch updates, 
+        managing security policies, Microsoft's Baseline Security Analyzer, managing group policies, managing patch updates, NAQC (Network Access Quarantine Control), 
+        IIS security, Exchange security,  security auditing.</p>
+     </item>  
+   </section>
+   <section id="XML-ref" title="Other Windows References" order="sorted">
+      <item id="richJ_2002" title="[richJ_2002] Applied Microsoft .NET Framework Programming">
+         <p>Richter, Microsoft Press, 2002</p>
+         <p>Best book on the loading process of managed executables.  <iref file="xml-faq.xml" item="espoD_2003" page="560"/></p>
+      </item>
+      <item id="espoD_2002" title="[espoD_2002] Building web solutions with ASP.NET and ADO.NET">
+         <p>Esposito, Microsoft Press, 2002</p>
+      </item>
+      <item id="hendK_2000" title="[hendK_2000] The guru's guide to Transact-SQL">
+         <p>Henderson, Addison Wesley, 2000</p>
+         <p>Recommended by Esposito <iref file="xml-faq.xml" item="espoD_2003" page="397"/></p>
+      </item>
+      <item id="newhC_1998" title="[newhC_1998] Learning the bash shell">
+         <p>Newham, Rosenblatt, O'Reilly 1998</p>
+         <p>Effective tutorial on writing shell scripts in bash.</p>
+      </item>
+   </section>
+</content>

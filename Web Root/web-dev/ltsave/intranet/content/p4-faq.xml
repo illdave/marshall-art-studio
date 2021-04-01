@@ -1,0 +1,3411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../XSL/lts_internal.xslt"?>
+<content>
+	<topic title="Perforce FAQs" file="../content/p4-faq.xml" fileid="$Id: //main/2005/road/LTS-Intranet/web/content/p4-faq.xml#3 $$Change: 4184 $" fileChange="$DateTime: 2005/10/07 17:02:03 $$Author: bbarber $"></topic>
+	<section id="Readme" title="Readme First">
+<item id="mistakes" title="How to avoid mistakes">
+  Mistakes can trip
+  up Perforce. Some of them are due to flaws in Perforce's user interface, others are due to cvs
+  habits.
+  <ul>
+    <li>
+    <b>Never create a directory before syncing</b> -- If a directory exists in Perforce, always
+    sync a file instead of using mkdir. In Windows, file names are case-insensitive. If you create
+    a directory with the wrong case, Perforce will happily sync files into that directory. If you
+    add a file, Perforce will create a new directory with the wrong capitalization.</li>
+    
+            <li>
+    <b>Do not use the same directory for two clients</b> -- Perforce does
+    <i>not</i> know what is on your disk. It maintains a database of the files that it sent to you.
+    If you use the same directory for two clients, this database will be wrong.</li>
+    
+            <li>
+    <b>Define your first client</b> -- Please create a client when you first run p4win. Perforce
+    will complain that you don't have a default client set up the first time you run p4win. If you
+    do not set up a new client, the command line will not work correctly.
+    <p>Select "New client" from the client menu. Call it "userid-nt-all". Click 'Update'. Right
+    click your client and select "Switch to". You can delete it later.</p>
+            </li>
+    
+            <li>
+    <b>Do not override write protect</b> -- If your editor reports a write protect error, do not
+    override it. Use '
+    <tt>p4 edit</tt>' instead. Perforce sets write protect when it sync's a new revision. If you
+    override it, Perforce does not know that you've modified the file.
+    <p>For example, when you
+    <b>sync</b>, Perforce updates every new revision in your clientspec. You may be editing one of
+    these files. If you override write protect, you will wipe out the other person's
+    changes.</p>
+            </li>
+    
+            <li>
+    <b>Do not 'p4 edit' directories</b> -- With CVS, you could edit any file and the checkin
+    figured out what you modified. If you try to duplicate this with 'p4 edit ...', Perforce will
+    submit all of your files. Better to use 'p4 edit' on the files you want to edit. If you use 'p4
+    revert -a' and forget the '-a', all of your edits will disappear!
+    <p>In Emacs, use
+    <a href="perforce-emacs.xml">p4.el</a> and '^X^Q'. In Visual C++ and other Windows editors, use
+    <iref id="sccdll"/>.</p>
+            </li>
+    
+            <li>
+    <b>Save all before sync</b> -- Save all files before you sync with the depot. If you don't,
+    Perforce will update the copy on disk, but your editor will have an old revision. To help avoid
+    problems, use an integrated client (e.g., p4.el for emacs, or scc.dll for Visual C++).</li>
+    
+            <li>
+    <b>Close edits before resolve</b> -- If you need to resolve a file, close other copies first.
+    Otherwise, the save of the merged file will fail, and the unmerged revision is submitted.</li>
+    
+            <li>
+    <b>Be careful of p4 revert</b> -- Perforce's
+    <b>revert</b> command overwrites any changes that you made to a file. If you say
+    <b>p4 revert ...</b>, all modified files will be overwritten. See the command documentation for
+
+    <a href="cmdref/revert.html">p4 revert</a>.</li>
+    
+            <li>
+    <b>Yours vs. Theirs ==&gt; Destination vs. Source</b> -- In
+    <tt>p4 resolve</tt>,
+    <i>yours</i> is not your file. Instead it is the
+    <i>destination</i> for the resolve. This is confusing. Please have someone work with you for
+    your first attempts at integrate and resolves.</li>
+    
+            <li>
+    <b>Save your password</b> -- In the Windows GUI password box, select "Save your password".
+    Otherwise, the command line and SCC.DLL interfaces will not work.</li>
+    
+            <li>
+    <b>Don't move your workspace</b> -- Without letting Perforce know. The results could be
+    disastrous! See
+    <a href="#movewspace">Moving your workspace</a>.</li>
+    
+            <li>
+    <b>Do not use //product/...</b> -- Do not use //product/... in clientspecs or branchspecs. It
+    blocks Perforce for all users. See
+    <a href="#slow">Why is Perforce slow?</a>.</li>
+    
+            <li>
+    <b>Avoid option 'nocrlf'</b> -- If you use 'shared', you can edit files with Unix, Windows, or
+    Mac conventions and Perforce will translate them to Unix conventions. If you use 'local' or
+    'crlf', you can edit text files with the same convention as your workstation (i.e., Windows on
+    a Windows box).
+    <p>If you use 'nocrlf', Perforce will ignore CR characters in text files. If you are not
+    careful, CR characters can be checked into Perforce. See
+    <a href="#crlf">CRLF vs. LF</a>.</p>
+            </li>
+    
+            <li>
+    <b>Use quotes around '*' and '#'</b> -- Perforce uses '*' as a wildcard and '#' as a revision
+    marker. Command shells may expand the '*' and treat '#' as a comment. See Perforce's
+    <a href="http://www.perforce.com/perforce/technotes/note041.html">Tech Note 41</a>.</li>
+  
+         </ul>
+
+      </item>
+
+      <item id="findfiles" title="How to find files">
+  <ul>
+    <li>
+      <b>Using a label</b>
+      
+               <p>Identify a label that contains the file ('p4 labels'). For example, 'copper-2169' is build
+      2169 of 'copper'. Then use Perforce's file command. For example, to list the files for
+      apipackages.txt:</p>
+      
+               <pre>
+    p4 files //...apipackages.txt@copper-2169
+</pre>
+      
+               <p>Be sure to include the leading '//', otherwise Perforce will only search for files in both
+      your client and the label. It will report "No files found" if your client does not include
+      the file.</p>
+    
+            </li>
+    
+            <li>
+      <b>Using a client</b>
+      
+               <p>Create a client that checks out the codeline. Then use 'p4 files ...myfile...' to locate
+      your file. If you hit "MaxScanResults" then search each subdirectory.</p>
+    
+            </li>
+    
+            <li>
+      <b>Searching for text</b>
+      
+               <p>Create a client that checks out all of the files that concern you.</p>
+      
+               <p>Then use 'grep' or an editor with multi-file search. I use Visual C++ and TextPad. Both
+      editors contain good multi-file search tools.</p>
+    
+            </li>
+  
+         </ul>
+
+      </item>
+
+      <item id="passwd" title="How to set your password">
+  <p><b>Windows</b>
+         </p>
+  
+         <blockquote>On Windows, set it from p4win: '
+  <tt>user::set password...</tt>'. It is stored encrypted. Use 'p4 set P4PASSWD' to determine its
+  value.
+  <p>To change your password, use the same menu item, '
+  <tt>user::set password...</tt>'.</p>
+         </blockquote>
+  
+         <b>Unix</b>
+  
+         <blockquote>
+  <p>On Unix, use
+  <tt>p4 passwd</tt> to change your password.</p>
+  
+            <p>After you have a password, use the /usr/local/bin/p4passwd.pl command on atlas:</p>
+  
+            <p> </p>
+  
+            <pre>
+    atlas&gt; /usr/local/bin/p4passwd.pl
+    Enter your password:
+    Created /users/rjohnson/.p4passwd
+    atlas&gt;
+</pre>This command creates a .p4passwd file in your home directory that is set to read only for the
+owner. Your password is stored in MD5 digest format within the file. This file needs to be
+referenced by your login files, for example:
+  <p>In .cshrc,</p>
+  
+            <pre>
+    if (-o .p4passwd) then
+      chmod 600 .p4passwd
+      setenv P4PASSWD `cat .p4passwd`
+    endif
+</pre>
+         </blockquote>
+
+      </item>
+   </section>
+   <section id="How-To" title="How To" order="sorted">
+<item id="addfile" title="How to add files and   directories">
+  <p>To add directories to a Perforce depot, add one or more files from the directory. Perforce
+  does not keep track of directories by themselves.</p>
+  
+         <p>Use the 'p4 add' command to add files to a Perforce depot. You may do this on the command line
+  or drag-and-drop with P4win.</p>
+  
+         <p>With P4win, select the files or directories in Windows Explorer and drag them to a pending
+  changelist (e.g., "default"). See the Help menu for more information</p>
+  
+         <p>With the command line:</p>
+  
+         <ul>
+    <li>For UNIX or cygwin:
+    <ul>
+      <li>cd /home/user/p4work/clientdir</li>
+      
+                  <li>find . -type f -print | p4 -x - add</li>
+    
+               </ul>
+            </li>
+    
+            <li>For Windows:
+    <ul>
+      <li>cd d:\p4work\clientdir</li>
+      
+                  <li>dir /s /b /a-d | p4 -x - add</li>
+    
+               </ul>
+            </li>
+  
+         </ul>
+  
+         <p/>
+  
+         <p>With all methods, Perforce ignores files that already exist in the depot.</p>
+  
+         <p>To create empty directories</p>
+  
+         <ol>
+    <li>Check that your client uses option "normdir".</li>
+    
+            <li>Add a dummy file for each directory (e.g., "temp.tmp")</li>
+    
+            <li>Sync the dummy files. This will create the directories if they do not exist.</li>
+    
+            <li>Sync the dummy files to none
+    <p>p4 sync ...temp.tmp#none</p>
+            </li>
+  
+         </ol>
+  
+         <p/>
+
+      </item>
+
+      <item id="addproj" title="How to add projects to a depot">
+  Adding a
+  project to a depot is the same as
+  <blockquote>
+  <a href="#addfile">How to add</a> files and directories</blockquote>
+  
+         <p>Your client must map the depot. The project directory must include a codeline (e.g., 'main/').
+  You need to add at least one file.</p>
+  
+         <p>For example, to create "MyProj" in "//express":</p>
+  
+         <ol>
+    <li>Create a clientspec that maps //express. It should include a viewspec
+    <p>
+      <tt>//express/... //&lt;clientname&gt;/express...</tt>
+    
+               </p>
+            </li>
+    
+            <li>Create subdirectories for
+    <tt>MyProj/main</tt>
+    
+               <p>
+      <tt>cd express
+      <br/>mkdir MyProj
+      <br/>cd MyProj
+      <br/>mkdir main
+      <br/>cd main</tt>
+    
+               </p>
+            </li>
+    
+            <li>Create a file in main
+    <p>
+      <tt>echo "OK" &gt;Readme.txt</tt>
+    
+               </p>
+            </li>
+    
+            <li>Double-check the spelling, and add the file to Perforce.
+    <p>
+      <tt>p4 where Readme.txt
+      <br/>p4 add Readme.txt
+      <br/>p4 submit</tt>
+    
+               </p>
+            </li>
+    
+            <li>If Perforce reports a write protect error,
+    <ul>
+      <li>Check that your file maps to //express/MyProj/main/Readme.txt.</li>
+      
+                  <li>Check that you have write permission to //express.</li>
+      
+                  <li>The depot name must already exist.</li>
+      
+                  <li>The third directory must be either "main" or another codeline.</li>
+    
+               </ul>
+            </li>
+  
+         </ol>
+
+      </item>
+
+      <item id="p4cygwin" title="How to avoid problems with cygwin">
+  <p><i>I use zsh and bash under Windows NT. Somehow, cygwin is mapping my P4ROOT to UNIX style, and
+  thereby screwing up the string matching in P4. This means I can't use p4 with cygwin. [wsargent
+  3/01]</i>
+         </p>
+  
+         <p>P4 works fine with Cygwin if you add an alias. This is from
+  <a href="software/tcsh.jhtml">Cygwin and tcsh</a> and
+  <a href="../software/cshrc.txt">cshrc.txt</a> (use single quotes
+  <i>not</i> double quotes)</p>
+  
+         <pre>
+    if (-e /bin/cygpath) then
+    alias p4 'p4 -d `cygpath -w $PWD`'
+    endif
+</pre>
+
+      </item>
+
+      <item id="cancel" title="How to cancel a submit">
+  <p>Cancelling a submit is easy to do in the P4 GUI: just hit the 'cancel' button.</p>
+  
+         <p>In Unix,</p>
+  
+         <ul>
+    <li>Cancel with a ^C before the edit window appears.</li>
+    
+            <li>Cancel by quiting the editor without saving the submit form. Perforce will report that the
+    "Description" is missing. Use ^C to exit.</li>
+    
+            <li>Cancel by not changing "". Perforce will report that the "Description" is missing. Use ^C
+    to exit.</li>
+    
+            <li>In P4 for Emacs, cancel by exiting without using ^C^C to close the submit window.</li>
+  
+         </ul>
+
+      </item>
+
+      <item id="controlwrt" title="How to control write     access">
+  <p>To control write access to a codeline:</p>
+    
+         <ol>
+      <li>Ask Road to set up a protection group for the codeline. For example, 'escoe-version'
+      controls write access to '//escoe/*/version/...'. The group is defined by a file and a
+      section of p4_protect.txt
+      <pre>
+
+  # //escoe - controlled access to version codelines
+  open user * * -//escoe/*/version/...
+  write group escoe-version * //escoe/*/version/...
+  ...
+  write user jwang * //road/Perforce/main/protections/group/escoe-version.txt
+</pre>
+            </li>
+      
+            <li>Edit the group file (e.g., escoe-version.txt) to add or subtract users.</li>
+    
+         </ol>
+    
+         <p>To allow write access at the file level.</p>
+    
+         <ol>
+      <li>Open the files for edit and lock them.</li>
+      
+            <li>Unlocking a file opens up write access to your group.</li>
+      
+            <li>Please avoid widespread use since open files effect everyone's performance.</li>
+      
+            <li>Ask Road if you need to break someone else's lock.</li>
+    
+         </ol>
+
+      </item>
+
+      <item id="newproject" title="How to create a new   project">
+  <p>Create a new project by adding one or more files. You need to specify a codeline (e.g.,
+  "main") and a depot (e.g., //express).</p>
+  
+         <p>To create a new project:</p>
+  
+         <ol>
+    <li>Check that your client spec includes the depot. For example, say you want to create
+    "//express/plantronics/...". Your client spec could have a Root of "d:\p4" and a mapping
+    <blockquote>
+      <code>//express/... clientspec/express/...</code>
+    
+               </blockquote>
+            </li>
+    
+            <li>Goto the depot directory using the Explorer or command line
+    <blockquote>
+      <code>cd \p4\express</code>
+    
+               </blockquote>
+            </li>
+    
+            <li>Create a directory for the project using NewFolder or the command line
+    <blockquote>
+      <code>mkdir plantronics
+      <br/>cd plantronics</code>
+    
+               </blockquote>
+            </li>
+    
+            <li>Create a directory for the codeline using NewFolder or the command line. This is normally
+    "main"
+    <blockquote>
+      <code>mkdir main
+      <br/>cd main</code>
+    
+               </blockquote>
+            </li>
+    
+            <li>Create a file using an editor or command line.
+    <blockquote>
+      <code>touch Readme.txt</code>
+    
+               </blockquote>
+            </li>
+    
+            <li>Add the file using the Perforce GUI or command line
+    <blockquote>
+      <code>p4 add Readme.txt</code>
+    
+               </blockquote>
+            </li>
+    
+            <li>Submit the change
+    <blockquote>
+      <code>p4 submit</code>
+    
+               </blockquote>
+            </li>
+  
+         </ol>
+
+      </item>
+
+      <item id="allclient" title="How to create an 'all'   client">
+  <p>The 'all' client gives you access to every file in Perforce. You can use it the same
+  as clients for specific codelines. It takes longer the refresh the directory listing, and
+  operations need to be relative to a directory (e.g., 'p4 sync ...').</p>
+  
+         <p>To create an 'all' client in p4win:</p>
+  
+         <ol>
+    <li>Select ClientSpec &gt; New...</li>
+    
+            <li>Enter the clientname (e.g., bbarber-kane-all).</li>
+    
+            <li>Enter the root directory (e.g., d:\p4work\all).</li>
+    
+            <li>Click Update</li>
+  
+         </ol>
+  
+         <p>To create an 'all' client with p4:</p>
+  
+         <ol>
+    <li>Create a new root directory and a p4config.txt file
+    <p>cd d:\p4work
+    <br/>mkdir all
+    <br/>cd all
+    <br/>echo "P4CLIENT=bbarber-kane-all" &gt;p4config.txt</p>
+            </li>
+    
+            <li>Create the client and exit
+    <p>p4 client</p>
+            </li>
+  
+         </ol>
+
+      </item>
+
+      <item id="ignorewhite" title="How to ignore   whitespace">
+  <p>To always ignore whitespace when diffing a file</p>
+  
+         <ul>
+    <li>Goto Settings&gt;Options&gt;Diff/Merge</li>
+    
+            <li>Select "Ignore diffs" under "Diff Application/Whitespace".</li>
+    
+            <li>Alernatively, plug in another diff/merge program. See "Merge and Diff utilities" in Road's
+    <a href="../software.jhtml#nt">Software URL's</a>
+            </li>
+  
+         </ul>
+
+      </item>
+
+      <item id="araxis" title="How to install Araxis   Merge">
+  <p>Also download an evaluation copy of Araxis Merge from
+  <a href="http://www.araxis.com">www.araxis.com</a>.</p>
+  
+         <p>Run the installer. After you start Perforce, use Settings::Options::Diff/Merge to use Araxis
+  Merge instead of the built-in diff/merge tool. Use Araxis' compare.exe for the Diff Application
+  and merge.exe for the Merge Application.</p>
+  
+         <p>Consider buying
+  <a href="http://www.guiffy.com">Guiffy Merge</a>, a Java-merge tools with intra-line diffs.</p>
+
+      </item>
+
+      <item id="usermap" title="How to map the //user/*/ depot   directory to http://intranet.">
+  <p>Files placed in</p>
+  
+         <pre>
+//user//main/web/...
+</pre>are automatically published at
+  <pre>
+http://intranet/p4/user//...
+</pre>
+  
+         <p/>
+  
+         <p>See the
+  <a href="depot-doc.jhtml">Depot doc</a> for more
+  information.</p>
+
+      </item>
+
+      <item id="multimap" title="How to map two depot   directories to one client directory">
+  <p>Use the undocumented "+" mapping to map multiple depot
+  directories to one client directory. Be careful, Perforce will blindly try to sync the same file
+  or directory from each depot. Use 'p4 where' to find the files location in the depot.</p>
+  
+         <p>From 'p4 help undoc'</p>
+  
+         <pre>
+   + mappings
+        A mapping line that begins with + does not mask lower precedent
+        mappings so that, for example, it is possible to map multiple
+        server directories to the same client directory in the client
+        view.  The support for this is only partial, in that if two
+        server files end up mapping to the same client file, the 'p4
+        sync' command will repeatedly replace one file with another.
+</pre>
+  
+         <p>There is no easy way to map one depot directory to multiple client directories. Tony Smith of
+  Perforce offers the following suggestion:</p>
+  
+         <blockquote>Branch the files to their multiple locations and have a script to keep the slave
+  branches in sync with the master - and use protections to restrict updates to the subordinate
+  copies.</blockquote>
+
+      </item>
+
+      <item id="movewspace" title="How to move your local workspace">
+  <p>It's important to remember that Perforce tracks each client's state completely
+  <em>on the server</em>.</p>
+  
+         <p>This means that whenever you make any significant changes to your local disk or to where your
+  client's root is on your local disk you
+  <em>MUST</em> make the Perforce server aware of the change in circumstances or else undesirable
+  events may ensue.</p>
+  
+         <p>So, first, before touching your client, let's "put your house in order" before the move.</p>
+  
+         <ul>
+    <li>For safety's sake, back up any important data in your workspace, or better yet, back your
+    entire workspace up! If you need help with this contact IT and let them know
+    you're trying to back up an important work/data directory.</li>
+    
+            <li>See if you have any opened (marked for edit) files on this client using:
+    <code>p4 opened</code>. If you do, save a copy of any changes and then
+    <code>p4 revert</code> the file OR alternately if you're absolutely sure it's what you want do
+    a
+    <code>p4 submit</code> and commit the changes.</li>
+    
+            <li>When you're sure your current workspace is OK / ready to be scrapped, do a
+    <code>p4 sync #none</code> and Perforce will delete all the (now vestigial :) files on your
+    client. This is what we want as Perforce will be ready for the move.</li>
+  
+         </ul>
+  
+         <p>That's it for prep work, now the move itself is trivial:</p>
+  
+         <ul>
+    <li>Make a fresh directory for your new client's root. If there's already files in the location
+    you intend to use, move the old directory away and create a fresh new one. This will save you
+    headache down the road.</li>
+    
+            <li>Actually change your client's Root: line to the new location.</li>
+    
+            <li>Now just
+    <code>p4 sync</code> to refresh your workspace's files in its/their new location.</li>
+    
+            <li>That's it! You should be all set. If you have any difficulties please drop an E-mail to
+    the Road Team or give us a call.</li>
+  
+         </ul>
+
+      </item>
+
+      <item id="p4home" title="How to place your home directory under P4">
+  <p>Will Sargent recommends placing your home
+  directory under Perforce. You can keep your scripts and working documents under source control
+  and synchronize all of your workstations (including NT if you use Cygwin).</p>
+  
+         <blockquote>
+    <ol>
+      <li>For each workstation [substitute your userid and host]
+      <pre>
+    cd ~/
+    echo "P4CLIENT=userid-host-home" &gt;p4config.txt
+    p4 client
+</pre>
+               </li>
+      
+               <li>Edit the clientspec to read [substitute your userid and host]
+      <pre>
+    Root:  /users/userid
+    View:
+    //user/userid/main/home/... //userid-host-home/...
+</pre>
+               </li>
+      
+               <li>Instead of using
+      <tt>.../main/home/...</tt> for your home directory, you can use
+      <tt>.../main/...</tt> and use
+      <tt>//user/userid/dev/...</tt> for other directories (e.g., a private branch of a
+      project).</li>
+      
+               <li>Use
+      <tt>p4 add xyz</tt> to add files in your home directory to Perforce.</li>
+      
+               <li>Use
+      <tt>p4 synch</tt> to sychronize home directories on different machines</li>
+    
+            </ol>
+  
+         </blockquote>
+
+      </item>
+
+      <item id="remfiles" title="How to remove files   from your client workspace">
+  <p>To remove files from your client workspace</p>
+  
+         <ul>
+    <li>From the GUI
+    <p>Right-click on a file or directory.
+    <br/>Select 'Remove from client'.
+    <br/>The GUI will display "#0/n" for the corresponding files.</p>
+            </li>
+    
+            <li>From the command line
+    <p>p4 sync xyz.txt#none
+    <br/>Other choices are #0 and @0.</p>
+            </li>
+  
+         </ul>
+
+      </item>
+
+      <item id="newclient" title="How to rename a   clientspec">
+  <p>[georgeo]: How do you rename a client? Create a new one and delete the old one??</p>
+  
+         <p>Yes. The easiest way to create the new client is to use the command line and edit the Client:
+  field. It will create a new client.</p>
+  
+         <blockquote>p4 client old-client</blockquote>
+  
+         <p>Alternatively, create a new client by right-clicking on the old client and selecting using
+  "Create/Update client ... as template"</p>
+  
+         <p>Delete the old client when you are done.</p>
+
+      </item>
+
+      <item id="rename" title="How to rename directories or files">
+  <p>To rename one or more files, you need to
+  <i>integrate</i> the files to their new location, and
+  <i>delete</i> them from the old. The old files must be in your workspace. The new files must be
+  in your clientview.</p>
+  
+         <p>
+  <b>Note:</b> Always make the delete and integ part of the same changelist. Otherwise another
+  integ using the same mapping will delete the destination files (since the delete wasn't
+  propagated earlier).</p>
+  
+         <p>Related links:</p>
+  
+         <ul>
+    <li>
+    <a href="#reorg">How to reorganize</a> a codeline or Java package</li>
+    
+            <li>
+    <a href="#mvbranch">How to rename</a> with a branch spec</li>
+  
+         </ul>
+  
+         <p>With the Windows GUI,</p>
+  
+         <ol>
+    <li>Select the directory or file you want to rename</li>
+    
+            <li>Right click and select "Sync.." to retrieve the lastest revisions.</li>
+    
+            <li>Right click and select "Integrate...".</li>
+    
+            <li>Select "using filespec..."</li>
+    
+            <li>Enter the new location.</li>
+    
+            <li>Click Options.
+    <ul>
+      <li>Select "Delete old files for rename."</li>
+      
+                  <li>If there are many files, select "Do not copy new files". This avoids copying the files to
+      their new location.</li>
+    
+               </ul>
+            </li>
+    
+            <li>Click OK. Review the log messages for errors or check your changelist. The later should
+    have equal numbers of delete and integrate operations.</li>
+    
+            <li>Right click the changelist and select Submit.</li>
+  
+         </ol>
+  
+         <p>Use a similar sequence of commands on the command line.</p>
+  
+         <ol>
+    <li>Use 'p4 sync _old_' to get the old revisions.</li>
+    
+            <li>Use 'p4 integrate _old_ _new_' to move the files to their new location. If there are many
+    files, include option '-v' to avoid copying the new files.</li>
+    
+            <li>Use 'p4 delete _old_' to delete the old files</li>
+    
+            <li>Use 'p4 submit' to copy them over.</li>
+  
+         </ol>
+
+      </item>
+
+      <item id="mvbranch" title="How to rename with a branch   spec">
+  <p>Use a branchspec to rename several directories at once. For example.</p>
+  
+         <ol>
+    <li>Create the branch spec using the view to rename
+    <pre>
+    View:
+    //product/%1/rev51_locale_head/... //product/%1/version/5.1_locale/...
+
+</pre>
+            </li>
+    
+            <li>Integrate to move the files from one place to another. Use option '-v' to avoid copying new
+    files into your workspace. Pipe the results through 'tail' for faster output on large
+    integrates. It shows the last log messages.
+    <pre>
+    p4 integrate -b bbarber-fix-rev51_locale_head
+
+</pre>
+            </li>
+    
+            <li>Retrieve the old files. They need to be in your workspace for the delete. Note the use of
+    "*" to prevent filename completion
+    <pre>
+    p4 delete "//product/*/rev51_locale_head/..."
+
+</pre>
+            </li>
+    
+            <li>Delete the old files.
+    <b>Note:</b> Always make the delete and integ part of the same changelist. Otherwise another
+    integ using the same branch mapping will delete the destination files (since the delete wasn't
+    propagated earlier).
+    <pre>
+    p4 delete "//product/*/rev51_locale_head/..."
+
+</pre>
+            </li>
+    
+            <li>Check that the number of branched files is the same as the number of deleted files
+    <pre>
+     p4 opened | grep " delete " | wc
+     p4 opened | grep " branch " | wc
+
+</pre>
+            </li>
+    
+            <li>Submit your change
+    <pre>
+    p4 submit
+
+</pre>
+            </li>
+  
+         </ol>
+  
+         <p>Related links:</p>
+  
+         <ul>
+    <li>
+    <a href="#rename">How to rename</a> directories or files</li>
+    
+            <li>
+    <a href="#reorg">How to reorganize</a> a codeline or Java package</li>
+  
+         </ul>
+
+      </item>
+
+      <item id="reorg-codeline" title="How to reorganize a     codeline">
+  <p>Perforce does not offer a
+    <b>move</b> command similar to moving the CVS repository files. With care, you can edit a
+    checkpoint file. See the
+    <a href="p4-faq-admin.jhtml#reorg">P4 Admin FAQ</a>.</p>
+    
+         <p>For simple reorgs:</p>
+    
+         <ol>
+      <li>Rename the files using integ and delete
+      <p>p4 integ //dev/epub/main/... //product/Publishing/main/...
+      <br/>p4 delete //dev/epub/main/...
+      <br/>p4 submit</p>
+            </li>
+      
+            <li>Add the mapping to the end of any active branches
+      <p>//dev/epub/version/6.0.0/... //product/Publishing/main/...</p>
+            </li>
+      
+            <li>Identify the changelist for the branch
+      <p>p4 changes //dev/epub/version/6.0.0/... | tail</p>
+            </li>
+      
+            <li>Sync the branch as of the changelist and ignore the branch. 'p4 integrated' will record
+      the new location of the branched files.
+      <p>p4 opened # no open files
+      <br/>p4 integ -i -b 0_rev_600_to_main //product/Publishing/main/...@259060
+      <br/>p4 integ -i -b 0_rev_600_to_main //product/EcoVida/main/...@259060 | tail
+      <br/>p4 resolve -ay | tail
+      <br/>p4 change
+      <br/>p4 submit -c 264814 | wc</p>
+            </li>
+      
+         </ol>
+
+      </item>
+
+      <item id="reorg" title="How to reorganize a codeline or   package">
+  <p>When you reorganize a codeline or package, you are creating a new file and deleting
+  the old file. Parallel codelines may be changing the same file. Use the following procedure to
+  minimize merge conflicts.</p>
+  
+         <p>If you change a top-level name, please review all clients that may use the old name (e.g.,
+  <b>0-main-eisbock</b> for P4 Change Reports).</p>
+  
+         <p>To reorganize the mainline:</p>
+  
+         <ol>
+    <li>Synchronize parallel development branches with the mainline [
+    <a href="#async">How to merge and synchronize</a>].</li>
+    
+            <li>Use a filespec or branchspec to reorganize the mainline
+    <ul>
+      <li>
+      <a href="#rename">How to rename</a> directories or files</li>
+      
+                  <li>
+      <a href="#mvbranch">How to rename</a> with a branch spec.</li>
+    
+               </ul>
+            </li>
+    
+            <li>Synchronize parallel development branches with the mainline.</li>
+  
+         </ol>
+  
+         <p>Reorganizing a branch takes more care. You need to update the synchronization branch spec.</p>
+  
+         <ol>
+    <li>Synchronize the branch with the mainline [
+    <a href="#async">How to merge and synchronize</a>].</li>
+    
+            <li>Create a branchspec for the reorganization [
+    <a href="#mvbranch">How to rename</a> with a branch spec].</li>
+    
+            <li>Use the branchspec to reorganize the codeline.</li>
+    
+            <li>In the branchspec, replace the source codeline (e.g., 'dev/copper/') with the mainline
+    (i.e., 'main/'). Append the branchspec to the synchronization branchspec. It should map from
+    the old location in the mainline to the new location on the branch.</li>
+    
+            <li>[This step doesn't work well. It needs an enhancement to p4d.] Synchronize the branch with
+    the mainline using a baseless merge [
+    <a href="#baseless">How to merge</a> between branches (baseless)]. All of the reorganized files
+    will be in the changeset. This updates Perforce's integration database.</li>
+  
+         </ol>
+  
+         <p>To generate a merge report from a reorganized codeline, collect the list of files using the
+  old branchspec, and then integrate these files into the new branchspec. Be sure that you have
+  write access into the old branchspec. Generate future merge reports starting at the changelist
+  number of the reorg. See
+  <a href="http://bugs/p4_report.cgi#merge">Merge Report</a> for
+  detailed instructions.</p>
+  
+         <p>See also
+  <a href="p4-faq-admin.jhtml#reorgdepot">How to reorganize</a> a depot </p>
+
+      </item>
+
+      <item id="fixdel" title="How to restore deleted files">
+  <p>Perforce stores all revisions of a file. When you delete a file with 'p4 delete', it does not
+  actually delete the file.</p>
+  
+         <p>If you restore a deleted file, do
+  <i>not</i> change the file at the same time. Perforce will not propagate the change correctly
+  [see below for examples]. To be sure that your re-added file is propagated correctly, consider
+  propagating your change to active code branches [see below for instructions]</p>
+  
+         <p>To restore a deleted file with p4win [hmai]:</p>
+  
+         <ol>
+    <li>View all deleted files by selecting "Show deleted depot files" on the Edit menu.</li>
+    
+            <li>Select the file you want to restore.</li>
+    
+            <li>Right-click and select "Revision history ...".</li>
+    
+            <li>Select the revision you want to restore.</li>
+    
+            <li>Click the "sync" (or right-click and sync).</li>
+    
+            <li>Close the Revision history menu</li>
+    
+            <li>Right-click and select "Recover deleted file".</li>
+    
+            <li>Double check that the file is correct.</li>
+    
+            <li>Submit your change.</li>
+  
+         </ol>
+  
+         <p>To restore a deleted file with the command line [Perforce
+  <a href="http://www.perforce.com/perforce/technotes/note008.html">Note 008</a>]</p>
+  
+         <ol>
+    <li>
+    <b>sync</b> to the last good revision of the file.</li>
+    
+            <li>
+    <b>add</b> the file.</li>
+    
+            <li>
+      <b>submit</b>
+    
+            </li>
+  
+         </ol>
+  
+         <p>For example, if foo.c was deleted at revision 26,</p>
+  
+         <pre>
+    p4 sync foo.c#25
+    p4 add foo.c
+    p4 submit
+</pre>
+  
+         <p>Or worse, if change 300 deleted all of the files in the current directory:</p>
+  
+         <pre>
+    p4 sync ...@299
+    p4 add ...
+    p4 submit
+</pre>
+  
+         <p>Always restore the file, before making a modification. Otherwise sync merges will fail to
+  propagate your change. For example:</p>
+  
+         <pre>
+    Good sequence: -
+    file#1:  created a new file
+        Branched the file
+    file#2:  modified the file
+    file#3:  modified the file
+        Sync merge with the branch
+    file#4:  delete the file
+    file#5:  restore file#3
+    file#6:  modify the file, either a new modification or as an earlier revision such as file#2
+        Sync merge with the branchn - branch is #6, as expected
+
+    Bad sequence: 
+    file#1:  created a new file
+        Branched the file
+    file#2:  modified the file
+    file#3:  modified the file
+        Sync merge with the branch
+    file#4:  deleted the file
+    file#5:  recreate the file and at the same time, modify some lines
+        Sync merge with the branch - branch is #3 instead of #5
+
+   Another bad sequence -
+    file#1 - created a new file
+    file#2 - modified the file
+    file#3 - modified the file
+        Sync merge with the branch
+    file#4 - deleted the file
+    file#5 - restored file#2
+        Sync merge with the branch - branch is #3 instead of #5
+</pre>
+  
+         <p>Even if you restore the previous version, sync merges may fail. Perforce treats a re-added
+  file exactly like a newly added file. It ignores any previous change history. For example,</p>
+  
+         <pre>
+   Another bad sequence -
+    file#1 - created a new file
+    file#2 - modified the file
+          Branch the file
+    file#3 - modified the file
+    file#4 - deleted the file
+    file#5 - restored file#3
+        Sync merge with the branch - branch is #2 instead of #5
+</pre>
+  
+         <p>In all cases, Perforce will require the '-i' flag before it will perform the integrate. Here's
+  the explanation as best I understand it. Perforce requires the -i flag in several different
+  situations. To Perforce, all of these situations look the same.</p>
+  
+         <ol>
+    <li>If you are merging between two related branches (e.g., version/6.1.0 and version/6.2.0) and
+    there are no delete and re-adds.
+    <p>This is called a "baseless merge". You need to use 'integ -i'. This appears to work well,
+    though it includes files that haven't changed. If you use indirect merge (integ -I) [cap-i]
+    Perforce will skip unchanged files. Baseless merges work well for change propagation.</p>
+            </li>
+    
+            <li>If two files, by accident, have the same name on the main line and a branch.
+    <p>If neither file has changed, Perforce keeps the destination file. While this case is rare,
+    it should be considered whenever Perforce requires the '-i' flag. One of the files should be
+    renamed.</p>
+            </li>
+    
+            <li>If the same file is added to both the main line and a branch.
+    <p>All is OK, since the files are the same.</p>
+            </li>
+    
+            <li>If a file is deleted, re-added, but not further modified.
+    <p>Any modifications since the last sync merge will be ignored.</p>
+            </li>
+    
+            <li>If a file is deleted, re-added, and then modified
+    <p>The merge may be garbled.</p>
+            </li>
+  
+         </ol>
+  
+         <p>If you perform a sync merge and Perforce requires '-i',</p>
+  
+         <ol>
+    <li>Do not use automatic resolve or safe automatic resolve.</li>
+    
+            <li>Review the revision history for both files (p4 filelog).</li>
+    
+            <li>If there was a delete and re-add,
+    <ol>
+      <li>Try a 'p4 resolve'. If the default action is '-at (Copy Into)', it is the correct
+      action.</li>
+      
+                  <li>If not, verify that the branch either has a copy of the restored file, or has not
+      branched the file.</li>
+      
+                  <li>If the re-added file was modified at the same time, but the branch was not modified,
+      'accept theirs (Copy Into)'.</li>
+      
+                  <li>If the re-added file was modified at the same time, and the branch was modified, sync
+      merge up to the delete, sync merge the remainder, then merge the modification by hand.</li>
+      
+                  <li>If both branch and mainline changed multiple times, sync merge up to the restored
+      revision, then sync merge the remainder.</li>
+    
+               </ol>
+            </li>
+    
+            <li>See "
+    <a href="#async">How to synchronize</a> branches".</li>
+  
+         </ol>
+
+      </item>
+
+      <item id="fixold" title="How to restore old revisions">
+  <p>To restore an old revision of a file or files</p>
+  
+         <ol>
+    <li>
+    <b>sync</b> to the old revision</li>
+    
+            <li>
+    <b>edit</b> these files. Perforce will report that a resolve is needed.</li>
+    
+            <li>
+    <b>sync</b> to the head revision.</li>
+    
+            <li>
+    <b>resolve -ay</b> to accept your old revisions and ignore the depot's head revision.
+    <b>Note:</b> double check that
+    <tt>resolve -ay</tt> was not applied to other files.</li>
+    
+            <li>
+    <b>submit</b> the changes</li>
+  
+         </ol>
+  
+         <p>A similar process is used to
+  <a href="#undochange">undo a change</a>. See Perforce
+  <a href="http://www.perforce.com/perforce/technotes/note014.html">Note 014</a>. </p>
+
+      </item>
+
+      <item id="exebit" title="How to set the execute bit">
+  <ul>
+    <li>To set the execute bit on a text file, xyz.sh
+    <p>p4 edit -t kxtext xyz.sh
+    <br/>p4 submit</p>
+            </li>
+    
+            <li>To set the execute bit on a binary file, gcc
+    <p>p4 edit -t xbinary gcc
+    <br/>p4 submit</p>
+            </li>
+  
+         </ul>
+
+      </item>
+
+      <item id="unixenv" title="How to set your UNIX environment variables">
+  <p>Perforce needs to have several environment variables set to work
+properly. Here are samples for both csh style and sh style login dotfiles:</p>
+  
+         <p>for .cshrc,</p>
+  
+         <pre>
+    setenv P4PORT perforce:1666
+    setenv P4CONFIG p4config.txt
+    setenv P4USER $USER
+    setenv P4CLIENT $USER-$HOST-all
+    if (-o .p4passwd) then
+          chmod 600 .p4passwd
+          setenv P4PASSWD `cat .p4passwd`
+    endif
+</pre>
+  
+         <p>for .profile,</p>
+  
+         <pre>
+    export P4PORT=perforce:1666
+    export P4CONFIG=p4config.txt
+    export P4USER=$USER
+    export P4CLIENT=$USER-$HOST-all
+    if [ -f .p4passwd ]; then
+          chmod 600 .p4passwd
+          export P4PASSWD=`cat .p4passwd`
+    fi
+</pre>
+
+      </item>
+
+      <item id="detached" title="How to synchronize your     workspace with Perforce">
+    <p>Suppose that you have created a client workspace on your laptop, and that you want to work
+    detached from the network. Once you return to the network, you need some way to determine which
+    of your local files have been added, deleted or modified. See also
+    <a href="#listdetached">What files</a> are not checked into Perforce?</p>
+    
+         <p>To synchronize your workspace with Perforce:</p>
+    
+         <ol>
+      <li>
+      <b>p4 edit</b> modified files
+      <p>p4 diff -se | p4 -x - edit</p>
+            </li>
+      
+            <li>
+      <b>p4 add</b> new files
+      <p>Unix: find . ! -type d | p4 -x - add</p>
+      
+               <p>Windows: dir /s /b /a-d | p4 -x - add</p>
+            </li>
+      
+            <li>
+      <b>p4 delete</b> deleted files
+      <p>p4 diff -sd | p4 -x - delete</p>
+      
+               <p>Note: If you had deleted file that was opened for edit, you need to
+      <b>p4 revert</b> the file first.</p>
+            </li>
+      
+            <li>
+      <b>p4 revert -a</b> unmodified and unopened files
+      <p>p4 diff -sr | p4 -x - revert -a</p>
+            </li>
+      
+            <li>
+      <b>p4 submit</b> your changes. Review the list of submited files.
+      <p>p4 submit</p>
+            </li>
+    
+         </ol>
+
+      </item>
+
+      <item id="undochange" title="How to undo a change">
+  <p>Perforce
+  <a href="http://www.perforce.com/perforce/technotes/note014.html">Technote 014</a> describes how
+  to undo changes.</p>
+  
+         <p>
+  <strong>Note:</strong> Use this procedure to undo adds, edits, and deletes. It does not work for
+  integrates.</p>
+  
+         <p>To immediately undo a changelist (for example @2000) or to replace a file with a previous
+  revision:</p>
+  
+         <ol>
+    <li>
+    <b>sync</b> to the previous change ('sync @1999') or previous file revision ('sync
+    myfile.txt#34').</li>
+    
+            <li>
+    <b>edit</b> these files. Perforce will report that a resolve is needed.
+    <ul>
+      <li>To undo a deleted file, use
+      <b>add</b> instead of
+      <b>edit</b>.</li>
+      
+                  <li>Do not use
+      <b>edit</b> for newly added files (see below).</li>
+    
+               </ul>
+            </li>
+    
+            <li>
+    <b>lock</b> these files to prevent additional changes.</li>
+    
+            <li>
+    <b>changes</b> for these files. Make sure no one else has modified them.</li>
+    
+            <li>
+    <b>sync</b> to the head revision.</li>
+    
+            <li>
+    <b>resolve -ay</b> to accept your old revisions and ignore the depot's head revision. This is
+    not needed for added files.
+    <br/>
+    
+               <b>Note:</b> Be careful of using 'resolve -ay'. It ignores the depot revision.</li>
+    
+            <li>To undo a newly added file,
+    <b>delete</b> the file.</li>
+    
+            <li>
+    <b>submit</b> the change</li>
+  
+         </ol>
+  
+         <p>A similar process is used to
+  <a href="#fixold">recover an old revision</a>.</p>
+  
+         <p>To undo an old changelist (edits only) (for example @2000)</p>
+  
+         <ol>
+    <li>
+    <b>sync</b> to the previous changelist ('sync @1999')</li>
+    
+            <li>
+    <b>edit</b> these files. Perforce will report that a resolve is needed.
+    <ul>
+      <li>To undo a deleted file, use
+      <b>add</b> instead.</li>
+      
+                  <li>Ignore files that were added by the old changelist.</li>
+    
+               </ul>
+            </li>
+    
+            <li>
+    <b>sync</b> to the old changelist ('sync @2000')</li>
+    
+            <li>
+    <b>resolve -ay</b> to ignore the old changelist</li>
+    
+            <li>
+    <b>sync</b> to the head revision.</li>
+    
+            <li>
+    <b>resolve</b> to merge the "undo" into the head revision</li>
+    
+            <li>To undo an added file,
+    <b>delete</b> the file.</li>
+    
+            <li>
+    <b>submit</b> the change</li>
+  
+         </ol>
+  
+         <p>If you do not want to
+  <b>edit</b> each file in step (2) explicitly, you can open every file for edit (p4 edit ...),
+  sync and resolve, and then revert the unchanged files (p4 revert -a ...). </p>
+
+      </item>
+
+      <item id="undorename" title="How to undo a rename">
+  <p>Perforce uses
+  <b>p4 integrate old new</b> and
+  <b>p4 delete old</b> to rename files and directories. If you try to reverse this process,
+  Perforce reports that all changes in
+  <b>new</b> are already in
+  <b>old</b>. The problem is that
+  <b>old</b> was deleted after the integrate.</p>
+  
+         <p>To undo a rename from old to new at changelist 2000</p>
+  
+         <ol>
+    <li>
+    <b>sync old</b> the old files to the previous changelist ('sync @1999'). Your old files are
+    restored.</li>
+    
+            <li>
+    <b>add old</b> the old files.</li>
+    
+            <li>
+    <b>sync old</b> to the head revision.</li>
+    
+            <li>
+    <b>integrate new old</b> to copy any changes made to the new files after the rename.</li>
+    
+            <li>
+    <b>delete new</b> the rename location.</li>
+    
+            <li>Check the result.</li>
+    
+            <li>
+    <b>submit</b> the change</li>
+  
+         </ol>
+
+      </item>
+
+      <item id="homesite" title="How to use   Perforce with HomeSite">
+  <p>
+  <a href="http://www.allaire.com/download">Allaire's</a>HomeSite is an HTML editor that preserves
+  existing tags. It supports the SCC.DLL API.</p>
+  
+         <p>
+  <b>Note:</b> The SCC interface does not work for Perforce. Perforce will investigate.</p>
+  
+         <p>To use Perforce with HomeSite:</p>
+  
+         <ol>
+    <li>Create a HomeSite project for your Perforce web pages.</li>
+    
+            <li>Right-click on the project, select 'Source Control :: Choose Source Control Provider ::
+    Perforce SCM'.</li>
+  
+         </ol>
+
+      </item>
+
+      <item id="beyondcompare" title="How to use Perforce with   Beyond Compare">
+  <p><a href="http://www.scootersoftware.com/">BeyondCompare</a> is a complete, low-cost, file compare
+  and directory compare utility.</p>
+  
+         <p>To use Beyond Compare with Perforce</p>
+  
+         <ol>
+    <li>Download the 2.0 (Beta) version of Beyond Compare</li>
+    
+            <li>Select Diff/Merge in the Settings :: Options menu</li>
+    
+            <li>Select "User supplied diff application</li>
+    
+            <li>Enter the full path to BC2.exe</li>
+    
+            <li>Select "Allow diff of binary files"</li>
+  
+         </ol>
+
+      </item>
+
+      <item id="codewright" title="How to use Perforce with   Codewright, ColdFusion, SlickEdit, TogetherSoft, VisualAge, Visual Basic, Visual Cafe, or Zeus   Edit">
+  <p>Perforce includes SCC.DLL for integration with Visual C++, Visual Basic, VisualAge,
+  TogetherSoft and other windows editors. It appears to work with Codewright, ColdFusion,
+  SlickEdit, Visual Cafe, and Zeus Edit. These integrations are not supported by Perforce. SCC.DLL
+  does
+  <i>not</i> work with Microsoft Access, Interdev, or FrontPage.</p>
+  
+         <p>VisualCafe 3.0 reports that Perforce is not supported. Please ignore this message.</p>
+  
+         <p>See Perforce's
+  <a href="http://www.perforce.com/perforce/technotes/note034.html">Tech Note</a> for further
+  details. It includes instructions for configuring Visual Basic for Perforce. Please update this
+  FAQ with any usage notes. </p>
+
+      </item>
+
+      <item id="jbuild" title="How to use Perforce with   JBuilder">
+  <p>From the Perforce public depot: The JBuilder-Perforce Opentool Integration, David Freels,
+  curator,
+  <tt>//public/perforce/integrations/jbuilder/p4ot/</tt>. Please let Road know if you give this a
+  try.</p>
+  
+         <p>JBase has developed a
+  <a href="http://www.jbase.com/products/jbase_download.html">Perforce integration</a> with
+  JBuilder. If you get it to work, please add usage notes to this FAQ (or send e-mail to
+  bradb).</p>
+  
+         <p>[From cpatti] I grabbed the Perforce OpenTools plugin for JBuilder and it requires the
+  Enterprise edition which includes the 'Team' menu and accompanying dialogs which let you
+  construct a Perforce change list.</p>
+  
+         <p>[From rjohnson] I grabbed the JBase Perforce/JBuilder integration tool, and it also requires
+  the Enterprise edition to access the 'Team' menu and the VCS commands.</p>
+  
+         <p>[From P4 mailing list via wsargent] We do something much simpler, just adding menu options for
+  Perforce. From our team docs:</p>
+  
+         <p>Add perforce edit and add operations to Tools menu:</p>
+  
+         <blockquote>Note: When you open a file in JBuilder that is not checked out, you will see the
+  "Read Only" indicator, and you will not be able to edit the file. Then you need to perform the
+  "Perforce Edit" tool menu item created by the following steps. JBuilder will automatically turn
+  off read-only on the opened file.</blockquote>
+  
+         <p>From the "Tools" menu, select "Tool Options..."</p>
+  
+         <ol>
+    <li>Click "Add..."
+    <ul>
+      <li>For title, enter "Perforce Edit"</li>
+      
+                  <li>In program, enter "" (Where p4 is your fully qualified p4.exe)</li>
+      
+                  <li>In parameters, enter "edit ($FilePath)"</li>
+      
+                  <li>Click "OK"</li>
+    
+               </ul>
+            </li>
+    
+            <li>Click "Add..."
+    <ul>
+      <li>For title, enter "Perforce Add"</li>
+      
+                  <li>In program, enter "" (Where p4 is your fully qualified p4.exe)</li>
+      
+                  <li>In parameters, enter "add ($FilePath)"</li>
+      
+                  <li>Click "OK"</li>
+    
+               </ul>
+            </li>
+  
+         </ol>
+
+      </item>
+
+      <item id="vi" title="How to use Perforce with VI">
+  <p>To use Peforce with VI, set the P4EDITOR environment
+      variable. For example in tcsh, add the following to your .tcshrc file</p>
+      
+         <pre>
+    setenv P4EDITOR /bin/vi
+</pre>
+
+      </item>
+
+      <item id="sccdll" title="How to use Perforce with Visual   C++">
+  <p>Perforce installs
+  <tt>SCC.DLL</tt> [
+  <a href="http://www.perforce.com/perforce/technotes/note034.html">Tech Note</a>] for use with
+  Visual C++.</p>
+  
+         <blockquote>
+    <ol>
+      <li>Create a Visual C++ project and add files from your Perforce workspace.</li>
+      
+               <li>Set up Tools :: Options :: Source Control.
+      <ul>
+        <li>Select "Get files when opening" for a prompt to sync your files on startup. You may
+        want to use
+        <tt>Project::SourceControl::Get latest version</tt> instead.</li>
+        
+                     <li>Select 'Check out source files when edited'. This prompts you when you modify a file.
+        Uncheck if the Perforce server is down, otherwise scc.dll will suspend indefinitely.</li>
+        
+                     <li>Uncheck 'Prompt to add files when inserted'. This delays the loading of all new
+        files.</li>
+        
+                     <li>If you select 'Include only selected files in dialogs' it is easy to check in one file,
+        but requires an extra button click to check in more than one file. If this is selected, a
+        'Submit' without adding a description shows the Perforce submit form with all files.</li>
+        
+                     <li>Select
+        <tt>Advanced</tt> and fill in your Perforce client information.</li>
+      
+                  </ul>
+               </li>
+      
+               <li>Select a file or folder within the project.</li>
+      
+               <li>Select 'Add to source control...' from the context menu.</li>
+      
+               <li>The file(s) icon will turn grey.</li>
+      
+               <li>If you try to modify a file, it will ask to check out the file.</li>
+      
+               <li>To check in, select any file that you've modified and select
+      <tt>OK</tt> even though only one file is selected. You will then see a Perforce submit form
+      with all the modified files.</li>
+    
+            </ol>
+  
+         </blockquote>
+  
+         <p>Be careful of using scc.dll and other Perforce clients on the same file. For example, if you
+  edit a file in Visual C++ and then check it in via P4WIN, Visual C++ still thinks the file is
+  opened for edit. Recover by checking in the file (in Visual C++) or undoing the checkout.</p>
+  
+         <p>Sometimes Visual C++ reports that a file is inuse. If so, try entering a blank line into
+  Cygwin's tcsh. It may clear the problem. </p>
+
+      </item>
+
+      <item id="p4ids" title="How to use Perforce/RCS keywords ($Id/etc).">
+  <p>Perforce expands the following RCS keywords: Id, Header, Date, DateTime, Change,
+File, Revision, Author. See the Perforce command documentation on
+      <a href="cmdref/o.ftypes.html#keywords">Perforce File Types</a>.</p>
+      
+         <p>Perforce stores the keywords as unexpanded strings (e.g., $Change: 4184 $). Since
+      <tt>p4 diff2</tt> compares depot files, it ignores the RCS keywords.</p>
+      
+         <p>Please use the following conventions. They identify the source file in Perforce, the
+      revision number, and the changelist. Patching requires the changelist. Use
+      <tt>reltools/vprop.py -p4</tt> for bulk updates.
+      <b>Note</b>: there is no space between "$$".</p>
+      
+         <pre>
+
+===================================================
+internal web pages and files
+===================================================
+&lt;p&gt;@version $Id: //main/2005/road/LTS-Intranet/web/content/p4-faq.xml#3 $$Change: 4184 $
+&lt;br&gt;@updated $DateTime: 2005/10/07 17:02:03 $$Author: bbarber $
+
+===================================================
+.java -- first item in class or interface definition
+===================================================
+/**
+ * @author ...
+ * @version $Id: //main/2005/road/LTS-Intranet/web/content/p4-faq.xml#3 $$Change: 4184 $
+ * @updated $DateTime: 2005/10/07 17:02:03 $$Author: bbarber $
+ */
+
+&lt;clip&gt;
+
+//====================================
+/** Class version string */
+
+public static String CLASS_VERSION = "$Id: //main/2005/road/LTS-Intranet/web/content/p4-faq.xml#3 $$Change: 4184 $";
+
+========================
+.properties -- first line
+========================
+# @version $Id: //main/2005/road/LTS-Intranet/web/content/p4-faq.xml#3 $$Change: 4184 $
+
+==========================================
+.xml -- at end of file to allow legal XML headers
+==========================================
+&lt;!-- @version $Id: //main/2005/road/LTS-Intranet/web/content/p4-faq.xml#3 $$Change: 4184 $--&gt;
+
+</pre>
+
+      </item>
+   </section>
+        <section id="Branch" title="Branch/Merge"  order="sorted">
+<item id="abranch" title="How to branch a codeline">
+<p>Branch a codeline whenever you want to make independent changes. The branch makes a "lazy" copy of
+the codeline. Files are not actually copied until they are changed. Changes to the branch can be
+merged into the original codeline and vice versa.</p>
+  
+         <p>Use a three-level naming convention for its codelines. The first two levels identify the
+  depot and project while the third level identifies the codeline (e.g.,
+  <tt>//product/DAS/dev/STaglib10b1</tt> is the "dev/STaglib10b1" branch of "DAS"). Besides
+  branching codelines, you can branch any directory or file.</p>
+  
+         <p>Depot syntax is used for both source and destination of a branch. For example, consider
+  branching
+  <tt>//express/Fox/main</tt> to
+  <tt>//express/Fox/dev/simpson</tt>. The basic steps are</p>
+  
+         <ol>
+    <li>Select the "all" clientspec, or add the appropriate mapping to your client spec:
+    <pre>
+    //express/Fox/dev/simpson/... //myclient/Fox-simpson/...
+</pre>
+            </li>
+    
+            <li>Verify that you have
+    <a href="p4_protect.xml">write access</a> to all destination codelines.
+    <p> </p>
+            </li>
+    
+            <li>Create a branch specification. This will help with merging changes between codelines. Use
+    <b>branch</b> or select Branchspec::new from the GUI.
+    <pre>
+    //express/Fox/main/... //express/Fox/dev/simpson/...
+</pre>
+            </li>
+    
+            <li>
+    <b>integrate</b> from the source to the destination of the branch.
+    <pre>
+    p4 integrate -v -b mybranch
+</pre>
+            </li>
+    
+            <li>Check each codeline of your branch. Perforce silently ignores a codeline if you do not have
+    write permission, or if the codeline is not in your clientspec.
+    <p> </p>
+            </li>
+    
+            <li>
+    <b>submit</b> the new codeline.
+    <pre>
+    p4 submit
+</pre>
+            </li>
+  
+         </ol>
+  
+         <p>To branch a lot of files</p>
+  
+         <ol>
+    <li>Create a clientspec for the codeline or use an "all" clientspec</li>
+    
+            <li>Verify that you have
+    <a href="p4_protect.jhtml">write access</a> to all destination codelines.
+    <p> </p>
+            </li>
+    
+            <li>Make sure that you do not have other opened files.
+    <pre>
+    p4 opened
+</pre>
+            </li>
+    
+            <li>Create a branch specification using a similar branchspec as a model.
+    <pre>
+    p4 branch 0_rev_main_to_amber
+</pre>
+            </li>
+    
+            <li>
+    <b>integrate</b> from the source to the destination of the branch. Avoid copying the physical
+    files with option '-v' ('Do not copy files' in the GUI). Pipe the output for a faster response.
+    <pre>
+    p4 integrate -v -b 0_rev_main_to_amber | wc
+</pre>
+            </li>
+    
+            <li>Create a changelist and document what you have done. Mention the branch spec in your
+    changelist.
+    <pre>
+    p4 change
+</pre>
+            </li>
+    
+            <li>Check each codeline of your branch. Perforce silently ignores a codeline if you do not have
+    write permission, or if the codeline is not in your clientspec.
+    <p> </p>
+            </li>
+    
+            <li>
+    <b>submit</b> the new codeline. Pipe the output for a faster response.
+    <pre>
+    p4 submit -c nnnnn | wc
+</pre>
+            </li>
+  
+         </ol>
+  
+         <p>See following for branching a version codeline.</p>
+  
+         <p>See also Perforce Technote 004 on
+  <a href="http://www.perforce.com/perforce/technotes/note004.html">How do you branch a
+  codeline?</a>. It includes instructions on using the branch spec to merge changes.</p>
+
+      </item>
+
+      <item id="modbranch" title="How to branch and modify in   one step">
+  <p>
+  <b>Note:</b> Although you can branch and modify a file in one step [see following], it is better
+  to branch the file and modify in separate steps. This keeps the integration record clean. For
+  example, if you are renaming a Java package, use 'p4 integ', 'p4 delete', and 'p4 submit' to
+  rename the package; then edit the files to modify the package names.</p>
+  
+         <p>Sometimes you need to branch a file and modify it in one step. For example, you want to rename
+  a Java package. This is a
+  <tt>p4 integrate newname</tt> followed by a
+  <tt>p4 delete oldname</tt>. Each of the Java files also need editing to change the package
+  specifier. Jeff Bowles wrote the following:</p>
+  
+         <p>Perforce supports a sometimes-mentioned mechanism for this, which "p4 help integrate" will
+  tell you a bit about: you can run two commands back-to-back for this purpose:</p>
+  
+         <pre>
+    p4 integrate  Comedy/Simpsons/...  Classic/Simpsons/...
+    p4 add  Classic/Simpsons/...
+</pre>
+  
+         <p>Note that there's no intervening "p4 submit". This sequence downgrades the integrate to be a
+  sorta "integrate+add" mechanism, so that the files that you're putting into the new place are
+  marked writeable and you can change all the package statements prior to a "p4 submit". That way,
+  the first revision in the new name contains contents that actually make sense.</p>
+  
+         <p>And better than that, "p4 filelog -i" and "p4 changes -i" on the new codeline still work
+  because it's preserved those integration records. A lone "p4 add" (not this downgraded integrate
+  operation) wouldn't have done that.</p>
+  
+         <p>If you do this from one branch/codeline to another, which is okay, be aware that when you try
+  to push content BACK to the parent codeline later it'll try to push your modified "package" (or
+  whatever) statements back, also. So the first reverse-integrate should be done with a bit of
+  caution.</p>
+  
+         <p>For Java hackers, this is an important little detail that comes up when you're pushing files
+  around to make a new package or copying the source file for a class from one place to another.</p>
+
+      </item>
+
+      <item id="ignorechange" title="How to ignore a change   during a merge">
+  <p>Integrate the change. When you resolve the change, use "accept yours". The
+  change history will report that you "ignored" the change.</p>
+  
+         <p>
+  <b>Note:</b> Do
+  <i>not</i> use "accept theirs". It will throw out the current revision of the file, and replace
+  it with your changed revision.</p>
+  
+         <p>To undo an ignored change, use 'p4 integ -f'. It will perform the integration despite the
+  previously existing integration record.</p>
+
+      </item>
+
+      <item id="amerge" title="How to merge">
+  <p>
+  <b>Note:</b>
+  
+            <i>Try to find someone to teach you merging. It will help you avoid mistakes.</i> Be careful of
+  Perforce's use of "yours" and "theirs". It is confusing. Instead of "yours" and "theirs", think
+  of "destination" and "source". Think of yourself standing on the destination files and pulling
+  the change from the source. If you "accept theirs" you are
+  <i>accepting</i> the change. If you "accept yours" you are
+  <i>ignoring</i> the change.</p>
+  
+         <p>Perforce keeps track of every change and every merge. For example, it can record that file X
+  branched from the fourth revision of file Y and contains the seventh through tenth revision of
+  file Y,</p>
+  
+         <p>It is easiest to merge using the Windows GUI. You can either use a file specification for
+  merging a directory, or a branch specification for merging multiple directories. For all merges,
+  the procedure is</p>
+  
+         <ol>
+    <li>
+    <b>sync</b> the destination files (aka "target files").</li>
+    
+            <li>
+    <b>integrate</b> from the source to the destination. This copies new changes from the source to
+    the destination. You can select specific changes.</li>
+    
+            <li>
+    <b>resolve</b> differences between source and destination. Use 'safe auto-resolve' to resolve
+    files changed only in the source or destination. Use 'auto-resolve' to resolve non-conflicting
+    changes. Use the GUI's interactive resolve to resolve the remaining changes.</li>
+    
+            <li>
+    <b>submit</b> the modified destination files.</li>
+  
+         </ol>
+  
+         <p>To propagate an individual change, see
+  <a href="#propagate">How to propagate a change</a>.</p>
+  
+         <p>To merge with the Windows GUI</p>
+  
+         <ol>
+    <li>Use a branchspec to merge multiple directories. Have someone set this up for you if needed.
+    Then right-click on the branchspec and select "Integrate using ...".</li>
+    
+            <li>To merge a single directory, right-click on the source directory and select "Integrate...
+    using FileSpec..."</li>
+    
+            <li>Select "sync target files first".</li>
+    
+            <li>Specify the target FileSpec. It specifies the destination files for the merge.</li>
+    
+            <li>In Options, select "Permit deletes/re-adds" to delete or add files.</li>
+    
+            <li>In Options, select "Enable baseless merges" if merging between unrelated branches [see
+    below for more information].</li>
+    
+            <li>In Options/Source Revision Range, enter "Other: @NNN" to start or end with a specific
+    changelist.</li>
+    
+            <li>Select OK and review for error messages.</li>
+    
+            <li>Go to the default change list, and look for unresolved icons.</li>
+    
+            <li>Skip the following five steps ("Resolve/Auto-resolve") if you do not have many files to
+    resolve.</li>
+    
+            <li>Right click an unresolved merge and select 'Resolve/Auto-resolve'.</li>
+    
+            <li>Select "Resolve all files"</li>
+    
+            <li>Select "Safe autoresolve"</li>
+    
+            <li>Select Preview and review the files for auto-resolve. Use 'Resolve/Interactively' if there
+    are any questions. For example, you may have merged another persons changes by accident.</li>
+    
+            <li>If everything looks good, select OK. Perforce will perform the one-way merges.</li>
+    
+            <li>Right click an unresolved merge and select 'Resolve/Interactive'.</li>
+    
+            <li>Select "Use interactive merge" [?]</li>
+    
+            <li>Review each change. Conflicting changes are colored red. Right-click on the block you want,
+    and select "use this block".</li>
+    
+            <li>Close the merge window. Type 'Enter' to save your changes.</li>
+    
+            <li>Select "Accept merged file" [?]</li>
+    
+            <li>When all done, right-click the default change list, and select Submit.</li>
+  
+         </ol>
+  
+         <p>Perforce doesn't keep track of how something was merged. For example, when you merge change
+  3544 from Y to X, you can tell Perforce to ignore the change for this file ("accept yours" in
+  Perforce-speak). Perforce records that you merged @3544 from Y to X, but not that you ignored the
+  change. [FIXUP: it does record some things]</p>
+  
+         <p>Perforce performs 3-way merges. For example if you branch Y from X at X#34 and make three
+  changes to Y and 10 changes to X, Y is at Y#4 and X is at X#44. If you merge Y back into X, The
+  source (aka. "theirs") is Y#4, the base is X#34 (i.e., Y#1), and the destination (aka. "yours")
+  is X#44. This will produce a new revision of X (X#45).</p> 
+
+      </item>
+
+      <item id="async" title="How to merge and synchronize   branches (command line)">
+  <p>Many files may be involved when a merge is used to synchronize one
+  branch with another (e.g., synchronize dev/copper with main). If so, the command line is easier
+  and faster than the GUI</p>
+  
+         <ol>
+    <li>Select a client that directly maps the destination (e.g., an 'all' client). Do
+    <i>not</i> use the devtools client; it is too complicated. Check that the destination client
+    and branch spec map the same set of files.
+    <p>p4 client -o
+    <br/>p4 branch -o 0_rev_main_to_copper</p>
+            </li>
+    
+            <li>Optionally review the merge with a
+    <a href="http://bugs/p4_report.cgi">Merge Report</a> of unintegrated
+    changes from souce to destination.
+    <p> </p>
+            </li>
+    
+            <li>If you are retiring the source branch, check if anyone has opened files. Ask these users to
+    submit their changes.
+    <p>p4 opened -a ... | sed -e 's/.* by //' -e 's/@.*//' | sort -u</p>
+            </li>
+    
+            <li>Check that you do not have opened files. If you do, move them to a separate changelist or
+    revert them.
+    <p>p4 opened</p>
+            </li>
+    
+            <li>
+    <b>Verify</b> that you do not have opened files. If you have opened files, your changelist will
+    consist of new and old files.  A mess! [bbarber @262003]
+    <p>
+      <b>p4 opened</b>
+    
+               </p>
+            </li>
+    
+            <li>Integrate source into destination. files. Include the '-t' option if file types should be
+    propagated from source to destination.
+    <p>p4 integ -b 0_rev_main_to_copper | wc</p>
+            </li>
+    
+            <li>Check for errors, baseless merges, added files, and deleted files that were independently
+    changed.
+    <p>p4 integ -b 0_rev_main_to_copper | tee integ.txt</p>
+    
+               <p>If the '-i' or '-d' flag is required for a sync merge, merge each file individually.</p>
+    
+               <ul>
+      <li>Review the file log for the source and destination file.</li>
+      
+                  <li>Notify the recent owners if you do not understand what is happening. Let them merge this
+      file. Do
+      <i>not</i> merge the file and ask the developer to review the change.</li>
+      
+                  <li>For example, newly added files need the '-i' option.</li>
+      
+                  <li>Be careful. For example, if a developer deleted and re-added a file, Perforce treats the
+      newly added file, exactly like a new file. It ignores any previous change history. If the
+      default resolve action is 'ignore from (-ay)', you may need to override the selection. See "
+      <a href="#fixdel">How to restore</a> deleted files".</li>
+      
+                  <li>For example, if you have reorganized the destination and updated the branch, the old
+      source files need to be reintegrated with the '-i' option.</li>
+      
+                  <li>Be careful. For example, if a file was deleted prior to the branch and then recreated,
+      'p4 integ -d' will delete the file again.</li>
+      
+                  <li>For example, if every file was touched on the destination branch, then deletes will not
+      be integrated.</li>
+      
+                  <li>See the command documentation for
+      <a href="cmdref/integrate.html">p4 integ</a>. It is too brief, but better than nothing at
+      all.</li>
+    
+               </ul>
+    
+               <p> </p>
+            </li>
+    
+            <li>Automatically merge most files. Do
+    <i>not</i> automatically merge '-i' and '-d' files (see previous step).
+    <p>p4 resolve -am | wc</p>
+            </li>
+    
+            <li>Automatically resolve binary files that either didn't change or changed on only one brach.
+    Use safe automatic merge (-as) on the binary files (-t)
+    <p>p4 resolve -t -as</p>
+    
+               <p>The remaining binary files changed on both source and destination. You will need to resolve
+    the conflicts by hand [see following].</p>
+            </li>
+    
+            <li>What else needs to be resolved?
+    <p>p4 resolve -n</p>
+            </li>
+    
+            <li>Resolve conflicts or files that contain binary data. 'Skip' if you want someoneelse to
+    resolve the conflicts.
+    <p>p4 resolve</p>
+            </li>
+    
+            <li>Are you merging back into the mainline from a branch? If so, edits due to old conflicts may
+    still conflict on the mainline. List the files and check that all revisions on the mainline
+    were merged into the branch.
+    <p>If all changes on the mainline were integrated into the branch, you can safely move the
+    files from the branch to the mainline [p4 resolve -at]</p>
+            </li>
+    
+            <li>List the last changelist for the remaining conflicts. Each line of 'resolve -n' matches the
+    same line of 'changes -m1'
+    <p>p4 resolve -n
+    <br/>p4 resolve -n | sed 's/ - .*/#have/' | p4 -x - changes -m1</p>
+            </li>
+    
+            <li>Review the differences. Revert any suspicious files and notify the developers.
+    <p>p4 diff | tee diff.txt</p>
+            </li>
+    
+            <li>Notify the developers. For example,
+    <p> </p>
+    
+               <pre>
+You have a conflict during the main to copper merge.
+
+In a dev/copper directory, please run
+
+p4 integ -b  0_rev_main_to_copper -s //main/2005/product/...
+p4 resolve.
+[Fix any problems]
+p4 submit
+
+Thanks for your help.
+</pre>
+            </li>
+    
+            <li>Undo any skipped merges that you do not want to attempt now. You can retry later.
+    <p>p4 resolve -n | tee resolve.txt | sed 's/ - .*//' | p4 -x - revert</p>
+            </li>
+    
+            <li>Create a change list. Start the Description with "Sync ..."
+    <p>p4 change</p>
+            </li>
+    
+            <li>Submit your changes
+    <p>p4 submit -c nnnn | wc</p>
+            </li>
+    
+            <li>If you used '-d', review the deleted files. The only changes should be synchronizations and
+    merges. See
+    <a href="#delfiles">What files were mistakenly deleted?</a>
+            </li>
+  
+         </ol>
+
+      </item>
+
+      <item id="baseless" title="How to merge between branches   (baseless)">
+  <p>If Perforce does not find a common ancestor, you can force a "baseless" merge. It will use the
+  first revision of the first file as the base.</p>
+  
+         <p>A baseless merge occurs when the source was not branched from the destination (or vice versa).
+  Even if both branches came from main, the later branch does not record that it already has rev #1
+  of the former.</p>
+  
+         <p>Baseless merges are OK for small changes. For large branches, a baseless merge will touch
+  every file. If the branch will be merged into main, then all concurrent branches will also be
+  touched.</p>
+  
+         <p>
+  <b>Note:</b> If possible, please revert unchanged files before finishing the baseless merge.
+  Otherwise, every file is touched. If you don't do this, then further sync's with the mainline,
+  must use 'integ -d' to carry over deleted files due to a rename.</p>
+  
+         <p>For further help with baseless merges see</p>
+  
+         <ul>
+    <li>
+    <a href="http://www.perforce.com/perforce/technotes/note009.html">Technote 009</a> How to
+    merge changes that are not branched.</li>
+  
+         </ul>
+  
+         <p>If there are not many files:</p>
+  
+         <ol>
+    <li>p4 integ -i -b 0_rev_after56_to_amber</li>
+    
+            <li>p4 resolve</li>
+    
+            <li>verify the result</li>
+    
+            <li>p4 submit</li>
+  
+         </ol>
+  
+         <p>If there are many files, the process is similar to syncing branches.</p>
+  
+         <ol>
+    <li>Check the source for clients with opened files. There should be no opened files if you are
+    retiring the source branch.
+    <p>p4 opened -a ... | sed -e 's/.* by //' -e 's/@.*//' | sort -u</p>
+            </li>
+    
+            <li>Sync the destination files (aka "target files").
+    <p>p4 sync | wc</p>
+            </li>
+    
+            <li>Synchronize the target with the mainline. See
+    <a href="#async">How to merge and synchronize</a> for instructions. This will prevent conflicts
+    for later synchronizations.
+    <p> </p>
+            </li>
+    
+            <li>Integrate source into destination. Use the '-i' flag for the baseless merge.
+    <p>p4 integ -i -b 0_rev_main_to_bock | wc
+    <br/>p4 integ -i -b 0_rev_main_to_bock</p>
+            </li>
+    
+            <li>If Perforce does not integrate deleted or added files, consider using option '-d'. For
+    example, if every file was touched on the destination branch, then deletes will not be
+    integrated. Be careful. For example, if a file was deleted prior to the branch and then
+    recreated, 'p4 integ -d' will delete the file again. See the command documentation for
+    <a href="cmdref/integrate.html">p4 integ</a>.</li>
+    
+            <li>Automatically merge most files. This will take a while since Perforce will merge every
+    file, even though the file did not change.
+    <p>p4 resolve -am | wc</p>
+            </li>
+    
+            <li>List the binary files. Binary files are not automatically merged.
+    <p>p4 opened | grep 'binary)' | sed 's/#.*//'</p>
+            </li>
+    
+            <li>To resolve binary files that either didn't change or changed on one brach, use safe
+    automatic merge (-as) on the binary files (-t)
+    <p>p4 resolve -t -as</p>
+    
+               <p>The remaining binary files changed on both source and destination. You will need to resolve
+    the conflict by hand.</p>
+            </li>
+    
+            <li>What else needs to be resolved?
+    <p>p4 resolve -n</p>
+            </li>
+    
+            <li>Resolve conflicts or files that contain binary data
+    <p>p4 resolve</p>
+            </li>
+    
+            <li>Revert any skipped merges that you do not want to attempt now. You can retry later (it will
+    go much faster).
+    <p>p4 resolve -n | sed 's/ - .*//' | p4 -x - revert</p>
+            </li>
+    
+            <li>Revert unmodified files. This should dramatically reduce the changeset. See the previous
+    note. Please avoid repeated merges with unrelated branches.
+    <p>p4 diff -sr | p4 -x - revert</p>
+            </li>
+    
+            <li>Create a change list
+    <p>p4 change</p>
+            </li>
+    
+            <li>Submit your changes
+    <p>p4 submit -c nnnn | wc</p>
+            </li>
+  
+         </ol>
+
+      </item>
+
+      <item id="propagate" title="How to propagate a     change">
+    <p>To propagate a change between branches and the mainline (Perforce GUI):</p>
+    
+         <ol>
+      <li>Install 2002.1 - You need a 2002.1 client</li>
+      
+            <li>Check that your client maps the destination branch and that you have write access. You
+      may use an 'all' client that maps all depots.</li>
+      
+            <li>Locate your change in the Changes window.</li>
+      
+            <li>Right-click on the change and select "Integrate ... using branchspec".</li>
+      
+            <li>Select the branchspec (e.g., 0_rev_main_to_600beta2).</li>
+      
+            <li>Delete the list of source files [This is a UI bug].</li>
+      
+            <li>Select "Preview" and check the Status window.
+      <ul>
+        <li>"no target file(s) in both client and branch view" - either your client does not map
+        the destination or you do not have write permission. For the copper beta branch, you need
+        to be in
+        <a href="protections/group/copper-beta.txt">copper-beta.txt</a>.</li>
+        
+                  <li>need write permission - You do not have write permission for the destination of the
+        branch. [Note: If you selected "From Selected Files", Perforce incorrectly reports that the
+        source lacks write permission.]</li>
+      
+               </ul>
+            </li>
+      
+            <li>Select "Finish".</li>
+      
+            <li>Locate your changelist in Pending ChangeLists.</li>
+      
+            <li>Resolve the integrated files. See
+      <a href="#amerge">How to merge</a> steps 9 and following.</li>
+    
+         </ol>
+    
+         <p>To propagate a change between branches and the mainline (p4 command line):</p>
+    
+         <ol>
+      <li>Check that your client maps the destination branch and that you have write access. You
+      may use an 'all' client that maps all depots.
+      <p> </p>
+            </li>
+      
+            <li>Sync the destination files. [This step is not needed after the upgrade to 2002.1]</li>
+      
+            <li>Integrate the change by listing the change number twice.
+      <p>p4 integ -b 0_rev_511_to_main @23456,@23456</p>
+            </li>
+      
+            <li>If perforce reports "no target file(s) in both client and branch view", either your
+      client does not map the destination or you do not have write permission.
+      <p>For the Copper beta branch, check 'p4 groups userid'. Only 'copper-beta' users can check
+      in code.</p>
+      
+               <p> </p>
+            </li>
+      
+            <li>Resolve the merge
+      <p>p4 resolve</p>
+            </li>
+      
+            <li>Review the results
+      <p>p4 diff</p>
+            </li>
+      
+            <li>Submit the results
+      <p>p4 submit</p>
+            </li>
+    
+         </ol>
+    
+         <p>To propagate all changes to a directory, follow the instructions on
+    <a href="#amerge">How to Merge</a>. For example, to propagate changes from
+    //version/Rev_6.00/... to main:</p>
+    
+         <ol>
+      <li>Check that there are no opened files
+      <p>p4 opened</p>
+            </li>
+      
+            <li>Integrate the changes for this directory
+      <p>p4 integ -b 0_rev_600_to_main //version/Rev_6.00/...</p>
+            </li>
+      
+            <li>Resolve and merge the files
+      <p>p4 resolve</p>
+            </li>
+      
+            <li>Review and submit your change
+      <p>p4 submit</p>
+            </li>
+    
+         </ol>
+
+      </item>
+
+      <item id="resolvedetails" title="How to resolve a merge       (details)">
+  <p>Perforce's 'resolve' command performs a 3-way merge. It identifies differences
+      between the base version and the source and destination versions. For example, the following
+      resolve reports 18 differences in the destination (aka "yours") and 1 difference in the
+      source (aka "theirs").</p>
+      
+         <blockquote>Diff chunks: 18 yours + 1 theirs + 0 both + 0 conflicting</blockquote>
+      
+         <p>The best way to see/list all the diff chunks is to view them in Perforce's interactive
+      merge (p4WinMrg). This "guy" uses the same algorithm. The diff logic used (hard-coded) by
+      Perforce is very close to the GNU Diff algorithm. [A. Markin]</p>
+      
+         <p>See also</p>
+      
+         <ul>
+        <li>
+        <a href="http://www.perforce.com/perforce/technotes/note057.html">How to merge</a>
+        (details) [Perforce]</li>
+        
+            <li>
+          <a href="p4guide/09_branching.html#1040554">How integrate works</a>
+        
+            </li>
+        
+            <li>
+          <a href="cmdref/resolve.html">Resolve command</a>
+        
+            </li>
+        
+            <li>
+          <a href="p4guide/05_conflicts.html#1041981">Resolve conflicts</a>
+        
+            </li>
+        
+            <li>
+          <a href="p4guide/09_branching.html">Branching</a>
+        
+            </li>
+      
+         </ul>
+
+      </item>
+   </section>
+        <section id="Queries" title="Queries"  order="sorted">
+<item id="findbuild" title="How to find files for   a build">
+  <p>How do I determine the specific revision of a file associated with a particular
+  build?</p>
+  
+         <p>To see all files changed for a particular build</p>
+  
+         <pre>
+1) Locate the build number.
+2) Goto the change report page
+    Road &gt; Builds &gt; Change Report
+    http://bugs/p4_report.cgi
+3) Select the client that matches your build
+4) Select 'copper-prev' for the From target
+5) Select 'copper-nnnn' for the To target
+
+To query Perforce about particular files
+1) Locate the change list for a particular build
+      a) From the previous report (the second number)
+      b) From the build log
+      c) from DAS/META-INF/MANIFEST.MF
+2) Use 'p4 files' within the corresponding client, e.g., all sql files
+      a) p4 files //....sql@nnnnnnn
+      b) p4win&gt;Edit&gt;Find file matching pattern
+        //....sql@nnnnnnn
+</pre>
+
+      </item>
+
+      <item id="listchanges" title="How to list changes">
+  <p>Use 'changes -l' to print a log of changes to a
+  file. Use '...' to report changes for a directory. Use '-u userid' to list changes by a user. For
+  other options, see
+  <a href="cmdref/changes.html">p4 help changes</a>. See also
+  <a href="http://bugs/p4_report.cgi">Change Reports</a>.</p>
+  
+         <p>For example, to list the changes for qa.txt,</p>
+  
+         <pre>
+&gt; p4 changes -l qa.txt
+Change 243895 on 2002/06/17 by aking@aking-mr-fantastic-all
+
+        add shartemi to qa
+
+Change 243421 on 2002/06/12 by bbarber@bbarber-nt-all
+
+        Change MaxScanRows to 500,000.  AppDAP no longer fits in 400,000 [cshi]
+
+Change 242975 on 2002/06/10 by bbarber@bbarber-nt-all
+
+        Move groups to source control
+</pre>
+
+      </item>
+
+      <item id="listfixes" title="How to list changes without fixes">
+  <p>We use a Perforce presubmit trigger, //road/Perforce/main/triggers/require-jobs.pl, to
+require BUGS-FIXED: for version codelines.</p>
+  
+         <p>To identify which bugs do not have an associated fix</p>
+  
+         <ol>
+    <li>List the changes for a codeline
+    <p>p4 changes ...@264821,#head | sed 's/^Change/bugnnnnnn fixed by change/' &gt;
+    changes.txt</p>
+            </li>
+    
+            <li>List the fixes for a codeline
+    <p>p4 fixes ...@264821,#head | sed 's/ on .*//' &gt; fixes.txt</p>
+            </li>
+    
+            <li>Sort by changelist. It is easy to identify changes without fixes
+    <p>cat fixes.txt changes.txt | sort +3 &gt; needs-fix.txt</p>
+            </li>
+    
+            <li>Alternatively, write a script or perl program to test each change individually.</li>
+  
+         </ol>
+
+      </item>
+
+      <item id="listmod" title="How to list modified files,   e.g., in a patch">
+  <p>How do you list files that were modified in 6.0.0 patch 2 [sharemink]?</p>
+  
+         <p>Within a 6.0.0 client, e.g., 0_rev600, execute p4 files '...@&gt;n,@m' where n is the
+  changelist of patch 1, and m is the changelist for patch 2. For changelist numbers, see the
+  <a href="depotdocs/fixin-codeline.jhtml">Codeline Table</a>.</p>
+  
+         <p>Alternatively, use</p>
+  
+         <pre>
+    p4win &gt; Edit &gt; Find files matching pattern
+and enter
+    //0-rev600/...@n,@m
+</pre>
+  
+         <p>For a structured report, use the P4 Change Reports. For examples, see the "bug-changes" link
+  for
+  <a href="http://bugs/p4_report.cgi#reports">pre-computed change
+  reports</a>.</p> 
+
+      </item>
+
+      <item id="mychange" title="What changelist am I sync'd to?">
+  <p>Use
+  <blockquote>p4 changes -m1 #have
+  <br/>or
+  <br/>p4 changes -m1 #
+  <i>clientname</i>
+            </blockquote>
+         </p>
+
+      </item>
+
+      <item id="datechange" title="What changelist corresponds to a date?">
+  <p>Perforce does not provide a command to convert
+  a date to the corresponding changelist number. You can determine the changelist by one of the
+  following methods:</p>
+  
+         <ul>
+    <li>Search the list of recent changes
+    <p>p4 changes -m 10000 | grep 2002/12/09:19</p>
+            </li>
+    
+            <li>Select a focused client that maps the changes that interest you.
+    <p>p4 changes -m 1 ...@2002/12/09:19:00:00</p>
+            </li>
+    
+            <li>To avoid maxresults for large clients, add a lower-bound changelist
+    number, say @263000
+    <p>p4 changes -m 1 '...@&gt;263000,@2002/12/09:19:00:00'</p>
+            </li>
+    
+            <li>Use the date instead of a changelist. For Perforce and our Change Reports, a date works the
+    same as a changelist.</li>
+  
+         </ul>
+
+      </item>
+
+      <item id="userchange" title="What changes did arista make?">
+  <ul>
+    <li>What changes did arista make to C/projects?
+    <p>p4 changes -u arista //dev/misc-native/main/C/projects/...</p>
+            </li>
+    
+            <li>What did he change recently?
+    <p>p4 changes -m 150 -u arista | sed 's/ by [^ ]*//' </p>
+            </li>
+    
+         </ul>
+
+      </item>
+
+      <item id="changes" title="What changes occured between A and B?">
+    <p>Visit
+    <a href="http://bugs/p4_report.cgi">Change Reports</a>.</p>
+    
+         <p>Perforce provides many ways for refering to file revisions. To view the options for
+    specifing files, changelists, dates, etc.</p>
+    
+         <blockquote>Perforce :: Perforce cmds :: Help
+    <br/>
+    
+            <a href="cmdref/o.fspecs.html">File Syntax</a>
+         </blockquote>
+    
+         <p>Changes may be made to a file indirectly via a integration (aka merge). Unfortunately, The
+    'p4 changes' and 'p4 filelog' commands reports these changes with the '-i' option.
+    Unfortunately, they do not work for revision ranges [Perforce reports the entire integration
+    history]. To circumvent this limitation</p>
+    
+         <ul>
+      <li>Generate a list of all changes upto points A and B, and then take the difference (in
+      Unix, 'diff'). See Perforce's
+      <a href="http://www.perforce.com/perforce/technotes/note063.html">Tech Note 27</a> for
+      details.</li>
+      
+            <li>Run 'p4 changes' on each integrated codeline. Since all changes are typically integrated,
+      the combined list will give the desired information.</li>
+      
+            <li>
+      <b>Note:</b> Perforce does not distinguish between changes that are merged into a codeline
+      and changes that are skipped via "accept yours".</li>
+    
+         </ul>
+    
+         <p>In the GUI, use drag-and-drop to list the changes to a directory (Drag the directory to the
+    changelist window).</p>
+    
+         <p>Use the command line for detailed change information.</p>
+    
+         <ul>
+      <li>To list all files that changed from 2005/10/1 up to now (includes integrations):
+      <p>p4 files //main/2005/...@2005/10/01,@now</p>
+      
+               <p> </p>
+            </li>
+      
+            <li>To list all changes up to label rev56_final (w/ integrated changes)
+      <p>cd &lt;a subdirectory&gt;   # otherwise you may hit MAXRESULTS
+      <br/>p4 changes -i ...@rev56_final,@now</p>
+      
+               <p> </p>
+            </li>
+      
+            <li>To list changes from rev56_final up to now (w/o integrated changes)
+      <p>cd &amp;lt:a subdirectory&gt; # otherwise you may hit MAXRESULTS
+      <br/>p4 changes ...@rev56_final,@now</p>
+      
+               <p> </p>
+            </li>
+      
+            <li>To list file revisions and branch history
+      <p>p4 filelog -i ...</p>
+      
+               <p> </p>
+            </li>
+      
+            <li>To list the last 40 changes to files in //product/DAS/main/...
+      <p>p4 -zmaxResults=200000 changes -i -m 40 //product/DAS/main/...</p>
+      
+               <p> </p>
+            </li>
+      
+            <li>To list changes on a client sorted by owner
+      <p>p4 changes ... | sort +5</p>
+            </li>
+    
+         </ul>
+
+      </item>
+
+      <item id="greplabel" title="What files are in a label, rev561_final?">
+    <p>Use 'p4 files //.../adapter/gsa/...@rev561_final' to show all the adapter/gsa files
+    in the 'rev561_final' label.</p>
+    
+         <p>Use 'p4 label -o rev51_final' to determine the codelines mentioned in the label.</p>
+    
+         <p>See also</p>
+    
+         <ul>
+      <li>
+      <a href="#findfiles">How to find</a> files</li>
+    
+         </ul>
+
+      </item>
+
+      <item id="listdetached" title="What files are not     checked into Perforce?">
+    <p>Use the following queries after you work independently of Perforce. See also
+    <a href="#detached">How to synchronize</a> your workspace with Perforce.</p>
+    
+         <p> </p>
+    
+         <ul>
+      <li>To list files that are not checked in (assumes GNU find for * and bash for stderr
+      redirect)
+      <p>find * ! -type d | p4 -x - files 2&gt;&amp;1 | sed -n '/no such file/s/- no such
+      file.*//p'</p>
+            </li>
+      
+            <li>To list opened files that differ from the depot
+      <p>
+        <tt>p4 diff -sa</tt>
+      
+               </p>
+            </li>
+      
+            <li>To list opened files that are the same as the depot
+      <p>
+        <tt>p4 diff -sr</tt>
+      
+               </p>
+            </li>
+      
+            <li>To list unopened files that differ from the depot
+      <p>
+        <tt>p4 diff -se</tt>
+      
+               </p>
+            </li>
+      
+            <li>To list unopened files that you deleted or did not sync
+      <p>
+        <tt>p4 diff -sd</tt>
+      
+               </p>
+            </li>
+    
+         </ul>
+
+      </item>
+
+      <item id="changedfiles" title="What files have I     changed?">
+  <p>To view the difference between your files and the depot</p>
+    
+         <pre>
+    p4 diff ...
+</pre>
+    
+         <p>To list opened and unopened files that differ from the depot</p>
+    
+         <pre>
+    p4 diff -sa ...
+    p4 diff -se ...
+</pre>
+    
+         <p>To list the last 40 changes to your files.</p>
+    
+         <pre>
+   p4 changes -m 40 ...
+</pre>
+
+      </item>
+
+      <item id="modfiles" title="What files were changed?">
+    <ul>
+      <li>To list all files that changed from 20001/10/1 up to now (includes integrations):
+      <p>p4 files //product/DAS/main/...@20001/10/01,@now</p>
+            </li>
+      
+            <li>To list all files that changed (including additions and deletions)
+      <p>p4 files //product/DAS/main/...@20001/10/01 &gt;files.1
+      <br/>p4 files //product/DAS/main/... &gt;files.2
+      <br/>diff files.1 files.2</p>
+      
+               <p> </p>
+            </li>
+      
+            <li>To list differences between two codelines
+      <p>p4 diff2 //product/DAS/main/Java/... //product/DAS/version/5.5/Java/...</p>
+      
+               <p> </p>
+            </li>
+      
+            <li>To list files that changed or were added to a branch
+      <p>p4 diff2 -q -b 0_rev_main_to_after56 &gt;after56.txt
+      <br/>egrep -v '&lt; ?none ?&gt;' after56.txt | awk '{ print $5 }' &gt;modified.txt
+      <br/>grep '&lt; none &gt;' after56.txt | awk '{ print $6 }' &gt;newfiles.txt</p>
+            </li>
+    
+         </ul>
+
+      </item>
+
+      <item id="delfiles" title="What files were mistakenly     deleted?">
+  <p>During a
+    <a href="#async">sync merge</a>, the 'p4 integ -d' command may delete files that should not be
+    deleted. To list the candidates,</p>
+    
+         <ol>
+      <li>List the files deleted by a sync or merge request.
+      <p>p4 files ... | grep " delete " | sed 's/#.*//' | p4 -x - changes | egrep -i
+      '(refresh|sync|merge)' | sort -u &gt; sync.txt</p>
+            </li>
+      
+            <li>Delete any changes that are not synchronization merges from sync.txt
+      <p> </p>
+            </li>
+      
+            <li>List all files deleted by the these changes
+      <p>cat sync.txt | sed 's/Change //' | sed 's/ on .*//' | p4 -x - describe -s | grep " delete"
+      | sort -u | grep "\.\.\." | sed 's/\.\.\. //' | sed 's/#.*//' &gt; sync-del.txt</p>
+            </li>
+      
+            <li>List all other changes for these files.
+      <p>cat sync-del.txt | grep -v ChangeLog | p4 -x - changes | sort -u | egrep -v -i
+      '(merge|sync|refresh)' &gt; sync-del-changes.txt</p>
+            </li>
+      
+            <li>List the deleted files from these changes
+      <p>cat sync-del-changes.txt | sed 's/Change //' | sed 's/ on .*//' | p4 -x - describe -s |
+      sort -u | grep '\.\.\.' | sed 's/\.\.\. //' | sed 's/#.*//' | p4 -x - files | grep
+      delete</p>
+            </li>
+    
+         </ol>
+
+      </item>
+   </section>
+        <section id="Errors" title="Errors"  order="sorted">
+<item id="mustrefer" title="'... - must refer to client   '...'">
+  <p>The filename was misspelled in a 'p4 print' command. [Perforce was notified about this
+  cryptic error message].</p>
+
+      </item>
+
+      <item id="cantbranch" title="'can't branch from ... Please   use the 'Permit delete/re-adds' option.'">
+  The 'p4 integ' commands reports an error if a
+  branch or merge may produce unexpected results. To override this error, add the
+  <b>integ -d</b> flag. From the help documentation for
+  <a href="cmdref/integrate.html">p4 integ</a>,
+  <blockquote>By default, a non-existent toFile is only opened for branch or add if fromFile
+  conforms to the condition that its revRange starts with a branch or add. (When revRange is not
+  given, this condition is always met, because the implied revRange is #1 to #head.) The -d flag
+  allows a non-existent toFile to be opened for branch or add even if the first revision of
+  fromFile in revRange is an edit or an integrate.
+  <p>An existing toFile is only opened for delete if it conforms to the condition that all of its
+  revisions are already accounted for in previous integrations to or from fromFile. In other words,
+  toFile is only opened for delete if all of its changes either came from fromFile or have been
+  merged into fromFile. The -d flag allows an existing toFile to be opened for delete even if it
+  doesn't conform to these conditions.</p>
+         </blockquote>
+
+      </item>
+
+      <item id="filesopened" title="'Client 'xyz' has files opened; use -f to force delete.'">
+  <p>You can not delete a client that has opened files. Unless you have superuser permission, you
+  can not use '-f' to override.</p>
+  
+         <p>Use 'p4 opened //...' to view the opened files</p>
+  
+         <p>Use 'p4 revert -s //...' to revert unchanged files.</p>
+  
+         <p>Use 'p4 revert //...' to throw away changes to the opened files.</p>
+
+      </item>
+
+      <item id="twisted" title="'Client map too twisted for directory list'">
+  <p>From
+  Michael Shields of Perforce:</p>
+  
+         <pre>
+
+The error:
+
+  Client map too twisted for directory list.
+
+is the result of a client view that can be interpreted in (at least) two
+different distinct ways. For example, consider the client view:
+
+        //depot/... //client/...
+        //depot/axxx/... //client/a/xxx/...
+
+Now suppose the command "p4 dirs //client/*" is executed. If the only file that
+exists in the depot is "//depot/axxx/file", what is the correct result?
+According to the first line, the correct result is:
+
+        //depot/axxx
+
+But according to the second line, the correct result is:
+
+        //client/* - no such file(s).
+</pre>
+
+      </item>
+
+      <item id="noclient" title="'Client xyz had not been   defined'">
+  When P4win starts the first time, it does not have a client. Go to ClientSpec::New
+  to create a client.
+  <p>You may view the depot without a client. Go to Settings::Options... and change P4Port to
+  'perforce:1666'. Then go to View and set 'Entire depot'. </p>
+
+      </item>
+
+      <item id="notview" title="'file(s) not in client view'">
+<p>The requested file does not exist in your clientview.
+  <ul>
+    <li>Check Perforce's client mapping for the current directory
+    <p>p4 where</p>
+    
+                  <p> </p>
+               </li>
+    
+               <li>Check Perforce's current directory (do they match your client?)
+    <p>p4 info</p>
+    
+                  <p> </p>
+               </li>
+    
+               <li>Is your current directory a symlink? If so, consider using the '-d' option. See Perforce's
+    <a href="http://www.perforce.com/perforce/technotes/note044.html">Tech Note 44</a>.</li>
+  
+            </ul>
+
+         </p>
+
+      </item>
+
+      <item id="nopermission" title="'no   permission for operation on file(s)'">
+  <p>You do not have "read" or "write" access to this file.</p>
+
+      </item>
+
+      <item id="nolock" title="'no permission to lock file'">
+  <p>You
+  have 'open' access to the file but you do not have 'write' access. This can occur when we lock
+  down the mainline for checkins, but allow checkouts for ongoing development. </p>
+
+      </item>
+
+      <item id="notarget" title="'no target file(s) in both client and branch   view'">
+  <p>Perforce could not find any files. There may be a misspelling or missing directory name.</p>
+  
+         <p>This message is misleading for "Integrate ... Using filespec ...". In this case, there are
+  neither client nor branch views.</p>
+  
+         <p>To help avoid this error, browse for the file or directory in P4Win, select it, and use ^C to
+  copy the full pathname.</p>
+
+      </item>
+
+      <item id="nopasswd" title="'password   not set'">
+  <p>Perforce did not find P4PASSWD in the NT registry, NT/Unix environment, or
+  p4config.txt.</p>
+  
+         <p>On the NT, be sure to check "remember password" whenever Perforce asks for the password.
+  Otherwise it is not available to the command line or to SCC.DLL (e.g., Visual C++).</p>
+  
+         <p>If your old userid was renamed, use the following procedure to reestablish access p4win:</p>
+  
+         <ol>
+    <li>Set P4USER in your system environment (see the System control panel)
+    <p> </p>
+            </li>
+    
+            <li>Launch p4win. If p4win reports an error, explicitly set your password using a command
+    window (cmd)
+    <p>p4 set P4PASSWD=xyz</p>
+            </li>
+    
+            <li>Select User :: Set password, and change your password.</li>
+  
+         </ol>
+
+      </item>
+
+      <item id="notunder" title="'Path 'f:\xyz' is not under   client's root 'f:\p4\all'">
+  <p>Every Perforce client has a root directory in your file system.</p>
+  
+         <p>Perforce reports "not under client's root" when a prefix of the specified path is not the root
+  directory. In this case, 'f:\xyz' is not the same as 'f:\p4\all'.</p>
+  
+         <p>On the command line, you should use P4CONFIG and p4config.txt to assign the client to its root
+  directory.</p>
+  
+         <p>On NT, cygwin conventions can trip up Perforce. Check that forward and backward slashes match
+  up. You should set the root of your Perforce clients using NT's back slashes. Then define a p4
+  alias to convert from cygwin to back slashes. See
+  <a href="configtcsh.xml">Configuring the tcsh Shell</a>.</p>
+
+      </item>
+
+      <item id="protected" title="'protected namespace - access denied'">
+  <p>You do not have access
+  permission to this file. For example, if you try to add a file into "//product/DAS/xyz/...", you
+  will get an error since the codeline is not specified (e.g., //product/DAS/main/...). The problem
+  use often due to a typo or misspelling.</p>
+  
+         <ol>
+    <li>Use 'p4 where ...' to check the mapping from client to depot and back.</li>
+    
+            <li>Check the left-hand-side of your client spec. It needs to match an existing depot and
+    codeline (e.g., '//product/DAS/main/...').</li>
+    
+            <li>Check the wildcards of your client spec. They must match on both sides.</li>
+    
+            <li>Check that the wildcards are preceeded by a slash (e.g., 'main/...' instead of
+    'main...').</li>
+    
+            <li>See <a href="perforce/p4_protect.jhtml">Write Permissions</a> for the
+    current protection rules.</li>
+  
+         </ol>
+  
+         <p>[Copied from How to add files] If Perforce reports a write protect error,</p>
+  
+         <ul>
+    <li>Check that your file maps to //express/MyProj/main/Readme.txt.</li>
+    
+            <li>Check that you have write permission to //express.</li>
+    
+            <li>The depot name must already exist.</li>
+    
+            <li>The third directory must be either "main" or another codeline.</li>
+  
+         </ul>
+
+      </item>
+
+      <item id="requesttoo" title="'Request too large (over   80000)'">
+  "Request too large" means that the Perforce server scanned too many file revisions.
+  The default limit is 80,000 file revisions. For example, if you tried to sync all files with 'p4
+  sync //...', you would get "Request too large". This helps prevent one user from hogging the
+  server.
+  <p>To
+  view recent changes use client syntax and a revision range:</p>
+  
+         <ul>
+    <li>In the 2002.2 GUI, go to "Filter Submited Changelists.." and enter your client name and a
+    revision range, e.g,
+    <p>//barber-aurail-copper/...@262300,#head"</p>
+            </li>
+    
+            <li>From your client root, enter the following command
+    <p>p4 changes -m 20 ...@262300,#head</p>
+            </li>
+  
+         </ul>Other suggestions:
+  <ul>
+    <li>Limit your request to a directory and its subdirectories.</li>
+    
+            <li>Review your client. If it contains wildcards ('*' or '...') instead of codelines, always
+    limit your request to a directory.</li>
+    
+            <li>Define or use a client for a codeline (e.g., 0-rev600 for version/6.0.0)</li>
+    
+            <li>For 'p4 changes', limit your request to a user. You can drag and drop from the user pane to
+    the changelist pane. The command line is ('p4 changes -u xyz ...').</li>
+    
+            <li>Limit your request to a revision range (e.g., ...@234577,#head)</li>
+    
+            <li>Review the Perforce documentation
+    <p>p4 help maxresults</p>
+            </li>
+  
+         </ul>
+
+      </item>
+
+      <item id="cantexecute" title="'sh: /tmp/tmp.20311.0:   cannot execute'">
+  <p>Check the following possible causes [mshields@perforce]</p>
+  
+         <ul>
+    <li>Permissions for /tmp should be:
+    <p>drwxrwxrwt 6 root sys 440 Jul 29 17:05 tmp</p>
+            </li>
+    
+            <li>sh needs to find P4EDITOR. Try using its absolute path.
+    <p>setenv P4EDITOR /usr/bin/vi</p>
+            </li>
+    
+            <li>Is there anything in your .profile that is causing an error when sh is forked?</li>
+  
+         </ul>
+
+      </item>
+
+      <item id="islocked" title="'Submit failed -- already   locked by ...'">
+  <p>The file was opened for edit by another user and locked. The error message
+  includes a clientspec. Call the user who owns the clientspec and ask them to submit or unlock the
+  file.</p> 
+
+      </item>
+
+      <item id="nouser" title="'You do not have permission for this   operation'">
+  <p>Either your user name is misspelled, you do not belong to a Perforce group, or
+  you do not have a license. Your Perforce userid should be the same as your regular userid.</p>
+  
+         <p>Use 'p4 info' or p4win&gt;Help&gt;ShowConnectionInfo to identify your Perforce userid.</p>
+  
+         <p>Use 'p4 users' or p4win&gt;User&gt;ViewUsers to verify that your userid matches your userid in
+  Perforce.</p>
+  
+         <p>See
+  <a href="p4_protect.jhtml">Perforce Write Protections</a> for the currently defined groups, their
+  members, and their write permissions. All groups have read access to the Perforce depots.</p>
+  
+         <p>From the command line, type 'p4 groups YOUR_USERID'. It should list one or more groups.</p>
+
+      </item>
+
+      <item id="hosterr" title="Client 'xyz' can only be used from host 'Agamemnon'">
+  <p>The hostname
+  assigned to the client does not match your hostname. Since a Perforce client corresponds to a
+  workspace on a machine, it should not be used on another machine.</p>
+  
+         <p>The hostname is case sensitive (i.e., 'agamemnon' is a different host than 'Agamemnon').</p>
+  
+         <p>To override this error, use the -H global option [craig], e.g.,</p>
+  
+         <blockquote>p4 -H Agamemnon revert ...</blockquote>
+  
+         <p>To rename the client's host [e.g., you've renamed your machine]:</p>
+  
+         <ol>
+    <li>Determine your hostname by selecting
+    <b>p4win&gt;Help&gt;Show Connection Info</b> or by executing
+    <b>p4 info</b>.
+    <p>ï¿½</p>
+            </li>
+    
+            <li>Modify the hostname assigned to the client by selecting
+    <b>p4win&gt;ClientSpec&gt;Edit xyz...</b> or by executing
+    <b>p4 client</b>. In p4win, you may need to right click on the client and
+    <b>Switch to xyz</b>.
+    <p>ï¿½</p>
+            </li>
+    
+            <li>In p4win, Perforce will report a warning. If you are sure that the directory structure has
+    not changed, ignore the warning. Otherwise, resync your workspace with
+    <b>Redo sync to the same revision</b> or
+    <b>p4 sync -f</b>.</li>
+  
+         </ol>
+
+      </item>
+   </section>
+        <section id="Problems" title="Problems"  order="sorted">
+<item id="ntcase" title="Case sensitivity problems">
+  <p>Like CVS, Perforce is case-sensitive while Windows NT ignores case. This can cause troubles if
+  someone checks in two files that differ only in case. One file will overwrite the other file for
+  NT users. See Perforce Technote 003,
+  <a href="http://www.perforce.com/perforce/technotes/note003.html">Case sensitivity problems</a>
+         </p>
+
+      </item>
+
+      <item id="crlf" title="CRLF vs. LF">
+      <p>Unix uses LF (\012) to terminate lines while Windows uses CRLF (\013\012) and Macintosh
+      uses CR (\013).</p>
+      
+         <p>Both Perforce and CVS servers store their text files as Unix files. [Perforce can be a
+      Windows server instead]. On the Perforce and CVS servers, text files use LF line terminators.
+      On the clients, text files use the local conventions (e.g., CRLF under Windows). This can
+      cause confusion.</p>
+      
+         <p>If a file with CRLF or CR line terminators gets checked in as a Unix file, the CR
+      characters are stored on the server. When these files are checked out, the extra CR
+      characters are retained. Under Unix, lines will end with CRLF instead of LF. Under Windows,
+      lines will end with CRCRLF instead of CRLF. Editors are inconsistent about what happens. For
+      example, WordPad treats CRCRLF as a unknown character.</p>
+      
+         <p>To avoid CRLF problems under Windows or Macintosh:</p>
+      
+         <ul>
+        <li>Use option 'shared' or 'local' in Perforce clients (2001.1). Option 'local' is the
+        default. It is the same as 'crlf' in rev 2000.2. If you use 'shared', you can edit text
+        files with any convention.</li>
+        
+            <li>For 2000.2 clients (you should upgrade!), use option 'crlf' in Perforce clients. This
+        is the default. Only use 'nocrlf' for special circumstances.</li>
+        
+            <li>If you edit on windows and check in on Unix, be sure that your FTP program converts
+        CRLF or CR to LF.</li>
+        
+            <li>If you edit a file on a shared Unix disk, be sure that your editor is set for Unix
+        conventions.</li>
+      
+         </ul>
+      
+         <p>If an error occurs, it can be difficult to tell what is wrong. Use a binary editor or
+      octal dump (e.g., 'od -c' on Unix).</p>
+      
+         <p>Be sure to resync your files after a CRLF problem is fixed. Otherwise, any change that you
+      make will conflict with the entire file.</p>
+      
+         <p>See Perforce's
+      <a href="http://www.perforce.com/perforce/technotes/note063.html">Tech Note 63</a> for
+      further discussion. </p>
+
+      </item>
+
+      <item id="fileown" title="File       ownership">
+      <p><b>Question:</b> I am logged in on a Win2K box as fkim, domain NA. Under cygwin when I do
+      UNIX like commands like touch, the resulting files have the ownership of fkim:None. But when
+      I something in DOS or check something out using Perforce the resulting files have the
+      ownership of Administrator:None.</p>
+      
+         <p>The problem with this mixed up scheme is sometimes some UNIX commands tell me I don't have
+      permission to modify a file. Does anyone know how to fix this? Should I just remove my fkim
+      entry from /etc/passwd and let Windows think I'm Administrator?</p>
+      
+         <p>
+      <b>Answer:</b> You can also use ls -ln to see what numeric ID is being used on the files. I
+      noticed the other day that the ID number for my account changed from 12399 to 11188 and all
+      my perforce stuff was out of whack until I fixed my /etc/passwd to use the new number (with
+      mkpasswd -u awaltman -d NA &gt;&gt; /etc/passwd) and chown -R'ed all of it to use the new ID
+      number. I have no idea why the SID changed - possibly it is related to our switch to the NA
+      domain? I think the SID was the same on both domains for a while there, but now they are
+      different.</p>
+      
+         <p>Also, you may want to check your CYGWIN environment variable for the ntsec/nontsec
+      setting. I got all kinds of strangeness with a recent upgrade (1.3.12-4 -&gt; 1.3.13-2) of
+      the cygwin1.dll until I found that they changed the default to use ntsec. I added to my
+      system environment a CYGWIN variable set to nontsec and that made things go back to they way
+      they were. [awaltman] </p>
+
+      </item>
+
+      <item id="badchange" title="How to       correct a change description">
+  <p>If you submitted a change with an incorrect description,
+      please send a request to
+      <a href="mailto:road">road</a> with the changelist number and the corrected
+      description. Someone with superuser permission will correct your description.</p>
+
+      </item>
+
+      <item id="permissions" title="No write or read permission">
+  <p>To find
+      out permissions</p>
+      
+         <ol>
+        <li>p4 groups userid - what groups to you belong to?</li>
+        
+            <li>p4 groups dev - what groups does group 'dev' belong to?</li>
+        
+            <li>p4 print //road/Perforce/main/protections/p4_protect.txt | egrep '
+        (dev|dev-edit|devtools|se-patch-55) '
+        <br/>See
+        <a href="p4_protect.jhtml">Write Permissions</a> for the list.
+        <p>
+          <i>Remember the single quotes with a space before and after.</i>
+        
+               </p>
+        
+               <pre>
+    write group dev-edit * //qa/web/version/...
+    write group dev-edit * //road/web/main/...
+    write group dev-edit * //road/Bugzilla/main/bugzilla/bug_status.html
+    write group dev-edit * //road/Bugzilla/main/bugzilla/bugfaq.html
+    write group dev-edit * //se/web/main/...
+    write group dev-edit * //se/web/version/...
+    write group dev-edit * //se/web/dev/...
+    write group devtools * //road/Perforce/main/...
+    write group devtools * //road/devtools/dev/...
+    write group devtools * //road/devtools/main/...
+    write group devtools * //road/devtools/version/...
+    write group dev * //dev/*/dev/...
+    write group dev * //dev/*/main/...
+    write group dev * //dev/*/version/...
+    write group dev * -//dev/DAF/...
+    write group dev * //*/*/dev/tremont/...
+    write group dev * //product/*/main/...
+    write group dev * //qa/ctstest/main/...
+    write group dev * //qa/ctstest/dev/...
+    write group dev * //qa/ctstest/version/...
+    read group everyone * //*/*/dev/...
+    read group everyone * //*/*/final/...
+    read group everyone * //*/*/main/...
+    read group everyone * //*/*/version/...
+    list group everyone * //*/*
+    read group everyone * //user/...
+</pre>
+            </li>
+        
+            <li>Read the list from bottom to top and find the last line that references your depot. If
+        there is a leading "-", you do not have rights to that depot. Otherwise you have the listed
+        right.
+        <p>For example, the 'dev' group has write access to '//*/*/dev/tremont/...', has read-only
+        access to '-//dev/DAF/...', and has no access to '//*/*/xyz/...'.</p>
+            </li>
+      
+         </ol>
+
+      </item>
+
+      <item id="p4changes" title="P4 Changes/Fixes (p4       describe) does not include files or diffs">
+  <p>If a user does not have
+      <b>list</b> permission, 'p4 describe' does show the list of the files for a change list. In
+      the Bugzilla/Perforce integration, Bugzilla uses the 'perforce' userid.</p>
+      
+         <p>Use 'p4 groups user_id' to determine the groups that a user belongs to. Every user should
+      belong to a group that is a member of the
+      <a href="protections/group/dev.txt">'dev' group</a>. If not, negative permissions in the
+      <a href="p4_protect.jhtml">protection table</a> will turn off 'list' access.</p>
+
+      </item>
+
+      <item id="slow" title="Why is Perforce slow?">
+      <p>In May 2002, Road upgraded to 2002.1. This has improved response time. Perforce
+      implemented MaxScanRows; it prevents run away requests. They also optimized the normal case
+      of "aligned clients".</p>
+      
+         <p>Some things you can do to speed things up:</p>
+      
+         <ul>
+        <li>For wireless and remote clients, set option 'compress'. It is about twice as fast as
+        'nocompress'. It is about twice as slow for hardwired clients.
+        <p> </p>
+            </li>
+        
+            <li>For remote clients, set the Server Port to 10.2.128.95:1666 instead of
+        perforce:1666. VPN users report problems with DNS.
+        <p> </p>
+            </li>
+        
+            <li>In p4win, turn off option 'Poll the server every 10 minutes'.
+        <p> </p>
+            </li>
+        
+            <li>Avoid commands that look at many files. For example, deleting and resyncing a devtools
+        client deletes and downloads 30,000 files.
+        <p>The time taken by most Perforce commands depends on the the number of files involved.
+        Perforce acquires read and write locks as needed. A write lock prevents read locks. Locks
+        are acquired in request order. Read locks must close before a write lock can
+        occur.</p>
+            </li>
+        
+            <li>Check your network speed with 'tracert perforce'. On the internal LAN, the
+        response time is &lt;10ms.
+        <p> </p>
+            </li>
+        
+            <li>Avoid 'p4 dirs //*'. Perforce contains a performance bug regarding remote depopts. The
+        dirs command retrieves all files from the remote depot before generating the output.
+        Unfortunately, the depot browser (p4db) issues a 'p4 dirs //*' command for every directory
+        (reported to Perforce).
+        <p> </p>
+            </li>
+        
+            <li>Avoid remote depots. Directly access harry-lime:1666 instead of adding a remote
+        depot to perforce. Perforce's implementation may slow down commands such as "p4
+        dirs" [Re: slow command p4 dirs //* (CALL#335510)].
+        <p> </p>
+            </li>
+        
+            <li>Read e-mail :-). Perforce is a shared medium. If someone tries to sync all files,
+        it locks up the server for a while. There's still room for improvement.
+        <p> </p>
+            </li>
+      
+         </ul>
+      
+         <p>Other causes for no response</p>
+      
+         <ul>
+        <li>A Perforce checkpoint is taken every Sunday at 2AM. This prevents access for 20
+        minutes.
+        <p> </p>
+            </li>
+        
+            <li>A Perforce 'obliterate' locks out users. This takes about 10 minutes per file spec. It
+        is rarely done.
+        <p> </p>
+            </li>
+        
+            <li>Road is making a new branch. This involves about 40,000 files. It will delay other
+        users for about a minute.
+        <p> </p>
+            </li>
+        
+            <li>IT is running a network backup.  Sometimes a full
+        backup occurs during the day. If so, perforce performance drops considerably.</li>
+      
+         </ul>
+      
+         <p>MaxScanRows will report an error in the following cases:</p>
+      
+         <ul>
+        <li>Do not create clientspecs with "//product/*/main/..." or a similar file spec. It is OK
+        to use "//product/...". If so, you will always need "sync ...".</li>
+        
+            <li>Do not create branchspecs with "//product/*/main/..." or a similar file spec. It may
+        block all update access (p4 edit and p4 submit) to all of Perforce for all users for five
+        to fifteen minues. Please explicitly list depot, project, and codeline in all branch
+        specs.</li>
+        
+            <li>Do not search all files with "p4 files //xyz/...abc...". If you misspell the depot
+        name, Perforce searches every file. If you spell the name correctly, Perforce searches
+        every codeline in the depot. Please limit searches to a codeline (e.g.,
+        //product/DAS/main/...).</li>
+        
+            <li>Since Perforce indexes its databases by the filename and //product is the bulk of the
+        files, a branchspec of "//product/..." will search over half of the database. It is not
+        blocked by MAXRESULTS.</li>
+      
+         </ul>
+      
+         <p>Perforce superusers can identify the cause of a Perforce block.</p>
+      
+         <ul>
+        <li>Use
+        <b>top</b> to find the blocking process.
+        <p> </p>
+            </li>
+        
+            <li>Search its last command via
+        <p>sudo tail -100000 /home/perforce/logs/p4d | grep " nnn "</p>
+            </li>
+        
+            <li>Use Michael Shields log analyzer for more detailed information
+        [public.perforce.com:1666://guest/michael_shields/src/p4loga/]
+        <p>sudo tail -100000 /home/perforce/logs/p4d &gt; log
+        <br/>/work/local/bin/p4loga</p>
+            </li>
+        
+            <li>To look for all interesting events:
+        <p>tail -100000 /home/perforce/logs/p4d &gt;~/perforce-block.txt
+        <br/>cat perforce-block.txt | grep -v 'server info' | egrep -v
+        'user-(dirs|fstat|depots|opened|review|changes|client)' | more</p>
+            </li>
+      
+         </ul>
+      
+         <p>See also</p>
+      
+         <ul>
+        <li>
+        <a href="p4-faq-admin.xml#monitor">How to monitor</a> the Perforce server</li>
+        
+            <li>
+        <a href="p4sag/07_perftune.html#1044128">Perforce Admin</a>: Tuning Perforce for
+        Performance [Perforce]</li>
+        
+            <li>
+        <a href="http://www.perforce.com/perforce/technotes/note058.html">Miscellaneous performance
+        tips</a> for large sites [Perforce]</li>
+      
+         </ul>
+      
+         <p>Notes from Michael Shields of Perforce [2002/5/2 (CALL#317063)]</p>
+      
+         <pre>
+&gt; &gt;The way that syncing works is that the compute phase calculates what files
+&gt; &gt;need to be transferred; files such as db.have will be read-locked during the
+&gt; &gt;compute phase of the sync. Then locks are released, after which the transfer
+&gt; &gt;of files across the network begins. At a file-level granularity, the client
+&gt; &gt;notifies the server that it has recieved a file, which causes the server to
+&gt; &gt;take a quick write lock on db.have in order to update the client's have list
+&gt; &gt;to reflect the file received.
+&gt;
+&gt; Our users routinely sync 28,000 files.  Does this cause 28,000 write
+&gt; locks on db.have?
+
+If the compute phase of the sync determines that of 28,000 files on a client's
+have list, five files need to updated, then five quick write locks will be taken
+against db.have after each of the five files have been transferred to the
+client. On the other hand, if the compute phase of the sync determines that all
+28,000 files need to be updated, then 28,000 quick write locks will be taken
+against db.have after each of the 28,000 files have been transferred to the
+client. This is one of the reasons why p4 sync -f #have is not recommended as a
+standard practice.
+
+&gt; We average 95% cache hits.
+&gt;
+&gt; We average 300 MBytes of free physical memory.  Is this too high?  Should
+&gt; we be using more memory for disk caching?     The kernel is using
+&gt; half of the pages,  the free list has about 30% of the pages, other users
+&gt; have about 20% of the pages.  Each page represents 8K.   We have
+&gt; 1Gbyte total.
+
+In general, you want to keep memory as utilized as possible, without swapping.
+In Solaris 2.8, I believe that cached disk pages live in what is accounted as
+free memory. There is also the concept of "freebehind" on Solaris that may
+affect how quickly disk pages are cached.
+
+What "other users" are on this machine? In your environment, this machine should
+probably be dedicated to Perforce.
+
+You may also want to consider adding memory to this machine. 1GB for a Solaris
+server is on the light side these days.
+
+&gt; We average 800 MBytes of available swap space.
+
+Don't go there.
+
+&gt; &gt;2. How large is your db.working table?
+&gt;
+&gt; 27 Megs.
+
+This is larger than perhaps it needs to be. If you're not doing so already,
+perhaps you should start a campaign to reduce the number of open files. I know
+that I for one occasionally leaves a file open and forgets about it.
+
+&gt; We use client -d when we rebuild the product from scratch.  That typically
+&gt; happens at night when the system is lightly loaded.
+
+And this is fine, as long as you realize the performance implications of the p4
+client -d. Perish the thought that "last night's build failed, so we'll kick it
+off again now during prime time." If this happens more than it should, you may
+want to consider retooling this to eliminate the p4 client -d.
+</pre>
+
+      </item>
+   </section>
+        <section id="Questions" title="Questions"  order="sorted">
+<item id="p4word" title="How does Perforce work?">
+<p>Perforce consists of a server (p4d) and a thin client (p4, p4win, etc.).</p>
+      
+         <p>There is a proprietary API to implement new clients. It is shipped as binary libraries. To
+      see an execution log add the global option, '-vrpc=1' for commands and '-vrpc=5' for
+      commands+data. There are other trace options but they require source to understand.</p>
+      
+         <p>The server contains an optimized version of the Berkeley DB B++ database. It uses RCS for
+      file revisions.</p>
+
+      </item>
+
+      <item id="perforcep4" title="What came       first, 'p4' or 'perforce'?">
+  <p>The precursor to Perforce was p3. When the company tried to
+      register "p4" [or perhaps "p3"], the name was already taken. This lead to the choice of
+      "perforce". [Wally Dutchess and Jeff Bowles].</p>
+      
+         <p>On April 16, 2001, Marriam-Webster selected "perforce" as the word of the day [R.
+      Blum]:</p>
+      
+         <blockquote>The Word of the Day for April 16 is:
+      <p>perforce \per-FORSS\ (adverb) : by force of circumstances</p>
+      
+            <p>example sentence:</p>
+      
+            <blockquote>Lorel and Mica's tiny vineyard produces a limited quantity of top-quality
+      chardonnays that are perforce rather pricey.</blockquote>
+      
+            <p>Did you know?</p>
+      
+            <blockquote>Shakespeare had it both ways. English borrowed "par force" from Middle French in
+      the 14th century. "Par" meant "by" (from Latin "per") and the French word "force" had the
+      same meaning as its English equivalent, which was already in use by then. At first,
+      "perforce" meant quite literally "by physical coercion" - a meaning still in use in
+      Shakespeare's lifetime (1564-1616), though it's no longer used today. "He rush'd into my
+      house and took perforce my ring away," wrote the Bard in _The Comedy of Errors_. But the
+      weakened sense of "perforce" had also come into use by Shakespeare's day. In _Henry IV, Part
+      2_, we find ". . . your health; the which, if you give o'er to stormy passion, must perforce
+      decay."</blockquote>
+      
+            <p>Brought to you by Merriam-Webster Inc. http://www.Merriam-Webster.com, (c) 2001 by
+      Merriam-Webster, Incorporated</p>
+         </blockquote>
+
+      </item>
+
+      <item id="yours" title="What is the difference between yours and theirs?">
+      <p><tt>p4 resolve</tt> uses
+      <b>yours</b> to refer to the
+      <i>destination</i> of the resolve and
+      <b>theirs</b> to refer to the
+      <i>source</i> of the resolve. The source (theirs) is always files in the depot. The
+      destination (yours) is always files in your workspace. It is an unfortunately choice of
+      terminalogy and will cause confusion until you get used to it.</p>
+      
+         <p>When you resolve changes, think of yourself as standing on the destination (yours) and
+      pulling changes from the depot (theirs). </p>
+
+      </item>
+   </section>
+</content>

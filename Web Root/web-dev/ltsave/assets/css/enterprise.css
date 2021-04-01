@@ -1,0 +1,43 @@
+H3 { font-size: 14px; color: #f60 }	
+H3 { color: blue; }
+
+.ent_table { margin: 10px 0px 10px 0px; }	
+.ent_label { width: 125px; }
+.ent_table TD { padding: 5px 0px 5px 0px; }
+
+/* contributions */
+.slider_box { background-color: #DEE8FE; border: 1px solid #87AAFC; padding: 5px; }
+.slider_box TABLE { border: 1px solid #cccccc; background-color: white; margin: 10px 0px 5px 0px; }
+.slider_box TD { padding: 10px 5px 10px 5px;}
+.sld_contrib, .sld_percent { background-color: #DEE8FE; border: 0px; text-align: center; font-weight: bold; font-size: 12px; }
+.resetslider { float: right; position: relative; top: 15px; right: 30px; }
+
+/* risk tolerance */
+.questnum { font-weight: bold; font-size: 14px; width: 20px; }
+.quest { line-height: 150%; }
+
+/* fund list */
+.managedTable { width: 100%; }
+#managedfundtable { width: 100%;  } 
+#managedfundtable td { border-bottom: 1px solid #cccccc;  } 
+#managedfundtable .broadasset td { font-weight: bold; font-style: italic; color: #336600; border: 0px solid white; }
+#managedfundtable .labels td { height: 55px; background-color: #E8F7E8; border-bottom: 1px solid #336600; border-top: 1px solid #336600; color: #336600; font-weight: bold; padding: 5px; }
+
+
+	
+	/* non-repeating */
+	.col_rate { width: 65px; }
+	.projections { font-weight: bold; }
+	.overby { color: green; }
+	.underby { color: red; }
+	.overby td, .undergoal td { border-top: 1px solid black; }
+	
+	.overgoal TD { border-top: 1px solid black; }
+	.undergoal TD { border-top: 1px solid black; }
+	.boldrow TD { font-weight: bold; }
+	.pietext { }
+	.balance	{ font-size: 14px; font-weight: bold; text-align: center;}
+	.rebalance A{ font-size: 11px; display: block; text-align: center; margin-top: 20px; }
+
+.projection_table td {padding-top: 4px;}
+.projection_table table td {padding-top: 1px;}

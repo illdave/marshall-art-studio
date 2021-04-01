@@ -1,0 +1,14 @@
+#topleft a img, #topleft a:visited img  	{background-image: url(../images/master/topleftoff.gif); visibility: visible;}
+#topleft a:hover img 						{background-image: url(../images/master/toplefton.gif);  visibility: visible;}
+
+#topmid a img, #topmid a:visited img  		{background-image: url(../images/master/topmidoff.gif); visibility: visible;}
+#topmid a:hover img 						{background-image: url(../images/master/topmidon.gif);  visibility: visible;}
+
+#topright a img, #topright a:visited img  	{background-image: url(../images/master/toprightoff.gif); visibility: visible;}
+#topright a:hover img 						{background-image: url(../images/master/toprighton.gif);  visibility: visible;}
+
+#botleft a img, #botleft a:visited img  	{background-image: url(../images/master/botleftoff.gif); visibility: visible;}
+#botleft a:hover img 						{background-image: url(../images/master/botlefton.gif);  visibility: visible;}
+
+#botright a img, #botright a:visited img  	{background-image: url(../images/master/botrightoff.gif); visibility: visible;}
+#botright a:hover img 						{background-image: url(../images/master/botrighton.gif);  visibility: visible;}

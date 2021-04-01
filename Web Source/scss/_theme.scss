@@ -1,0 +1,377 @@
+// themes -------------------------------------------------------- //
+/* Agencyport-type overrides of established styles.
+ * Theme name goes in the BODY as a class selector. */
+
+
+/* dark mode variables --------------- */
+
+$theme-color-bg:							$black;
+
+$body-bg:									$theme-color-bg;
+$headings-color: 							$white;
+$text-color:								lighten($theme-color-bg, 75%);
+$text-divider-color:						transparentize($text-color, 0.5);
+$link-color:								$link-color;
+$link-hover-color:							$white;
+$link-active-color:							darken($link-color, 20%);
+
+$link-img-border:							rem(1px solid $white);
+$link-img-border-hover-color:				$link-color;
+$link-img-border-active-color:				$link-active-color;
+
+$icon-link-color: 							$text-color;
+$icon-link-color-hover: 					$white;
+$icon-link-color-active: 					darken($icon-link-color, 30%);
+
+$border-default-color:						transparentize($text-color, 0.7);
+$border-default: 							rem(1px solid $border-default-color);
+
+$main-nav-bg:								$body-bg;
+$main-nav-border:							$border-default;
+
+$nav-link:									transparentize($white, 0.2);
+$nav-link-hover:							$white;
+$nav-link-current:							$white;
+$nav-link-active:							$black;
+
+$nav-link-color:							transparentize($white, 0.4);
+$nav-link-bg:								transparent;
+$nav-link-border:							0;
+
+$nav-link-hover-color:						$white;
+$nav-link-hover-bg:							transparent;
+$nav-link-hover-border-color:				none;
+
+$nav-link-active-color:						$theme-color-1;
+$nav-link-active-bg:						transparent;
+$nav-link-active-border-color:				$nav-link-active-bg;
+
+$nav-link-curr-color:						$white;
+$nav-link-curr-bg:							transparent;
+$nav-link-curr-border-color:				$nav-link-curr-bg;
+
+$navbar-icon:								$white;
+$navbar-icon-hover:							$white-glow;
+$navbar-icon-active:						$black;
+
+$footer-bg: 								$body-bg;
+$footer-color: 								lighten($footer-bg, 50%);
+$footer-border-color: 						lighten($footer-bg, 20%);
+
+$section-bg: 								lighten($theme-color-bg, 13.5%);
+$section-bg-even: 							darken($section-bg, 20%);
+
+$item-bg: 									darken($section-bg, 10%);
+$item-even-bg-color:						lighten($section-bg-even, 5%);
+$item-even-bg:								transparent;
+$item-text-color: 							$text-color;
+$item-headings-color: 						$headings-color;
+$item-link-color: 							$link-color;
+$item-link-color-hover: 					$link-hover-color;
+$item-link-color-active: 					$link-active-color;
+$item-border-color: 						transparentize($item-text-color, 0.2);
+
+$client-details-bg:							transparent;
+$client-details-padding: 					$spacer-base 0;
+
+$boxed-client-details-bg: 					darken($section-bg, 10%);
+$boxed-client-details-even-bg: 				lighten($section-bg-even, 10%);
+$boxed-client-details-padding: 				$spacer-large;
+
+$contact-bg: 								$item-bg;
+$contact-text-color:						$white;
+$contact-headings-color: 					$contact-text-color;
+$text-divider-color:						transparentize($text-color, 0.5);
+$contact-link-color:						$link-color;
+$contact-link-hover-color:					$link-hover-color;
+$contact-link-active-color:					$link-active-color;
+
+
+$body-bg:									$theme-color-bg;
+$headings-color: 							$white;
+$text-color:								lighten($theme-color-bg, 75%);
+$text-divider-color:						transparentize($text-color, 0.5);
+$link-color:								$link-color;
+$link-hover-color:							$white;
+$link-active-color:							darken($link-color, 20%);
+
+
+
+/* dark mode overrides --------------- */
+
+.dark-mode {
+	background: $body-bg;
+	
+	h1, h2, h3, h4, dl dt, strong {
+		color: $headings-color;
+	}
+	p, li, dd {
+		color: $text-color;
+	}
+	a {
+		color: $link-color;
+		img {
+			border: $link-img-border;
+		}	
+		&:hover {
+			color: $link-hover-color;
+			img {
+				border-color: $link-img-border-hover-color;
+			}
+		}
+		&:active {
+			color: $link-active-color;
+			img {
+				border-color: $link-img-border-active-color;
+			}
+		}
+	
+		&.btn {
+			color: $btn-color;
+			background-color: $btn-bg;
+		}	
+	}
+	.main-navigation {
+		.navbar {
+			border-bottom: $main-nav-border;
+			background: $main-nav-bg;
+			.navbar-nav {
+				.nav-link {
+					color: $nav-link-color;
+					background: $nav-link-bg;
+					border: $nav-link-border;
+					&:hover {
+						color: $nav-link-hover-color;
+						background: $nav-link-hover-bg;
+						border-color: $nav-link-hover-border-color;
+					}
+					&:active {
+						color: $nav-link-active-color;
+						background: $nav-link-active-bg;
+						border-color: $nav-link-active-border-color;
+					}
+				}
+				.active>.nav-link, 
+				.nav-link.active, 
+				.nav-link.show, 
+				.show>.nav-link {
+					color: $nav-link-curr-color;
+					background: $nav-link-curr-bg;
+					border-color: $nav-link-curr-border-color;
+					font-family: $font-family-headers;
+				}
+			}
+			.navbar-toggler {
+				border: rem(1px solid);
+				border-color: transparentize(white, 0.7);
+				.navbar-toggler-icon {
+					color: $white;
+				}	
+			}		
+		}
+	}
+	footer {
+		background: $footer-bg;
+		border-color: $footer-border-color;
+		color: $footer-color;
+	}
+	section {
+		background-color: $section-bg;
+		&.intro {
+			background-color: $section-bg-even;
+		}
+		&.even {
+			background-color: $section-bg-even;
+		}
+	}	
+	.web {
+		.client-details {
+			background: $client-details-bg;
+			padding: $client-details-padding;
+			color: $text-color;
+			h3, .h3 {
+				color: $item-headings-color;
+				text-align: left;
+			}			
+			.project-date {
+				color: $headings-color;
+			}
+			.code-soup {
+				li {
+					border-right: $border-default;
+					border-color: $text-divider-color;
+				}
+			}
+		}	
+	}
+	.skills, .capabilities {
+		.item {
+			background: $item-bg no-repeat 0 0;
+			color: $item-text-color;
+			border-color: $item-border-color;
+			padding: 1rem 0;
+			&.even {
+				background-color: $item-even-bg;
+			}
+			h2, h3, h4 {
+				color: $item-headings-color;
+			}
+		}
+	}
+	
+	.comics {
+		.skills {
+			.item {
+				padding: 2rem 2rem;
+				p {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	.boxed {
+		.client-details {
+			background: $boxed-client-details-bg;
+			padding: $boxed-client-details-padding;
+		}
+		&.even {
+			.client-details {
+				background: $boxed-client-details-even-bg;
+			}
+		}
+	}
+	.tiles {
+		.tile {
+			 a {
+				border: $link-img-border;
+				&:hover {
+					border-color: $link-img-border-hover-color;
+				}
+				&:active {
+					border-color: $link-img-border-active-color;
+				}
+			}	
+		}
+	}
+	.jobs {
+		h2 {
+			margin-bottom: $spacer-small;
+			padding-bottom: $spacer-small;
+			border-bottom: $border-default;
+		}
+	}
+	.date-range {
+		color: $headings-color;
+	}
+	.home {
+		section {
+			&.skills {
+				.item {
+					background: transparent;
+					&.even {
+						background: $item-even-bg;
+					}
+				}
+			}	
+		}	
+	}	
+	.disclaimer {
+		border: $border-default;
+		background: $item-even-bg;
+	}
+	.row {
+		&.in-content {
+			a {
+				img {
+					border: $link-img-border;
+				}
+				&:hover {
+					img {
+						border-color: $link-img-border-hover-color;
+					}
+				}
+				&:active {
+					img {
+						border-color: $link-img-border-active-color;
+					}
+				}
+			}
+			&.figure {
+				.figure-caption {
+					p {
+						border-bottom: $border-default;
+					}
+				}
+			}		
+		}
+	}	
+	.prev-next {
+		.prev, .next {
+			.fas {
+				color: $icon-link-color;
+			}
+			&:hover {
+				.fas {
+					color: $icon-link-color-hover;
+				}
+			}
+			&:active {
+				.fas {
+					color: $icon-link-color-active;
+				}
+			}
+		}
+	}
+}
+
+.social {
+		li, dd {
+		a {
+			&:before {
+				color: $icon-link-color;
+			}
+		}
+		&:hover a {
+			color: $icon-link-color-hover;
+			&:before {
+				color: $icon-link-color-hover;
+			}
+		}
+		&:active a {
+			color: $icon-link-color-active;
+			&:before {
+				color: $icon-link-color-active;
+			}
+		}
+	}
+}
+
+.sidebar {
+	.item {
+		&.contact {
+			background: $contact-bg;
+			h2, dt {
+				color: $contact-headings-color;
+			}
+			li {
+				color: $contact-text-color;
+				&:not(:last-child) {
+    				margin-right: 1rem;
+				}			
+			}
+			a {
+				color: $contact-link-color;
+				&:hover {
+					color: $contact-link-hover-color;
+				}
+				&:active {
+					color: $contact-link-active-color;
+				}
+			}
+		}
+	}
+	ul {
+		margin-bottom: 0;
+	}
+}
+	

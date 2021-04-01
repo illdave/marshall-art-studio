@@ -1,0 +1,7 @@
+var feature1="<p><strong>Convenience</strong>&nbsp;&#8212;&nbsp;Our service is available 24X7 online. You can build your financial plan at any time that is convenient for you from the comfort of your home or office.</p>";
+var feature2="<p><strong>Speed</strong>&nbsp;&#8212;&nbsp;We generate your plan for you in a matter of minute. The process is efficient and saves you time. You do not need to schedule any appointments or meetings or plan any travel.</p>";
+var feature3="<p><strong>Quality</strong>&nbsp;&#8212;&nbsp;We scan over 15,000 mutual funds to generate short-lists of those best suited to you.  These are reviewed periodically for changes in investment performance. We use prudent investment principles in developing your advice.</p>";
+var feature4="<p><strong>Independence</strong>&nbsp;&#8212;&nbsp;Our service is independent of any financial firm. We do not receive compensation from any financial firm for recommendations we make to you. We are paid only by you directly.</p>";
+var feature5="<p><strong>Affordable</strong>&nbsp;&#8212;&nbsp;Our pricing is fixed and is not based on the assets for which we provide advice. You know exactly what you pay for our service from month-to-month. There are no hidden charges and no account minimums.</p>";
+
+document.write(feature1);

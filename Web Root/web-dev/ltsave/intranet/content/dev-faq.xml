@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../XSL/lts_internal.xslt"?>
+<content>
+
+	<topic title="Dev FAQ" file="../content/dev-faq.xml" fileid="$Id: //main/2005/road/LTS-Intranet/web/content/dev-faq.xml#7 $$Change: 4261 $" fileChange="$DateTime: 2005/10/13 15:43:46 $$Author: bbarber $">
+		<div class="twocol data">
+			<div class="col leftcol">
+				<h4>ASP.NET</h4>
+				<ul>
+					<li><a href="http://www.asp.net">Main Site</a></li>
+					<li><a href="http://www.gotdotnet.com/">Got Dot Net</a></li>
+				</ul>
+			</div>
+			<div class="col rightcol">
+				<h4>Developer Resources</h4>
+				<ul>
+					<li><a href="http://devresource.hp.com/drc/topics/index.jsp">HP Dev Resource</a></li>
+					<li><a href="http://www.alphaworks.ibm.com/tech/adesigner">Accessibility Designer</a></li>
+				</ul>
+			</div>
+		</div>
+	</topic>
+	<section id="bugs" title="Bugs">
+		<item id="bug-config" title="User configuration">
+			<ul>
+				<li>Ask a Bugzilla admin to create a user.</li>
+				<li>Click on any Bugzilla list.  Click on 'Change Columns' at the bottom.</li>
+				<li>Select 'Last Changed Date, 'Version', 'Whiteboard', 'Stagger headers'</li>
+				<li>Unselect 'Hardware'</li>
+			</ul>
+		</item>
+	</section>
+	<section id="ltsave-dev-ref" title="Developer References at LTSave" order="sorted">
+		<item id="stan_IIS" title="[stan_IIS] Microsoft IIS 6.0S Administrator's Pocket Consultant">
+			<p>Stanek, Microsoft Press 2003</p>
+			<p>Covers IIS administration, virtual directories, MIME and other content, serving ASP.NET, application pools, security, SSL and certificates, FTP, email, 
+			 indexing services, performance tuning, access logs, metabase optimization, backup and recovery.</p> 
+		</item>
+		<item id="stanWR_2000" title="[stanWR_2000] Microsoft SQL Server 200 Administrator's Pocket Consultant">
+			<p>Stanek, Microsoft Press 2000</p>
+			<p>SQL Server administration, especially the SQL Server Enterprise Manager.  Includes configuration, tuning, troubleshooting, Transact-SQL utiliities, 
+			security, tables, indices, constraints, DTS (Data Transform Services), BCP (Bulk Copy and Bulk Insert), distributed transactions, replication, publish/subscribe, 
+			performance optimization, backup and recovery, DB automation with SQL Server Agent</p>
+		</item>
+		<item id="sundD_2003" title="[sundD_2003] SQL Server 2000, stored procedure &amp; XML programming">
+			<p>Sunderic, Osborne, 2003</p>
+			<p>Everything to do about Transact-SQL and SQLXML.</p>
+		</item>
+		<item id="cougDJ_2003" title="[cougDJ_2003] the Backup Book, Disaster recovery from desktop to data center">
+			<p>Cougias, Heiberger, Koop, Schaser-Vartin Books 2003</p>
+			<p>Good overview of backup policies and facilities. Lots of details.</p>
+		</item>
+		<item id="muhaF_2003" title="[muhaF_2003] Real world ASP.NET best practices">
+			<p>Muhammad, Milner, Apress, 2003</p>
+			<p>Good, concrete advice with experimental performance testing.  Covers caching, session state, viewstate, javascript, data management, user controls, server controls, remoting, web services, and configuration.</p>
+		</item>
+		<item id="hasaJ_2003" title="[hasaJ_2003] Performance tuning and optimizing ASP.NET applications">
+			<p>Hasan, Tu, Apress, 2003</p>
+			<p>Performance tuning of ASP.NET applications.  Includes configuration, ADO.NET, session state, caching, web services, web farms, remoting, stress testing, debugging, and tracing.</p>
+		</item>
+		<item id="micr_2003" title="[micro_2003] Building secure Microsoft ASP.NET applications">
+			<p>Microsoft, 2003</p>
+			<p>Comprehensive ASP.NET security architecture with authentication, role-based authorization, secure communication, SQL security.enterprise services security, web services security, .NET remoting security, troubleshooting, Kerberos, DPAPI (data protection API), encryption library, SSL, certificates.  Includes a long 'how to' section and reference list.</p>
+		</item>
+		<item id="duthGA_2003" title="[duthGA_2003] ASP.NET in a Nutshell">
+			<p>Duthie, MacDonald, O'Reilly 2003</p>
+			<p>Introduction and namespace references.  Covers web forms, web services, server controls, user controls, ADO.NET, configuration, security, error handling, deployment.
+			Comprehensive documentation for Page, HttpApplicationSate, HttpContext, HttpException, HttpRequest, HttpResponse, HttpServerUtility, HttpSessionState, web.config.  
+			Namespace rereference for System.Web</p>
+		</item>
+		<item id="hamiB_2003" title="[hamiB_2003] ADO.NET Cookbook">
+			<p>Hamilton, O'Reilly, 2003</p>
+			<p>Excellent cookbook covering connecting to multiple data sources, retrieving data, searching and analyzing data, adding and modifying data, copying and transfering data, database integrity, binding data, XML, optimizing .NET, and DB administration.</p>
+		</item>
+		<item id="hamiB_2003a" title="[hamiB_2003a] ADO.NET in a Nutshell">
+			<p>Hamilton, MacDonald, O'Reilly 2003</p>
+			<p>Comprehensive coverage of ADO.NET data providers, connections, connection pooling, DataReaders, DataSets, DataAdapters, transactions. Chapter on XML.  Quick reference for the corresponding System.Data classses and namespaces.</p>
+		</item>
+		<item id="teilS_2004" title="[teilS_2004] C# Cookbook">
+			<p>Teilbet, Hilyard, O'Reilly 2004</p>
+			<p>How to use numbers, strings, classes, enumerations, exception handling, diagnostics, delegates, events, regular expressions, collections, data structures, files, reflection, networking, security, threading, unsafe code, and XML. Lots of good advice.</p>
+		</item>
+		<item id="kittMA_2004" title="[kittMA_2004] ASP.NET Cookbook">
+			<p>Kittel, LeBlond, O'Reilly 2004</p>
+			<p>How to use tabular data, validation, forms, user controls, custom controls, maintain state, error handling, security, configuration, tracing and debugging, web services, dynamic images, caching, internationalization, file operations, performance, HTTP handlers.</p>
+		</item>
+		<item id="drayP_2003" title="[drayP_2003] C# in a nutshell">
+			<p>Drayton, Albahari, Neward, O'Reilly 2003</p>
+			<p>Thorough introduction to C# with quick reference for Microsoft.Win32 and the  System namespace, including Collections, Diagnostics, Gloablization, IO, Net, Reflection, InteropServices, Serialization, Text, RegularExpressions, Threading, Timers, Xml, Xpath, Xsl.
+			Discusses XML, Networking, Streams, Serialization, Assemblies, Reflection, Custom Attributes, Memory Management, Threading, Native DLLs, COM, and Diagnostics.</p>
+		</item>
+		<item id="nantB_2005" title="[nantB_2005] Open Source .NET Development">
+			<p>Nantz, Addison-Wesley 2005</p>
+			<p>Introduction to open source development within the .NET framework.  Covers editors, documentation, source control, databases, web servers, bugzilla, and other development tools. 
+			Includes chapters on NAnt (build automation), NDoc (XML documentation), NUnit (unit testing), continuous integration with Hippo, Draco, and CruiseControl, log4net (logging).
+			Includes worked out examples.</p>
+		</item>
+	</section>
+	<section id="dev-ref" title="Other Developer References" order="sorted">
+		<item id="blocJ_2001" title="[blocJ_2001] Effective Java Programming Language Gude">
+			<p>Block, Sun Microsystems, 2001</p>
+			<p>Must read for Java and C# programmers. Block wrote the Java Collections Framework and java.math. Sensible, tested rules for object creation,
+			standard methods, classes, interfaces, methods, strings, naming, exceptions, threads, and serialization.</p>
+		</item>
+	</section>
+
+</content>

@@ -1,0 +1,23 @@
+/* color scheme changes for section
+/* end - color scheme changes */
+
+.customer { width: 150px; border-right: 1px solid black; text-align: right;}
+.client { margin-top: 10px; margin-bottom: 20px; }
+
+.even, .odd {margin-bottom: 25px;}
+.even { background-color: #ffffff; border: 1px solid #ffffff; padding: 5px;}
+.odd { background-color: #f2f2f2; border: 1px solid #cccccc; padding: 5px;}
+
+.quote { display: block;}
+.citation { display: block; font-weight: bold; font-size: 11px; padding-left: 20px; text-align: right;}
+
+a.topofpage				{color: orange; font-weight: bold;}
+a.topofpage:hover		{color: orange; text-decoration: none;}
+
+p {line-height: 150%; }
+p a {color: #003399; text-decoration: underline;}
+p a:hover {color: orange; text-decoration: none;}
+
+p.newsitem 				{color: #000000; padding: 10px; padding-top: 0px; padding-bottom: 0px; margin-top: 0px; margin-bottom: 10px; line-height: 150%}
+p.newstype	 			{color: #ff6600; font-size: 11px; font-weight: bold; text-transform: uppercase; padding: 10px; padding-bottom: 0px; margin-bottom: 5px}
+p.newsheader 			{color: #ff6600; font-size: 14px; font-weight: bold; padding: 0px; margin: 0px; margin-top: 0em; margin-bottom: 0.3em;}

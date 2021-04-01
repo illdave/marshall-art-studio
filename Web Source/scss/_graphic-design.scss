@@ -1,0 +1,47 @@
+/* graphic design --------------------- */
+
+.graphic-design {
+	section {
+		&.picture-header {
+			.image {
+				background-image: url("#{$graphic-design-image-path}/jwg-thumbnails-2.jpg");
+				background-position: 0 0;
+			}
+		}		
+	}
+}
+
+/* graphic design --------------------- */
+.mas-content.graphic-design {
+}
+.tiles .ask-kodiak .tile {
+	background-image: url("#{$graphic-design-image-path}/ask-kodiak-cover.jpg");
+	background-position: 0 top;
+}
+.tiles .rotten-kid-press .tile {
+	background-image: url("#{$graphic-design-image-path}/rotten-kid-press-logo.jpg")
+}
+.tiles .ltsave .tile {
+	background-image: url("#{$graphic-design-image-path}/ltsave-newsletter.jpg")
+}
+.tiles .advertising .tile {
+	background-image: url("#{$graphic-design-image-path}/jwg-advertising.jpg")
+}
+.tiles .education .tile {
+	background-image: url("#{$graphic-design-image-path}/reader-rabbit-design.jpg")
+}
+.tiles .infographics .tile {
+	background-image: url("#{$graphic-design-image-path}/infographics.jpg")
+}
+.tiles .logos .tile {
+	background-image: url("#{$graphic-design-image-path}/logos.jpg")
+}
+.tiles .icons .tile {
+	background-image: url("#{$graphic-design-image-path}/icons.jpg")
+}
+
+.tiles .icons .tile {
+	background-image: url("#{$graphic-design-image-path}/icons.jpg")
+}
+
+

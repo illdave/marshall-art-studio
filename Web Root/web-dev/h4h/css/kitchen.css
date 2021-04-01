@@ -1,0 +1,18 @@
+#topleft									{border: 0; margin: 0; padding: 0;}
+#topleft a img, #topleft a:visited img  	{background-image: url(../images/kitchen/topleftoff.gif) ; visibility: visible;}
+#topleft a:hover img 						{background-image: url(../images/kitchen/toplefton.gif); visibility: visible;}
+
+#topmid a img, #topmid a:visited img  		{background-image: url(../images/kitchen/topmidoff.gif) ; visibility: visible;}
+#topmid a:hover img 						{background-image: url(../images/kitchen/topmidon.gif); visibility: visible;}
+
+#topright a img, #topright a:visited img	{background-image: url(../images/kitchen/toprightoff.gif) ; visibility: visible;}
+#topright a:hover img						{background-image: url(../images/kitchen/toprighton.gif); visibility: visible;}
+
+#botleft a img, #botleft a:visited img  	{background-image: url(../images/kitchen/botleftoff.gif) ; visibility: visible;}
+#botleft a:hover img 						{background-image: url(../images/kitchen/botlefton.gif); visibility: visible;}
+
+#botmid a img, #botmid a:visited img 		{background-image: url(../images/kitchen/botmidoff.gif) ; visibility: visible;}
+#botmid a:hover img 						{background-image: url(../images/kitchen/botmidon.gif); visibility: visible;}
+
+#bot a img, #bot a:visited img  			{background-image: url(../images/kitchen/botoff.gif) ; visibility: visible;}
+#bot a:hover img 							{background-image: url(../images/kitchen/boton.gif); visibility: visible;}

@@ -1,0 +1,12 @@
+.fieldstable TD, .fieldstable TH { padding: 0px 10px 15px 0px; margin-top: 20px; }
+.fieldstable2 { margin-left: 20px; }
+.checkbox { width: 20px; }
+.label { width: 200px; }
+.req .label { font-weight: bold; }
+.help { font-size: 11px; }
+.fid_party { font-weight: bold; margin: 10px 0px 10px 0px; }
+.primary { border: 1px solid #ccc; padding-left: 10px; }
+.secondary { background-color: #ffffcc; border: 1px solid #ccc; padding-left: 10px; }
+.linkset { margin-top: 30px; }
+
+.screenname { margin-bottom: 20px; }

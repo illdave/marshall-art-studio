@@ -1,0 +1,11 @@
+/* these are style overwrites for print-only media */
+body, #bodyframe { background-color: White; border: 0px; width: 100%; }
+.statusbar {
+	background-color: White;
+	border: 0px;
+}
+.headingtext { color: Black; }
+#tabs, #nav { display: none; }
+.bar_sidebot, .bar_topleft, .bar_topright, .navcolumn { display: none; }
+.loginlink, .footerlinks, .popupheaderbar, .print_button A {display: none; }
+.returntoc { visibility: hidden; margin-top: 0px;}

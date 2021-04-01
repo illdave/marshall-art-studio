@@ -1,0 +1,25 @@
+#indexart   {position: relative; width: 650px; height: 350px; background-image: url(../images/index/paper.jpg); background-repeat: no-repeat; background-position: 25px 15px; margin: 0; padding: 0; border: 0;}
+.diningpic 	{position: absolute; left: 220px; top: 240px;}
+.familypic 	{position: absolute; left: 60px; top: -31px;}
+.kitchenpic	{position: absolute; left: 390px; top: -10px;}
+.livingpic 	{position: absolute; left: 50px; top: 240px;}
+.masterpic 	{position: absolute; left: 190px; top: -10px;}
+.startpic 	{position: absolute; left: 395px; top: 225px;}
+
+#diningclick a img, #diningclick a:visited img  {background-image: url(../images/index/dining.gif);  visibility: visible;}
+#diningclick a:hover img 						{background-image: url(../images/index/diningx.gif); visibility: visible;}
+
+#familyclick a img, #familyclick a:visited img  {background-image: url(../images/index/family.gif);  visibility: visible;}
+#familyclick a:hover img 						{background-image: url(../images/index/familyx.gif); visibility: visible;}
+
+#kitchenclick a img, #kitchenclick a:visited img  	{background-image: url(../images/index/kitchen.gif);  visibility: visible;}
+#kitchenclick a:hover img 							{background-image: url(../images/index/kitchenx.gif); visibility: visible;}
+
+#livingclick a img, #livingclick a:visited img  {background-image: url(../images/index/living.gif);  visibility: visible;}
+#livingclick a:hover img 						{background-image: url(../images/index/livingx.gif); visibility: visible;}
+
+#masterclick a img, #masterclick a:visited img  {background-image: url(../images/index/master.gif);  visibility: visible;}
+#masterclick a:hover img 						{background-image: url(../images/index/masterx.gif); visibility: visible;}
+
+#startclick a img, #startclick a:visited img  	{background-image: url(../images/index/start.gif);  visibility: visible;}
+#startclick a:hover img 						{background-image: url(../images/index/startx.gif); visibility: visible;}

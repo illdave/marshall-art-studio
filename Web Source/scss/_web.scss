@@ -1,0 +1,101 @@
+/* web design and development --------- */
+
+.web {
+	.mas-client {
+		&:last-child {
+		}
+	}
+	section {
+		&.picture-header {
+			.image {
+				background-image: url("#{$pictures-image-path}/dave-at-agencyport-10.jpg");
+				background-position: 0 center;
+			}
+		}		
+		&.capabilities {
+			padding: 0;
+			min-height: 0;
+			.item {
+				background: transparent;
+				margin-bottom: 0;
+				p {
+					text-align: center;
+				}
+			}
+			dl {
+				dt {
+					font-size: $h3-font-size;
+				}
+				dd {
+				}
+			}
+		}	
+	}
+	.client-image {
+		img {
+			border: 1px solid #ccc;
+		}	
+	}
+	
+	.client-details {
+		background: $item-bg;
+		font-size: .9rem;
+		padding: $client-details-padding;
+		color: $item-text-color;
+		margin-bottom: 1.5rem;
+		h3 {
+			color: $item-headings-color;
+			margin-bottom: .5rem;
+			text-align: center;
+		}
+		p {
+			&.footnote {
+				margin-bottom: 0;
+			}
+		}
+		.project-date {
+			font-family: $font-family-bold;
+			margin-right: .25rem;
+		}
+		.code-soup {
+			li {
+				border-right: $border-default;
+				border-color: $text-divider-color;
+				margin: 0;
+				margin-right: .25rem;
+				padding: 0;
+				padding-right: .5rem;
+				&:last-child {
+					border: none;
+				}
+				a {
+					&:hover {}
+				}
+			}
+		}
+	}	
+	.mas-client {
+		&.clients  {
+			padding: 2rem 0;
+			.row .col .row .col {
+				min-height: 0;
+				margin: 0 1rem;
+			}
+			
+			.client-image {
+				background: white;
+				padding: 0;
+				min-height: 0;
+				img {
+					margin: 0;
+					border: 0;
+				}
+			}
+			.client-details {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+}
+
+

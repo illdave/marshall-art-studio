@@ -1,0 +1,132 @@
+/*  Basic type elements ----------------- */
+	body 		{background-image: url(../images/bg/bg.gif); background-repeat: repeat-y; background-position: top left; background-color: #fff; margin: 0; padding: 0; font-family: verdana, arial, helvetica, sans-serif; font-size: 11px;}
+	
+	p		{font-family: verdana, arial, helvetica, sans-serif; text-align: left; color: #000; font-size: 11px; line-height: 1.5;}
+	p, td, th, ul, li 		{font-size: 100%;}
+	h1		{font-size: 150%;}
+	h2		{font-size: 140%; color: #c00;}
+	h3		{font-size: 130%;}
+	h4		{font-size: 120%; color: #006; line-height: 1; margin: 0; border: 0; padding-bottom: 5px;}
+	h5		{font-size: 100%;}
+	h6		{font-size: 95%;}
+	a:link, a:visited	{color: #33c; text-decoration: underline;}
+	a:hover				{color: #69f; text-decoration: underline;}
+	img					{border: 0; display: block;}
+	img.spacer			{border: 1px solid #ccc;}
+	img.logos			{margin-bottom: 10px;}
+	img.centered		{display: inline; text-align: center;}
+	img.logo			{border: 0; width: 50px;}
+	img.logo.lrg		{width: 100px;}
+	img.logo.left, img.photo.left		{float: left; margin: 0 10px 10px 0; padding: 0;}
+	img.photo			{margin-bottom: 10px;}
+	.alt , .preload		{display: none;}
+
+	.date				{color: #f00;}
+	.strong				{font-weight: bold;}
+	li			{margin-bottom: 7px; margin-top: 7px;}
+
+/* Page ----------------- */
+	#pagee				{position: relative; width: 800px; border-right: 1px solid #ccc; background-color: red;}
+	
+/* Two-column design for Product Pages ----------------- */
+	.twocol				{float: left; width: 100%; margin-bottom: 5px;}
+	.col_wide			{float: left;  width: 300px; margin: 0; padding: 0;}
+	.col_thin			{float: right; width: 280px; margin: 0; padding: 0;}
+
+/* Centered photo/words ----------------- */
+	.center				{width: 100%; text-align: center; margin-bottom: 20px;}
+	.center p			{text-align: center;}
+	.center p.caption	{font-size: 90%}
+	.center img			{display: inline; margin-bottom: 10px;}
+
+/* Intro Index Page (logo, blurb, black background) ----------------- */
+	body.centered		{background-color: #000; background-image: none; text-align: center;}
+	.blurb		{position: relative; top: 200px; margin-left: auto; margin-right: auto; width: 400px; border: 0;}
+	.blurb img	{display: inline; margin-bottom: 15px;}
+	.blurb p, .blurb h4	{text-align: center; color: #fff;}
+
+/* Black bar on top of every page ----------------- */
+	#navbar		{position: relative; background-color: #000; background-image: url(../images/logos/cbs.gif); background-position: 0 0; background-repeat: no-repeat; width: 100%; height: 30px; border: 0; padding: 0; margin: 0;}
+	#navbar p	{position: absolute; top: 7px; left: 30px; border: 0; margin: 0; padding: 0;}
+	#navbar p, #navbar a				{color: #fff; font-size: 90%;}
+	#navbar a:link , #navbar a:visited	{text-decoration: none;}
+	#navbar a:hover						{text-decoration: underline;}
+
+/* Navigation Column ----------------- */
+	#navcol			{position: absolute; top: 30px; background-color: transparent; width: 150px; border: 0; margin: 0; padding: 0;}
+	#navcol a		{color: #609;}
+	#navcol a:link , #navcol a:visited	{color: #fff; text-decoration: none;}
+	#navcol a:hover						{color: #fff; text-decoration: underline;}
+	#navcol ul				{width: 180px; color: #c00; margin: 0; padding: 0; padding-left: 15px; padding-top: 10px}
+	#navcol li				{color: #fc0; margin: 0; margin-bottom: 5%; margin-left: 10px; padding: 0; line-height: 1.3; list-style: square;}
+	#navcol li.dateline		{color: #fc0; font-weight: bold; margin-bottom: 0; margin-left: -5px; list-style: none;}
+	#navcol img				{position: relative; top: 10px; left: 15px; margin: 0;}
+	#navcol p				{padding-left: 15px; font-weight: bold; margin: 0;}
+	#navcol a:link.u, #navcol a:visited.u		{text-decoration: underline;}
+
+/*  Content Area ----------------- */
+	#content		{position: absolute; top: 50px; left: 200px; width: 600px; padding: 0; border: 0; margin: 0;}
+	#content.index		{text-align: center; vertical-align: center; width: 650px;}
+	#content.index img	{display: inline;}
+	#content.index h3	{font-size: 140%; margin-bottom: 1%;}
+	#content.index h4	{line-height: 1.2;}
+	#content p		{margin: 0px; margin-bottom: 10px;}
+	#content h1		{color: #ff992c; margin: 0; padding: 0; padding-bottom: 10px; border: 0;}
+	#content h2		{color: #69c; margin: 0; padding: 0; border: 0; line-height: 1; margin-bottom: 10px;}
+	#content h3		{color: #33f; margin: 0; padding: 0; border: 0;}
+	#content ul		{margin-bottom: 20px;}
+	#content ul.nb	{list-style: none; margin-left: 0; padding-left: 0;}
+	
+/*	Main content area (within Content div) ----------------- */
+	.main			{position: relative; width: 100%; border: 0; padding: 0; margin: 0; margin-bottom: 20px;}
+	.main h3		{color: #000; padding: 5px; border: 1px solid #ccc; margin-bottom: 10px; background-image: url(../images/bg/main_h3.gif); background-repeat: repeat-x;}
+	.main p			{padding-bottom: 10px;}
+
+/*	Instructions (on top of Room Illustration tables) ----------------- */
+	.yardstick			{position: relative; width: 100%; height: 24px; border: 1px solid #c90; padding: 0; margin: 0; margin-bottom: 10px; background-image: url(../images/bg/instructions.gif); background-repeat: repeat-x;}
+	.yardstick p		{position: absolute; top: 3px; left: 10px; color: #000; padding: 0; margin: 0; font-weight: bold; font-style: italic; height: 24px}
+
+/*	Prizes (to hold Room Illustration tables and Room Info divs) ----------------- */
+	.prizes			{position: relative; width: 100%; border: 0; padding: 0; margin: 0;}
+
+/*	Room Illustration tables ----------------- */
+	table.room		{float: left; width: 393px; border: 0; padding: 0; margin: 0;}
+	.room tr		{vertical-align: top;}
+	.room td		{margin: 0; padding: 0; border: 0;}
+	
+/*	Room Info ----------------- */
+	.roominfo		{float: right; width: 195px;}
+	.roominfo h3	{line-height: 1; margin-bottom: 5px;}
+	.roominfo h6	{margin: 0; margin-top: 5px; margin-bottom: 10px; color: #f30; font-size: 120%;}
+	.roominfo ul	{margin: 0; padding: 0;}
+	.roominfo li	{margin: 0; margin-bottom: 10px; padding: 0; line-height: 1.3; list-style: none;}
+
+/*  Continue (animated GIF above the footer of the Room pages) ----------------- */
+	.continue		{float: right; margin: 0; margin-bottom: 20px; margin-top: 10px; padding: 0; border: 0; clear: both;}
+	
+/*  Top Logos (3 logos above the Room pages, within Content div) ----------------- */
+	.toplogos				{position: relative; width: 100%; height: 45px; margin: 0; margin-bottom: 20px; padding: 0; border: 0; }
+	.toplogos img			{display: inline; border: 0;}
+	.toplogos .left			{position: absolute; left: 0;}
+	.toplogos .middle		{position: absolute; left: 160px;}
+	.toplogos .right		{position: absolute; right: 0;}
+
+/*  Footers (within Content div) ----------------- */
+	#footer			{position: relative; margin: 0; margin-top: 20px; padding: 0; padding-top: 5px; border-top: 1px dashed #ccc; clear: both;}
+	#footer p		{font-size: 90%; color: #999; padding: 0; margin: 0; padding-bottom: 10px; line-height: 1.5}
+	
+	.legal			{position: relative; margin: 0; margin-bottom: 20px; padding: 0px; border: 0;}
+	.legal p		{font-size: 90%; color: #666; padding: 0; margin: 0; line-height: 1.5}
+	
+/*  Data Tables (within Content div) ----------------- */
+	table.data		{position: relative; margin: 0; margin-bottom: 20px; padding: 0; border: 0;}
+	.data tr		{vertical-align: top;}
+	.data td		{padding: 10px; border: 1px solid #ccc; text-align: center;}
+	
+/*  Jay (info box on Index page) ----------------- */
+	#jay			{display: none; position: relative; left: 20px; width: 600px; height: 95px; margin: 0; margin-top: 10px; padding: 0; border: 1px solid #ccc; background-color: #efefef;}
+	#jay img.photo	{float: left; margin: 10px; padding: 0; border: 1px solid #ccc;}
+	#jay img.logo	{display: none;}
+	#jay p			{margin: 10px 10px 0 0; padding: 0;}
+	#jay p.real		{font-size: 90%; color: #999;}
+	

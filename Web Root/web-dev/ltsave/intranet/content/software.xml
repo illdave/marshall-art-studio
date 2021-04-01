@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../XSL/lts_internal.xslt"?>
+<content>
+
+   <topic title="Software URLs" file="../content/software.xml" fileid="$Id: //main/2005/road/LTS-Intranet/web/content/software.xml#5 $$Change: 4184 $" fileChange="$DateTime: 2005/10/07 17:02:03 $$Author: bbarber $">
+     
+      <p>Access to software, Getting Started</p>
+  
+   </topic>
+
+   <section id="Software" title="by Category">
+
+      <item id="collection" title="Collections of Windows software and utilities">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://planetmirror.com/">Planet Mirror</a> -- Asia Pacific's largest online
+        software repository [cpatti]</li>
+      
+            <li>
+        
+               <a href="http://hotfiles.zdnet.com">Zdnet shareware</a> -- complete listing with evaluations</li>
+      
+            <li>
+        
+               <a href="http://www.softseek.com/Programming">Softseek programming</a> -- shareware and
+        evaluation software (part of ZDnet)</li>
+      
+            <li>
+        
+               <a href="http://www.cetus-links.com/">Cetus Links</a> -- A remarkable list of lists -
+        languages, object technologies, methodologies, infrastructure, you name it. [cpatti]</li>
+      
+            <li>
+        
+               <a href="http://www.perl.com/CPAN/">CPAN</a> and <a href="http://search.cpan.org/">search</a>-- Perl modules and source</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="database" title="Databases">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://www.ideit.com/products/dbvis/">DBVisualizer</a> -- a good Oracle client
+        [wsargent, awaltman].</li>
+      
+            <li>
+        
+               <a href="http://www.mysql.com">MySQL</a> -- database for Bugzilla.</li>
+      
+            <li>
+        
+               <a href="http://www.mysql.com/products/mysqlcc/index.html">MySql Control Center</a> -- good
+        beta of a MySQL client for Linux and Windows [adamb]. See the Bugzilla FAQ on <a href="http://bugs.atg.com/road/bugzilla/bugs/bugfaq.html#myadmin">mysqlcc and myadmin</a>.</li>
+      
+            <li>
+        
+               <a href="http://www.mysql.com/Downloads/Win32/myAdmin1.1.30.zip">MySQL/MyAdmin</a> -- MySQL
+        client for custom queries and remote admin [bradb].</li>
+      
+            <li>
+        
+               <a href="http://www.mysql.com/downloads/api-myodbc.html">MySQL/MyODBC</a> -- ODBC driver for
+        MySql. See <a href="http://bugs.atg.com/road/bugzilla/bugs/bugfaq.html#excel">Using
+        Excel</a> for custom queries with MyODBC</li>
+      
+            <li>
+        
+               <a href="http://www.toadsoft.com">TOAD</a> -- Oracle client. TOAD is really great. It's much
+        more powerfull than oracle's own clients and it's free [ashish].</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="email" title="E-mail and Instant Messaging">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://www.ceruleanstudios.com/trillian/index.html">Trillian</a> -- connect to
+        everyone [jwang, matt]</li>
+      
+            <li>Netscape e-mailer -- installed by IT. Good search.</li>
+      
+            <li>Outlook Express -- "It's way less buggy and otherwise quite similar." [jimf]. Try <a href="http://flash.to/outlook-quotefix">QuoteFix</a> [see employee.atg.com for IS notes,
+        mlandau]</li>
+      
+            <li>
+        
+               <a href="http://www.eudora.com">Eudora Pro</a> 5.0 -- Good UI and search. Stores each email
+        folder as one text file. Stores attachments in a download directory [bradb]. The sponsored
+        version is free and not overly intrusive [cpatti, bradb]. Stores mail as text files. See <a href="#started">Getting Started</a> on using Eudora with Outlook.</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="ftp" title="FTP">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://winscp.vse.cz/eng/">WinSCP</a> - scp client (secure copy), Launch the winscp
+        executable. Enter in the host name (pyros.atg.com and your network username and password.
+        Now double click on your public_html folder. From here you will need to select files or
+        folders in windows explorer and drag them to the winscp gui. Easy as that. [bartonn]</li>
+      
+            <li>ws_ftp -- good reputation</li>
+      
+            <li>
+        
+               <a href="http://stud.fh-heilbronn.de/~jdebis/leechftp/">LeechFTP</a> -- freeware FTP client</li>
+      
+            <li>
+        
+               <a href="http://www.globalscape.com/">CuteFTP</a> -- easy to use with plenty of features
+        [bradb]</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="graphics" title="Graphics">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://www.irfanview.com/">Ifranview</a> -- Great freeware gif/jpg/whatever viewer
+        and manipulator [cpatti].</li>
+      
+            <li>
+        
+               <a href="http://www.smartdraw.com">SmartDraw</a> -- good alternative to Visio, inexpensive
+        [cpatti]</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="html" title="HTML Editors and utilities">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://www.evrsoft.com/1stpage">1st Page 2000</a> -- free HTML editor [fkim]</li>
+      
+            <li>Macromedia's <a href="http://www.macromedia.com/software/homesite/">Homesite</a> is an
+        excellent html editor [cherylm]. It does not rewrite your html codes (most of the time).
+          <i>For help</i>: <a href="http://www.ezwebdesign.com/frames/homesite5.html">EZwebdesign</a>, and <a href="http://hotwired.lycos.com/webmonkey/toolbox/homesite">WebMonkey</a> [cherylm]</li>
+      
+            <li>
+        
+               <a href="http://office.microsoft.com/downloads/2000/Msohtmf2.aspx">Office HTML Filter</a> --
+        an MS Word add-on that generates simpler HTML than Save as HTML.[cherylm]. HomeSite includes
+        CodeSweeper and HtmlTidy with lots of customization.</li>
+      
+            <li>
+        
+               <a href="http://www.bagism.com/tablemaker/">TableMaker</a> -- create html tables. See also
+        HomeSite's table wizard [cherylm].</li>
+      
+            <li>
+        
+               <a href="http://www.w3.org/People/Raggett/tidy/">Tidy</a>, <a href="http://perso.wanadoo.fr/ablavier/TidyGUI/">TidyGUI</a> -- HTML syntax checker
+      [fkim]</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="Java" title="Java software and utilities">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://www.eclipse.org/">Eclipse</a> -- Full-featured Java IDE, with lots of useful
+        plug-ins [sdrye]</li>
+      
+            <li>
+        
+               <a href="http://www.cs.umd.edu/~pugh/java/bugs/">FindBugs</a> -- identify potential bugs in
+        Java source via source code and flow analysis. [sdrye]</li>
+      
+            <li>
+        
+               <a href="http://www.performant.com/">Optibench</a> -- detailed performance analysis [ruthm]</li>
+      
+            <li>Websphere Studio Application Developer (900 Megs) -- It is Eclipse based, but fills in
+        some nice holes. [Blake Crawford] <ol>
+          
+                  <li>it automatically publishes applications to WAS and keeps a WAS instance running in the
+            background</li>
+          
+                  <li>automatically verifies, compiles, updates, and reloads application changes on WAS</li>
+          
+                  <li>has a JSP editor that, while lacking the detailed code-completion of other IDEs, does
+            have source, preview, and visual design modes for editing</li>
+          
+                  <li>has a really nice interface for working with deployment descriptors.</li>
+        
+               </ol>
+            </li>
+      
+            <li>JPad Pro from modelworks.com -- like UltraEdit with good Java support [jscott]</li>
+      
+            <li>
+        
+               <a href="http://www.jedit.org">jEdit</a> will not only color code jsp correctly, but it will
+        figure out when you've escaped into Java code and use java formatting correctly in that
+        section. It also does JHTML and RelationalViews formatting. [wsargent]</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="mac" title="Macintosh software and utilities">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://www.cs.jhu.edu/services_sshmac.html">Nifty Telnet SSH/SCP</a> -- good telnet client
+        [bartonn]</li>
+      
+            <li>
+        
+               <a href="http://www.prgrsoft.com/pages/disktop.html">DiskTop</a> -- all the facts and
+        commands for Mac directories.</li>
+      
+            <li>
+        
+               <a href="http://www.disktracker.com/">DiskTracker</a> -- catalog and manage your disks and
+        directories.</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="merge-diff" title="Merge and Diff utilities">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://www.scootersoftware.com/">Beyond Compare</a> -- file and directory
+        comparison with lots of features. New licenses are $13 apiece [ATG has 10 licenses so far].
+        To compare ATG distribution files, Change 'Zip Extensions' in
+        Tools&gt;Options&gt;Folder View&gt; to "zip;jar;ear;war;dar". To compare all
+        files in an ATG distribution, unpack the distribution first.</li>
+      
+            <li>
+        
+               <a href="http://www.guiffy.com/">Guiffy Merge</a> -- multiplatform diff and 3-way merge
+        (Java-based)</li>
+      
+            <li>
+        
+               <a href="www.araxis.com">Araxis Merge</a> -- Windows diff and 3-way merge [tleblanc]. How to
+          <a href="perforce/p4-faq.jhtml#araxis">install in Perforce</a>.</li>
+      
+            <li>
+        
+               <a href="http://www.perforce.com/perforce/products/merge.html">Perforce</a> -- 3-way merge
+        and diff from Perforce with list of other merge tools</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="network" title="Networks">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://www.personaltelco.net/index.cgi/NetStumbler">NetStumbler</a> -- monitor the
+        wireless network [nboyd]</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="text" title="Other Editors and text utilities">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://www.xmlspy.com/">XML Spy</a> -- IDE for XML and XSLT [ruthm]</li>
+      
+            <li>
+        
+               <a href="http://www.openoffice.org">Open Office</a> -- office suite for all major platforms
+        with XML file format and excellent html export. "In terms of offering the features I need
+        without getting in my way, OpenOffice has been the clear winner in all my recent projects."
+        [cpatti]</li>
+      
+            <li>
+        
+               <a href="software/PDFconverter.jhtml">PDF Converter</a> -- convert Word docs to pdf files
+        for the web.</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="utility" title="Productivity Utilities">
+    
+         <ul>
+      
+            <li>ButtonBoogie -- move buttons on your taskbar <a href="http://hotfiles.zdnet.com">ZDNet</a>
+        search "ButtonBoogie"</li>
+      
+            <li>ContextEdit -- edit your context menu by file type <a href="http://hotfiles.zdnet.com">ZDNet</a> search "ContextEdit"</li>
+      
+            <li>Freedom of Association -- manage file type associations. <a href="http://hotfiles.zdnet.com">ZDNet</a> search "Freedom Association"</li>
+      
+            <li>Startup Cop -- manage your start up programs. <a href="http://hotfiles.zdnet.com">ZDNet</a> search "Startup Cop"</li>
+      
+            <li>TrayIcon -- launch program by clicking icon on system tray. <a href="http://www.zdnet.com/swlib/">ZDNet</a> search: TrayIcon</li>
+      
+            <li>Msched -- macro scheduler with hot keys and scripting language. Combine with TrayIcon. 5
+        stars from ZDnet. "I use Macro Scheduler (available as shareware at <a href="http://www.mjtnet.com">www.mjtnet.com</a>) which has some small limitations, but
+        generally rocks." [timm]</li>
+      
+            <li>How to switch <a href="http://www.microsoft.com/hwdev/input/W2kscan-map.htm">Ctl and
+          CapsLock</a> [Ashish, be careful].</li>
+      
+            <li>Quickeys -- keyboard macros, text macros, screen capture. GUI interface. See <a href="http://www.cesoft.com/products/qkwin.html">www.cesoft.com</a> [bradb]</li>
+      
+            <li>
+        
+               <a href="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp"> tweakui</a> -- remove "shortcut to" and other improvements. Unpack in a directory. Right
+        click on tweakui.inf and select install. Either reboot or click on WinNT\tweakui.cpl.</li>
+      
+            <li>
+        
+               <a href="http://www.microsoft.com/ntworkstation/downloads/PowerToys/Networking/NTComPrompt.asp"> Command prompt here</a> -- access the DOS box from Explorer. Execute the installer.
+        Right click on DOSHERE.INF and select install.</li>
+      
+            <li>
+        
+               <a href="http://www.microsoft.com/ntworkstation/downloads/PowerToys/Networking/NTDsktpMenu.asp"> Desktop Menu</a> -- access your desktop from the Taskbar. Execute the installer. Move
+        DESKMENU.EXE to your start directory. Execute to use it without rebooting.</li>
+      
+            <li>
+        
+               <a href="http://www.microsoft.com/ntworkstation/downloads/PowerToys/Networking/NTSendToX.asp"> SendTo</a> -- do more with the send to menu. Execute the installer. Right click on
+        SENDTOX.INF and select install.</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="editor" title="Programmer's Editors, Text Editors, and IDEs">
+    
+         <ul>
+      
+            <li>See <a href="#java">Java software</a> below.</li>
+      
+            <li>
+        
+               <a href="http://internal.atg.com/software-dist/Win32/xemacs/xemacs.exe">XEmacs for Windows
+          NT. Emacs - The Next Generation</a>. Using XEmacs nifty 'EFS' functionality, you can
+        specify a path like: <tt>/cpatti@nibbler:/work/releng/DCS/5.0/Makefile</tt> and XEmacs will
+        automatically use FTP to get/put the file. The home page is <a href="http://www.xemacs.org">www.xemacs.org</a>. Cons: xemacs over the network is slower than emacs inside CRT or
+        telnet. Also the control keys in emacs are hard on the wrist.</li>
+      
+            <li>
+        
+               <a href="http://internal.atg.com/software-dist/Win32/emacs/emacs.tar.gz">GNU Emacs</a>
+        software distribution for NT.</li>
+      
+            <li>
+        
+               <a href="http://www.textpad.com">Textpad</a> -- full-featured replacement for Notepad.
+        Recommended [tleblanc, jlang, bradb]. See Plasma #8629 for Dynamo syntax and clip libraries
+        [tobrien].</li>
+      
+            <li>
+        
+               <a href="http://www.unipad.org/main/">UniPad</a> -- free text editor with full Unicode
+        support [lizanne]</li>
+      
+            <li>Visual C++ -- excellent editor with multifile search, keyboard macros, and navigation bar
+        [bradb]. 'Help:keyboard map' includes useful keys. For example F4 goes to the next search
+        result.</li>
+      
+            <li>
+        
+               <a href="http://www.premia.com/">Codewrite</a> -- programmer's editor with an excellent
+        multi-file search and replace. Somewhat difficult to configure. [bradb].</li>
+      
+            <li>
+        
+               <a href="http://www.ultraedit.com">UltraEdit</a> -- includes tabbed interface to open files
+        [wredmond]. See Plasma #8356 for Dynamo and Java syntax files [billon].</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="script" title="Shells and scripting languages">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="software/tcsh.jhtml">Cygwin and tcsh</a> -- Tcsh shell for NT and Unix</li>
+      
+            <li>
+        
+               <a href="http://www.zsh.org">zsh</a> -- better than bash/tcsh [cpatti]</li>
+      
+            <li>
+        
+               <a href="http://www.activestate.com/Products/ActivePython/index.html&#34;">ActivePython</a> -- installers for Python on Win NT, Solaris, and Linux. The Cygwin package
+        includes python for NT. See <a href="http://starship.python.net/crew/theller/py2exe/">py2exe</a> for stand-alone executables [rollin].</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="telnet" title="Telnet Utilities">
+    
+         <ul>
+      
+            <li>ATG's VPN -- Logon is faster if you change 'Dial up networking', Properties:ServerTypes,
+        and unclick Log on to network, NetBEUI, IPX/SPX Compatible [bradb].</li>
+      
+            <li>
+        
+               <a href="http://www.vandyke.com/products/crt">CRT</a> -- telnet and terminal emulator. IT
+        has a license. Use SecureCRT for SSH.</li>
+      
+            <li>
+        
+               <a href="http://internal.atg.com/software-dist/Win32/PuTTY/">PuTTY</a> - a great, free,
+        SSH/telnet client for Win32 [cpatti] <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">home page</a>
+            </li>
+      
+            <li>
+        
+               <a href="release/build_instructions.jhtml#ntaccess">VNC</a> -- remote access to NT servers
+        and other hosts.</li>
+      
+            <li>TeraTerm Pro -- on shareware.com [LaMantia, Baron]</li>
+      
+            <li>eXceed -- X window server. IT has licenses.</li>
+      
+            <li>Procomm Plus -- solid VT100 emulation. Tries to do too much. [bradb]</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="unix" title="Unix software and utilities">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://www.atstake.com/research/tools/#network_utilities">netcat</a> -- The swiss
+        army knife of networking tools. You can create everything from a simple network pipe to a
+        simple server with a single command line invocation. Also good for diagnosing network
+        problems. [cpatti]</li>
+      
+            <li>
+        
+               <a href="http://www.w3.org/Security/Faq/">WWW Security FAQ</a>.</li>
+      
+            <li>
+        
+               <a href="http://planetmirror.com/">Planet Mirror</a> -- Asia Pacific's largest online
+        software repository [cpatti]</li>
+      
+            <li>
+        
+               <a href="http://www.guiffy.com">Guiffy Merge</a>, a Java-based merge tool with intra-line
+        diffs. [Andrew Jacobs]</li>
+      
+            <li>
+        
+               <a href="http://www.sunfreeware.com">Solaris freeware</a> -- Freeware packaged for Solaris
+        [Matt Rice].</li>
+      
+            <li>
+        
+               <a href="http://www.activestate.com/Products/ActivePython/index.html&#34;">ActivePython</a> -- installers for Python on Win NT, Solaris, and Linux. The Cygwin package
+        includes python for NT.</li>
+      
+            <li>
+        
+               <a href="http://fsinfo.cs.uni-sb.de/~calvin/software&#34;">pylice</a> -- HTML links
+        checker in Python or java</li>
+      
+            <li>
+        
+               <a href="http://internal.atg.com/proddev/kb/emacs/">ATG Emacs Resources</a>
+      
+            </li>
+      
+            <li>
+        
+               <a href="http://internal.atg.com/proddev/kb/linux.html">Setting up Linux at ATG</a>
+      
+            </li>
+      
+            <li>
+        
+               <a href="http://internal.atg.com/proddev/kb/linuxdev.html">Developing with Linux at ATG</a>
+      
+            </li>
+      
+            <li>
+        
+               <a href="software/csh-whynot.jhtml">Reasons not to use csh</a>
+      
+            </li>
+      
+            <li>
+        
+               <a href="http://internal.atg.com/releng/perl/manual/index.html">Perl manual</a>
+      
+            </li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="browsers" title="Web Browsers">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://channels.netscape.com/ns/browsers/default.jsp">Netscape 7</a> -- based on
+        the Mozilla browser -- works with Bugzilla, performance bug on very, long pages. <ul>
+          
+                  <li>
+            
+                     <a href="http://livehttpheaders.mozdev.org/">LiveHTTPHeaders</a> -- Mozilla addon for
+            viewing HTTP headers and cookies [fkim]</li>
+        
+               </ul>
+            </li>
+      
+            <li>
+        
+               <a href="http://www.opera.com">Opera</a> -- fast, works with Bugzilla, breaks on IE sites.</li>
+      
+            <li>Internet Explorer -- what else</li>
+      
+            <li>
+        
+               <a href="http://tinyurl.com/">Tiny URL</a> -- create short, URL aliases for any link</li>
+    
+         </ul>
+  
+      </item>
+
+      <item id="compress" title="Zip">
+    
+         <ul>
+      
+            <li>
+        
+               <a href="http://www.winzip.com">winzip</a> -- a standard. They have a <a href="http://www.winzip.com/wzcline.htm">command-line</a> version.</li>
+    
+         </ul>
+  
+      </item>
+   </section>
+</content>

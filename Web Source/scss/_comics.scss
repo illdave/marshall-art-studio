@@ -1,0 +1,48 @@
+/* comics ----------------------------- */
+
+.comics {
+	section {
+		&.picture-header {
+			.image {
+				background-image: url("#{$pictures-image-path}/inky-studio-4.jpg");
+				background-position: 0 center;
+			}
+		}		
+	}
+	&.commissions {
+		ul {
+			padding-left: 0;
+			list-style: none;
+			li {
+				font-family: $font-family-italic;
+			}
+		}
+		dl {
+			margin-bottom: $spacer-small;
+			dt, dd  {
+				padding: $spacer-small 0;
+			}
+			dt {
+				border-bottom: $border-default;
+			}
+			dd {
+				border-bottom: $border-light;
+			}
+		}
+		.price {
+			display: inline-block;
+			width: 3rem;
+		}
+	}
+	
+	.skills {
+		.item {
+			min-height: 12rem;
+		}
+	}
+	.my-comics {
+	}
+}
+
+
+

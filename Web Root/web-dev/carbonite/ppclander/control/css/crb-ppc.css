@@ -1,0 +1,149 @@
+table, td, th, p, li	{font-family: 'trebuchet ms', verdana, arial, san-serif; font-size: 12px; color: #000;}
+body					{background: #cfd2d9 url('../images/body.gif') repeat-x 0 0 fixed; font-family: 'trebuchet ms', verdana, arial, san-serif; font-size: 12px; color: #000;}
+
+/* Mini Defaults */
+.alt, .preload, .hide	{display: none;}
+.debug			{border: 1px dotted red; background-color: yellow;}
+.center			{text-align: center;}
+.strong			{font-weight: bold; margin-right: .5em; color: #069;}
+.clear			{content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+.L				{float: left;}
+.R				{float: right;}
+.half			{width: 48%;}
+
+/* HTML Element Defaults */
+body, h1, h2, h3, h4, p, li, ul, div, table, td, th, tr, img, form, fieldset	{margin: 0; padding: 0; border: 0;}
+h1			{font-size: 280%; color: #2d8a26; margin-bottom: .5em;}
+h2			{font-size: 150%;}
+h3			{font-size: 130%; margin-bottom: .5em;}
+h4			{font-size: 100%; margin-bottom: 1em;}
+p			{margin-bottom: 1em;}
+ul			{margin-left: 30px;}
+ol			{margin-left: 2em;}
+li			{margin-bottom: 1em; line-height: 1.5em;}
+img			{display: block;}
+table		{position: relative; width: 100%; border-spacing: 0; border-collapse: collapse;}
+tr			{vertical-align: top;}
+caption		{display: none;}
+
+a:link, a:visited	{color: #005280;}
+a:active			{color: #0a2d41;}
+a:hover				{text-decoration: none;}
+
+/* Main Page Container */
+.outerdiv 		{position: relative; width: 100%; padding-bottom: 10px; text-align: center;}
+.bodyframe		{position: relative; width: 800px; margin: 0 auto 2em; margin-bottom: .5em; text-align: center; background: #fff;}
+.margin			{position: relative; width: 740px; margin: 0 auto; clear: both; text-align: left;}
+
+/* Masthead */
+.masthead		{position: relative; width: 100%; height: 60px; background: #464878 url('../images/masthead.gif') no-repeat 0 0; margin-bottom: 1em;}
+.homelink img	{position: absolute; left: 24px; top: 10px; width: 180px; height: 40px;}
+
+/* Content, 2-Column Layout */
+.content		{width: 100%; margin: 0 auto; clear: both; position: relative; text-align: left;}
+.content .L		{display: inline;}
+.content .R		{display: inline;}
+.content .wide	{width: 510px;}
+.content .thin	{width: 200px; position: relative;}
+
+/* Outline LIst-Items */
+.outline ul		{list-style: none; margin: 0; margin-bottom: 2em; padding: 0;}
+.outline li		{font-size: 140%; margin-bottom: .5em; background: url('../images/li-overview.gif') no-repeat 0 0; padding-left: 29px; line-height: 1.2em;}
+
+/* 2-Part Headline */
+.headlines			{position: relative; width: 100%; margin-bottom: 1.5em;}
+.headlines h1		{font-size: 260%; border-bottom: 1px solid #ccc; padding-bottom: .25em; margin-bottom: .25em;}
+.headlines h2		{color: #999; font-size: 190%;}
+.headlines span		{color: #464878; display: block; font-size: 120%;}
+
+/* Reasons */
+.reasons			{position: relative; width: 100%; margin-bottom: 3em;}
+.reasons p			{margin-bottom: 1.5em; line-height: 1.5em; font-size: 115%; color: #333;}
+.reasons h2			{color: #6950a1; border-bottom: 1px dotted #ccc; padding-bottom: .25em; margin-bottom: .25em; font-size: 170%;}
+
+/* How it Works */
+.howitworks			{position: relative; width: 100%; background: transparent url('../images/howitworks.gif') no-repeat 0 0; margin-bottom: 125px; text-align: center;}
+.howitworks h2		{border: 0; padding: 0; margin-bottom: 1em; line-height: 30px; padding-left: 24px; color: #e1daf0; text-align: left;}
+.howitworks h3		{color: #2b2157;}
+
+.howitworks .item	{width: 460px; margin: 0 auto; clear: both; text-align: left;}
+.howitworks .half	{display: inline;}
+
+.howitworks .bot	{position: absolute; width: 100%; left: 0; bottom: -105px; background: transparent url('../images/howitworks-bot.gif') no-repeat 0 0; height: 105px; clear: both; text-align: left;}
+.howitworks .bot p	{width: 380px; margin-top: 1em; margin-left: 90px;}
+
+/* Sign Up FORM */
+.signup				{position: relative; width: 100%; background: transparent url('../images/signup.gif') no-repeat 0 0; margin-top: 10px; margin-bottom: 3em;}
+.signup .form		{padding-top: 140px; width: 170px; margin-left: 15px;}
+.signup fieldset	{width: 100%;}
+.form input			{width: 165px; margin-bottom: .75em;}
+.form .button input	{width: auto;}
+.signup .bot		{position: absolute; width: 100%; left: 0; bottom: 0; background: transparent url('../images/signup-bot.gif') no-repeat 0 0; height: 5px;}
+.signup .sysreq		{text-align: center; padding-bottom: 1em;}
+
+/* No Credit Card Burst */
+.nocc				{position: absolute; top: -41px; left: 47px; width: 103px; height: 105px; background: transparent url('../images/nocc.gif') no-repeat 0 0; z-index: 1;}
+.nocc h4			{display: none;}
+.nocc img			{width: 103px; height: 105px;}
+
+/* Quotes */
+.quote		{width: 100%; text-align: center; z-index: 1}
+.quote h3	{color: #5273a8; font-family: georgia, times, 'times new roman', serif; font-style: italic; font-size: 160%; line-height: 1.5em;}
+.quote img	{margin: 0 auto;}
+
+/* Footer */
+.footer			{width: 100%; border-top: 5px solid #cfd969; padding: 1em 0 2em; clear: both;}
+.footer p		{color: #666; margin: 0; line-height: 2;}
+.footer ul		{list-style: none; margin: 0;}
+.footer li		{display: inline;}
+.footer a:link, .footer a:visited	{color: #666;}
+.footer a:hover	{text-decoration: none;}
+
+.footer .crb		{float: left; width: 45%}
+.footer .safety		{float: right; width: 45%; text-align: right;}
+.footer .safety img	{display: inline; margin-left: 20px;}
+
+/* Tool Tips, Swiped from Current CRB Site */
+ .tooltip_anchor {
+ 	position: relative;
+ }
+ .tooltip_anchor span {
+ 	text-decoration:underline;
+ 	cursor:pointer;
+ }
+ li .tooltip_anchor span {
+  color:#5F9646;
+ }
+ .tooltip {
+ 	position: absolute;
+ 	width: 200px;
+ 	display:none;
+ 	z-index: 100;
+ 	/*Remove below line to remove shadow. Below line should always appear last within this CSS*/
+ 	filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135,strength=4);
+ }
+ .tooltip .pointer {
+ 	position:absolute;
+ 	left: 10px;
+ 	z-index: 101;
+ }
+ .tooltip .tooltip_content {
+ 	border: 1px solid #C0C09F;
+ 	padding: 4px 2px 2px 8px;
+ 	margin-top:13px;
+ 	background-color: #FFFFCC;
+ 	text-align:left;
+ }
+ .tooltip p {
+ 	color: #666;
+ 	margin-right:10px;
+ 	margin-top:0;
+ }
+ .tooltip span {
+ 	font-weight:bold;
+ 	font-size:14px;
+ 	color: #553CA0;
+ 	margin-right:10px;
+ }
+
+.footer .hackersafe	{margin-bottom: 20px;}

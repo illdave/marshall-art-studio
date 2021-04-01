@@ -1,0 +1,14 @@
+#left a img, #left a:visited img  	{background-image: url(../images/living/leftoff.gif); visibility: visible;}
+#left a:hover img 					{background-image: url(../images/living/lefton.gif);  visibility: visible;}
+
+#mid a img, #mid a:visited img  	{background-image: url(../images/living/midoff.gif); visibility: visible;}
+#mid a:hover img 					{background-image: url(../images/living/midon.gif);  visibility: visible;}
+
+#midright a img, #midright a:visited img	{background-image: url(../images/living/midrightoff.gif); visibility: visible;}
+#midright a:hover img						{background-image: url(../images/living/midrighton.gif);  visibility: visible;}
+
+#right a img, #right a:visited img  {background-image: url(../images/living/rightoff.gif); visibility: visible;}
+#right a:hover img 					{background-image: url(../images/living/righton.gif);  visibility: visible;}
+
+#bot a img, #bot a:visited img  	{background-image: url(../images/living/botoff.gif); visibility: visible;}
+#bot a:hover img 					{background-image: url(../images/living/boton.gif);  visibility: visible;}

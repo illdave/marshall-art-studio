@@ -1,0 +1,53 @@
+.col_name	{ text-align: left; }
+.col_tab	{ width:  15px; }
+.col_type	{ width: 100px; text-align: center;	}
+.col_value	{ width: 150px; text-align: right; }
+.col_pie	{ width:  25px; text-align: center; }
+.col_edit	{ width:  25px; text-align: center; }
+.col_space	{ width:   5px; }
+
+
+/* following widths must add up to 560 */
+.fund_check		{ width: 10px; text-align: center; }
+.fund_name		{ width: 300px; text-align: left; }
+.fund_symbol	{ width: 50px; text-align: left; }
+.fund_shares	{ width: 100px; text-align: center; }
+.fund_alloc		{ width: 100px; text-align: center; }
+/* end */
+.fund_alloc input { text-align: right; }
+.fund_shares input { text-align: right; }
+
+.mainerror { color: red; margin-top: 10px; margin-bottom: 10px; }
+.empty { margin-top: 20px; margin-bottom: 20px; }
+
+.ltstable		{ margin-top: 10px; margin-bottom: 10px; }
+.ltstable table	{ width: 100%; }
+.ltstable td	{ height: 30px; color: black; } 
+.ltstable th	{ height: 30px; border-top: 2px solid white; color: black; font-weight: bold;} 
+.ltstable a		{ color: black; }
+.ltstable a:hover{ color: red; }
+
+.ltsgreen		{ background-color: #DDF7DD; border: 1px solid limegreen; }
+.ltsgreen a		{ color: darkgreen; }
+.ltsgreen td	{ border-top: 1px solid #ABC9AB;  }
+.ltsgreen th	{ background-color: #ADEDAD; border-bottom: 3px solid #ABC9AB; }
+
+.ltsblue		{ background-color: #e7f4ff; border: 1px solid #86c5fe; }
+.ltsblue a		{ color: 00458b; }
+.ltsblue td		{ border-top: 1px solid #b3cade;  }
+.ltsblue th		{ background-color: #cee8ff; border-bottom: 3px solid #b3cade; }
+
+.ltsyellow		{ background-color: #FEFCD6; border: 1px solid #E8DC04; }
+.ltsyellow a	{ color: #663300; }
+.ltsyellow td	{ border-top: 1px solid #CAC67D;  }
+.ltsyellow th	{ background-color: #FDF9AC; border-bottom: 3px solid #CAC67D; }
+
+.ltsred			{ background-color: #F8DCCB; border: 1px solid #D15B58; }
+.ltsred a		{ color: #663300; }
+.ltsred td		{ border-top: 1px solid #B78451;  }
+.ltsred th		{ background-color: #EEB38E; border-bottom: 3px solid #B78451; }
+
+.ltswhite		{ background-color: white; border: 1px solid #b9b9b9; }
+.ltswhite a		{ color: #333333; }
+.ltswhite td	{ border-top: 1px solid #cccccc;  }
+.ltswhite th	{ background-color: #f6f6f6; border-bottom: 3px solid #cccccc; }

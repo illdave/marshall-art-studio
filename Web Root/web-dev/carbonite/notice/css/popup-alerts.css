@@ -1,0 +1,44 @@
+table, td, th, p, li	{font-family: 'trebuchet ms', verdana, arial, san-serif; font-size: 14px; color: #333;}
+body					{background: #efefef; font-family: 'trebuchet ms', verdana, arial, san-serif; font-size: 14px; color: #333;}
+
+/* Mini Defaults */
+.alt, .preload, .hide	{display: none;}
+.debug			{border: 1px dotted red; background-color: yellow;}
+.center			{text-align: center;}
+.strong			{font-weight: bold; margin-right: .5em; color: #069;}
+.clear			{content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+.alert			{color: #900; font-weight: bold;}
+
+/* HTML Element Defaults */
+body, h1, h2, h3, h4, p, li, ul, div, table, td, th, tr, img, form, fieldset	{margin: 0; padding: 0; border: 0;}
+h1			{font-size: 280%;}
+h2			{font-size: 150%;}
+h3			{font-size: 130%; margin-bottom: .5em;}
+h4			{font-size: 100%; margin-bottom: 1em;}
+p			{margin-bottom: 1em;}
+ul			{margin-left: 30px;}
+ol			{margin-left: 2em;}
+li			{margin-bottom: 1em; line-height: 1.5em;}
+img			{display: block;}
+table		{position: relative; width: 100%; border-spacing: 0; border-collapse: collapse;}
+tr			{vertical-align: top;}
+caption		{display: none;}
+
+a:link, a:visited	{color: #005280;}
+a:active			{color: #0a2d41;}
+a:hover				{text-decoration: none;}
+
+/* Main Page Container */
+.outerdiv 		{position: relative; width: 100%; text-align: center;}
+
+.popup			{position: relative; width: 270px; margin: auto; margin-top: 20px; text-align: center; background: #fff; border: 1px solid #ccc;}
+.popup h1		{background: #553ca0 url('../images/h1.gif') repeat-x 0 0; color: #fff; padding: .25em 0; line-height: 1em;}
+
+.margin			{position: relative; margin: 10px; clear: both; text-align: left;}
+.margin h1		{text-align: center; color: #3f2d69; border-bottom: 1px dotted #ccc; padding-bottom: .25em; margin-bottom: .25em; line-height: 1em;}
+
+.button			{width: 100%; margin-bottom: .5em; text-align: center;}
+.button img		{margin: auto;}
+
+.footnote		{font-size: 90%; font-style: italic;}
+

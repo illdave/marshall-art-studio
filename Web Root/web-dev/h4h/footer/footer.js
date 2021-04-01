@@ -1,0 +1,1 @@
+document.write("&copy; 1999 - 2005, CBS Worldwide Inc. &amp; CBS Mass Media Corporation All Rights Reserved.");

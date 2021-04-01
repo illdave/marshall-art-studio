@@ -1,0 +1,555 @@
+/* utility classes -------------------- */
+
+
+.footnote {
+	font-family: $font-family-italic;
+}
+
+.date-range {
+	font-family: $font-family-bold;
+	margin-right: .25rem;
+}
+
+.learn-more .fas {
+	font-size: 2rem;
+	margin-left: 1rem;
+	&:before {
+		content: $icon-learn-more;
+	}
+}
+
+.prev-next {
+	.prev, .next {
+		.fas {
+		}
+		&:hover {
+			.fas {
+			}
+		}
+	}
+	.prev {
+		.fas {
+			margin-right: .5rem;
+			&:before {
+				content: $icon-prev;
+			}
+		}
+	}
+	.next {
+		float: right;
+		.fas {
+			margin-left: .5rem;
+			&:before {
+				content: $icon-next;
+			}
+		}	
+	}
+}
+
+.table-no-padding th,  
+.table-no-padding td {
+	padding: 0;
+}
+
+.main-navigation .skip-link {
+	color: $white;
+	font-size: .75rem;
+	&.sr-only-focusable:focus, 
+	&.sr-only-focusable:active {
+		position: absolute;
+		top: .5rem;
+		z-index: 2;
+		left: 1rem;
+	}
+}
+
+.justify-content-center {
+    text-align: center;
+}
+
+.form-check-input:checked {
+    background-color: $link-color;
+    border-color: $link-color;
+}
+
+.list-inline {
+	li {
+		display: inline-block;
+		&:not(:last-child) {
+			margin-right: .5rem;
+		}
+	}
+}
+.list-unstyled {
+	li {
+		&:not(:last-child) {
+			margin-bottom: $spacer;
+		}
+	}
+}
+
+.btn {
+	color: $btn-color;
+	background-color: $btn-bg;
+	border: 0;
+	&.icon {
+		display: inline-flex;
+		align-items: center;
+	}
+	&:hover {
+		color: $btn-hover-color;
+		background: $btn-hover-bg;
+	}
+	&:active {
+		color: $btn-active-color;
+		background: $btn-active-bg;
+	}
+}
+.btn-row {
+	&.centered {
+		.btn {
+			margin: 0 .25rem;
+		}
+	}
+}
+
+.back-to-top {
+	padding: .5rem 0;
+	text-align: right;
+	.fas {
+		color: $icon-link-color;
+		margin-left: .5rem;
+		&:before {
+			content: $icon-back-to-top;
+		}
+	}
+	&:hover {
+		.fas {
+			color: $icon-link-color-hover;
+		}
+	}
+	&:active {
+		.fas {
+			color: $icon-link-color-active;
+		}
+	}
+}
+
+.jobs {
+	h2 {
+		margin-bottom: $spacer-base-vertical;
+	}
+	.job {
+		margin-bottom: $spacer-base-vertical;
+		h3 {}
+		p {
+			&.job-span {
+				font-family: $font-family-italic;
+				margin-bottom: 0;
+			}
+		}
+	}
+	
+	&.recent {}
+	&.vintage {
+		h2 {
+			margin-bottom: $spacer-small-vertical;
+		}
+	}
+}
+
+.jumbotron {
+	padding: $jumbotron-padding;
+    margin-bottom: $spacer-large;
+    background-color: $jumbotron-bg;
+    border-radius: $jumbotron-border-radius;
+}
+
+.photo {
+	background: $white no-repeat 0 0;
+	background-size: cover;
+	border: $border-default;
+	margin-bottom: 1rem;
+}
+.circle {
+	height: $photo-circle-lg;
+	width: $photo-circle-lg;
+	border-radius: $circle-border-radius;
+}
+
+.button-backtotop {
+	border: 1px solid red;
+	padding: 2rem;
+	background: blue;
+	color: red;
+    opacity: 0;
+    transition: opacity .5s linear;
+	&.active, 
+	&:focus {
+		opacity: 1;
+	}
+}
+
+.row {
+	&.in-content {
+		margin-bottom: 0;		
+		img {
+			margin-bottom: $spacer;
+		}
+		&.figure {
+			[class*="col-"]{
+				padding-right: 10px;
+				padding-left: 10px;
+			}		
+			.figure-caption {
+				p {
+					border-bottom: $border-default;
+					padding-bottom: .5rem;
+					margin-top: -.25rem;
+				}
+			}
+		}		
+	}
+}
+.sidebar {
+	.item {
+		margin-bottom: 1rem;
+		&.contact {
+			padding: 2rem;
+			margin-bottom: 2rem;
+			background: $item-even-bg;
+			li {
+				margin-bottom: .25rem;
+			}
+		}
+	}
+}
+.social {
+	li, dd {
+		background: transparent no-repeat 0 0;
+		padding-left: 1.5rem;
+		padding-right: .5rem;
+		position: relative;
+		a {
+			&:before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				font-family: 'Font Awesome Brands';
+				color: $icon-link-color;
+			}
+		}
+		&:hover a {
+			&:before {
+				color: $icon-link-color-hover;
+			}
+		}
+		&:active a {
+			&:before {
+				color: $icon-link-color-active;
+			}
+		}
+	}
+	
+	.email a {
+		&:before {
+			font-family: 'Font Awesome Solid';
+			content: $icon-email;
+		}
+	}
+	.facebook a {
+		&:before {
+			content: $icon-facebook;
+		}
+	}
+	.twitter a {
+		&:before {
+			content: $icon-twitter;
+		}
+	}
+	.linkedin a {
+		&:before {
+			content: $icon-linkedin;
+		}
+	}
+	.github a {
+		&:before {
+			font-family: 'Font Awesome Solid';
+			content: $icon-github;
+		}
+	}
+	.follow-me {
+		padding-left: 0;
+		margin-right: .5rem;
+	}
+}
+
+
+
+.tiles {
+	padding: 2.6rem 2rem 1rem;
+	.tile {
+		background: transparent url("../../img/graphic-design/fpo-gears.jpg") center center no-repeat;
+		background-size: cover;
+		margin-bottom: 1.6rem;
+		 a {
+			display: block;
+			position: relative;
+			min-height: 25rem;
+			border: $link-img-border;
+			&:hover {
+				border-color: $link-img-border-hover-color;
+			}
+			&:active {
+				border-color: $link-img-border-active-color;
+			}
+		}
+		.caption {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background: #000;
+			opacity: .9;
+			color: #aaa;
+			padding: 1rem;
+			line-height: 1rem;
+			h3 {
+				color: white;
+				margin-bottom: .5rem;
+				margin-bottom: 0;
+			}
+			p {
+				font-weight: normal;
+				margin: 0;
+				line-height: 1.5rem;
+			}
+		}
+	}
+	&.skills {
+		.tile {
+			a {
+				min-height: 20rem
+			}
+		}
+	}
+}
+
+.thumbnails {
+	.thumbnail {
+		background: $comic-book-thumbnail-bg;
+		margin-bottom: $spacer-large;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: flex-start;
+		.image {
+			background: white 0 0 no-repeat;
+			background-size: cover;
+			border: $comic-book-thumbnail-image-border;
+			height: 14rem;
+			margin-bottom: $spacer-small;
+			flex-basis: 9rem;
+			flex-grow: auto;
+			flex-shrink: 0;
+			margin-right: $spacer-base;
+			display: block;
+			&:hover {
+				border-color: $link-color;
+				opacity: 0.5;
+			}
+			&:focus {
+				outline: 0;
+				box-shadow: $btn-focus-box-shadow;
+			}
+		}
+		.text {
+			flex-grow: 2;
+			display: flex;
+			flex-direction: column;
+			align-content: space-between;
+			h3 {
+				margin-bottom: 0;
+			}
+			.button-row {
+				align-self: flex-start;
+			}
+		}
+	}
+}
+
+.gallery {
+	padding: 2.6rem 2rem 1rem;
+	.frame {
+		background: transparent url("../../img/illustration/fpo-gears.jpg") center center no-repeat;
+		background-size: cover;
+		margin-bottom: 1.6rem;
+		a {
+			display: block;
+			position: relative;
+			min-height: 30rem;
+			.caption {
+				display: none;
+			}			
+			&:hover .caption {
+				display: block;
+			}
+			&:hover {
+				background: rgba(255, 255, 255, .5);
+			}			
+		}
+		.caption {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background: #000;
+			opacity: .9;
+			color: #aaa;
+			padding: 1rem;
+			line-height: 1rem;
+			text-align: center;
+			h3 {
+				color: white;
+				margin-bottom: .5rem;
+				margin-bottom: 0;
+			}
+			p {
+				font-weight: normal;
+				margin: 0;
+				line-height: 1.5rem;
+			}
+			.title {
+				font-weight: bold;
+			}
+			.details {
+				display: none;
+			}
+		}		
+	}
+	.tallXXXX .frame a {
+		min-height: 40rem;
+	}	
+}
+
+.rip-jobs {
+	.rip-job {
+		h3 {}
+		h4 {}
+		p {
+			&.title {}
+		}
+	}
+}	
+
+
+.newsflash {
+	.item {
+		padding: $spacer-base-vertical $spacer-base-horizontal 0;
+		border: $border-default;
+		background: $item-bg;
+		margin-bottom: 1rem;
+	}
+}			
+
+.disclaimer {
+	padding: $spacer-base-vertical $spacer-base-horizontal 0;
+	border: $border-default;
+	background: $item-bg;
+	margin-bottom: 1rem;
+}
+
+.diagram {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	margin: 1rem 0;
+	&.pie-chart {
+		text-align: center;
+		dt {
+			font-size: $h3-font-size;
+		}
+		.data {
+			text-align: left;
+			width: 30%;
+			&.coder {
+				width: 25%;
+			}
+			&.designer {
+				margin-left: 2rem;				
+			}
+		}
+		.image {
+			background: url("#{$graphics-image-path}/designer-coder-pie-chart.png") no-repeat center center;
+			width: 40%;
+			height: 22rem;
+			background-size: contain;
+			position: relative;
+			.label {
+				position: absolute;
+				top: 45%;
+				font-size: $h3-font-size;
+				font-family: $font-family-bold;
+				&.coder {
+					left: 3rem;
+				}
+				&.designer {
+					right: 10%;
+				}
+			}
+		}
+	}
+} 
+
+
+/* responsive ------------------------- */
+
+@media (max-width: 576px) { 
+	.mas-client .row > div {
+		flex: auto;
+	}
+	section {
+		padding: $spacer-base;
+		&.picture-header {
+			.text {
+				font-size: $font-size-base;
+				padding: $spacer-base;
+			}
+		}		
+	}
+	
+	.gallery, .tiles, .web .mas-client.clients, .web .client-details {
+		padding: $spacer-base !important;
+	}
+	section.picture-header .image {
+		min-height: 10rem;
+	}
+	.btn-row {
+		&.centered {
+			.btn {
+				margin-bottom: .5rem;
+			}
+		}
+	}
+}
+
+@media (max-width: 768.98px) { 
+	.container {
+		max-width: 768px !important;
+	}
+}
+
+@media (max-width: 991px) { 
+	.container {
+		max-width: 950px !important;
+	}
+	.diagram {
+		&.pie-chart {
+			.image {
+				.label {
+					display: none;
+				}
+			}
+		}
+	} 
+}

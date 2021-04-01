@@ -1,0 +1,378 @@
+.printonly{
+	display: inline;
+}
+.screenonly{
+	display: none;
+}
+
+BODY {
+	background-color: white;
+}
+.ReportHeader {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #333333;
+	background-color: #E96B10;
+
+}
+.reporttext {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000000;
+	line-height: 18px;
+
+}
+h6 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	color: #333333;
+	font-weight: 100;
+	line-height: normal;
+
+
+}
+h5 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	color: #666666;
+	line-height: normal;
+
+}
+.number {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	color: #333333;
+	background-color: #FFffff;
+	font-weight: bold;
+
+}
+.sidetable {
+	background-color: #FFFFFF;
+	background-position: left top;
+	vertical-align: top;
+
+}	
+a:link {
+	color: #333333;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+}
+a:visited {
+	color: #333333;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+}
+a:hover {
+	color: #ff6600;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+}
+a:active {
+	color: #333333;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.topicheading {
+	background-color: #e5ebe7;
+	vertical-align: middle;
+}
+.fundtableheader {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000000;
+	background-color: #D9DB8E;
+}
+.fundlevelAlabel {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #333333;
+	background-color: #feffe6;
+
+
+
+}
+.fundlevelA {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #333333;
+
+
+
+}
+.fundlevelAlabeldark {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #333333;
+}
+.fundlevelAdark {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #333333;
+	background-color: #Ecf9cc;
+}
+.screenonly {
+	display: inline;
+}
+.printonly {
+	display: inline;
+}
+.pagebreak {
+	page-break-after: always;
+}
+.subnavigationbold {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #000000;
+}
+.sidenavigationbold {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000000;
+
+	
+
+}
+.sidenavigation {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #333333;
+	
+
+
+}
+.subasset {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000000;
+}
+.projectionBheader {
+	background-color: #6E96D5;
+}
+.reporttable {
+	border: thin solid #fffoc4;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+
+
+}
+.tablerowlinedark {
+	background-color: #ecf9cc;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #333333;
+
+}
+.tablerowline {
+	background-color: #feffe6;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #333333;
+
+}
+.tableheader {
+	background-color: #d9db8e;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #333333;
+
+}
+.unnamed1 {
+	background-color: #465F87;
+}
+.formtext {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	background-color: #Feffe6;
+}
+.broadasset {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #333333;
+	background-color: #feffe6;
+}
+.fundname {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	color: #333333;
+	background-color: #feffe6;
+
+}
+.text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+}
+.fundnameheader {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #333333;
+	background-color: #ecf9cc;
+}
+.profilenameheader {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #333333;
+}
+.profilename {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #333333;
+}
+.investmentname {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #333333;
+}
+.formprintinfo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+	background-color: #d9db8e;
+
+}
+.broadassetlabel {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #ecf9cc;
+}
+.broadassetlabelnew {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #333333;
+	background-color: #ecf9cc;
+}
+.broadassetnew {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+	background-color: #feffe6;
+}
+.fundtableheadernew {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000000;
+	background-color: #d9db8e;
+}
+.sidenavigationboldnew {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000000;
+	background-color: #d9db8e;
+}
+.fundlevelAlabellight {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #333333;
+	background-color: #feffe6;
+	font-weight: bold;
+
+}
+.fundlevelAlight {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	background-color: #feffe6;
+}
+.frontpageheading {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 36px;
+	font-weight: normal;
+	color: #000000;
+}
+.preparedfor {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 24px;
+	color: #333333;
+	font-style: italic;
+}
+.clientname {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #333333;
+}
+.preparedby {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+	letter-spacing: -5em;
+}
+.preparerinfo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000000;
+}
+.tagline {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-style: italic;
+	color: #333333;
+	font-weight: bold;
+
+}
+.tablecontents {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	color: #000000;
+}
+.index {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 22px;
+	color: #000000;
+	font-weight: normal;
+	font-style: italic;
+
+}
+.horizontalrule {
+	color: #FF9933;
+}
+.pagebreakafter {
+	page-break-before: always;
+}
+.pagenumber {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 24px;
+	font-weight: normal;
+	color: #000000;
+}

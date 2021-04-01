@@ -1,0 +1,28 @@
+/* color scheme changes for section
+/* end - color scheme changes */
+
+p {line-height: 150%; color: #333333; margin-top: 0px; margin-bottom: 20px; margin-right: 20px;}
+p a {color: #003399; text-decoration: underline; font-weight: bold;}
+p a:hover {color: orange; text-decoration: none;}
+
+a.topofpage				{color: orange; font-weight: bold;}
+a.topofpage:hover		{text-decoration: none;}
+
+hr.gray					{color: #cccccc; height: 1px; shade: none;}
+hr.faq					{color: #cccccc; height: 1px; shade: none; margin-top: 10px; margin-bottom: 10px}
+
+p.newsitem 				{color: #000000; padding: 10px; padding-top: 0px; padding-bottom: 0px; margin-top: 0px; margin-bottom: 10px; line-height: 150%}
+p.newstype	 			{color: #ff6600; font-size: 11px; font-weight: bold; text-transform: uppercase; padding: 10px; padding-bottom: 0px; margin-bottom: 5px}
+p.newsheader 			{color: #ff6600; font-size: 14px; font-weight: bold; padding: 0px; margin: 0px; margin-top: 0em; margin-bottom: 0.3em;}
+
+/* Boxed data charts (Customer Care --> Get Started (FaqStart/Start.aspx) */
+td.chartheader			{background: #003366; color: #ffffff; font-weight: bold; text-align: center;}
+td.chartlabel			{background: #ffffff; color: #003366; font-weight: bold; text-align: right;}
+td.chartdata			{background: #e6e6e6; text-align: center;}
+td.chartdatal			{background: #e6e6e6; text-align: left;}
+td.chartdataloss		{background: #e6e6e6; text-align: center; color: #990000;}
+table.chart 			{width: 90%; margin-bottom: 30px}
+table.review 
+
+/* Variation of current Boxheader customized for Customer Care */
+.ltslightgold TD 		{font-weight: bold; font-size: 11px; padding: 3px; background-color: #fce882; color: #CC6600; text-transform: uppercase;letter-spacing: .1em}

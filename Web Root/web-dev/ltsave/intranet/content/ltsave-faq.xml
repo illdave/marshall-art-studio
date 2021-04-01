@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../XSL/lts_internal.xslt"?>
+<content>
+
+   <topic title="LTSave FAQ" file="../content/ltsave-faq.xml" fileid="$Id: //main/2005/road/LTS-Intranet/web/content/ltsave-faq.xml#6 $$Change: 4261 $" fileChange="$DateTime: 2005/10/13 15:43:46 $$Author: bbarber $">
+
+   </topic>
+   <section id="partners" title="LTSave Partners">
+      <item id="ExpertPlan" title="ExpertPlan">
+         <p>Through ExpertPlan, LTSave offers an R share, A share, and RIA product.  
+            Each product has a superset of funds selected by LTSave from a list of appropriate funds.  
+            LTSave defines six models using these funds for managed accounts.</p>
+         <ul><li>
+            Contacts:
+            <ul><li>
+               Mike Rizzo, VP Development, 609-918-2555, mrizzo@expertplan.com
+            </li><li>
+               Israel Botnick, Developer on LTSave products, 609-918-2570, ibotnick@expertplan.com
+            </li><li>
+               Matt Frey, UI and DB designer, 609-918-2584, mfrey@expertplan.com
+            </li><li>
+               Deidre Duffy, marketting, dduffy@expertplan.com
+            </li><li>
+               Rich Iavarone, UI designer, 609-918-2577, riavarone@expertplan.com
+            </li><li>
+               Phyllis Berman, business development, pberman@expertplan.com
+            </li><li>
+               Marty Groner, TPA sales, 609-918-2511
+            </li><li>
+               Linda Tamburro, DB record keeper, 609-918-2572, ltamburro@expertplan.com
+            </li><li>
+               Steve Benson, sales, 609-918-2519, sbenson@expertplan.com
+            </li></ul>
+         </li><li>
+            User accounts, <a href="http://www.expertplan.com">www.expertplan.com</a>:
+            <ul><li>
+               mybrokerdemo/mybrokerdemo, ExpertPlan demo broker account for "street site", includes LTSave products.
+            </li><li>
+               mydemo/2002demo, ExpertPlan demo participant account, not LTSave
+            </li><li>
+               ltsavebroker/password, test broker account with all LTSave products.
+            </li><li>
+               ltsave1/password, administrator for the ltsave test account.  Includes Plan Sponsor access.
+            </li><li>
+               ltsave2,ltsave3, ltsave4,.../password, test users with some payroll money.  
+            </li></ul>
+         </li><li>
+            User accounts on test system, <a href="http://216.203.8.91">216.203.8.91</a>:
+            <ul><li>
+              Same as expertplan.com, except that password is 'testme'.
+            </li></ul>
+         </li><li>
+            Web services:
+            <ul><li>
+               <a href="http://216.203.8.91/ltsavewebservice">ltsavewebservice on ExpertPlan test</a> -- programmatic access to ExpertPlan.  
+               For interface see <iref p4="//main/2005/product/_etc/specs/ExpertPlan/EPToLTWSInteg.doc"/>
+            </li></ul>
+         </li></ul>
+      </item>
+      </section>
+</content>

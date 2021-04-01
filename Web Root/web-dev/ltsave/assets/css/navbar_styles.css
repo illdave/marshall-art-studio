@@ -1,0 +1,33 @@
+#nav { padding: 10px 0px 10px 0px; color: gray; width: 150px; font-family: sans-serif; }
+#nav a { display: block; width: 100%; color: #000000; text-decoration: none; }
+#nav { background-image: url('../images/nav/navcolumn_a_bg.gif'); background-position: bottom right; background-repeat: no-repeat;}
+
+/* for netscape */
+html>body #nav a { width: auto; }
+
+#nav ul { list-style: none; margin: 0; padding: 0;	border: none; }
+#nav li	a { padding-left: 5px; }
+#nav a:hover { color: #CC6B00; text-decoration: underline; }
+#nav .level2 { padding-left: 15px; }	
+#nav .level2 a { font-size: 11px; }
+#nav .level1 { font-weight: bold; font-size: 12px; line-height: 20px; padding-bottom: 2px; padding-top: 2px; }
+#nav .level2 { font-size: 11px; line-height: 13px; padding-bottom: 3px; padding-top: 3px;}
+#nav .currentsect a { background-color: #ffffff; color: #B2B2B2; }
+#nav .currentpage  { color: #FF931A; }
+#nav .currentpage a { color: #FFBA6F; }
+
+/* navbar base styles */
+#navbase				{ background-image: url('../images/backgrounds/nav_backcolumn.gif'); background-position: bottom left; background-repeat: no-repeat; width: 150px; }
+#navbase				{ color: yellow; }
+#navbase A				{ color: #333366; text-decoration: none; }
+#navbase A:hover		{ color: #5A5AAD; text-decoration: underline; }
+#navbase UL				{ padding: 20px 0px 20px 0px; margin: 0px; list-style: none; }
+#navbase UL LI			{ padding: 4px 15px 4px 5px; font-weight: bold; }
+#navbase UL LI UL		{ padding: 5px;}
+#navbase UL LI UL LI	{ font-weight: normal; font-size: 90%; padding: 3px 0px 3px 0px; }
+#navbase .this_section	{ background-image: url('../images/backgrounds/nav_backselection.gif'); background-position: top right; background-repeat: no-repeat; }	
+#navbase .this_page		{ font-weight: bold; }
+#navbase IMG			{ margin-right: 5px; }
+#navbase .enabled		{ }
+#navbase .disabled A		{ color: gray; cursor: default; }
+#navbase .disabled A:hover	{ color: gray; text-decoration: none; }

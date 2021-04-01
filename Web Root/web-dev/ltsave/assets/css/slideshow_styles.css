@@ -1,0 +1,71 @@
+body.tour 			{background: #fff; margin: 10px; font-family: arial, helvetica, sans-serif; color: 000; font-size: 12px}
+
+table.topbar		{margin: 0px 0 10 0;}
+
+td.slideshowitem	{font-size: 12px; color: #039; line-height: 150%;}
+p.slideshowheader	{font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #c30}
+p.footer			{font-size: 10px; color: #666666; text-align: left; margin: 20px 0 0 0; line-height: 150%}
+
+td.tournav			{padding: 0px 10 0 0;}
+#tournav			{width: 110px; margin-left: 0px; font-size: 12px;}
+#tournav li			{padding: 2px;}
+#tournav a			{display: block; width: 100%; color: #000000; text-decoration: none; font-size: 12px; font-weight: normal}
+#tournav a:hover	{color: orange; text-decoration: underline;}
+#tournav ul			{list-style: none; margin: 0; padding: 0; border: none;}
+#tournav .level1	{font-weight: bold; background-color: #ff9900; color: #fff; border: 0; margin: 0 0 3px 0; padding: 3px}
+#tournav .level2	{font-weight: bold; color: #ff6600; margin: 0px 0 0 0; padding: 0 0 5px 5px;}
+
+td.prev				{text-align: left}
+td.next				{text-align: right}
+
+table.prevnext		{position: absolute; top: 335px; left: 435px; visibility: visible; width: 170px; height: 20px;}
+a.prevnext			{color: #000000; background-image: url('../images/buttons/button.gif');  border: 1px solid #cc6600; font-size: 12px; text-align: right; font-weight: bold; text-decoration: none; padding: 5px}
+a.prevnext:hover	{color: #993300; background-image: url('../images/buttons/buttonx.gif'); border: 1px solid #cc6600; text-decoration: underline}
+.begintour			{color: #000000; background-image: url('../images/buttons/button.gif');  border: 1px solid #cc6600; font-size: 14px;  text-align: center; font-weight: bold; text-decoration: none; padding: 5px}
+a.begintour			{color: #000000; background-image: url('../images/buttons/button.gif');  border: 1px solid #cc6600; font-size: 14px;  text-align: center; font-weight: bold; text-decoration: none; padding: 5px}
+a.begintour:hover	{color: #993300; background-image: url('../images/buttons/buttonx.gif'); border: 1px solid #cc6600; text-decoration: underline}
+
+a.tourclose 		{font-size: 12px; color: #666666; text-decoration: none; padding: 0px 0 0 10; background-image: url('../images/buttons/tourclose.gif'); background-repeat:no-repeat; background-position: center left;}
+a.tourclose:hover	{color: #000000; text-decoration: underline; background-image: url('../images/buttons/tourclose_over.gif');}
+
+.signupnow			{text-align: center; font-weight: bold; font-size: 14px; padding: 0px 5px 0px 5px; margin: 0; font-family: trebuchet ms, arial, helvetica, sans-serif; text-transform: lowercase; color: #2894cc;}
+a.signupnow			{background-color: #ffe789; border: 1px solid #2894cc; text-decoration: none; }
+a.signupnow:hover	{background-color: #fff;}
+
+#signup				{position: absolute; bottom: 80px; right:50px}
+
+.tournavback a {
+	font-family: trebuchet ms, arial, helvetica, sans-serif;
+	font-size: 14px;
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 2px 0 2 25;
+	background-image: url('../images/buttons/navback.gif');
+	background-repeat:no-repeat;
+	background-position: center left;
+	height: 20px;
+  }
+.tournavback a:hover {
+	background-image: url('../images/buttons/navback_over.gif');
+	text-decoration: underline;
+}
+
+.tournavnext a {
+	font-family: trebuchet ms, arial, helvetica, sans-serif;
+	font-size: 14px;
+	color: black;
+	text-decoration: none;
+	text-align: right;
+	font-weight: bold;
+	padding: 2px 25 2 0;
+	background-image: url('../images/buttons/navnext.gif');
+	background-repeat:no-repeat;
+	background-position: center right;
+	height: 20px;
+  }
+.tournavnext a:hover {
+	background-image: url('../images/buttons/navnext_over.gif');
+	text-decoration: underline;
+}
+

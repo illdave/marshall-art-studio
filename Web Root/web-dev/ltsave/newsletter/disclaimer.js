@@ -1,0 +1,1 @@
+document.write("This newsletter is intended for clients or prospects of LTSave and is for investment professional use only.");

@@ -1,0 +1,7 @@
+var sell1="<img src='images/sell1.gif' width='120' height='85' alt='Stock photo of a mature couple reacting to this LTSave principle' /><p><span class='attrib'>Convenient</span>Our service is available 24x7 online. You can build your financial plan at any time from the comfort of your home or office.</p>";
+var sell2="<img src='images/sell2.gif' width='120' height='85' alt='Stock photo of a mature couple reacting to this LTSave principle' /><p><span class='attrib'>Fast</span>We generate your plan efficiently, in a matter of minutes. You do not need to schedule appointments, meetings or travel plans.</p>";
+var sell3="<img src='images/sell3.gif' width='120' height='85' alt='Stock photo of a mature couple reacting to this LTSave principle' /><p><span class='attrib'>High-Quality</span>We scan over 15,000 mutual funds. These funds are periodically reviewed for changes in investment performance.</p>";
+var sell4="<img src='images/sell4.gif' width='120' height='85' alt='Stock photo of a mature couple reacting to this LTSave principle' /><p><span class='attrib'>Independent</span>We do not receive compensation from any financial firm for recommendations we make to you. We are paid only by you directly.</p>";
+var sell5="<img src='images/sell5.gif' width='120' height='85' alt='Stock photo of a mature couple reacting to this LTSave principle' /><p><span class='attrib'>Fixed Rate</span>You always know exactly what you're paying for our service. There are no hidden charges or account minimums.</p>";
+
+document.write(sell1);

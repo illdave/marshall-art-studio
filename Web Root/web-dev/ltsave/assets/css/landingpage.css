@@ -1,0 +1,50 @@
+a, body, table, td, tr {font-size: 11px; font-family: verdana, arial, sans-serif; color: #000}
+
+img					{border: 0}
+body				{margin: 0px; text-align: left;}
+
+body 				{text-align: center; margin: 0; padding: 0; border: 0; background: #eaecef url('../images/landingpage/background.gif') top center repeat-y;}
+#wrapper			{margin: 0 auto; padding: 0; border: 0; width: 700px; text-align: left;}
+
+#topbar				{width: 700px; height: 50px; padding: 0; margin: 0, border: 0; background: #dee8fe url('../images/nav/nav_highlight.gif') bottom left repeat-x;}
+#topbar img			{border: 0; padding: 0; margin: 0}
+#topbar img.logo	{position: relative; left: 10px; top: 6px}
+#topbar img.sign	{position: relative; left: 445px; top: 14px}
+
+#submenu			{position: relative; top: 0px; left: 250px; margin: 0; padding: 0; border: 0; width: 430; height: 16px;}
+#submenu img		{border: 0; margin: 0; padding: 0}	
+
+#content 			{width: 660px; position: relative; left: 20px; top: 10px;}
+
+#bigpic				{margin: 0; padding: 0; border: 0}
+
+#buttons			{position: absolute; top: 158px; left: 265px; margin: 0; padding: 0; border: 0}
+#buttons img.sign	{position: absolute; left: 0px}
+#buttons img.tour	{position: absolute; left: 150px}
+
+#blurb1				{position: absolute; top: 10px; left: 265px; width: 120px; background: transparent}
+#blurb1	h1			{font-size: 14px; color: #f60; margin: 0; padding: 0; margin-bottom: 5px}
+#blurb1	h2			{font-size: 12px; color: #369; margin: 0; padding: 0; margin-bottom: 5px}
+#blurb1	p			{margin: 0; padding: 0; margin-bottom: 10px}
+
+#blurb2				{position: absolute; top: 0px; left: 415; width: 240px; background: transparent}
+#blurb2	h1			{font-size: 15px; color: #f60; margin: 0; padding: 0; margin-bottom: 5px; line-height: 1}
+#blurb2	p			{margin: 0; padding: 0; line-height: 1.6}
+#blurb2 a:link , #blurb2 a:visited	{font-weight: bold; font-style: italic; color: #06F}
+#blurb2 a:hover						{text-decoration: none}
+
+#featurenav			{padding: 0; margin: 0; border: 0; margin-top: 10px;}
+#featurenav p		{color: #999; font-size: 12px;}
+#featurenav	a:link, #featurenav	a:visited	{font-size: 12px; text-decoration: none; font-weight: bold; cursor: default}
+#featurenav a:hover 						{color: #f60; text-decoration: none}
+#featurenav img		{margin-left: 20px}
+
+#featurebox			{position: relative; top: 0; width: 660px; height: 100px; border: 0; margin: 0; padding: 0; background: #dcdfe4 url('../images/landingpage/featurebox.gif') top center no-repeat;}
+#featurebox p		{position: relative; top: 10px; left: 135px; width: 510px; color: #036; line-height: 2}
+
+#signup				{position: relative; top: 10px; height: 28px;}
+#signup a:link, #signup a:visited	{font-size: 12px; color: #c30; font-weight: bold; text-decoration: none; padding-left: 130px; background: url('../images/buttons/signup.gif') center left no-repeat; height: 28px;}
+#signup a:hover 					{background-image: url('../images/buttons/signupx.gif'); text-decoration: underline; }
+
+#footer				{position: relative; top: 20px; padding: 0; margin: 0; border: 0; border-top: 1px solid #ccc; padding-top: 5px}
+#footer p			{color: #666; text-align: center; padding: 0; margin: 0; font-size: 10px}

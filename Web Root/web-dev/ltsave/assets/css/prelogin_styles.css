@@ -1,0 +1,92 @@
+/* 
+	HOMEPAGE STYLES  -------------------------------------------------------------- 
+*/
+a {
+	color: blue;
+}
+.arrowlist {
+	padding: 0px;
+	margin-left: 2em;
+	list-style-type: disc;
+	list-style-image: url('../images/arrow02.gif');
+}
+.arrowlist LI {
+	margin-bottom:1em;
+}
+.highlight { font-weight: bold; }
+.navcolumn { display: none; background-color: White;}
+/* 
+	end of homepage styles  --------------------------------------------------------------
+*/
+.credit_icon { margin-left: 5px; }
+.leftimg {
+	background-image: url('../images/buttons/green_left.gif');
+	background-repeat:no-repeat;
+	background-position: center right;
+}
+.rightimg {
+	background-image: url('../images/buttons/green_right.gif');
+	background-repeat:no-repeat;
+	background-position: center right;
+}
+.textimg {
+	background-image: url('../images/buttons/green_text01.gif');
+	background-repeat:no-repeat;
+	background-position: center left;
+}
+.mainbg {
+	background-image: url('../images/buttons/green_bg.gif');
+	background-repeat:x-repeat;
+}
+.slogan {
+	color:white; 
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: 0.15em; 
+	padding-left: 7px;
+	text-transform: uppercase;
+}
+.oddrow { background-color: #FFFFEE; }
+.banner { font-size: 14px; color: #2E892E; }
+.banner a { font-size: 14px; color: #2E892E; text-decoration: none; }
+.banner a:hover { text-decoration: underline; }
+
+/* dave's styles */
+.registration TABLE {
+	border-top: 1px solid #FB8C04;
+	margin-bottom: 15px;
+}
+.registration TD {
+	padding: 3px 3 10 3;
+	text-align: left;
+}
+.registration TH {
+	background-color: #FFF3CB;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	text-align: left;
+	padding: 3px;
+}
+.registration TFOOT TD {
+	text-align: center;
+	font-size: 10px;
+	padding: 5px;
+}
+
+td.norule {
+	border-bottom: 0px
+}
+.returnhome { margin-top: 20px; }
+.returnhome a {	font-weight: bold; font-size: 14px; color: #E96B10; text-decoration: none; }
+.returnhome a:hover { text-decoration: underline; }
+
+p.newsitem 				{color: #000000; padding: 10px; padding-top: 0px; padding-bottom: 0px; margin-top: 0px; margin-bottom: 10px; line-height: 150%}
+p.newstype	 			{color: #ff6600; font-size: 11px; font-weight: bold; text-transform: uppercase; padding: 10px; padding-bottom: 0px; margin-bottom: 5px}
+p.newsheader 			{color: #ff6600; font-size: 14px; font-weight: bold; padding: 0px; margin: 0px; margin-top: 0em; margin-bottom: 0.3em;}
+
+
+.loginlink a {
+	color: white;
+}

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../XSL/lts_internal.xslt"?>
+<content>
+   <topic title=" XML and XSLT" file="../content/xml-faq.xml" fileid="$Id: //main/2005/road/LTS-Intranet/web/content/xml-faq.xml#7 $$Change: 4190 $" fileChange="$DateTime: 2005/10/10 09:23:11 $$Author: bbarber $">
+		<div class="twocol data">
+			<div class="col leftcol">
+				<h4>XML</h4>
+				<ul>
+					<li><a href="http://xml.coverpages.org/">Cover Pages</a></li>
+					<li><a href="http://www.ibm.com/developerworks/xml/">IBM's DevelopWorks XML</a></li>
+					<li><a href="http://www-128.ibm.com/developerworks/training/tutorials.html">IBM Tutorials</a></li>
+					<li><a href="http://msdn.microsoft.com/xml/">Microsoft's XML Developer Center</a></li>
+					<li><a href="http://www.xml.com">O'Reilly's XML.com</a></li>
+					<li><a href="http://www.w3schools.com/default.asp">W3 Schools on XML</a></li>
+					<li><a href="http://www.w3.org/TR/xml-c14n">XML Canonicalization</a></li>
+					<li><a href="http://www.stg.brown.edu/service/xmlvalid">XML validation at Brown</a></li>
+					<li><a href="http://www.cogsci.ed.ac.uk/%7Erichard/xml-check.html">XML validation by Tobin</a></li>
+				</ul>
+				<h4>XSLT</h4>
+				<ul>
+					<li><a href="http://www-128.ibm.com/developerworks/xml/library/x-toot/index.html">Toot-O-Matic with HTML, PDF, ZIP, JPEG output</a></li>
+					<li><a href="http://www.mulberrytech.com/xsl/xsl-list/">XSL-List</a> and <a href="http://www.biglist.com/lists/xsl-list/archives">archives</a></li>
+					<li><a href="http://www.dpawson.co.uk">Dawson's XSLT FAQ</a></li>
+					<li><a href="http://www.jenitennison.com">Tennison's XSLT site</a></li>
+				</ul>
+			</div>
+			<div class="col rightcol">
+				<h4>Web services</h4>
+				<ul>
+					<li><a href="http://msdn.microsoft.com/webservices/understanding/gxa">Microsoft's advanced web services</a></li>
+				</ul>
+				<h4>XML Software</h4>
+				<ul>
+					<li><a href="http://xmlgraphics.apache.org/fop/">FOP, XSL-FO to PDF</a></li>
+					<li><a href="http://www.xml.com/resourceguide">O'Reilly's XML Resources</a></li>
+					<li><a href="http://www.ascc.net/xml/resource/schematron/schematron.html">Schematron for annotations</a></li>
+					<li><a href="http://tidy.sourceforge.net">Tidy, HTML to XHTML</a></li>
+					<li><a href="http://xalan.apache.org/">Xalan  XSLT processor from Apache</a></li>
+					<li><a href="http://www.rpbourret.com/xml/XMLDatabaseProds.htm">XML database products</a></li>
+					<li><a href="http://www.xmlsoftware.com/">XML Software collection</a></li>
+				</ul>
+				<h4>XML/XSLT editors</h4>
+				<ul>
+					<li><a href="http://www.xmlcooktop.com">CookTop</a> -- free</li>
+					<li><a href="http://www.stylusstudio.com">Stylus Studio</a></li>
+					<li><a href="http://www.oxygenxml.com">Oxygen</a> -- good debugger</li>
+					<li><a href="http://www.unipad.com">UniPad</a> -- Unicode editor</li>
+					<li><a href="http://www.xmlspy.com">XmlSpy</a></li>
+					<li><a href="http://architag.com/xray">Xray</a> -- free</li>
+				</ul>
+			</div>
+		</div>     
+   </topic>
+   <section id="XML-intro" title="XML concepts and introduction" order="sorted">
+      <item id="charset" title="character sets">
+         <p>XML uses UTF-8 by default.  For an explanation of the various character sets, including ASCII, HTML, and UTF, see  <iref item="haroE_2002" page="531-587"/></p>
+      </item>
+      <item id="data-island" title="data island">
+         <p>A <b>data island</b> is an  &lt;xml> element within an HTML document.  Microsoft's InternetExplorer can parse data islands with its MSXML parser.  <iref item="espoD_2003" page="595-621"/></p>
+      </item>
+       <item id="DOM" title="DOM">
+          <p><b>DOM</b> is an in-memory, document object model for XML documents. <iref item="haroE_2002" page="296-315, 458-512"/></p>
+       </item>
+      <item id="for-xml" title="FOR XML, OPENXML, XML Bulk Load">
+         <p><b>FOR XML</b> is a Microsoft SQL Server extension for generating XML results from SQL queries.  <iref item="espoD_2003" page="348"/></p>
+         <p><b>OPENXML</b> is a Microsoft SQL Server extension to insert rowsets from an XML document.   Use it for small documents up to 50 KB in size.  <iref item="espoD_2003" page="376"/></p>
+         <p><b>XML Bulk Load</b> is a COM component for loading database tables from XMLM. <iref item="espoD_2003" page="378"/></p>
+      </item>
+      <item id="XLink" title="XLink">
+         <p><b>XLink</b> is an attribute-based syntax for attaching links to XML documents.  <iref item="haroE_2002" page="175-189"/></p>
+      </item>
+      <item id="XML" title="XML">
+         <p><b>XML</b> is a document markup standard, based on SGML.  <iref item="haroE_2002" page="335-371"/></p>
+      </item>
+      <item id="XPath" title="XPath">
+         <p>Use <b>XPath</b> to return node sets from an XML document. <iref item="lenzE_2005" page="6-22"/>,   <iref item="haroE_2002" page="416-429"/></p>
+         
+         <p>  For .NET programming, see  <iref item="espoD_2003" page="246"/></p>
+         
+         <p><b>XPathDocument</b> is an optimized DOM model for processing XPATH expressions.   Use CreateNavigator() to create an XPathNavigator object.  
+         <iref item="espoD_2003" page="263"/>.           
+            These objects implement the IXPathNavigable interface <iref item="espoD_2003" page="280"/></p>
+      </item>
+
+      <item id="XPointer" title="XPointer">
+         <p><b>XPointer</b> allows XPATH references in URLs.  <iref item="haroE_2002" page="190-201"/></p>
+      </item>
+      <item id="XSD" title="XSD">
+         <p>
+            <b>XSD</b> is the prefered XML schema format.  It replaces DTD and XDR. <iref item="haroE_2002" page="254-286, 372-415"/> </p> 
+         
+         <p>For programming .NET with XSD (e.g., SOAP) see <iref item="espoD_2003" page="106-133"/>
+         </p>
+         
+         <ul class="nolink">
+            
+            <li>Preload schemas with XMLSchemaCollection.<iref item="espoD_2003" page="95"/>
+            </li>
+            
+            <li>XSD types map to .NET types<iref item="espoD_2003" page="110"/>
+            </li>
+            
+            <li>Use xsd.exe from XML to XSD to C# <iref item="espoD_2003" page="111"/>
+            </li>
+            
+            <li>Use an external reference to the XSD file<iref item="espoD_2003" page="114"/>
+            </li>
+            
+         </ul>
+         
+      </item>
+      <item id="XSL-FO" title="XSL-FO, CSS">
+         <p><b>XSL-FO</b> is an XML syntax for describing page layout. <iref item="haroE_2002" page="217-233"/>
+            Toot-o-matic uses XSL-FO and FOP to generate PDF files from XML <iref item="tidwD_2001" page="212"/>.
+         </p>.    
+         
+         <p><b>CSS</b> is a non-XML syntax for page layout <iref item="haroE_2002" page="202-216"/>.  It works well with XSLT.</p>
+      </item>
+       <item id="XSLT" title="XSLT">
+          <p><b>XSLT</b> is an XML standard for transforming XML documents into XML, HTML, and text. <iref item="lenzE_2005" page="23-41"/>, <iref item="haroE_2002" page="430-457"/></p>
+          <p>XSLT 2.0- will have many useful extensions, see <iref item="lenzE_2005" page="108-158"/>.  Each XSLT processor implements various extensions, see 
+               <a href="http://www.exslt.org/">EXSLT</a> for a repository.
+          </p>
+          <p>For .NET programming, see <iref item="espoD_2003" page="292"/></p>
+         <ul><li>
+            <b>XslTransform threading</b>.  XslTransform is thread-save only during transform.  Load() and other methods must be single-threaded. <iref item="espoD_2003" page="309"/>  
+         </li></ul>
+      </item>
+      <item id="msxsl:script" title="msxsl:script">
+         <p>.NET allows embedded scripts inside XSL files.  msxsl:script supersedes their xsl:eval extension.  <iref item="espoD_2003" page="336"/> </p>
+      </item>
+      <item id="MSXML" title="MSXML">
+         <p>MSXML is an older COM module for processing XML. It includes support for XSD, XML Schema and XPath.</p>
+      </item>
+      <item id="entity" title="entity">
+         <p>An XML <i>entity</i> names a string value, e.g., &amp;author;. It is defined within a !DOCTYPE node, e.g., &lt;!DOCTYPE book [&lt;!ENTITY author "Dino Esposito"&gt;]&gt; It requires a XmlValidatingReader.<iref item="espoD_2003" page="23"/>
+         </p>
+      </item>
+      <item id="SAX" title="SAX">
+         <p><b>SAX</b> is an event-based API for XML documents  <iref item="haroE_2002" page="316-331, 513-530"/>.   
+            The model appears to be losing favor, e.g., .NET uses <iref item="XMLReader"/> instead of SAX</p>
+      </item>
+      <item id="SOAP" title="SOAP">
+         <p><b>SOAP</b> is an XML standard for invoking web services.</p>
+         <p>For programming SOAP in .NET see <iref item="espoD_2003" page="561-593"/></p>
+      </item>
+       </section>
+   <section id="XML-class" title="XML classes in .NET" order="sorted">
+      <item id="NameTable" title="NameTable">
+         
+         <p>
+            <b>NameTable</b> stores atomized strings for XMLDocument and XMLTextReader. Much faster than string comparisons.<iref item="espoD_2003" page="49"/>
+         </p>
+         
+      </item>
+      <item id="NET-XML" title="XML enabled classes in .NET">
+         
+         <p> .Net offers a variety of XML-enabled classes:</p>
+         
+         <ul class="nolink">
+            
+            <li>
+               <b>DataSet</b> -- a memory-resident database format with tables, columns, rows, and relations. Useful for mirroring database data. Not useful for business rules. <iref item="espoD_2003" page="402"/></li>
+            
+            <li>
+               <b>DiffGram</b> -- XML update representation for a DataSet.  <iref item="espoD_2003" page="443"/></li>
+            
+            <li>
+               <b>Updategram</b> -- another XML update representation for a DataSet  <iref item="espoD_2003" page="382"/></li>
+            
+            <li>
+               <b>Web.config, AppSettingsReader</b> -- application-specific configuration settings.  Prefered over using the registry.  <iref item="espoD_2003" page="623-655"/></li>
+            
+         </ul>
+         
+         <p><b>.NET Remoting</b> is a non-XML alternative to SOAP.  It is highly optimized for .NET-to-.NET communications, and replaces DCOM.  <iref item="espoD_2003" page="521-560"/></p>
+         
+      </item>
+      <item id="SOAP-formater" title="SOAP Formatter">
+         <b>System.Runtime.Serialization.Formatters.Soap</b> serializes an object hierarichy into a SOAP message (as a stream object).  <iref item="espoD_2003" page="478"/>
+      </item>
+      <item id="XmlDataDocument" title="XmlDataDocument">
+         An XmlDataDocument is an XML DOM representation of a DataSet.  <iref item="espoD_2003" page="372"/>
+      </item>
+      <item id="XMLDocument" title="XMLDocument">
+         <p> <b>XML Document</b> is a DOM, memory-based representation of an XML document or fragment. It is a hierarchical structure of elements, attributes, and other nodes. See the .Net class XMLDocument. It is used for:</p>
+         
+         <ul class="nolink">
+            
+            <li>Random access</li>
+            
+            <li>Repeated access to the same XML</li>
+            
+            <li>\nComplex transformations using XSLT and XPATH</li>
+            
+            <li>Like a DataSet</li>
+            
+            <li>XML DOM is overkill for writing XML.<iref item="espoD_2003" page="229"/>
+            </li>
+            
+            <li>Avoid calls to PreviousSibling, Item, and Count.  They walk all subnodes of a node. Use NextSibling instead.<iref item="espoD_2003" page="217"/>
+            </li>
+            
+            <li>The corresponding XMLReader must be positioned at an element instead of an attribute.<iref item="espoD_2003" page="220"/>
+            </li>
+            
+            <li>Use XmlNodeReader to process a subset of nodes.<iref item="espoD_2003" page="224"/>
+            </li>
+            
+         </ul>
+      </item>
+      <item id="XMLReader" title="XMLReader">
+         
+         <p>An XMLReader presents a stream input as a sequence of nodes.  Use XMLReader for</p>
+         
+         <ul class="nolink">
+            
+            <li>Process XML in sequence.</li>
+            
+            <li>Process of lots of XML</li>
+            
+            <li>Like a DataReader</li>
+            
+            <li>A TextReader is not thread-safe.<iref item="espoD_2003" page="53"/>
+            </li>
+            
+         </ul>
+      </item>
+      <item id="XmlSerializer" title="XmlSerializer" >
+         <b>System.Xml.Serializaton</b> serializes object hierarchies as an XML document.   Unlike SOAP serialization, it works only with public classes and does not 
+         preserve type information. <iref item="espoD_2003" page="481"/>
+      </item>
+      <item id="XMLWriter" title="XMLWriter">
+         <p>An XMLWriter writes stream output as well-formed XML.</p>
+         
+         <ul class="nolink">
+            
+            <li>Does not check for invalid names.<iref item="espoD_2003" page="139"/>
+            </li>
+            
+            <li>XMLWriter's maintain a stack of unclosed elements with the associated namespace<iref item="espoD_2003" page="145"/>
+            </li>
+            
+         </ul>
+         
+      </item>
+   </section>
+   <section id="ltsave-ref" title="XML References at LTSave" order="sorted">
+      <!-- Biblio IDs are the first 4 letters of the last name, initials, _, publication date 
+      -->
+      <item id="tidwD_2001" title="[tidwD_2001] XSLT.  Mastering XML Transformations">
+        <p>Tidwell, O'Reilly 2001</p>
+        <p>Tidwell developed IBM's Toot-o-matic for <a href="http://www-128.ibm.com/developerworks/training/tutorials.html">IBM Tutorials</a>.
+           It generates HTML, PDF, ZIP, and JPEG files from one XML file.  It's a good demonstration of XSLT, XSL:FO, and FOP.   [page 212-236]
+        </p>
+        
+        <p>Appendix A, B, C contains a complete reference for XSLT and XPATH 1.0 with multiple examples illustrating each feature.  </p>
+      </item>
+     
+      <item id="espoD_2003" title="[espoD_2003] Applied XML Programming for Microsoft .NET">	
+         <p> Esposito, Microsoft Press 2003</p>
+         
+         <p> Thorough introduction to XML programming in .NET with best practices and lots of examples. </p>
+      </item>
+      <item id="fitzM_2004" title="Learning XSLT">
+         <p>Fitzgerald, O'Reilly, 2004</p>
+         <p>Excellent, thorough introduction to XSLT.   Lots of examples.</p>
+      </item>
+      <item id="foggD_2004" title="[foggD_2004] Programming Microsoft .NET XML Web Services">
+         <p>Foggon, Maharry, Ullman, Watson, Microsoft, 2004</p>
+         <p>Step by step introduction to web services.  Includes SOAP, WSDL, DISCO, UDDI,  HTTP, XML Streaming, serialization, XSD, web methods. 
+            ADO.NET, security, WS-* standards, </p>
+      </item>
+      <item id="haroE_2002" title="[haroE_2002] XML in a Nutshell">
+         <p>Harold, Means, O'Reilly 2002</p>
+         <p>Thorough introduction to XML including DTD, namespaces, XSLT, XPath, XLinks, XPointers, CSS, XSL-FO, RDDL, XSD, DOM, SAX</p>
+         <p>For XSLT and XPath, <iref item="lenzE_2005"/> has more complete coverage.</p>
+      </item>
+     <item id="lenzE_2005" title="[lenzE_2005] XSLT 1.0 Pocket Reference">
+        <p>Lenz, O'Reilly, 2005</p>
+        <p>Excellent reference guide to XSLT 1.0.   Written from the XSLT specification. </p>
+        <p>Includes preliminary documentation on XSLT 2.0 -- a significant enhancement to XSLT.</p>
+     </item>
+      <item id="mangS_2003"  title="[mangS_2003] XSLT Cookbook">
+         <p>Mangano, O'Reilly 2003</p>
+         <p>Advanced XSLT programming with lots of examples, many convoluted.  Covers string manipuation, numbers and math, dates and times, XPATH, whitespace, 
+            XML transformation, XML queries, HTML generation, SVG generation, code generation, Visio VDX, Excel XML, SOAP WSDL documentation, XSLT extensions, testing, debugging, generic programming, and functional programming</p>
+      </item>
+      <item id="richJ_2002" title="[richJ_2002] Applied .NET Framework Programming">
+         <p>Richter, Microsoft Press, 2002</p>
+     </item>
+
+   </section>
+   <section id="XML-ref" title="Other XML References" order="sorted">
+      <item id="boxD_2000" title="[boxD_2000] Essential XML: Beyond Markup">
+         <p>Box, Skonnard, and Lam, Addison Wesley, 2000.</p>
+         <p>A general look at XML as a unifying technology.  </p><iref item="espoD_2003" page="23"/>        
+      </item>
+      <item id="skonA_2001" title="[skonA_2001] Essential XML Quick Reference">
+         <p>Skonnard, Gudgin, Addison Wesley, 2001.</p>
+         
+         <p>Annotated review of  XML standards.  <iref item="espoD_2003" page="133"/></p>
+      </item>
+      
+      <item id="stanWR_2002" title="[stanWR_2002] XML Pocket Consultant">
+         <p>Stanek, W.R., Microsoft Press 2002.</p>
+         
+         <p>Stanek's book on XML.  <iref item="espoD_2003" page="133"/>
+         </p>	
+      </item>
+   </section>
+</content>

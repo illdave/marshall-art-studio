@@ -1,0 +1,1 @@
+document.write("All advisory services <br>are delivered by <br>LTSave, Inc., a federally registered investment advisor. Copyright &copy; 2003-2004 LTSave, Inc. All rights Reserved.");
