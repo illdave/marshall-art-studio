@@ -26983,11 +26983,29 @@ footer {
   }
   section.picture-header .text {
     font-size: 1rem;
-    padding: 1rem;
+    padding: 1rem 2rem 0;
   }
 
-  .gallery, .tiles, .web .mas-client.clients, .web .client-details {
-    padding: 1rem !important;
+  .gallery,
+.tiles {
+    padding: 1rem 0;
+  }
+
+  .web .clients.jobs .client-details {
+    padding: 1rem 0 0;
+  }
+  .web .clients.mas-client.clients {
+    padding: 1rem;
+  }
+  .web .clients.mas-client.clients .client-details {
+    padding: 1rem 0;
+  }
+
+  .diagram.pie-chart .image {
+    display: none;
+  }
+  .diagram.pie-chart .data {
+    width: 100% !important;
   }
 
   section.picture-header .image {
@@ -26996,6 +27014,22 @@ footer {
 
   .btn-row.centered .btn {
     margin-bottom: 0.5rem;
+  }
+
+  .home.mas-content section.skills .item,
+.web section.capabilities .item {
+    padding: 1rem;
+    border-bottom: 0.0625rem solid #bfbfbf;
+  }
+  .home.mas-content section.skills .item.last-child,
+.web section.capabilities .item.last-child {
+    border: 0;
+  }
+  .home.mas-content section.skills .item h2, .home.mas-content section.skills .item .h2, .home.mas-content section.skills .item p,
+.web section.capabilities .item h2,
+.web section.capabilities .item .h2,
+.web section.capabilities .item p {
+    text-align: left;
   }
 }
 @media (max-width: 768.98px) {
@@ -27154,10 +27188,10 @@ footer {
 .dark-mode .date-range {
   color: #fff;
 }
-.dark-mode .home section.skills .item {
+.dark-mode .home.mas-content section.skills .item {
   background: transparent;
 }
-.dark-mode .home section.skills .item.even {
+.dark-mode .home.mas-content section.skills .item.even {
   background: transparent;
 }
 .dark-mode .disclaimer {
@@ -27225,6 +27259,13 @@ footer {
 }
 .sidebar ul {
   margin-bottom: 0;
+}
+
+@media (max-width: 576px) {
+  .home.mas-content section.skills .item,
+.web section.capabilities .item {
+    border-bottom: 0.0625rem solid rgba(191, 191, 191, 0.3);
+  }
 }
 
 /*# sourceMappingURL=illdave.css.map */

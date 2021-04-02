@@ -1,0 +1,94 @@
+/* responsive ------------------------- */
+
+@media (max-width: 576px) { 
+	.mas-client .row > div {
+		flex: auto;
+	}
+	section {
+		padding: $spacer-base;
+		&.picture-header {
+			.text {
+				font-size: $font-size-base;
+				padding: $spacer-base $spacer-large 0;
+			}
+		}		
+	}
+	.gallery, 
+	.tiles {
+		padding: 1rem 0;
+	}
+	
+	.web {
+		.clients {
+			&.jobs {
+				.client-details {
+					padding: 1rem 0 0;
+				}
+			}
+			&.mas-client.clients {
+				padding: 1rem;
+				.client-details {
+					padding: 1rem 0;
+				}
+			}
+		}
+	}
+	.diagram {
+		&.pie-chart {
+			.image {
+				display: none;
+			}
+			.data {
+				width: 100% !important;
+			}
+		}
+	} 
+	
+	section.picture-header .image {
+		min-height: 10rem;
+	}
+	.btn-row {
+		&.centered {
+			.btn {
+				margin-bottom: .5rem;
+			}
+		}
+	}
+	
+	.home.mas-content section.skills,
+	.web section.capabilities {
+		
+		.item {
+			padding: 1rem;
+			border-bottom: $border-default;
+			&.last-child {
+			  border: 0;
+			}
+			h2, p {
+				text-align: left;
+			}
+		}	
+	}	
+	
+}
+
+@media (max-width: 768.98px) { 
+	.container {
+		max-width: 768px !important;
+	}
+}
+
+@media (max-width: 991px) { 
+	.container {
+		max-width: 950px !important;
+	}
+	.diagram {
+		&.pie-chart {
+			.image {
+				.label {
+					display: none;
+				}
+			}
+		}
+	} 
+}

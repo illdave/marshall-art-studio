@@ -263,7 +263,7 @@ $link-active-color:							darken($link-color, 20%);
 	.date-range {
 		color: $headings-color;
 	}
-	.home {
+	.home.mas-content {
 		section {
 			&.skills {
 				.item {
@@ -374,4 +374,16 @@ $link-active-color:							darken($link-color, 20%);
 		margin-bottom: 0;
 	}
 }
+
+@media (max-width: 576px) {
+	.home.mas-content section.skills,
+	.web section.capabilities {
+		 .item {
+			border-bottom: $border-default;
+		}	
+	}	
+}
+
+
+
 	
