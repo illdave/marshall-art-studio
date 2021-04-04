@@ -79,8 +79,7 @@
 			<section class="text-page">
 				<div class="container">
 					<h2>Details</h2>
-					<p>Building actual code as I would have in 1998 took longer than expected, mostly from not remembering pre-CSS syntax (example: background color attribute is "bgcolor" instead of "background-color"). More wasted time was spent looking on Zip drives for images that turned out to be corrupted. <em>What lunatic would even consider that much detail for a goof?</em> Pure development time was probably 45 minutes. </p>
-					<p>Declaring an HTML 4.01 doctype minimized validation errors, but BBEdit still didn't like styles in the <a href="html-retro-build/images/syntax-error-body.png" data-lightbox="syntax-error" data-title="Syntax error: BBEdit didn't like styles in the body tag">body tag</a> or <a href="html-retro-build/images/syntax-error-font-styles.png" data-lightbox="syntax-error" data-title="Syntax error: BBEdit didn't like embedded font styles"> embedded font styles</a>.</p>
+					<p>Building actual code as I would have in 1998 took longer than expected, mostly from not remembering pre-CSS syntax (example: background color attribute is "bgcolor" instead of "background-color"). More wasted time was spent looking on Zip drives for images that turned out to be corrupted. <em>What lunatic would even consider that much detail for a goof?</em> Pure development time was probably 45 minutes. Declaring an HTML 4.01 doctype minimized validation errors, but BBEdit still didn't like styles in the <a href="html-retro-build/images/syntax-error-body.png" data-lightbox="syntax-error" data-title="Syntax error: BBEdit didn't like styles in the body tag">body tag</a> or <a href="html-retro-build/images/syntax-error-font-styles.png" data-lightbox="syntax-error" data-title="Syntax error: BBEdit didn't like embedded font styles"> embedded font styles</a>.</p>
 					<h3>What did we learn today?</h3>
 					<p>Looking back, the process might be like building raw HTML wireframes from a designer's Photoshopped mockup. Thinking about HTML without a computer might not be crazy after all. What is crazy is embedded styles still being used for <a href="carbonite/html-email/01/index.html" target="_blank" rel="noopener noreferrer" aria-label="one of my old HTML emails for Carbonite">HTML emails</a>.</p>
 					<div class="row in-content figure art">
@@ -124,7 +123,7 @@
 							</a>
 						</div>
 						<div class="col-12 col-sm-4">
-							<a href="html-retro-build/images/os9-pagemill.png" class="captioned" data-lightbox="os9-screenshots" data-title="Forgot how Adobe PageMill 3.0 mauled markup after saving.">
+							<a href="html-retro-build/images/os9-pagemill.png" class="captioned" data-lightbox="os9-screenshots" data-title="This is how Adobe PageMill mangled my HTM file. See the fix below.">
 								<img src="html-retro-build/images/os9-pagemill.png" alt="Mac OS 9 screenshot of Adobe PageMill 3.0" />
 								<div class="caption">
 									<p>Adobe PageMill 3.0</p>
@@ -151,6 +150,14 @@
 							</a>
 						</div>
 						<div class="col-12 col-sm-4">
+							<a href="html-retro-build/images/os9-browser-netscape.png" class="captioned" data-lightbox="os9-screenshots" data-title="Netscape Communicator 4.7 was the most strict old timey browser. Had to get rid of three-character color names, meta tags, and other markup.">
+								<img src="html-retro-build/images/os9-browser-netscape.png" alt="Mac OS 9 screenshot of Netscape Communicator 4.79" />
+								<div class="caption">
+									<p>Netscape Communicator 4.79</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-12 col-sm-4">
 							<a href="html-retro-build/images/os9-browser-mozilla-1.png" class="captioned" data-lightbox="os9-screenshots" data-title="Mozilla and Netscape got better at rendering pure CSS on DHTML. Of course Microsoft had to crush them.">
 								<img src="html-retro-build/images/os9-browser-mozilla-1.png" alt="Mac OS 9 screenshot of Mozilla 1.2.1" />
 								<div class="caption">
@@ -158,11 +165,31 @@
 								</div>
 							</a>
 						</div>
+					</div>
+					<div class="row in-content figure">
+						<h3>PageMill and Netscape</h3>
+						<p>This only worked once I got rid of modern syntax it didn't understand, like <a href="html-retro-build/images/os9-browser-netscape-htm-invisible.png" data-lightbox="pagemill-netscape" data-title="PageMill and Netscape can't see three-letter file extensions.">three-letter file extensions</a> and <a href="html-retro-build/images/os9-bbedit-no-three-letter-colors.png" data-lightbox="pagemill-netscape" data-title="PageMill and Netscape don't understand abbreviated hex colors.">abbreviated hex colors</a>. I still think <a href="https://en.wikipedia.org/wiki/Adobe_PageMill" target="_blank" rel="noopener noreferrer" aria-label="HTML editor Adobe PageMill">PageMill</a> was the best WYSIWYG web editor for home users and small businesses before CMS options like Wordpress and blogging technology. It was the HTML version of desktop publishing. </p>
 						<div class="col-12 col-sm-4">
-							<a href="html-retro-build/images/os9-browser-icab.png" class="captioned" data-lightbox="os9-screenshots" data-title="Mac OS 9 screenshot of iCab 3.0.3">
-								<img src="html-retro-build/images/os9-browser-icab.png" alt="Mac OS 9 screenshot of iCab 3.0.3" />
+							<a href="html-retro-build/images/os9-page-milled-source-mode.png" class="captioned" data-lightbox="os9-adobe-pagemill" data-title="Adobe PageMill source mode.">
+								<img src="html-retro-build/images/os9-page-milled-source-mode.png" alt="Adobe PageMill source mode" />
 								<div class="caption">
-									<p>iCab 3.0.3</p>
+									<p>Adobe PageMill source mode</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-12 col-sm-4">
+							<a href="html-retro-build/images/os9-page-milled-wysiwig.png" class="captioned" data-lightbox="os9-adobe-pagemill" data-title="Adobe PageMill WYSIWYG mode.">
+								<img src="html-retro-build/images/os9-page-milled-wysiwig.png" alt="Adobe PageMill WYSIWYG mode" />
+								<div class="caption">
+									<p>Adobe PageMill WYSIWYG mode</p>
+								</div>
+							</a>
+						</div>
+						<div class="col-12 col-sm-4">
+							<a href="html-retro-build/images/os9-page-milled-preview.png" class="captioned" data-lightbox="os9-adobe-pagemill" data-title="Adobe PageMill preview mode.">
+								<img src="html-retro-build/images/os9-page-milled-preview.png" alt="Adobe PageMill preview mode" />
+								<div class="caption">
+									<p>Adobe PageMill preview mode</p>
 								</div>
 							</a>
 						</div>
