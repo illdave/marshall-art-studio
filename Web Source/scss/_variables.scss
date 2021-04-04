@@ -344,9 +344,15 @@ $photo-circle-sm: 							14rem;
 $photo-circle-xs: 							10rem;
 $circle-border-radius: 						50%;
 
-$picture-caption-color: 					lighten(#000, 60%);
-$picture-caption-bg: 						transparentize(black, 0.2);
-$picture-caption-link: 						white;
+$caption-bg: 								transparentize($black, 0.1);
+$caption-color: 							lighten($caption-bg, 80%);
+$caption-headings-color: 					$white;
+$caption-padding: 							$spacer-base;
+$caption-line-height: 						$font-size-base;
+
+$picture-caption-bg: 						$caption-bg;
+$picture-caption-color: 					$caption-color;
+$picture-caption-link: 						$white;
 $picture-caption-strong:					$theme-color-5;
 
 $comic-book-img-border: 					rem(1px solid $gray);

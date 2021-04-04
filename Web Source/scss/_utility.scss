@@ -215,8 +215,7 @@
 	.item {
 		margin-bottom: 1rem;
 		&.contact {
-			padding: 2rem;
-			margin-bottom: 2rem;
+			padding: 1rem 1.5rem;
 			background: $item-even-bg;
 			li {
 				margin-bottom: .25rem;
@@ -284,7 +283,35 @@
 	}
 }
 
+.caption {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: $caption-bg;
+	color: $caption-color;
+	padding: $caption-padding;
+	line-height: $caption-line-height;
+	h3 {
+		color: $caption-headings-color;
+		margin-bottom: 0;
+	}
+	p {
+		font-weight: normal;
+		margin: 0;
+		line-height: 1.5rem;
+	}
+}
 
+.captioned {
+	position: relative;
+	.caption {
+		background: transparent;
+		position: static;
+		padding: 0;
+		margin: -.5rem 0 1rem
+	}
+}
 
 .tiles {
 	padding: 2.6rem 2rem 1rem;
@@ -302,27 +329,6 @@
 			}
 			&:active {
 				border-color: $link-img-border-active-color;
-			}
-		}
-		.caption {
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			background: #000;
-			opacity: .9;
-			color: #aaa;
-			padding: 1rem;
-			line-height: 1rem;
-			h3 {
-				color: white;
-				margin-bottom: .5rem;
-				margin-bottom: 0;
-			}
-			p {
-				font-weight: normal;
-				margin: 0;
-				line-height: 1.5rem;
 			}
 		}
 	}
@@ -399,26 +405,7 @@
 			}			
 		}
 		.caption {
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			background: #000;
-			opacity: .9;
-			color: #aaa;
-			padding: 1rem;
-			line-height: 1rem;
 			text-align: center;
-			h3 {
-				color: white;
-				margin-bottom: .5rem;
-				margin-bottom: 0;
-			}
-			p {
-				font-weight: normal;
-				margin: 0;
-				line-height: 1.5rem;
-			}
 			.title {
 				font-weight: bold;
 			}
@@ -441,7 +428,6 @@
 		}
 	}
 }	
-
 
 .newsflash {
 	.item {

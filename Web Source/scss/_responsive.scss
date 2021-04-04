@@ -34,6 +34,7 @@
 		}
 	}
 	.diagram {
+		align-items: start;
 		&.pie-chart {
 			.image {
 				display: none;
@@ -54,10 +55,9 @@
 			}
 		}
 	}
-	
+
 	.home.mas-content section.skills,
 	.web section.capabilities {
-		
 		.item {
 			padding: 1rem;
 			border-bottom: $border-default;
@@ -69,7 +69,6 @@
 			}
 		}	
 	}	
-	
 }
 
 @media (max-width: 768.98px) { 
@@ -83,6 +82,7 @@
 		max-width: 950px !important;
 	}
 	.diagram {
+		
 		&.pie-chart {
 			.image {
 				.label {

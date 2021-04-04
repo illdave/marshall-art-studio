@@ -26727,8 +26727,7 @@ footer {
   margin-bottom: 1rem;
 }
 .sidebar .item.contact {
-  padding: 2rem;
-  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
   background: #fff;
 }
 .sidebar .item.contact li {
@@ -26776,6 +26775,36 @@ footer {
   margin-right: 0.5rem;
 }
 
+.caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  color: rgba(204, 204, 204, 0.9);
+  padding: 1rem;
+  line-height: 1rem;
+}
+.caption h3, .caption .h3 {
+  color: #fff;
+  margin-bottom: 0;
+}
+.caption p {
+  font-weight: normal;
+  margin: 0;
+  line-height: 1.5rem;
+}
+
+.captioned {
+  position: relative;
+}
+.captioned .caption {
+  background: transparent;
+  position: static;
+  padding: 0;
+  margin: -0.5rem 0 1rem;
+}
+
 .tiles {
   padding: 2.6rem 2rem 1rem;
 }
@@ -26795,27 +26824,6 @@ footer {
 }
 .tiles .tile a:active {
   border-color: #992f00;
-}
-.tiles .tile .caption {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: #000;
-  opacity: 0.9;
-  color: #aaa;
-  padding: 1rem;
-  line-height: 1rem;
-}
-.tiles .tile .caption h3, .tiles .tile .caption .h3 {
-  color: white;
-  margin-bottom: 0.5rem;
-  margin-bottom: 0;
-}
-.tiles .tile .caption p {
-  font-weight: normal;
-  margin: 0;
-  line-height: 1.5rem;
 }
 .tiles.skills .tile a {
   min-height: 20rem;
@@ -26885,26 +26893,7 @@ footer {
   background: rgba(255, 255, 255, 0.5);
 }
 .gallery .frame .caption {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: #000;
-  opacity: 0.9;
-  color: #aaa;
-  padding: 1rem;
-  line-height: 1rem;
   text-align: center;
-}
-.gallery .frame .caption h3, .gallery .frame .caption .h3 {
-  color: white;
-  margin-bottom: 0.5rem;
-  margin-bottom: 0;
-}
-.gallery .frame .caption p {
-  font-weight: normal;
-  margin: 0;
-  line-height: 1.5rem;
 }
 .gallery .frame .caption .title {
   font-weight: bold;
@@ -27001,6 +26990,9 @@ footer {
     padding: 1rem 0;
   }
 
+  .diagram {
+    align-items: start;
+  }
   .diagram.pie-chart .image {
     display: none;
   }
