@@ -26552,6 +26552,21 @@ footer {
 }
 
 /* utility classes -------------------- */
+.page-not-found section.intro {
+  background: url("../../img/layout/404-bg.jpg") no-repeat 0 center;
+  background-size: cover;
+  padding: 0;
+}
+.page-not-found section.intro .text {
+  padding: 5rem 0;
+}
+.page-not-found section.intro .text h1, .page-not-found section.intro .text .h1 {
+  font-size: 20rem;
+  line-height: 20rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
 .footnote {
   font-family: "Proxima Nova Italic";
 }
@@ -27027,6 +27042,15 @@ footer {
 @media (max-width: 768.98px) {
   .container {
     max-width: 768px !important;
+  }
+
+  .page-not-found section.intro .text {
+    padding: 1rem;
+  }
+  .page-not-found section.intro .text h1, .page-not-found section.intro .text .h1 {
+    font-size: 10rem;
+    line-height: 10rem;
+    margin-bottom: 0.5rem;
   }
 }
 @media (max-width: 991px) {
