@@ -13,7 +13,7 @@
 			}
 		}		
 		&.capabilities {
-			padding: 0;
+			padding: $spacer-large 0;
 			min-height: 0;
 			.item {
 				background: transparent;
@@ -33,13 +33,13 @@
 	}
 	.client-image {
 		img {
-			border: 1px solid #ccc;
+			border: $border-default;
+			margin-bottom: $spacer-base;
 		}	
 	}
 	
 	.client-details {
 		background: $item-bg;
-		font-size: .9rem;
 		padding: $client-details-padding;
 		color: $item-text-color;
 		margin-bottom: 1.5rem;
@@ -66,7 +66,7 @@
 				padding: 0;
 				padding-right: .5rem;
 				&:last-child {
-					border: none;
+					border-color: transparent;
 				}
 				a {
 					&:hover {}
@@ -76,23 +76,24 @@
 	}	
 	.mas-client {
 		&.clients  {
-			padding: 2rem 0;
+			padding: $spacer-large 0;
 			.row .col .row .col {
 				min-height: 0;
-				margin: 0 1rem;
+				margin: 0 $spacer-base;
 			}
 			
 			.client-image {
-				background: white;
+				background: $white;
 				padding: 0;
 				min-height: 0;
+				margin-bottom: $spacer-base;
 				img {
 					margin: 0;
 					border: 0;
 				}
 			}
 			.client-details {
-				margin-bottom: 2rem;
+				margin-bottom: 0;
 			}
 		}
 	}

@@ -25999,7 +25999,7 @@ bold, strong {
 
 /* layout ----------------------------- */
 section {
-  padding: 2rem 0;
+  padding: 2rem 0 1rem;
   background-color: #fff;
 }
 section.intro {
@@ -26026,6 +26026,7 @@ section.picture-header .image {
 section.picture-header .text {
   font-size: 1.2rem;
   padding: 2rem 4rem;
+  margin-bottom: 0;
 }
 
 .skills, .capabilities {
@@ -26047,6 +26048,10 @@ section.picture-header .text {
 }
 .skills .item p, .capabilities .item p {
   text-align: left;
+}
+.skills .item.boxed, .capabilities .item.boxed {
+  padding: 2rem;
+  background: #eeeeee;
 }
 
 .lightboxOverlay {
@@ -26097,7 +26102,43 @@ section.picture-header .text {
   font-family: "Proxima Nova Italic";
 }
 
-h1 .book-title, .h1 .book-title, h2 .book-title, .h2 .book-title, h3 .book-title, .h3 .book-title, h4 .book-title, .h4 .book-title {
+h1 .book-title, .h1 .book-title,
+h1 .magazine-title,
+.h1 .magazine-title,
+h1 .show-title,
+.h1 .show-title,
+h1 .tv-show-title,
+.h1 .tv-show-title,
+h1 .company-name,
+.h1 .company-name, h2 .book-title, .h2 .book-title,
+h2 .magazine-title,
+.h2 .magazine-title,
+h2 .show-title,
+.h2 .show-title,
+h2 .tv-show-title,
+.h2 .tv-show-title,
+h2 .company-name,
+.h2 .company-name, h3 .book-title, .h3 .book-title,
+h3 .magazine-title,
+.h3 .magazine-title,
+h3 .show-title,
+.h3 .show-title,
+h3 .tv-show-title,
+.h3 .tv-show-title,
+h3 .company-name,
+.h3 .company-name, h4 .book-title, .h4 .book-title,
+h4 .magazine-title,
+.h4 .magazine-title,
+h4 .show-title,
+.h4 .show-title,
+h4 .tv-show-title,
+.h4 .tv-show-title,
+h4 .company-name,
+.h4 .company-name, blockquote .book-title,
+blockquote .magazine-title,
+blockquote .show-title,
+blockquote .tv-show-title,
+blockquote .company-name {
   font-family: "Proxima Nova Bold Italic";
 }
 
@@ -26152,6 +26193,9 @@ figure .figure-caption {
   border-bottom: 0.0625rem solid #bfbfbf;
   padding-bottom: 1rem;
   margin-bottom: 0;
+}
+.text-page .text {
+  margin-bottom: 1rem;
 }
 @media (min-width: 1200px) and (max-width: 991px), (min-width: 992px) {
   .text-page .container, .text-page .author-notes {
@@ -26265,7 +26309,7 @@ img.social-media-preview {
   background-position: 0 center;
 }
 .web section.capabilities {
-  padding: 0;
+  padding: 2rem 0;
   min-height: 0;
 }
 .web section.capabilities .item {
@@ -26279,11 +26323,11 @@ img.social-media-preview {
   font-size: 1.4rem;
 }
 .web .client-image img {
-  border: 1px solid #ccc;
+  border: 0.0625rem solid #bfbfbf;
+  margin-bottom: 1rem;
 }
 .web .client-details {
   background: #eeeeee;
-  font-size: 0.9rem;
   padding: 2rem;
   color: #212529;
   margin-bottom: 1.5rem;
@@ -26309,7 +26353,7 @@ img.social-media-preview {
   padding-right: 0.5rem;
 }
 .web .client-details .code-soup li:last-child {
-  border: none;
+  border-color: transparent;
 }
 .web .mas-client.clients {
   padding: 2rem 0;
@@ -26319,16 +26363,17 @@ img.social-media-preview {
   margin: 0 1rem;
 }
 .web .mas-client.clients .client-image {
-  background: white;
+  background: #fff;
   padding: 0;
   min-height: 0;
+  margin-bottom: 1rem;
 }
 .web .mas-client.clients .client-image img {
   margin: 0;
   border: 0;
 }
 .web .mas-client.clients .client-details {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 /* graphic design --------------------- */
@@ -26810,9 +26855,6 @@ footer {
   line-height: 1.5rem;
 }
 
-.captioned {
-  position: relative;
-}
 .captioned .caption {
   background: transparent;
   position: static;
@@ -26911,7 +26953,7 @@ footer {
   text-align: center;
 }
 .gallery .frame .caption .title {
-  font-weight: bold;
+  font-family: "Proxima Nova Bold";
 }
 .gallery .frame .caption .details {
   display: none;
@@ -27002,7 +27044,8 @@ footer {
     padding: 1rem;
   }
   .web .clients.mas-client.clients .client-details {
-    padding: 1rem 0;
+    padding: 0;
+    margin-bottom: 1rem;
   }
 
   .diagram {
@@ -27046,6 +27089,7 @@ footer {
 
   .page-not-found section.intro .text {
     padding: 1rem;
+    margin-bottom: 0;
   }
   .page-not-found section.intro .text h1, .page-not-found section.intro .text .h1 {
     font-size: 10rem;
@@ -27148,7 +27192,7 @@ footer {
 }
 .dark-mode .web .client-details {
   background: transparent;
-  padding: 1rem 0;
+  padding: 0;
   color: #bfbfbf;
 }
 .dark-mode .web .client-details h3, .dark-mode .web .client-details .h3 {
@@ -27158,21 +27202,31 @@ footer {
 .dark-mode .web .client-details .project-date {
   color: #fff;
 }
+.dark-mode .web .client-details p {
+  margin-bottom: 0;
+}
 .dark-mode .web .client-details .code-soup li {
   border-right: 0.0625rem solid rgba(191, 191, 191, 0.3);
   border-color: rgba(191, 191, 191, 0.5);
+}
+.dark-mode .web .client-details .code-soup li:last-child {
+  border-color: transparent;
 }
 .dark-mode .skills .item, .dark-mode .capabilities .item {
   background: #090909 no-repeat 0 0;
   color: #bfbfbf;
   border-color: rgba(191, 191, 191, 0.8);
-  padding: 1rem 0;
+  padding: 0;
 }
 .dark-mode .skills .item.even, .dark-mode .capabilities .item.even {
   background-color: transparent;
 }
 .dark-mode .skills .item h2, .dark-mode .skills .item .h2, .dark-mode .skills .item h3, .dark-mode .skills .item .h3, .dark-mode .skills .item h4, .dark-mode .skills .item .h4, .dark-mode .capabilities .item h2, .dark-mode .capabilities .item .h2, .dark-mode .capabilities .item h3, .dark-mode .capabilities .item .h3, .dark-mode .capabilities .item h4, .dark-mode .capabilities .item .h4 {
   color: #fff;
+}
+.dark-mode .skills .item.boxed, .dark-mode .capabilities .item.boxed {
+  padding: 1rem 2rem;
+  background: #090909;
 }
 .dark-mode .comics .skills .item {
   padding: 2rem 2rem;
@@ -27197,7 +27251,7 @@ footer {
   border-color: #992f00;
 }
 .dark-mode .jobs h2, .dark-mode .jobs .h2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 0.0625rem solid rgba(191, 191, 191, 0.3);
 }

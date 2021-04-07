@@ -234,7 +234,7 @@ $border-radius-large:       				$border-radius-base * 2;
 $border-radius-small:       				$border-radius-base/2;
 
 $section-padding:		 					$spacer-base 0;
-$section-padding-large: 					$spacer-large 0;
+$section-padding-large: 					$spacer-large 0 $spacer-base;
 
 
 /* Font Awesome icons ---------------- */

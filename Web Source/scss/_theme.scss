@@ -72,7 +72,7 @@ $item-link-color-active: 					$link-active-color;
 $item-border-color: 						transparentize($item-text-color, 0.2);
 
 $client-details-bg:							transparent;
-$client-details-padding: 					$spacer-base 0;
+$client-details-padding: 					0;
 
 $boxed-client-details-bg: 					darken($section-bg, 10%);
 $boxed-client-details-even-bg: 				lighten($section-bg-even, 10%);
@@ -196,10 +196,16 @@ $link-active-color:							darken($link-color, 20%);
 			.project-date {
 				color: $headings-color;
 			}
+			p {
+				margin-bottom: 0;
+			}
 			.code-soup {
 				li {
 					border-right: $border-default;
 					border-color: $text-divider-color;
+					&:last-child {
+						border-color: transparent;
+					}
 				}
 			}
 		}	
@@ -209,13 +215,21 @@ $link-active-color:							darken($link-color, 20%);
 			background: $item-bg no-repeat 0 0;
 			color: $item-text-color;
 			border-color: $item-border-color;
-			padding: 1rem 0;
+			padding: 0;
 			&.even {
 				background-color: $item-even-bg;
 			}
 			h2, h3, h4 {
 				color: $item-headings-color;
 			}
+			
+			
+			&.boxed {
+				padding: 1rem 2rem;
+				background: $item-bg;
+			}
+			
+			
 		}
 	}
 	
@@ -255,7 +269,7 @@ $link-active-color:							darken($link-color, 20%);
 	}
 	.jobs {
 		h2 {
-			margin-bottom: $spacer-small;
+			margin-bottom: $spacer-base;
 			padding-bottom: $spacer-small;
 			border-bottom: $border-default;
 		}

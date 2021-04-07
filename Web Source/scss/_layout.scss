@@ -27,6 +27,7 @@ section {
 		.text {
 			font-size: $h4-font-size;
 			padding: $padding-large-vertical $padding-large-horizontal;
+			margin-bottom: 0;
 		}
 	}		
 }
@@ -48,6 +49,10 @@ section {
 		}
 		p {
 			text-align: left;
+		}
+		&.boxed {
+			padding: 2rem;
+			background: $item-bg;
 		}
 	}
 }
@@ -105,8 +110,12 @@ section {
 	font-family: $font-family-italic;
 }
 
-h1, h2, h3, h4 {
-	.book-title {
+h1, h2, h3, h4, blockquote {
+	.book-title, 
+	.magazine-title, 
+	.show-title, 
+	.tv-show-title, 
+	.company-name {
 		font-family: $font-family-bold-italic;
 	}
 }
@@ -170,6 +179,9 @@ figure {
 		border-bottom: $border-default;
 		padding-bottom: $spacer-base;
 		margin-bottom: 0;
+	}
+	.text {
+		margin-bottom: $spacer-base;
 	}
 	@media (min-width: 1200px) and (max-width: 991px), (min-width: 992px) {
 		.container, .author-notes {

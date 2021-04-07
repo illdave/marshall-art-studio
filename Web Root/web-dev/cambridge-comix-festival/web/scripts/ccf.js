@@ -1,0 +1,1 @@
+<!-- Begin	function closeRemote(URL){remote=window.close();}		function MM_openBrWindow(theURL,winName,features) {window.open(theURL,winName,features);}//  End -->

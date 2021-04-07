@@ -1,0 +1,29 @@
+
+.ignore			{color: #999999; font-family: wingdings; font-size: 33px}
+	
+a				{color: #0000ff}
+a:hover			{text-decoration: underline;color: #0000ff;}
+a:visited			{color: #999999}
+
+a.topnav 			{color:white;text-decoration: none}
+a.topnav:visited 		{color:white}
+a.topnav:hover 		{color:white;text-decoration: underline}
+	
+td.indexblurb-head	{color: #99cc66; font-family: arial,helvetica,sans-serif; font-size: 28px; line-height: 26px; font-weight: bold; font-style: oblique; text-align: center}
+td.indexblurb-subhead	{color: black; font-family: arial,helvetica,sans-serif; font-size: 16px; font-style: oblique}
+td.indexblurb-new		{color: #336633; font-family: arial,helvetica,sans-serif; font-size: 14px}
+
+td.content-title		{color: #99cc66; font-family: arial,helvetica,sans-serif; font-size: 18px; font-weight: bold; padding-bottom: 12px}
+td.content-subtitle	{color: #669933; font-family: arial,helvetica,sans-serif; font-size: 14px; font-weight: bold; padding-top: 12px; padding-bottom: 12px}
+td.content-main		{color: black; font-family: arial,helvetica,sans-serif; font-size: 12px}
+td.content-mainc		{color: black; font-family: arial,helvetica,sans-serif; font-size: 12px; text-align: center}
+
+td.topnav			{color: #ccff66; font-family: arial,helvetica,sans-serif; font-size: 12px; font-weight: bold}
+td.topnavr			{color: #ccff66; font-family: arial,helvetica,sans-serif; font-size: 12px; font-weight: bold; text-align: right}	
+td.footer			{color: #999999; font-family: arial,helvetica,sans-serif; font-size: 10px}
+td.legal			{color: #999999; font-family: arial,helvetica,sans-serif; font-size: 11px}
+
+table.indexlogo		{margin-top: 50px}
+table.footer		{margin-top: 48px}		
+
+div.content			{margin-left:15px; margin-top:12px}

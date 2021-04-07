@@ -322,7 +322,6 @@
 }
 
 .captioned {
-	position: relative;
 	.caption {
 		background: transparent;
 		position: static;
@@ -425,7 +424,7 @@
 		.caption {
 			text-align: center;
 			.title {
-				font-weight: bold;
+				font-family: $font-family-bold;
 			}
 			.details {
 				display: none;

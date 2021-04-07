@@ -1,3 +1,8 @@
 ErrorDocument 404 http://www.illdave.com/404/index.htm
 
+Redirect 301 /comicbooks/ http://illdave.com/comics/
+Redirect 301 /comicbooks http://illdave.com/comics/
+Redirect 301 /comicbooks/ http://illdave.com/comics/index.htm
+Redirect 301 /comicbooks/index.htm http://illdave.com/comics/index.htm
+
 

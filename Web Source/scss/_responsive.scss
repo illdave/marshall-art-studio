@@ -28,7 +28,8 @@
 			&.mas-client.clients {
 				padding: 1rem;
 				.client-details {
-					padding: 1rem 0;
+					padding: 0;
+					margin-bottom: 1rem;
 				}
 			}
 		}
@@ -80,6 +81,7 @@
 			&.intro {
 				.text {
 					padding: 1rem;
+					margin-bottom: 0;
 					h1 {
 						font-size: 10rem;
 						line-height: 10rem;

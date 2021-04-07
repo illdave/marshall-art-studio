@@ -1,0 +1,1 @@
+document.write("&copy; 1997 - 2009 Ruddy Duck Records. If you have any questions about these terms, please <a href=mailto:booking@eddiemarshall.com>contact us here</a>.");
