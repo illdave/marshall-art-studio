@@ -69,7 +69,27 @@
 				text-align: left;
 			}
 		}	
-	}	
+	}
+	
+	.blog {
+		&.index {
+			.older {
+				article {
+					figure {
+						float: none;
+						width: 100%;
+						margin-right: 0;
+						margin-bottom: 1rem;
+					}
+					header {
+						float: none;
+						width: 100%;
+						margin-bottom: 1rem;
+					}	
+				}	
+			}
+		}
+	}
 }
 
 @media (max-width: 768.98px) { 

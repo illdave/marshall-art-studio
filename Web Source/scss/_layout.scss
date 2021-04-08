@@ -32,29 +32,62 @@ section {
 	}		
 }
 
-.skills, .capabilities {
-	min-height: 20rem;
-	.item {
-		padding: 2rem;
-		margin-bottom: 1.5rem;
-		background: $item-bg no-repeat 0 0;
-		background-size: cover;
-		color: $item-text-color;
-		border-color: $item-border-color;
-		&.even {
-			background-color: lighten($item-bg, 13.5%);
-		}
-		h2, h3, h4 {
-			color: $item-headings-color;
-		}
-		p {
-			text-align: left;
-		}
-		&.boxed {
-			padding: 2rem;
-			background: $item-bg;
+.sidebar {
+	aside {
+		.item {
+			margin-bottom: 1rem;
+			&.contact {
+				padding: 1rem 1.5rem;
+				background: $item-even-bg;
+				li {
+					margin-bottom: .25rem;
+				}
+			}
+			&.anecdote {}
+			&.powered-by {
+				h4 {
+					margin-bottom: 0;
+				}
+				dl {
+					dt {
+						color: $text-color;
+					}
+					dd {
+						.name {
+							color: $white;
+							margin-right: .5rem;
+						}
+					}
+				}
+			}
 		}
 	}
+}
+
+.item {
+	padding: 2rem;
+	margin-bottom: 1.5rem;
+	background: $item-bg no-repeat 0 0;
+	background-size: cover;
+	color: $item-text-color;
+	border-color: $item-border-color;
+	&.even {
+		background-color: lighten($item-bg, 13.5%);
+	}
+	h2, h3, h4 {
+		color: $item-headings-color;
+	}
+	p {
+		text-align: left;
+	}
+	&.boxed {
+		padding: 2rem;
+		background: $item-bg;
+	}
+}
+
+.skills, .capabilities {
+	min-height: 20rem;
 }
 
 .lightboxOverlay {

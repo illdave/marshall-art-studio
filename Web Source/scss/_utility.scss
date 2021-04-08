@@ -19,6 +19,24 @@
 	}
 }
 
+.code-soup {
+	li {
+		border-right: $border-default;
+		border-color: $text-divider-color;
+		margin: 0;
+		margin-right: .25rem;
+		padding: 0;
+		padding-right: .5rem;
+		&:last-child {
+			border-color: transparent;
+		}
+		a {
+			&:hover {}
+		}
+	}
+}
+
+
 .footnote {
 	font-family: $font-family-italic;
 }
@@ -229,18 +247,7 @@
 		}		
 	}
 }
-.sidebar {
-	.item {
-		margin-bottom: 1rem;
-		&.contact {
-			padding: 1rem 1.5rem;
-			background: $item-even-bg;
-			li {
-				margin-bottom: .25rem;
-			}
-		}
-	}
-}
+
 .social {
 	li, dd {
 		background: transparent no-repeat 0 0;

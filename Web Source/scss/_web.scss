@@ -57,22 +57,6 @@
 			font-family: $font-family-bold;
 			margin-right: .25rem;
 		}
-		.code-soup {
-			li {
-				border-right: $border-default;
-				border-color: $text-divider-color;
-				margin: 0;
-				margin-right: .25rem;
-				padding: 0;
-				padding-right: .5rem;
-				&:last-child {
-					border-color: transparent;
-				}
-				a {
-					&:hover {}
-				}
-			}
-		}
 	}	
 	.mas-client {
 		&.clients  {

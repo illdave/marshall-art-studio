@@ -25,6 +25,7 @@ $icon-link-color-active: 					darken($icon-link-color, 30%);
 
 $border-default-color:						transparentize($text-color, 0.7);
 $border-default: 							rem(1px solid $border-default-color);
+$border-top:								$border-default;
 
 $main-nav-bg:								$body-bg;
 $main-nav-border:							$border-default;
@@ -184,7 +185,45 @@ $link-active-color:							darken($link-color, 20%);
 			background-color: $section-bg-even;
 		}
 	}	
+	
+	.code-soup {
+		li {
+			border-right: $border-default;
+			border-color: $text-divider-color;
+			&:last-child {
+				border-color: transparent;
+			}
+		}
+	}
+	
+	.item {
+		background: transparent no-repeat 0 0;
+		color: $item-text-color;
+		border-color: $item-border-color;
+		padding: 0;
+		&.even {
+			background-color: $item-even-bg;
+		}
+		h2, h3, h4 {
+			color: $item-headings-color;
+		}
+		&.boxed {
+			padding: 1rem 2rem;
+			background: $item-bg;
+		}
+	}
+	
+	
 	.web {
+	
+		.capabilities {
+			.item {
+				&.boxed {
+					background: $item-bg;
+				}
+			
+			}
+		}
 		.client-details {
 			background: $client-details-bg;
 			padding: $client-details-padding;
@@ -197,40 +236,12 @@ $link-active-color:							darken($link-color, 20%);
 				color: $headings-color;
 			}
 			p {
-				margin-bottom: 0;
-			}
-			.code-soup {
-				li {
-					border-right: $border-default;
-					border-color: $text-divider-color;
-					&:last-child {
-						border-color: transparent;
-					}
-				}
 			}
 		}	
 	}
+	
+	
 	.skills, .capabilities {
-		.item {
-			background: $item-bg no-repeat 0 0;
-			color: $item-text-color;
-			border-color: $item-border-color;
-			padding: 0;
-			&.even {
-				background-color: $item-even-bg;
-			}
-			h2, h3, h4 {
-				color: $item-headings-color;
-			}
-			
-			
-			&.boxed {
-				padding: 1rem 2rem;
-				background: $item-bg;
-			}
-			
-			
-		}
 	}
 	
 	.comics {
@@ -360,32 +371,68 @@ $link-active-color:							darken($link-color, 20%);
 	}
 }
 
+
 .sidebar {
-	.item {
-		&.contact {
-			background: $contact-bg;
-			h2, dt {
-				color: $contact-headings-color;
-			}
-			li {
-				color: $contact-text-color;
-				&:not(:last-child) {
-    				margin-right: 1rem;
-				}			
-			}
-			a {
-				color: $contact-link-color;
-				&:hover {
-					color: $contact-link-hover-color;
+	aside {
+		.item {
+			&.contact {
+				background: $contact-bg;
+				h2, dt {
+					color: $contact-headings-color;
 				}
-				&:active {
-					color: $contact-link-active-color;
+				li {
+					color: $contact-text-color;
+					&:not(:last-child) {
+						margin-right: 1rem;
+					}			
 				}
+				a {
+					color: $contact-link-color;
+					&:hover {
+						color: $contact-link-hover-color;
+					}
+					&:active {
+						color: $contact-link-active-color;
+					}
+				}
+			}
+			&.anecdote {}
+			&.powered-by {
+				dl {
+					dt {
+						color: $text-color;
+					}
+					dd {
+						.name {
+							color: $white;
+						}
+					}
+				}
+			}
+			&.border-top {
+				border-top: $border-top !important;
+				padding-top: 1rem;
+				margin-top: 1rem;
+			}
+		}
+		ul {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.blog {
+	&.index {
+		.older {
+			h2 {
+				border-bottom: $border-default;
 			}
 		}
 	}
-	ul {
-		margin-bottom: 0;
+	aside {
+		dl {
+			border-top: $border-default;
+		}
 	}
 }
 
