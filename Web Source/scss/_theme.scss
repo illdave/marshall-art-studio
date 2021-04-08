@@ -72,6 +72,15 @@ $item-link-color-hover: 					$link-hover-color;
 $item-link-color-active: 					$link-active-color;
 $item-border-color: 						transparentize($item-text-color, 0.2);
 
+$profile-bg: 								darken($section-bg, 10%);
+$profile-image-border: 						rem(6px solid $profile-bg);
+$profile-image-bg: 							transparent center center no-repeat;
+$profile-image-size: 						10rem;
+$profile-image-zindex: 						800;
+$profile-text-bg: 							$profile-bg;
+$profile-text-padding: 						$spacer-large;
+$profile-text-zindex: 						700;
+
 $client-details-bg:							transparent;
 $client-details-padding: 					0;
 
@@ -86,7 +95,6 @@ $text-divider-color:						transparentize($text-color, 0.5);
 $contact-link-color:						$link-color;
 $contact-link-hover-color:					$link-hover-color;
 $contact-link-active-color:					$link-active-color;
-
 
 $body-bg:									$theme-color-bg;
 $headings-color: 							$white;
@@ -214,8 +222,28 @@ $link-active-color:							darken($link-color, 20%);
 	}
 	
 	
+	.profile {
+		&.inky-stories {
+			.image {
+				background-image: url("#{$pictures-image-path}/dave-drawing-as-kid-1.jpg");
+				background-size: 160%;
+			}
+		}
+		&.art-of-comic-book {
+			.image {
+				background-image: url("#{$pictures-image-path}/comics-wip-1.jpg");
+				background-size: cover;
+			}
+		}
+		.image {
+			background: $profile-image-bg;
+			border: $profile-image-border;
+		}
+		.text {
+			background: $profile-text-bg;
+		}
+	}	
 	.web {
-	
 		.capabilities {
 			.item {
 				&.boxed {
@@ -239,11 +267,7 @@ $link-active-color:							darken($link-color, 20%);
 			}
 		}	
 	}
-	
-	
-	.skills, .capabilities {
-	}
-	
+
 	.comics {
 		.skills {
 			.item {

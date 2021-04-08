@@ -25690,6 +25690,7 @@ https://github.com/lokesh/lightbox2 */
 /* footer ---------------------------- */
 /* main navigation ------------------- */
 /* utility --------------------------- */
+/* profiles -------------------------- */
 /* fonts ------------------------------ */
 @font-face {
   font-family: "Proxima Nova";
@@ -26048,28 +26049,6 @@ section.picture-header .text {
 .sidebar aside .item.powered-by dl dd .name {
   color: #fff;
   margin-right: 0.5rem;
-}
-
-.item {
-  padding: 2rem;
-  margin-bottom: 1.5rem;
-  background: #eeeeee no-repeat 0 0;
-  background-size: cover;
-  color: #212529;
-  border-color: rgba(33, 37, 41, 0.8);
-}
-.item.even {
-  background-color: white;
-}
-.item h2, .item .h2, .item h3, .item .h3, .item h4, .item .h4 {
-  color: #000;
-}
-.item p {
-  text-align: left;
-}
-.item.boxed {
-  padding: 2rem;
-  background: #eeeeee;
 }
 
 .skills, .capabilities {
@@ -26831,6 +26810,64 @@ footer {
 .code-soup li:last-child {
   border-color: transparent;
 }
+.item {
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  background: #eeeeee no-repeat 0 0;
+  background-size: cover;
+  color: #212529;
+  border-color: rgba(33, 37, 41, 0.8);
+}
+.item.even {
+  background-color: white;
+}
+.item h2, .item .h2, .item h3, .item .h3, .item h4, .item .h4 {
+  color: #000;
+}
+.item p {
+  text-align: left;
+}
+.item.boxed {
+  padding: 2rem;
+  background: #eeeeee;
+}
+
+.profile {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+.profile.inky-stories .image {
+  background-image: url("../../img/pictures/dave-drawing-as-kid-1.jpg");
+  background-size: 160%;
+}
+.profile.art-of-comic-book .image {
+  background-image: url("../../img/pictures/comics-wip-1.jpg");
+  background-size: cover;
+}
+.profile .image {
+  background: transparent center center no-repeat;
+  width: 10rem;
+  height: 10rem;
+  border: 0.375rem solid #e6e6e6;
+  margin-bottom: -1rem;
+  z-index: 800;
+}
+.profile .text {
+  padding: 2rem;
+  background: #e6e6e6;
+  margin-bottom: 1rem;
+  text-align: left;
+  z-index: 700;
+}
+.profile .text h2, .profile .text .h2, .profile .text h3, .profile .text .h3, .profile .text h4, .profile .text .h4 {
+  text-align: center;
+}
+.profile .text p {
+  margin-bottom: 0;
+}
+
 .footnote {
   font-family: "Proxima Nova Italic";
 }
@@ -27431,6 +27468,21 @@ footer {
 }
 .dark-mode .item.boxed {
   padding: 1rem 2rem;
+  background: #090909;
+}
+.dark-mode .profile.inky-stories .image {
+  background-image: url("../../img/pictures/dave-drawing-as-kid-1.jpg");
+  background-size: 160%;
+}
+.dark-mode .profile.art-of-comic-book .image {
+  background-image: url("../../img/pictures/comics-wip-1.jpg");
+  background-size: cover;
+}
+.dark-mode .profile .image {
+  background: transparent center center no-repeat;
+  border: 0.375rem solid #090909;
+}
+.dark-mode .profile .text {
   background: #090909;
 }
 .dark-mode .web .capabilities .item.boxed {

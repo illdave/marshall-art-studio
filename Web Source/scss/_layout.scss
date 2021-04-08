@@ -64,28 +64,6 @@ section {
 	}
 }
 
-.item {
-	padding: 2rem;
-	margin-bottom: 1.5rem;
-	background: $item-bg no-repeat 0 0;
-	background-size: cover;
-	color: $item-text-color;
-	border-color: $item-border-color;
-	&.even {
-		background-color: lighten($item-bg, 13.5%);
-	}
-	h2, h3, h4 {
-		color: $item-headings-color;
-	}
-	p {
-		text-align: left;
-	}
-	&.boxed {
-		padding: 2rem;
-		background: $item-bg;
-	}
-}
-
 .skills, .capabilities {
 	min-height: 20rem;
 }

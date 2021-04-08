@@ -36,6 +36,67 @@
 	}
 }
 
+.item {
+	padding: 2rem;
+	margin-bottom: 1.5rem;
+	background: $item-bg no-repeat 0 0;
+	background-size: cover;
+	color: $item-text-color;
+	border-color: $item-border-color;
+	&.even {
+		background-color: lighten($item-bg, 13.5%);
+	}
+	h2, h3, h4 {
+		color: $item-headings-color;
+	}
+	p {
+		text-align: left;
+	}
+	&.boxed {
+		padding: 2rem;
+		background: $item-bg;
+	}
+}
+
+.profile {
+	margin-bottom: 1rem;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	&.inky-stories {
+		.image {
+			background-image: url("#{$pictures-image-path}/dave-drawing-as-kid-1.jpg");
+			background-size: 160%;
+		}
+	}
+	&.art-of-comic-book {
+		.image {
+			background-image: url("#{$pictures-image-path}/comics-wip-1.jpg");
+			background-size: cover;
+		}
+	}
+	.image {
+		background: $profile-image-bg;
+		width: $profile-image-size;
+		height: $profile-image-size;
+		border: $profile-image-border;
+		margin-bottom: -$spacer-base;
+		z-index: $profile-image-zindex;
+	}
+	.text {
+		padding: $profile-text-padding;
+		background: $profile-text-bg;
+		margin-bottom: $spacer-base;
+		text-align: left;
+		z-index: $profile-text-zindex;
+		h2, h3, h4 {
+			text-align: center;
+		}
+		p {
+			margin-bottom: 0;
+		}
+	}
+}
 
 .footnote {
 	font-family: $font-family-italic;

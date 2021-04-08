@@ -364,3 +364,15 @@ $comic-book-thumbnail-image-border: 		$comic-book-img-border;
 $comic-book-thumbnail-image-margin-bottom:	$spacer-small;
 
 
+/* profiles -------------------------- */
+
+$profile-bg: 								darken($section-bg, 10%);
+$profile-image-border: 						rem(6px solid $profile-bg);
+$profile-image-bg: 							transparent center center no-repeat;
+$profile-image-size: 						10rem;
+$profile-image-zindex: 						800;
+$profile-text-bg: 							$profile-bg;
+$profile-text-padding: 						$spacer-large;
+$profile-text-zindex: 						700;
+
+
