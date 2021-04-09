@@ -5,6 +5,8 @@
 
 /* dark mode variables --------------- */
 
+$grid-gutter-width: 3rem !default;
+
 $theme-color-bg:							$black;
 
 $body-bg:									$theme-color-bg;
@@ -395,7 +397,6 @@ $link-active-color:							darken($link-color, 20%);
 	}
 }
 
-
 .sidebar {
 	aside {
 		.item {
@@ -459,6 +460,11 @@ $link-active-color:							darken($link-color, 20%);
 		}
 	}
 }
+
+.vl {
+	border-left: $border-default;
+}
+
 
 @media (max-width: 576px) {
 	.home.mas-content section.skills,

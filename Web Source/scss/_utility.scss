@@ -58,8 +58,26 @@
 	}
 }
 
+.newspaper {
+	position: relative;
+	margin-bottom: 2rem;
+}
+.first-paragraph {
+	font-size: $font-size-large;
+	margin-bottom: $spacer-large;
+}
+.vl {
+	border-left: $border-default;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	height: 100%;
+	width: 1px;
+	max-width: 1px;
+	padding: 0;
+}
+
 .profile {
-	margin-bottom: 1rem;
 	display: flex;
 	flex-flow: column wrap;
 	align-items: center;
@@ -295,8 +313,6 @@
 		}
 		&.figure {
 			[class*="col-"]{
-				padding-right: 10px;
-				padding-left: 10px;
 			}		
 			.figure-caption {
 				p {

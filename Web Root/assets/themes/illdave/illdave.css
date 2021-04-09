@@ -26832,8 +26832,28 @@ footer {
   background: #eeeeee;
 }
 
+.newspaper {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.first-paragraph {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.vl {
+  border-left: 0.0625rem solid #bfbfbf;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  max-width: 1px;
+  padding: 0;
+}
+
 .profile {
-  margin-bottom: 1rem;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -27028,10 +27048,6 @@ footer {
 }
 .row.in-content img {
   margin-bottom: 1rem;
-}
-.row.in-content.figure [class*=col-] {
-  padding-right: 10px;
-  padding-left: 10px;
 }
 .row.in-content.figure .figure-caption p {
   border-bottom: 0.0625rem solid #bfbfbf;
@@ -27619,6 +27635,10 @@ footer {
 }
 .blog aside dl {
   border-top: 0.0625rem solid rgba(191, 191, 191, 0.3);
+}
+
+.vl {
+  border-left: 0.0625rem solid rgba(191, 191, 191, 0.3);
 }
 
 @media (max-width: 576px) {
