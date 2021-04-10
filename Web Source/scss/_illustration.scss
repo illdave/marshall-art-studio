@@ -3,6 +3,8 @@
 .illustration {
 	section {
 		&.picture-header {
+			background-color: $section-bg-illustration;
+			background-image: url("#{$layout-image-path}/section-bg-illustration.png");
 			.image {
 				background-image: url("#{$pictures-image-path}/inky-studio-2.jpg");
 				background-position: 0 center;

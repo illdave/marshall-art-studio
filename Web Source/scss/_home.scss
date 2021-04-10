@@ -1,38 +1,55 @@
 /* home ------------------------------- */
 
 .home {
-	&.mas-content {
-		padding-bottom: 0;
-		section {
-			&.picture-header {
-				.image {
-					background-image: url("#{$pictures-image-path}/dave-at-cvs-innovation-7.jpg");
-				}
-			}		
-			&.skills {
-				padding: 0;
-				min-height: 0;
-				.item {
-					text-align: center;
-					padding: 2rem 0;
-					margin-bottom: 0;
+	padding-bottom: 0;
+	section {
+		&.picture-header {
+			.image {
+				background-image: url("#{$pictures-image-path}/dave-at-cvs-innovation-7.jpg");
+			}
+		}		
+		&.skills {
+			padding: 0;
+			min-height: 0;
+			.item {
+				background: transparent center center;
+				background-size: cover;
+				text-align: center;
+				min-height: 20rem;
+				padding: 2rem 4rem;
+				margin: 0;
+				display: flex;
+				flex-flow: column wrap;
+				align-items: center;
+				justify-content: center;
+				.text {
 					p {
 						text-align: center;
+						&.btn-row {
+							margin-bottom: 0;
+						}
 					}
-					&.even {
-					}
-					&.web-dev {
-					}
-					&.graphic-design {
-					}
-					&.illustration {
-					}
-					&.comic-books {
-					}
+				
+				}
+				&.web-dev {
+					background-color: $section-bg-web-dev;
+					background-image: url("#{$layout-image-path}/section-bg-web-dev.png");
+				}
+				&.graphic-design {
+					background-color: $section-bg-graphic-design;
+					background-image: url("#{$layout-image-path}/section-bg-graphic-design.png");
+				}
+				&.illustration {
+					background-color: $section-bg-illustration;
+					background-image: url("#{$layout-image-path}/section-bg-illustration.png");
+				}
+				&.comic-books {
+					background-color: $section-bg-comic-books;
+					background-image: url("#{$layout-image-path}/section-bg-comic-books.png");
 				}
 			}
-		}	
-	}
+		}
+	}	
 }
 
 

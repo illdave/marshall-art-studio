@@ -42,15 +42,22 @@ $theme-color-5:								$illdave-yellow;
 $theme-color-6:								$illdave-teal;
 $theme-color-7:								darken($theme-color-3, 5%); // dark blue 
 
+$code-color-magenta: 						#e9008c;
+$code-color-green: 							#099;
+$code-color-blue-deep: 						#06c;
+$code-color-blue-bright: 					#9cf;
+$code-color-orange: 						#f90;
+$code-color-gray: 							#ccc;
+
 $border-default-color: 						$gray-light;
 $border-default: 							rem(1px solid $border-default-color);
-$border-light: 								rem(1px solid $gray-lighter);
+$border-light: 								rem(1px solid $gray-light-medium);
 
 $body-bg:									$white;
 $headings-color: 							$black;
 $text-color:								#212529;
 $text-divider-color:						transparentize($text-color, 0.2);
-$link-color:								$theme-color-2;
+$link-color:								$theme-color-1;
 $link-hover-color:							lighten($link-color, 20%);
 $link-active-color:							darken($link-color, 20%);
 
@@ -89,6 +96,20 @@ $item-border-color: 						transparentize($item-text-color, 0.2);
 
 $client-details-bg:							$item-bg;
 $client-details-padding: 					2rem;
+
+$section-bg-web-dev:  						lighten($theme-color-3, 20%);
+$section-bg-graphic-design:  				lighten($theme-color-4, 20%);
+$section-bg-illustration:  					lighten($theme-color-2, 15%);
+$section-bg-comic-books:  					lighten($theme-color-1, 30%);
+$section-bg-about:  						lighten($theme-color-6, 20%);
+$section-bg-blog:  							$section-bg-about;
+
+$section-bg-web-dev-even:  					lighten($section-bg-web-dev, 30%);
+$section-bg-graphic-design-even:  			lighten($section-bg-graphic-design, 30%);
+$section-bg-illustration-even:  			lighten($section-bg-illustration, 30%);
+$section-bg-comic-books-even:  				lighten($section-bg-comic-books, 30%);
+$section-bg-about-even:  					lighten($section-bg-about, 40%);
+$section-bg-blog-even:  					$section-bg-about-even;
 
 
 /* typography ------------------------ */
@@ -346,7 +367,7 @@ $photo-circle-xs: 							10rem;
 $circle-border-radius: 						50%;
 
 $caption-bg: 								transparentize($black, 0.1);
-$caption-color: 							lighten($caption-bg, 80%);
+$caption-color: 							lighten($caption-bg, 70%);
 $caption-headings-color: 					$white;
 $caption-padding: 							$spacer-base;
 $caption-line-height: 						$font-size-base;
@@ -363,6 +384,18 @@ $comic-book-thumbnail-image-bg: 			white center center no-repeat;
 $comic-book-thumbnail-image-border: 		$comic-book-img-border;
 $comic-book-thumbnail-image-margin-bottom:	$spacer-small;
 
+$code-font: 								$font-family-monospace;
+$code-soup-color: 							$code-color-magenta;
+$code-soup-divider: 						$code-color-gray;
+
+$contact-card-bg: 							$theme-color-2;
+$contact-card-text-color: 					lighten($contact-card-bg, 40%);
+$contact-card-headings-color: 				$text-color;
+$contact-card-link-color: 					$contact-card-text-color;
+$contact-card-link-hover-color: 			$white;
+$contact-card-link-active-color: 			darken($contact-card-bg, 13.5%);
+$contact-card-padding: 						1rem 1.5rem;
+
 
 /* profiles -------------------------- */
 
@@ -374,5 +407,14 @@ $profile-image-zindex: 						800;
 $profile-text-bg: 							$profile-bg;
 $profile-text-padding: 						$spacer-large;
 $profile-text-zindex: 						700;
+$profile-headers-color: 					$white;
+$profile-link-color: 						lighten($profile-bg, 13.5%);
+
+$profile-bg-inky-stories: 					$theme-color-2;
+$profile-bg-inky-stories-text-color: 		lighten($profile-bg-inky-stories, 40%);
+$profile-bg-inky-stories-link-color: 		$profile-headers-color;
+$profile-bg-art-of-comicbook: 				$theme-color-3;
+$profile-bg-art-of-comicbook-text-color: 	lighten($profile-bg-art-of-comicbook, 50%);
+$profile-bg-art-of-comicbook-link-color: 	$profile-headers-color;
 
 

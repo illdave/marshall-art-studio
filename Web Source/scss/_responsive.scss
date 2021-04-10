@@ -13,6 +13,14 @@
 			}
 		}		
 	}
+	
+	
+	.first-paragraph, .first-sentence {
+		font-size: $font-size-base;
+		margin-bottom: $spacer-base;
+	}
+	
+	
 	.gallery, 
 	.tiles {
 		padding: 1rem 0;
@@ -56,17 +64,17 @@
 			}
 		}
 	}
-
-	.home.mas-content section.skills,
+	
+	.home section.skills,
 	.web section.capabilities {
 		.item {
 			padding: 1rem;
+			min-height: auto;
 			border-bottom: $border-default;
 			&.last-child {
 			  border: 0;
 			}
 			h2, p {
-				text-align: left;
 			}
 		}	
 	}
@@ -91,6 +99,8 @@
 		}
 	}
 }
+
+
 
 @media (max-width: 768.98px) { 
 	.container {

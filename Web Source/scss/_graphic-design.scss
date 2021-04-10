@@ -3,10 +3,15 @@
 .graphic-design {
 	section {
 		&.picture-header {
+			background-color: $section-bg-graphic-design;
+			background-image: url("#{$layout-image-path}/section-bg-graphic-design.png");
 			.image {
 				background-image: url("#{$graphic-design-image-path}/jwg-thumbnails-2.jpg");
 				background-position: 0 0;
 			}
+		}
+		&.even {
+			background-color: $section-bg-graphic-design-even;
 		}		
 	}
 }

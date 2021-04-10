@@ -25908,27 +25908,27 @@ h6, .h6 {
 }
 
 a {
-  color: #ff4e00;
+  color: #007bff;
   text-decoration: none;
   background-color: transparent;
   font-weight: normal;
 }
 a:hover {
-  color: #ff9566;
+  color: #66b0ff;
   text-decoration: none;
 }
 a:active {
-  color: #992f00;
+  color: #004a99;
 }
 a img {
-  border: 0.0625rem solid #ff4e00;
+  border: 0.0625rem solid #007bff;
 }
 a:hover img {
-  border-color: #ff9566;
+  border-color: #66b0ff;
   filter: brightness(110%) saturate(110%);
 }
 a:active img {
-  border-color: #992f00;
+  border-color: #004a99;
 }
 
 img {
@@ -26001,7 +26001,7 @@ bold, strong {
 /* layout ----------------------------- */
 section {
   padding: 2rem 0 1rem;
-  background-color: #fff;
+  background: #fff no-repeat 110% center;
 }
 section.intro {
   background-color: #eeeeee;
@@ -26032,23 +26032,6 @@ section.picture-header .text {
 
 .sidebar aside .item {
   margin-bottom: 1rem;
-}
-.sidebar aside .item.contact {
-  padding: 1rem 1.5rem;
-  background: #fff;
-}
-.sidebar aside .item.contact li {
-  margin-bottom: 0.25rem;
-}
-.sidebar aside .item.powered-by h4, .sidebar aside .item.powered-by .h4 {
-  margin-bottom: 0;
-}
-.sidebar aside .item.powered-by dl dt {
-  color: #212529;
-}
-.sidebar aside .item.powered-by dl dd .name {
-  color: #fff;
-  margin-right: 0.5rem;
 }
 
 .skills, .capabilities {
@@ -26081,13 +26064,13 @@ section.picture-header .text {
   color: #fff;
 }
 .lightbox .lb-dataContainer .lb-data .lb-details .lb-caption a {
-  color: #ff4e00;
+  color: #007bff;
 }
 .lightbox .lb-dataContainer .lb-data .lb-details .lb-caption a:hover {
-  color: #ff9566;
+  color: #66b0ff;
 }
 .lightbox .lb-dataContainer .lb-data .lb-details .lb-caption a:active {
-  color: #992f00;
+  color: #004a99;
 }
 .lightbox .lb-dataContainer .lb-data .lb-details .lb-number {
   font-size: 90%;
@@ -26286,28 +26269,62 @@ img.social-media-preview {
 }
 
 /* home ------------------------------- */
-.home.mas-content {
+.home {
   padding-bottom: 0;
 }
-.home.mas-content section.picture-header .image {
+.home section.picture-header .image {
   background-image: url("../../img/pictures/dave-at-cvs-innovation-7.jpg");
 }
-.home.mas-content section.skills {
+.home section.skills {
   padding: 0;
   min-height: 0;
 }
-.home.mas-content section.skills .item {
+.home section.skills .item {
+  background: transparent center center;
+  background-size: cover;
   text-align: center;
-  padding: 2rem 0;
+  min-height: 20rem;
+  padding: 2rem 4rem;
+  margin: 0;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+.home section.skills .item .text p {
+  text-align: center;
+}
+.home section.skills .item .text p.btn-row {
   margin-bottom: 0;
 }
-.home.mas-content section.skills .item p {
-  text-align: center;
+.home section.skills .item.web-dev {
+  background-color: #4acaff;
+  background-image: url("../../img/layout/section-bg-web-dev.png");
 }
+.home section.skills .item.graphic-design {
+  background-color: #a7d145;
+  background-image: url("../../img/layout/section-bg-graphic-design.png");
+}
+.home section.skills .item.illustration {
+  background-color: #ff834d;
+  background-image: url("../../img/layout/section-bg-illustration.png");
+}
+.home section.skills .item.comic-books {
+  background-color: #99caff;
+  background-image: url("../../img/layout/section-bg-comic-books.png");
+}
+
 /* web design and development --------- */
+.web section.picture-header {
+  background-color: #4acaff;
+  background-image: url("../../img/layout/section-bg-web-dev.png");
+}
 .web section.picture-header .image {
   background-image: url("../../img/pictures/dave-at-agencyport-10.jpg");
   background-position: 0 center;
+}
+.web section.even {
+  background-color: #e3f7ff;
 }
 .web section.capabilities {
   padding: 2rem 0;
@@ -26315,6 +26332,7 @@ img.social-media-preview {
 }
 .web section.capabilities .item {
   background: transparent;
+  padding: 0;
   margin-bottom: 0;
 }
 .web section.capabilities .item p {
@@ -26325,7 +26343,6 @@ img.social-media-preview {
 }
 .web .client-image img {
   border: 0.0625rem solid #bfbfbf;
-  margin-bottom: 1rem;
 }
 .web .client-details {
   background: #eeeeee;
@@ -26367,9 +26384,16 @@ img.social-media-preview {
 }
 
 /* graphic design --------------------- */
+.graphic-design section.picture-header {
+  background-color: #a7d145;
+  background-image: url("../../img/layout/section-bg-graphic-design.png");
+}
 .graphic-design section.picture-header .image {
   background-image: url("../../img/graphic-design/jwg-thumbnails-2.jpg");
   background-position: 0 0;
+}
+.graphic-design section.even {
+  background-color: #e1efc0;
 }
 
 /* graphic design --------------------- */
@@ -26411,6 +26435,10 @@ img.social-media-preview {
 }
 
 /* illustration ----------------------- */
+.illustration section.picture-header {
+  background-color: #ff834d;
+  background-image: url("../../img/layout/section-bg-illustration.png");
+}
 .illustration section.picture-header .image {
   background-image: url("../../img/pictures/inky-studio-2.jpg");
   background-position: 0 center;
@@ -26538,6 +26566,10 @@ img.social-media-preview {
 }
 
 /* comics ----------------------------- */
+.comics section.picture-header {
+  background-color: #99caff;
+  background-image: url("../../img/layout/section-bg-comic-books.png");
+}
 .comics section.picture-header .image {
   background-image: url("../../img/pictures/inky-studio-4.jpg");
   background-position: 0 center;
@@ -26559,7 +26591,7 @@ img.social-media-preview {
   border-bottom: 0.0625rem solid #bfbfbf;
 }
 .comics.commissions dl dd {
-  border-bottom: 0.0625rem solid #eeeeee;
+  border-bottom: 0.0625rem solid #cccccc;
 }
 .comics.commissions .price {
   display: inline-block;
@@ -26570,11 +26602,54 @@ img.social-media-preview {
 }
 /* about ------------------------------ */
 .about section.picture-header {
+  background-color: #10c9ff;
+  background-image: url("../../img/layout/section-bg-about.png");
   padding: 0;
   border: 0;
 }
 .about section.picture-header .image {
   background-image: url("../../img/pictures/dave-chin-pose-2.jpg");
+}
+.about .sidebar aside .item {
+  background-color: #dcf7ff;
+}
+.about .sidebar aside .item.contact {
+  padding: 1rem 1.5rem;
+  background: #ff4e00;
+}
+.about .sidebar aside .item.contact h2, .about .sidebar aside .item.contact .h2 {
+  color: #212529;
+}
+.about .sidebar aside .item.contact li {
+  margin-bottom: 0.25rem;
+}
+.about .sidebar aside .item.contact a {
+  color: #ffdccc;
+}
+.about .sidebar aside .item.contact a:before {
+  color: #fff;
+}
+.about .sidebar aside .item.contact a:hover {
+  color: #fff;
+}
+.about .sidebar aside .item.contact a:hover:before {
+  color: #fff;
+}
+.about .sidebar aside .item.contact a:active {
+  color: #ba3900;
+}
+.about .sidebar aside .item.contact a:active:before {
+  color: #ba3900;
+}
+.about .sidebar aside .item.powered-by h4, .about .sidebar aside .item.powered-by .h4 {
+  margin-bottom: 0;
+}
+.about .sidebar aside .item.powered-by dl dt {
+  color: #212529;
+}
+.about .sidebar aside .item.powered-by dl dd .name {
+  color: #fff;
+  margin-right: 0.5rem;
 }
 
 /* footer ----------------------------- */
@@ -26590,6 +26665,8 @@ footer {
 .blog section.picture-header {
   padding: 0;
   border: 0;
+  background-color: #10c9ff;
+  background-image: url("../../img/layout/section-bg-blog.png");
 }
 .blog section.picture-header .image {
   background-image: url("../../img/pictures/dave-at-agencyport-11.jpg");
@@ -26621,14 +26698,14 @@ footer {
   border: 0.0625rem solid #bfbfbf;
 }
 .blog article figure a:hover img {
-  border-color: #ff4e00;
+  border-color: #007bff;
 }
 .blog article figure p {
   position: absolute;
   left: 0;
   bottom: -0.5rem;
   padding: 0.5rem 1rem;
-  color: rgba(204, 204, 204, 0.9);
+  color: rgba(179, 179, 179, 0.9);
   width: 100%;
   background: rgba(0, 0, 0, 0.9);
 }
@@ -26669,7 +26746,6 @@ footer {
   margin-right: 4px;
 }
 .blog article header {
-  color: #fff;
   margin-bottom: 0.5rem;
   border-bottom: none;
 }
@@ -26759,7 +26835,7 @@ footer {
   margin-bottom: 0.5rem;
 }
 .blog.index .older {
-  background: #000;
+  background: #dcf7ff;
   padding: 1rem 2rem;
   margin-bottom: 2rem;
   clear: both;
@@ -26799,13 +26875,16 @@ footer {
   text-align: center;
 }
 
+.code-soup {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 90%;
+  color: #e9008c;
+}
 .code-soup li {
-  border-right: 0.0625rem solid #bfbfbf;
-  border-color: rgba(33, 37, 41, 0.8);
+  border-color: #ccc;
   margin: 0;
   margin-right: 0.25rem;
   padding: 0;
-  padding-right: 0.5rem;
 }
 .code-soup li:last-child {
   border-color: transparent;
@@ -26837,13 +26916,13 @@ footer {
   margin-bottom: 2rem;
 }
 
-.first-paragraph {
+.first-paragraph, .first-sentence {
   font-size: 2rem;
   margin-bottom: 2rem;
 }
 
 .vl {
-  border-left: 0.0625rem solid #bfbfbf;
+  border-left: 0.0625rem solid #cccccc;
   position: absolute;
   left: 50%;
   top: 0;
@@ -26861,17 +26940,33 @@ footer {
 .profile.inky-stories .image {
   background-image: url("../../img/pictures/dave-drawing-as-kid-1.jpg");
   background-size: 160%;
+  border-color: #ff4e00;
+}
+.profile.inky-stories .text {
+  background-color: #ff4e00;
+  color: #ffdccc;
+}
+.profile.inky-stories .text a {
+  color: #fff;
 }
 .profile.art-of-comic-book .image {
   background-image: url("../../img/pictures/comics-wip-1.jpg");
   background-size: cover;
+  border-color: #00a0e3;
+}
+.profile.art-of-comic-book .text {
+  background-color: #00a0e3;
+  color: #e3f7ff;
+}
+.profile.art-of-comic-book .text a {
+  color: #fff;
 }
 .profile .image {
   background: transparent center center no-repeat;
   width: 10rem;
   height: 10rem;
   border: 0.375rem solid #e6e6e6;
-  margin-bottom: -1rem;
+  margin-bottom: -1.75rem;
   z-index: 800;
 }
 .profile .text {
@@ -26883,6 +26978,7 @@ footer {
 }
 .profile .text h2, .profile .text .h2, .profile .text h3, .profile .text .h3, .profile .text h4, .profile .text .h4 {
   text-align: center;
+  color: #fff;
 }
 .profile .text p {
   margin-bottom: 0;
@@ -26942,8 +27038,8 @@ footer {
 }
 
 .form-check-input:checked {
-  background-color: #ff4e00;
-  border-color: #ff4e00;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 
 .list-inline li {
@@ -26971,7 +27067,7 @@ footer {
   background: #ff7133;
 }
 .btn:active {
-  color: #ff7133;
+  color: #3395ff;
   background: #fff;
 }
 
@@ -27102,7 +27198,7 @@ footer {
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.9);
-  color: rgba(204, 204, 204, 0.9);
+  color: rgba(179, 179, 179, 0.9);
   padding: 1rem;
   line-height: 1rem;
 }
@@ -27121,6 +27217,7 @@ footer {
   position: static;
   padding: 0;
   margin: -0.5rem 0 1rem;
+  color: #212529;
 }
 
 .tiles {
@@ -27135,13 +27232,13 @@ footer {
   display: block;
   position: relative;
   min-height: 25rem;
-  border: 0.0625rem solid #ff4e00;
+  border: 0.0625rem solid #007bff;
 }
 .tiles .tile a:hover {
-  border-color: #ff9566;
+  border-color: #66b0ff;
 }
 .tiles .tile a:active {
-  border-color: #992f00;
+  border-color: #004a99;
 }
 .tiles.skills .tile a {
   min-height: 20rem;
@@ -27168,7 +27265,7 @@ footer {
   display: block;
 }
 .thumbnails .thumbnail .image:hover {
-  border-color: #ff4e00;
+  border-color: #007bff;
   opacity: 0.5;
 }
 .thumbnails .thumbnail .image:focus {
@@ -27293,6 +27390,11 @@ footer {
     padding: 1rem 2rem 0;
   }
 
+  .first-paragraph, .first-sentence {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
   .gallery,
 .tiles {
     padding: 1rem 0;
@@ -27327,22 +27429,16 @@ footer {
     margin-bottom: 0.5rem;
   }
 
-  .home.mas-content section.skills .item,
+  .home section.skills .item,
 .web section.capabilities .item {
     padding: 1rem;
+    min-height: auto;
     border-bottom: 0.0625rem solid #bfbfbf;
   }
-  .home.mas-content section.skills .item.last-child,
+  .home section.skills .item.last-child,
 .web section.capabilities .item.last-child {
     border: 0;
   }
-  .home.mas-content section.skills .item h2, .home.mas-content section.skills .item .h2, .home.mas-content section.skills .item p,
-.web section.capabilities .item h2,
-.web section.capabilities .item .h2,
-.web section.capabilities .item p {
-    text-align: left;
-  }
-
   .blog.index .older article figure {
     float: none;
     width: 100%;
@@ -27377,274 +27473,6 @@ footer {
 
   .diagram.pie-chart .image .label {
     display: none;
-  }
-}
-/* Agencyport-type overrides of established styles.
- * Theme name goes in the BODY as a class selector. */
-/* dark mode variables --------------- */
-/* dark mode overrides --------------- */
-.dark-mode {
-  background: #000;
-}
-.dark-mode h1, .dark-mode .h1, .dark-mode h2, .dark-mode .h2, .dark-mode h3, .dark-mode .h3, .dark-mode h4, .dark-mode .h4, .dark-mode dl dt, .dark-mode strong {
-  color: #fff;
-}
-.dark-mode p, .dark-mode li, .dark-mode dd {
-  color: #bfbfbf;
-}
-.dark-mode a {
-  color: #ff4e00;
-}
-.dark-mode a img {
-  border: 0.0625rem solid #fff;
-}
-.dark-mode a:hover {
-  color: #fff;
-}
-.dark-mode a:hover img {
-  border-color: #ff4e00;
-}
-.dark-mode a:active {
-  color: #992f00;
-}
-.dark-mode a:active img {
-  border-color: #992f00;
-}
-.dark-mode a.btn {
-  color: #fff;
-  background-color: #ff4e00;
-}
-.dark-mode .main-navigation .navbar {
-  border-bottom: 0.0625rem solid rgba(191, 191, 191, 0.3);
-  background: #000;
-}
-.dark-mode .main-navigation .navbar .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.6);
-  background: transparent;
-  border: 0;
-}
-.dark-mode .main-navigation .navbar .navbar-nav .nav-link:hover {
-  color: #fff;
-  background: transparent;
-  border-color: none;
-}
-.dark-mode .main-navigation .navbar .navbar-nav .nav-link:active {
-  color: #007bff;
-  background: transparent;
-  border-color: transparent;
-}
-.dark-mode .main-navigation .navbar .navbar-nav .active > .nav-link,
-.dark-mode .main-navigation .navbar .navbar-nav .nav-link.active,
-.dark-mode .main-navigation .navbar .navbar-nav .nav-link.show,
-.dark-mode .main-navigation .navbar .navbar-nav .show > .nav-link {
-  color: #fff;
-  background: transparent;
-  border-color: transparent;
-  font-family: "Proxima Nova Bold";
-}
-.dark-mode .main-navigation .navbar .navbar-toggler {
-  border: 0.0625rem solid;
-  border-color: rgba(255, 255, 255, 0.3);
-}
-.dark-mode .main-navigation .navbar .navbar-toggler .navbar-toggler-icon {
-  color: #fff;
-}
-.dark-mode footer {
-  background: #000;
-  border-color: #333333;
-  color: gray;
-}
-.dark-mode section {
-  background-color: #222222;
-}
-.dark-mode section.intro {
-  background-color: black;
-}
-.dark-mode section.even {
-  background-color: black;
-}
-.dark-mode .code-soup li {
-  border-right: 0.0625rem solid rgba(191, 191, 191, 0.3);
-  border-color: rgba(191, 191, 191, 0.5);
-}
-.dark-mode .code-soup li:last-child {
-  border-color: transparent;
-}
-.dark-mode .item {
-  background: transparent no-repeat 0 0;
-  color: #bfbfbf;
-  border-color: rgba(191, 191, 191, 0.8);
-  padding: 0;
-}
-.dark-mode .item.even {
-  background-color: transparent;
-}
-.dark-mode .item h2, .dark-mode .item .h2, .dark-mode .item h3, .dark-mode .item .h3, .dark-mode .item h4, .dark-mode .item .h4 {
-  color: #fff;
-}
-.dark-mode .item.boxed {
-  padding: 1rem 2rem;
-  background: #090909;
-}
-.dark-mode .profile.inky-stories .image {
-  background-image: url("../../img/pictures/dave-drawing-as-kid-1.jpg");
-  background-size: 160%;
-}
-.dark-mode .profile.art-of-comic-book .image {
-  background-image: url("../../img/pictures/comics-wip-1.jpg");
-  background-size: cover;
-}
-.dark-mode .profile .image {
-  background: transparent center center no-repeat;
-  border: 0.375rem solid #090909;
-}
-.dark-mode .profile .text {
-  background: #090909;
-}
-.dark-mode .web .capabilities .item.boxed {
-  background: #090909;
-}
-.dark-mode .web .client-details {
-  background: transparent;
-  padding: 0;
-  color: #bfbfbf;
-}
-.dark-mode .web .client-details h3, .dark-mode .web .client-details .h3 {
-  color: #fff;
-  text-align: left;
-}
-.dark-mode .web .client-details .project-date {
-  color: #fff;
-}
-.dark-mode .comics .skills .item {
-  padding: 2rem 2rem;
-}
-.dark-mode .comics .skills .item p {
-  margin-bottom: 0;
-}
-.dark-mode .boxed .client-details {
-  background: #090909;
-  padding: 2rem;
-}
-.dark-mode .boxed.even .client-details {
-  background: #1a1a1a;
-}
-.dark-mode .tiles .tile a {
-  border: 0.0625rem solid #fff;
-}
-.dark-mode .tiles .tile a:hover {
-  border-color: #ff4e00;
-}
-.dark-mode .tiles .tile a:active {
-  border-color: #992f00;
-}
-.dark-mode .jobs h2, .dark-mode .jobs .h2 {
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 0.0625rem solid rgba(191, 191, 191, 0.3);
-}
-.dark-mode .date-range {
-  color: #fff;
-}
-.dark-mode .home.mas-content section.skills .item {
-  background: transparent;
-}
-.dark-mode .home.mas-content section.skills .item.even {
-  background: transparent;
-}
-.dark-mode .disclaimer {
-  border: 0.0625rem solid rgba(191, 191, 191, 0.3);
-  background: transparent;
-}
-.dark-mode .row.in-content a img {
-  border: 0.0625rem solid #fff;
-}
-.dark-mode .row.in-content a:hover img {
-  border-color: #ff4e00;
-}
-.dark-mode .row.in-content a:active img {
-  border-color: #992f00;
-}
-.dark-mode .row.in-content.figure .figure-caption p {
-  border-bottom: 0.0625rem solid rgba(191, 191, 191, 0.3);
-}
-.dark-mode .prev-next .prev .fas, .dark-mode .prev-next .next .fas {
-  color: #bfbfbf;
-}
-.dark-mode .prev-next .prev:hover .fas, .dark-mode .prev-next .next:hover .fas {
-  color: #fff;
-}
-.dark-mode .prev-next .prev:active .fas, .dark-mode .prev-next .next:active .fas {
-  color: #737373;
-}
-
-.social li a:before, .social dd a:before {
-  color: #bfbfbf;
-}
-.social li:hover a, .social dd:hover a {
-  color: #fff;
-}
-.social li:hover a:before, .social dd:hover a:before {
-  color: #fff;
-}
-.social li:active a, .social dd:active a {
-  color: #737373;
-}
-.social li:active a:before, .social dd:active a:before {
-  color: #737373;
-}
-
-.sidebar aside .item.contact {
-  background: #090909;
-}
-.sidebar aside .item.contact h2, .sidebar aside .item.contact .h2, .sidebar aside .item.contact dt {
-  color: #fff;
-}
-.sidebar aside .item.contact li {
-  color: #fff;
-}
-.sidebar aside .item.contact li:not(:last-child) {
-  margin-right: 1rem;
-}
-.sidebar aside .item.contact a {
-  color: #ff4e00;
-}
-.sidebar aside .item.contact a:hover {
-  color: #fff;
-}
-.sidebar aside .item.contact a:active {
-  color: #992f00;
-}
-.sidebar aside .item.powered-by dl dt {
-  color: #bfbfbf;
-}
-.sidebar aside .item.powered-by dl dd .name {
-  color: #fff;
-}
-.sidebar aside .item.border-top {
-  border-top: 0.0625rem solid rgba(191, 191, 191, 0.3) !important;
-  padding-top: 1rem;
-  margin-top: 1rem;
-}
-.sidebar aside ul {
-  margin-bottom: 0;
-}
-
-.blog.index .older h2, .blog.index .older .h2 {
-  border-bottom: 0.0625rem solid rgba(191, 191, 191, 0.3);
-}
-.blog aside dl {
-  border-top: 0.0625rem solid rgba(191, 191, 191, 0.3);
-}
-
-.vl {
-  border-left: 0.0625rem solid rgba(191, 191, 191, 0.3);
-}
-
-@media (max-width: 576px) {
-  .home.mas-content section.skills .item,
-.web section.capabilities .item {
-    border-bottom: 0.0625rem solid rgba(191, 191, 191, 0.3);
   }
 }
 

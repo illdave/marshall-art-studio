@@ -3,11 +3,65 @@
 .about {
 	section {
 		&.picture-header {
+			background-color: $section-bg-about;
+			background-image: url("#{$layout-image-path}/section-bg-about.png");
 			padding: 0;
 			border: 0;
 			.image {
 				background-image: url("#{$pictures-image-path}/dave-chin-pose-2.jpg");
 			}
 		}		
+	}
+	.sidebar {
+		aside {
+			.item {
+				background-color: $section-bg-about-even;
+				&.contact {
+					padding: $contact-card-padding;
+					background: $contact-card-bg;
+					h2 {
+						color: $contact-card-headings-color;
+					}
+					li {
+						margin-bottom: .25rem;
+					}
+					a {
+						color: $contact-card-link-color;
+						&:before {
+							color: $white;
+						}
+						&:hover {
+							color: $contact-card-link-hover-color;
+							&:before {
+								color: $contact-card-link-hover-color;
+							}
+						}
+						&:active {
+							color: $contact-card-link-active-color;
+							&:before {
+								color: $contact-card-link-active-color;
+							}
+						}
+					}
+				}
+				&.anecdote {}
+				&.powered-by {
+					h4 {
+						margin-bottom: 0;
+					}
+					dl {
+						dt {
+							color: $text-color;
+						}
+						dd {
+							.name {
+								color: $white;
+								margin-right: .5rem;
+							}
+						}
+					}
+				}				
+			}
+		}
 	}
 }

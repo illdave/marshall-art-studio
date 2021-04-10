@@ -5,6 +5,8 @@
 		&.picture-header {
 			padding: 0;
 			border: 0;
+			background-color: $section-bg-blog;
+			background-image: url("#{$layout-image-path}/section-bg-blog.png");
 			.image {
 				background-image: url("#{$pictures-image-path}/dave-at-agencyport-11.jpg");
 			}
@@ -94,7 +96,6 @@
 		}
 		
 		header {
-			color: $white;
 			margin-bottom: $spacer-small;
 			border-bottom: none;
 			
@@ -211,7 +212,7 @@
 			}		
 		}
 		.older {
-			background: $black;
+			background: $section-bg-blog-even;
 			padding: 1rem 2rem;
 			margin-bottom: 2rem;
 			clear: both;

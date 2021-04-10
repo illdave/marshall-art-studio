@@ -3,6 +3,8 @@
 .comics {
 	section {
 		&.picture-header {
+			background-color: $section-bg-comic-books;
+			background-image: url("#{$layout-image-path}/section-bg-comic-books.png");
 			.image {
 				background-image: url("#{$pictures-image-path}/inky-studio-4.jpg");
 				background-position: 0 center;

@@ -2,7 +2,7 @@
 
 section {
 	padding: $section-padding-large;
-	background-color: $section-bg;
+	background: $section-bg no-repeat 110% center;
 	
 	&.intro {
 		background-color: $section-intro-bg;
@@ -36,30 +36,6 @@ section {
 	aside {
 		.item {
 			margin-bottom: 1rem;
-			&.contact {
-				padding: 1rem 1.5rem;
-				background: $item-even-bg;
-				li {
-					margin-bottom: .25rem;
-				}
-			}
-			&.anecdote {}
-			&.powered-by {
-				h4 {
-					margin-bottom: 0;
-				}
-				dl {
-					dt {
-						color: $text-color;
-					}
-					dd {
-						.name {
-							color: $white;
-							margin-right: .5rem;
-						}
-					}
-				}
-			}
 		}
 	}
 }
