@@ -1,19 +1,32 @@
 // themes -------------------------------------------------------- //
-/* Agencyport-type overrides of established styles.
- * Theme name goes in the BODY as a class selector. */
+/* Overrides of native out-of-the-box styles.
+ * Theme name goes in BODY as a class selector. */
 
 
-/* dark mode variables --------------- */
-
-$grid-gutter-width: 3rem !default;
+/* dark mode ------------------------- */
 
 $theme-color-bg:							$black;
+
+$theme-color-1:								$illdave-blue; 
+$theme-color-2:								$illdave-orange;
+$theme-color-3:								$illdave-cyan;
+$theme-color-4:								$illdave-green;
+$theme-color-5:								$illdave-yellow;
+$theme-color-6:								$illdave-teal;
+$theme-color-7:								darken($theme-color-3, 5%); // dark blue 
+
+$code-color-magenta: 						#e9008c;
+$code-color-green: 							#099;
+$code-color-blue-deep: 						#06c;
+$code-color-blue-bright: 					#9cf;
+$code-color-orange: 						#f90;
+$code-color-gray: 							#ccc;
 
 $body-bg:									$theme-color-bg;
 $headings-color: 							$white;
 $text-color:								lighten($theme-color-bg, 75%);
 $text-divider-color:						transparentize($text-color, 0.5);
-$link-color:								$link-color;
+$link-color:								$theme-color-2;
 $link-hover-color:							$white;
 $link-active-color:							darken($link-color, 20%);
 
@@ -28,6 +41,8 @@ $icon-link-color-active: 					darken($icon-link-color, 30%);
 $border-default-color:						transparentize($text-color, 0.7);
 $border-default: 							rem(1px solid $border-default-color);
 $border-top:								$border-default;
+$border-light-color: 						transparentize($border-default-color, 0.7);
+$border-light: 								rem(1px solid $border-light-color);
 
 $main-nav-bg:								$body-bg;
 $main-nav-border:							$border-default;
@@ -63,10 +78,11 @@ $footer-border-color: 						lighten($footer-bg, 20%);
 
 $section-bg: 								lighten($theme-color-bg, 13.5%);
 $section-bg-even: 							darken($section-bg, 20%);
+$section-bg-blog-even:  					$section-bg-even;
 
-$item-bg: 									darken($section-bg, 10%);
+$item-bg: 									darken($section-bg, 7%);
 $item-even-bg-color:						lighten($section-bg-even, 5%);
-$item-even-bg:								transparent;
+$item-even-bg:								lighten($section-bg-even, 10%);
 $item-text-color: 							$text-color;
 $item-headings-color: 						$headings-color;
 $item-link-color: 							$link-color;
@@ -98,20 +114,13 @@ $contact-link-color:						$link-color;
 $contact-link-hover-color:					$link-hover-color;
 $contact-link-active-color:					$link-active-color;
 
-$body-bg:									$theme-color-bg;
-$headings-color: 							$white;
-$text-color:								lighten($theme-color-bg, 75%);
-$text-divider-color:						transparentize($text-color, 0.5);
-$link-color:								$link-color;
-$link-hover-color:							$white;
-$link-active-color:							darken($link-color, 20%);
-
-
-
-/* dark mode overrides --------------- */
 
 .dark-mode {
 	background: $body-bg;
+	
+	/* fonts ------------------------- */
+	
+	/* html elements ----------------- */
 	
 	h1, h2, h3, h4, dl dt, strong {
 		color: $headings-color;
@@ -142,6 +151,9 @@ $link-active-color:							darken($link-color, 20%);
 			background-color: $btn-bg;
 		}	
 	}
+	
+	
+	/* main navigation --------------- */
 	.main-navigation {
 		.navbar {
 			border-bottom: $main-nav-border;
@@ -181,30 +193,82 @@ $link-active-color:							darken($link-color, 20%);
 			}		
 		}
 	}
+	
+
+	/* footer ------------------------ */
 	footer {
 		background: $footer-bg;
 		border-color: $footer-border-color;
 		color: $footer-color;
 	}
+	
+	
+	/* layout ------------------------ */
+	
 	section {
 		background-color: $section-bg;
 		&.intro {
 			background-color: $section-bg-even;
+			border-bottom: $border-default;
 		}
 		&.even {
 			background-color: $section-bg-even;
 		}
 	}	
-	
-	.code-soup {
-		li {
-			border-right: $border-default;
-			border-color: $text-divider-color;
-			&:last-child {
-				border-color: transparent;
+	.sidebar {
+		aside {
+			.item {
+				&.contact {
+					background: $contact-bg;
+					h2, dt {
+						color: $contact-headings-color;
+					}
+					li {
+						color: $contact-text-color;
+						&:not(:last-child) {
+							margin-right: 1rem;
+						}			
+					}
+					a {
+						color: $contact-link-color;
+						&:hover {
+							color: $contact-link-hover-color;
+						}
+						&:active {
+							color: $contact-link-active-color;
+						}
+					}
+				}
+				&.anecdote {}
+				&.powered-by {
+					dl {
+						dt {
+							color: $text-color;
+						}
+						dd {
+							.name {
+								color: $white;
+							}
+						}
+					}
+				}
+				&.border-top {
+					border-top: $border-top !important;
+					padding-top: 1rem;
+					margin-top: 1rem;
+				}
+			}
+			ul {
+				margin-bottom: 0;
 			}
 		}
 	}
+	figure {
+		border-bottom: $border-default;
+	}
+	
+	
+	/* utility ----------------------- */
 	
 	.item {
 		background: transparent no-repeat 0 0;
@@ -222,64 +286,6 @@ $link-active-color:							darken($link-color, 20%);
 			background: $item-bg;
 		}
 	}
-	
-	
-	.profile {
-		&.inky-stories {
-			.image {
-				background-image: url("#{$pictures-image-path}/dave-drawing-as-kid-1.jpg");
-				background-size: 160%;
-			}
-		}
-		&.art-of-comic-book {
-			.image {
-				background-image: url("#{$pictures-image-path}/comics-wip-1.jpg");
-				background-size: cover;
-			}
-		}
-		.image {
-			background: $profile-image-bg;
-			border: $profile-image-border;
-		}
-		.text {
-			background: $profile-text-bg;
-		}
-	}	
-	.web {
-		.capabilities {
-			.item {
-				&.boxed {
-					background: $item-bg;
-				}
-			
-			}
-		}
-		.client-details {
-			background: $client-details-bg;
-			padding: $client-details-padding;
-			color: $text-color;
-			h3, .h3 {
-				color: $item-headings-color;
-				text-align: left;
-			}			
-			.project-date {
-				color: $headings-color;
-			}
-			p {
-			}
-		}	
-	}
-
-	.comics {
-		.skills {
-			.item {
-				padding: 2rem 2rem;
-				p {
-					margin-bottom: 0;
-				}
-			}
-		}
-	}
 	.boxed {
 		.client-details {
 			background: $boxed-client-details-bg;
@@ -291,6 +297,13 @@ $link-active-color:							darken($link-color, 20%);
 			}
 		}
 	}
+	.jobs {
+		h2 {
+			margin-bottom: $spacer-base;
+			padding-bottom: $spacer-small;
+			border-bottom: $border-default;
+		}
+	}	
 	.tiles {
 		.tile {
 			 a {
@@ -303,32 +316,6 @@ $link-active-color:							darken($link-color, 20%);
 				}
 			}	
 		}
-	}
-	.jobs {
-		h2 {
-			margin-bottom: $spacer-base;
-			padding-bottom: $spacer-small;
-			border-bottom: $border-default;
-		}
-	}
-	.date-range {
-		color: $headings-color;
-	}
-	.home.mas-content {
-		section {
-			&.skills {
-				.item {
-					background: transparent;
-					&.even {
-						background: $item-even-bg;
-					}
-				}
-			}	
-		}	
-	}	
-	.disclaimer {
-		border: $border-default;
-		background: $item-even-bg;
 	}
 	.row {
 		&.in-content {
@@ -355,7 +342,7 @@ $link-active-color:							darken($link-color, 20%);
 				}
 			}		
 		}
-	}	
+	}		
 	.prev-next {
 		.prev, .next {
 			.fas {
@@ -373,98 +360,225 @@ $link-active-color:							darken($link-color, 20%);
 			}
 		}
 	}
-}
-
-.social {
-		li, dd {
-		a {
-			&:before {
-				color: $icon-link-color;
+	.profile {
+		&.inky-stories {
+			.image {
+				background-image: url("#{$pictures-image-path}/dave-drawing-as-kid-1.jpg");
+				background-size: 160%;
 			}
 		}
-		&:hover a {
-			color: $icon-link-color-hover;
-			&:before {
+		&.art-of-comic-book {
+			.image {
+				background-image: url("#{$pictures-image-path}/comics-wip-1.jpg");
+				background-size: cover;
+			}
+		}
+		.image {
+			background: $profile-image-bg;
+			border: $profile-image-border;
+		}
+		.text {
+			background: $profile-text-bg;
+		}
+	}	
+	.social {
+			li, dd {
+			a {
+				&:before {
+					color: $icon-link-color;
+				}
+			}
+			&:hover a {
 				color: $icon-link-color-hover;
+				&:before {
+					color: $icon-link-color-hover;
+				}
 			}
-		}
-		&:active a {
-			color: $icon-link-color-active;
-			&:before {
+			&:active a {
 				color: $icon-link-color-active;
+				&:before {
+					color: $icon-link-color-active;
+				}
 			}
 		}
 	}
-}
+	.code-soup {
+		li {
+			color: $code-color-green;
+		}
+	}
+	.disclaimer {
+		border: $border-default;
+		background: $item-even-bg;
+	}
+	.date-range {
+		color: $headings-color;
+	}		
+	.vl {
+		border-left: $border-default;
+	}
+	.code-soup {
+		color: $code-color-green;
+	}
+	
+	
+	/* home -------------------------- */
+	
+	.home {
+		section {
+			&.skills {
+				.item {
+					background: $item-bg center center;
+					background-size: cover;
+					&.web-dev {
+						background-image: url("#{$layout-image-path}/section-bg-target-dark.png");
+					}
+					&.graphic-design {
+						background-color: $item-even-bg;
+						background-image: url("#{$layout-image-path}/section-bg-target-light.png");
+					}
+					&.illustration {
+						background-image: url("#{$layout-image-path}/section-bg-target-dark.png");
+					}
+					&.comic-books {
+						background-color: $item-even-bg;
+						background-image: url("#{$layout-image-path}/section-bg-target-light.png");
+					}
+				}
+			}	
+		}	
+	}	
 
-.sidebar {
-	aside {
-		.item {
-			&.contact {
-				background: $contact-bg;
-				h2, dt {
-					color: $contact-headings-color;
+
+	/* web --------------------------- */
+	
+	.web {
+		.capabilities {
+			.item {
+				&.boxed {
+					background: transparent;
 				}
-				li {
-					color: $contact-text-color;
-					&:not(:last-child) {
-						margin-right: 1rem;
-					}			
-				}
-				a {
-					color: $contact-link-color;
-					&:hover {
-						color: $contact-link-hover-color;
-					}
-					&:active {
-						color: $contact-link-active-color;
-					}
+			
+			}
+		}
+		.client-image {
+			img {
+				margin-bottom: $spacer-base;
+			}
+		}
+		.client-details {
+			background: $client-details-bg;
+			padding: $client-details-padding;
+			color: $text-color;
+			h3, .h3 {
+				color: $item-headings-color;
+				text-align: left;
+			}			
+			.project-date {
+				color: $headings-color;
+			}
+			p {
+			}
+		}
+		.boxed {
+			.client-details {
+				background: $item-bg;
+				padding: 2rem;
+			}
+			&.even {
+				.client-details {
+					background: $item-even-bg;
 				}
 			}
-			&.anecdote {}
-			&.powered-by {
-				dl {
-					dt {
-						color: $text-color;
+		}
+		
+			
+	}
+
+
+	/* graphic design ---------------- */
+	
+	/* illustration ------------------ */
+	
+	/* comics ------------------------ */
+	
+	.comics {
+		.skills {
+			.item {
+				padding: 2rem 2rem;
+				p {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+
+	/* about ------------------------- */
+	
+	.about {
+		section {
+		}
+		.sidebar {
+			aside {
+				.item {
+					&.anecdote {
+						background: transparent;
 					}
-					dd {
-						.name {
-							color: $white;
+					&.powered-by {
+						background: transparent;
+						border-top: $border-default;
+						padding-top: $spacer-base;
+						
+						h4 {
+							margin-bottom: 0;
+						}
+						dl {
+							dt {
+								color: $text-color;
+							}
+							dd {
+								.name {
+									color: $white;
+									margin-right: .5rem;
+								}
+							}
 						}
 					}
+					&.mas-logo {
+						background: $item-bg;
+						padding: $spacer-base;
+						p {
+							margin-bottom: 0;
+						}
+					}			
 				}
 			}
-			&.border-top {
-				border-top: $border-top !important;
-				padding-top: 1rem;
-				margin-top: 1rem;
+		}
+	}
+	
+	
+	/* blog -------------------------- */
+
+	.blog {
+		&.index {
+			.older {
+				background: $section-bg-blog-even;
+				h2 {
+					border-bottom: $border-default;
+				}
 			}
 		}
-		ul {
-			margin-bottom: 0;
-		}
-	}
-}
-
-.blog {
-	&.index {
-		.older {
-			h2 {
-				border-bottom: $border-default;
+		aside {
+			dl {
+				border-top: $border-default;
 			}
 		}
 	}
-	aside {
-		dl {
-			border-top: $border-default;
-		}
-	}
 }
 
-.vl {
-	border-left: $border-default;
-}
 
+/* responsive -------------------- */
 
 @media (max-width: 576px) {
 	.home.mas-content section.skills,
@@ -474,7 +588,3 @@ $link-active-color:							darken($link-color, 20%);
 		}	
 	}	
 }
-
-
-
-	

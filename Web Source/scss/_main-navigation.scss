@@ -1,6 +1,17 @@
 /* main-navigation -------------------- */
 
 .main-navigation {
+	.skip-link {
+		color: $white;
+		font-size: .75rem;
+		&.sr-only-focusable:focus, 
+		&.sr-only-focusable:active {
+			position: absolute;
+			top: .5rem;
+			z-index: 2;
+			left: 1rem;
+		}
+	}
 	.navbar-brand  {
 		font-size: $navbar-brand-font-size;
 		padding: $navbar-brand-padding;

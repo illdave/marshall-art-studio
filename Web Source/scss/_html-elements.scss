@@ -110,6 +110,12 @@ table, .table {
 	th {
 		font-family: $font-family-headers;
 	}
+	&.table-no-padding, 
+	&.no-padding  {
+		th, td {
+			padding: 0;
+		}
+	}
 }
 
 blockquote {

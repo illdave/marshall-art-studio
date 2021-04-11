@@ -14,12 +14,10 @@
 		}		
 	}
 	
-	
 	.first-paragraph, .first-sentence {
 		font-size: $font-size-base;
 		margin-bottom: $spacer-base;
 	}
-	
 	
 	.gallery, 
 	.tiles {
@@ -30,13 +28,11 @@
 		.clients {
 			&.jobs {
 				.client-details {
-					padding: 1rem 0 0;
 				}
 			}
 			&.mas-client.clients {
 				padding: 1rem;
 				.client-details {
-					padding: 0;
 					margin-bottom: 1rem;
 				}
 			}

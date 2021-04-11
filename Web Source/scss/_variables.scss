@@ -1,5 +1,50 @@
 // Marshall Art Studio variables -------------------------------------- //
 
+
+/* spacing --------------------------- */
+
+$spacer: 									1rem;
+$spacer-base:								$spacer;
+$spacer-large:								$spacer-base * 2;
+$spacer-small:								$spacer-base/2;
+$spacer-xs:									$spacer-base/4;
+
+$spacer-base-vertical:						$spacer-base;
+$spacer-base-horizontal:					$spacer-base-vertical * 2;
+
+$spacer-large-vertical:						$spacer-large;
+$spacer-large-horizontal:  					$spacer-large-vertical * 2;
+
+$spacer-small-vertical:    					$spacer-small;
+$spacer-small-horizontal:  					$spacer-small-vertical * 2;
+
+$margin-base:								$spacer-base;
+$margin-base-vertical:						$margin-base;
+$margin-base-horizontal:					$margin-base * 2;
+
+$margin-large-vertical:						$spacer-large;
+$margin-large-horizontal:  					$margin-large-vertical * 2;
+
+$margin-small-vertical:    					$spacer-small;
+$margin-small-horizontal:  					$margin-small-vertical * 2;
+
+$padding-base-vertical:     				$spacer-base;
+$padding-base-horizontal:   				$padding-base-vertical * 2;
+
+$padding-large-vertical:    				$spacer-large;
+$padding-large-horizontal:  				$padding-large-vertical * 2;
+
+$padding-small-vertical:    				$spacer-small;
+$padding-small-horizontal:  				$padding-small-vertical * 2;
+
+$border-radius-base:        				$spacer-small;
+$border-radius-large:       				$border-radius-base * 2;
+$border-radius-small:       				$border-radius-base/2;
+
+$section-padding:		 					$spacer-base 0;
+$section-padding-large: 					$spacer-large 0 $spacer-base;
+
+
 /* brand colors --------------------- */
 
 $illdave-blue:								#007bff; // stolen from Bootstrap branding
@@ -96,6 +141,10 @@ $item-border-color: 						transparentize($item-text-color, 0.2);
 
 $client-details-bg:							$item-bg;
 $client-details-padding: 					2rem;
+
+$boxed-client-details-bg: 					darken($section-bg, 10%);
+$boxed-client-details-even-bg: 				lighten($section-bg-even, 10%);
+$boxed-client-details-padding: 				$spacer-large;
 
 $section-bg-web-dev:  						lighten($theme-color-3, 20%);
 $section-bg-graphic-design:  				lighten($theme-color-4, 20%);
@@ -213,50 +262,6 @@ $logos-image-path:							$image-path/logos;
 $graphics-image-path:						$image-path/graphics;
 $blog-image-path:							$image-path/blog;
 $open-graph-image-path:						$image-path/open-graph;
-
-
-/* spacing --------------------------- */
-
-$spacer: 									1rem;
-$spacer-base:								$spacer;
-$spacer-large:								$spacer-base * 2;
-$spacer-small:								$spacer-base/2;
-$spacer-xs:									$spacer-base/4;
-
-$spacer-base-vertical:						$spacer-base;
-$spacer-base-horizontal:					$spacer-base-vertical * 2;
-
-$spacer-large-vertical:						$spacer-large;
-$spacer-large-horizontal:  					$spacer-large-vertical * 2;
-
-$spacer-small-vertical:    					$spacer-small;
-$spacer-small-horizontal:  					$spacer-small-vertical * 2;
-
-$margin-base:								$spacer-base;
-$margin-base-vertical:						$margin-base;
-$margin-base-horizontal:					$margin-base * 2;
-
-$margin-large-vertical:						$spacer-large;
-$margin-large-horizontal:  					$margin-large-vertical * 2;
-
-$margin-small-vertical:    					$spacer-small;
-$margin-small-horizontal:  					$margin-small-vertical * 2;
-
-$padding-base-vertical:     				$spacer-base;
-$padding-base-horizontal:   				$padding-base-vertical * 2;
-
-$padding-large-vertical:    				$spacer-large;
-$padding-large-horizontal:  				$padding-large-vertical * 2;
-
-$padding-small-vertical:    				$spacer-small;
-$padding-small-horizontal:  				$padding-small-vertical * 2;
-
-$border-radius-base:        				$spacer-small;
-$border-radius-large:       				$border-radius-base * 2;
-$border-radius-small:       				$border-radius-base/2;
-
-$section-padding:		 					$spacer-base 0;
-$section-padding-large: 					$spacer-large 0 $spacer-base;
 
 
 /* Font Awesome icons ---------------- */
