@@ -28,7 +28,7 @@ If digging into this project has given you insight, entertainment, or even the t
 * populate Graphic Design with better images and story pages
 * add site info on About
 
-## Release schedule
+## Sprint release schedule
 Using the two-week Agile sprint cycle, end of day Fridays. My tasks in this one-man operation include development, UX, technical writing, accessibility testing, and QA. We'll see how long I keep this up.
 * March 26th
 * April 2nd
