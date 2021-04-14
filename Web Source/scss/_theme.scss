@@ -16,11 +16,13 @@ $theme-color-6:								$illdave-teal;
 $theme-color-7:								darken($theme-color-3, 5%); // dark blue 
 
 $code-color-magenta: 						#e9008c;
-$code-color-green: 							#099;
+$code-color-green: 							#3c0;
 $code-color-blue-deep: 						#06c;
 $code-color-blue-bright: 					#9cf;
 $code-color-orange: 						#f90;
 $code-color-gray: 							#ccc;
+
+$code-soup-color: 							$code-color-green;
 
 $body-bg:									$theme-color-bg;
 $headings-color: 							$white;
@@ -38,11 +40,19 @@ $icon-link-color: 							$text-color;
 $icon-link-color-hover: 					$white;
 $icon-link-color-active: 					darken($icon-link-color, 30%);
 
-$border-default-color:						transparentize($text-color, 0.7);
+$border-default-color:						lighten($theme-color-bg, 30%);
 $border-default: 							rem(1px solid $border-default-color);
 $border-top:								$border-default;
-$border-light-color: 						transparentize($border-default-color, 0.7);
+$border-light-color: 						lighten($border-default-color, 10%);
 $border-light: 								rem(1px solid $border-light-color);
+
+$lightbox-image-border: 					rem(2px solid $white);
+$lightbox-data-color: 						$gray-light-med;
+$lightbox-header-color: 					$white;
+$lightbox-text-color: 						$lightbox-data-color;
+$lightbox-link-color: 						$link-color;
+$lightbox-link-hover-color: 				$link-hover-color;
+$lightbox-link-active-color: 				$link-active-color;
 
 $main-nav-bg:								$body-bg;
 $main-nav-border:							$border-default;
@@ -60,7 +70,7 @@ $nav-link-hover-color:						$white;
 $nav-link-hover-bg:							transparent;
 $nav-link-hover-border-color:				none;
 
-$nav-link-active-color:						$theme-color-1;
+$nav-link-active-color:						lighten($main-nav-bg, 50%);
 $nav-link-active-bg:						transparent;
 $nav-link-active-border-color:				$nav-link-active-bg;
 
@@ -226,7 +236,7 @@ $contact-link-active-color:					$link-active-color;
 					li {
 						color: $contact-text-color;
 						&:not(:last-child) {
-							margin-right: 1rem;
+							margin-right: .5rem;
 						}			
 					}
 					a {
@@ -266,6 +276,33 @@ $contact-link-active-color:					$link-active-color;
 	figure {
 		border-bottom: $border-default;
 	}
+
+	.lightbox {
+		.lb-image {
+		  border-radius: $lightbox-border-radius;
+		  border: $lightbox-image-border;
+		}
+		.lb-dataContainer {
+			.lb-data {
+				color: $lightbox-data-color;
+				.lb-details {
+					.lb-caption {
+						color: $lightbox-header-color;
+						a {
+							color: $lightbox-link-color;
+							&:hover {
+								color: $lightbox-link-hover-color;
+							}
+							&:active {
+								color: $lightbox-link-active-color;
+							}
+						}	
+					}
+					  color: $lightbox-text-color;
+					}
+				}
+			}
+		}
 	
 	
 	/* utility ----------------------- */
@@ -304,9 +341,9 @@ $contact-link-active-color:					$link-active-color;
 			border-bottom: $border-default;
 		}
 	}	
-	.tiles {
-		.tile {
-			 a {
+	.tiled {
+		 a {
+			&.tile {
 				border: $link-img-border;
 				&:hover {
 					border-color: $link-img-border-hover-color;
@@ -314,7 +351,18 @@ $contact-link-active-color:					$link-active-color;
 				&:active {
 					border-color: $link-img-border-active-color;
 				}
-			}	
+			}
+		}
+	}	
+	
+	.labeled {
+		img {
+			margin-bottom: $spacer-small;
+		}
+		.client-image {
+			img {
+				margin-bottom: $spacer-small !important;
+			}
 		}
 	}
 	.row {
@@ -366,11 +414,21 @@ $contact-link-active-color:					$link-active-color;
 				background-image: url("#{$pictures-image-path}/dave-drawing-as-kid-1.jpg");
 				background-size: 160%;
 			}
+			.text {
+				a {
+					color: $link-color;
+				}
+			}
 		}
 		&.art-of-comic-book {
 			.image {
 				background-image: url("#{$pictures-image-path}/comics-wip-1.jpg");
 				background-size: cover;
+			}
+			.text {
+				a {
+					color: $link-color;
+				}
 			}
 		}
 		.image {
@@ -404,7 +462,7 @@ $contact-link-active-color:					$link-active-color;
 	}
 	.code-soup {
 		li {
-			color: $code-color-green;
+			color: $code-soup-color;
 		}
 	}
 	.disclaimer {
@@ -418,7 +476,7 @@ $contact-link-active-color:					$link-active-color;
 		border-left: $border-default;
 	}
 	.code-soup {
-		color: $code-color-green;
+		color: $code-soup-color;
 	}
 	
 	
@@ -428,6 +486,10 @@ $contact-link-active-color:					$link-active-color;
 		section {
 			&.skills {
 				.item {
+					border-right: $border-default;
+					&.last-child {
+						border-right: 0;
+					}
 					background: $item-bg center center;
 					background-size: cover;
 					&.web-dev {

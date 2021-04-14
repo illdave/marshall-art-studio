@@ -5,4 +5,12 @@ Redirect 301 /comicbooks http://illdave.com/comics/
 Redirect 301 /comicbooks/ http://illdave.com/comics/index.htm
 Redirect 301 /comicbooks/index.htm http://illdave.com/comics/index.htm
 
+Redirect 301 /web http://illdave.com/web-dev/
+Redirect 301 /web/index.htm http://illdave.com/web-dev/
+
+Redirect 301 /print http://illdave.com/graphic-design/
+Redirect 301 /graphics http://illdave.com/graphic-design/
+Redirect 301 /print/index.htm http://illdave.com/graphic-design/
+
+
 

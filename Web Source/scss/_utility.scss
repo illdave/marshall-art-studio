@@ -104,6 +104,43 @@
 	}
 }
 
+.tiled {
+	 a {
+		&.tile {
+			background: transparent url("#{$graphic-design-image-path}/fpo-gears.jpg") center center no-repeat;
+			background-size: cover;
+	 
+			display: block;
+			position: relative;
+			min-height: 10rem;
+			border: $link-img-border;
+			&:hover {
+				border-color: $link-img-border-hover-color;
+			}
+			&:active {
+				border-color: $link-img-border-active-color;
+			}
+		}
+	}
+	&.skills {
+		.tile {
+			a {
+				min-height: 20rem
+			}
+		}
+	}
+}
+.labeled {
+	img {
+		margin-bottom: $spacer-small;
+	}
+	.label {
+		margin-top: $spacer-small;
+		margin-bottom: $spacer-base;
+		line-height: 1.2rem;
+	}
+}
+
 .thumbnails {
 	.thumbnail {
 		background: $comic-book-thumbnail-bg;

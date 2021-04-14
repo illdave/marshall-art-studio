@@ -88,7 +88,7 @@ $theme-color-6:								$illdave-teal;
 $theme-color-7:								darken($theme-color-3, 5%); // dark blue 
 
 $code-color-magenta: 						#e9008c;
-$code-color-green: 							#099;
+$code-color-green: 							#3f0;
 $code-color-blue-deep: 						#06c;
 $code-color-blue-bright: 					#9cf;
 $code-color-orange: 						#f90;
@@ -298,7 +298,7 @@ $footer-padding: 							$spacer-base-vertical $spacer-base-horizontal;
 
 /* main navigation ------------------- */
 
-$main-nav-bg:								#142f56 0 0 no-repeat;
+$main-nav-bg:								#142f56;
 $main-nav-border:							$border-default;
 
 $main-nav-padding-horizontal: 				$spacer-small;
@@ -331,7 +331,7 @@ $nav-link-hover-color:						$white;
 $nav-link-hover-bg:							transparent;
 $nav-link-hover-border-color:				none;
 
-$nav-link-active-color:						$theme-color-1;
+$nav-link-active-color:						lighten($main-nav-bg, 50%);
 $nav-link-active-bg:						transparent;
 $nav-link-active-border-color:				$nav-link-active-bg;
 

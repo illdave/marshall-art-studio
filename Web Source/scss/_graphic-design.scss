@@ -6,13 +6,91 @@
 			background-color: $section-bg-graphic-design;
 			background-image: url("#{$layout-image-path}/section-bg-graphic-design.png");
 			.image {
-				background-image: url("#{$graphic-design-image-path}/jwg-thumbnails-2.jpg");
+				background-image: url("#{$graphic-design-image-path}/pleasewait.gif");
 				background-position: 0 0;
 			}
 		}
 		&.even {
 			background-color: $section-bg-graphic-design-even;
 		}		
+	}
+	
+	.tiled {
+		a {
+			background-position: 0 0;
+		}
+		.ask-kodiak-campaign .tile {
+			background-image: url("#{$graphic-design-image-path}/ask-kodiak-cover.jpg");
+		}
+		.agencyport-software-misc .tile {
+			background-image: url("#{$graphic-design-image-path}/agencyport-misc.jpg");
+		}
+		.merrill-lynch-itg-hunt .tile {
+			background-image: url("../../../web-dev/merril-lynch/print/treasure-hunt/poster-hunt-full-color.jpg");
+		}
+		.merrill-lynch-itg-recruitment-ad .tile {
+			background-image: url("../../../web-dev/merril-lynch/print/recruitment-ad/2021-ad-rocket.jpg");
+		}
+		.jwg-recruitment-ads .tile {
+			background-image: url("#{$graphic-design-image-path}/jwg-advertising.jpg");
+		}
+		.ruddy-duck-records-cd-packaging .tile {
+			background-image: url("#{$graphic-design-image-path}/ruddy-duck-holy-mischief-cd.gif");
+		}
+		
+		.rotten-kid-press .tile {
+			background-image: url("#{$graphic-design-image-path}/rotten-kid-press-design.jpg");
+		}
+		.reader-rabbit .tile {
+			background-image: url("#{$graphic-design-image-path}/reader-rabbit-process.jpg");
+		}
+		.houghton-mifflin-design .tile {
+			background-image: url("#{$graphic-design-image-path}/fpo-sky.jpg");
+		}
+		.education-today-newsletter .tile {
+			background-image: url("#{$graphic-design-image-path}/education-today.jpg");
+		}
+		
+		.agencyport-logo-exploration .tile {
+			background-image: url("#{$graphic-design-image-path}/agencyport-logo-exploration-sheet.jpg");
+		}
+		.agencyport-logo-prestige-worldwide .tile {
+			background-image: url("#{$graphic-design-image-path}/agencyport-prestige-worldwide-logo-sheet.jpg");
+		}
+		.agencyport-logo-hackathon-logo .tile {
+			background-image: url("#{$graphic-design-image-path}/agencyport-hackathon-4-logo.jpg");
+		}
+		.pizza4utoogo-logo .tile {
+			background-image: url("#{$graphic-design-image-path}/pizza4u-corp-id.jpg");
+		}
+		.fmfm-logo .tile {
+			background-image: url("#{$graphic-design-image-path}/fmfm-logo.gif");
+		}
+		.ruddy-duck-records-letterhead .tile {
+			background-image: url("#{$graphic-design-image-path}/ruddy-duck-corp-id.gif");
+		}
+		
+		.agencyport-infographics .tile {
+			background-image: url("#{$graphic-design-image-path}/agencyport-infographics.jpg");
+		}
+		.agencyport-icons .tile {
+			background-image: url("#{$graphic-design-image-path}/agencyport-icons.jpg");
+		}
+		.idg-infographics .tile {
+			background-image: url("#{$graphic-design-image-path}/idg-infographics.jpg");
+		}
+		.houghton-mifflin-infographics .tile {
+			background-image: url("#{$graphic-design-image-path}/houghton-mifflin-infographics.gif");
+		}
+		.computerworld-icons .tile {
+			background-image: url("#{$graphic-design-image-path}/computerworld-icons.gif");
+		}
+		.datamation-icons .tile {
+			background-image: url("#{$graphic-design-image-path}/datamation-icons.jpg");
+		}
+		.ART_NAME .tile {
+			background-image: url("#{$graphic-design-image-path}/fpo-sky.jpg");
+		}
 	}
 }
 
