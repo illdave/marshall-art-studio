@@ -637,16 +637,23 @@ $contact-link-active-color:					$link-active-color;
 			}
 		}
 	}
-}
+	
+	
+	/* responsive -------------------- */
 
-
-/* responsive -------------------- */
-
-@media (max-width: 576px) {
-	.home.mas-content section.skills,
-	.web section.capabilities {
-		 .item {
-			border-bottom: $border-default;
+	@media (max-width: 576px) {
+		.home section.skills,
+		.web section.capabilities {
+			 .item {
+				border-bottom: $border-default;
+				border-right: 0;
+				&.last-child {
+					border-bottom: 0;
+				}
+			}	
 		}	
-	}	
+	}
 }
+
+
+

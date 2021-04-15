@@ -17,7 +17,7 @@
 	
 	.tiled {
 		a {
-			background-position: 0 0;
+			background-position: center 0;
 		}
 		.ask-kodiak-campaign .tile {
 			background-image: url("#{$graphic-design-image-path}/ask-kodiak-cover.jpg");
@@ -37,7 +37,6 @@
 		.ruddy-duck-records-cd-packaging .tile {
 			background-image: url("#{$graphic-design-image-path}/ruddy-duck-holy-mischief-cd.gif");
 		}
-		
 		.rotten-kid-press .tile {
 			background-image: url("#{$graphic-design-image-path}/rotten-kid-press-design.jpg");
 		}
@@ -50,7 +49,6 @@
 		.education-today-newsletter .tile {
 			background-image: url("#{$graphic-design-image-path}/education-today.jpg");
 		}
-		
 		.agencyport-logo-exploration .tile {
 			background-image: url("#{$graphic-design-image-path}/agencyport-logo-exploration-sheet.jpg");
 		}
@@ -69,21 +67,20 @@
 		.ruddy-duck-records-letterhead .tile {
 			background-image: url("#{$graphic-design-image-path}/ruddy-duck-corp-id.gif");
 		}
-		
 		.agencyport-infographics .tile {
 			background-image: url("#{$graphic-design-image-path}/agencyport-infographics.jpg");
 		}
 		.agencyport-icons .tile {
 			background-image: url("#{$graphic-design-image-path}/agencyport-icons.jpg");
 		}
-		.idg-infographics .tile {
-			background-image: url("#{$graphic-design-image-path}/idg-infographics.jpg");
+		.computerworld-infographics .tile {
+			background-image: url("#{$graphic-design-image-path}/computerworld-infographics.jpg");
 		}
 		.houghton-mifflin-infographics .tile {
-			background-image: url("#{$graphic-design-image-path}/houghton-mifflin-infographics.gif");
+			background-image: url("#{$graphic-design-image-path}/houghton-mifflin-infographics.jpg");
 		}
 		.computerworld-icons .tile {
-			background-image: url("#{$graphic-design-image-path}/computerworld-icons.gif");
+			background-image: url("#{$graphic-design-image-path}/computerworld-icons.jpg");
 		}
 		.datamation-icons .tile {
 			background-image: url("#{$graphic-design-image-path}/datamation-icons.jpg");
@@ -94,37 +91,5 @@
 	}
 }
 
-/* graphic design --------------------- */
-.mas-content.graphic-design {
-}
-.tiles .ask-kodiak .tile {
-	background-image: url("#{$graphic-design-image-path}/ask-kodiak-cover.jpg");
-	background-position: 0 top;
-}
-.tiles .rotten-kid-press .tile {
-	background-image: url("#{$graphic-design-image-path}/rotten-kid-press-logo.jpg")
-}
-.tiles .ltsave .tile {
-	background-image: url("#{$graphic-design-image-path}/ltsave-newsletter.jpg")
-}
-.tiles .advertising .tile {
-	background-image: url("#{$graphic-design-image-path}/jwg-advertising.jpg")
-}
-.tiles .education .tile {
-	background-image: url("#{$graphic-design-image-path}/reader-rabbit-design.jpg")
-}
-.tiles .infographics .tile {
-	background-image: url("#{$graphic-design-image-path}/infographics.jpg")
-}
-.tiles .logos .tile {
-	background-image: url("#{$graphic-design-image-path}/logos.jpg")
-}
-.tiles .icons .tile {
-	background-image: url("#{$graphic-design-image-path}/icons.jpg")
-}
-
-.tiles .icons .tile {
-	background-image: url("#{$graphic-design-image-path}/icons.jpg")
-}
 
 

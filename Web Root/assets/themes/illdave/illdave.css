@@ -26954,7 +26954,7 @@ img.social-media-preview {
   background-color: #e1efc0;
 }
 .graphic-design .tiled a {
-  background-position: 0 0;
+  background-position: center 0;
 }
 .graphic-design .tiled .ask-kodiak-campaign .tile {
   background-image: url("../../img/graphic-design/ask-kodiak-cover.jpg");
@@ -27010,58 +27010,20 @@ img.social-media-preview {
 .graphic-design .tiled .agencyport-icons .tile {
   background-image: url("../../img/graphic-design/agencyport-icons.jpg");
 }
-.graphic-design .tiled .idg-infographics .tile {
-  background-image: url("../../img/graphic-design/idg-infographics.jpg");
+.graphic-design .tiled .computerworld-infographics .tile {
+  background-image: url("../../img/graphic-design/computerworld-infographics.jpg");
 }
 .graphic-design .tiled .houghton-mifflin-infographics .tile {
-  background-image: url("../../img/graphic-design/houghton-mifflin-infographics.gif");
+  background-image: url("../../img/graphic-design/houghton-mifflin-infographics.jpg");
 }
 .graphic-design .tiled .computerworld-icons .tile {
-  background-image: url("../../img/graphic-design/computerworld-icons.gif");
+  background-image: url("../../img/graphic-design/computerworld-icons.jpg");
 }
 .graphic-design .tiled .datamation-icons .tile {
   background-image: url("../../img/graphic-design/datamation-icons.jpg");
 }
 .graphic-design .tiled .ART_NAME .tile {
   background-image: url("../../img/graphic-design/fpo-sky.jpg");
-}
-
-/* graphic design --------------------- */
-.tiles .ask-kodiak .tile {
-  background-image: url("../../img/graphic-design/ask-kodiak-cover.jpg");
-  background-position: 0 top;
-}
-
-.tiles .rotten-kid-press .tile {
-  background-image: url("../../img/graphic-design/rotten-kid-press-logo.jpg");
-}
-
-.tiles .ltsave .tile {
-  background-image: url("../../img/graphic-design/ltsave-newsletter.jpg");
-}
-
-.tiles .advertising .tile {
-  background-image: url("../../img/graphic-design/jwg-advertising.jpg");
-}
-
-.tiles .education .tile {
-  background-image: url("../../img/graphic-design/reader-rabbit-design.jpg");
-}
-
-.tiles .infographics .tile {
-  background-image: url("../../img/graphic-design/infographics.jpg");
-}
-
-.tiles .logos .tile {
-  background-image: url("../../img/graphic-design/logos.jpg");
-}
-
-.tiles .icons .tile {
-  background-image: url("../../img/graphic-design/icons.jpg");
-}
-
-.tiles .icons .tile {
-  background-image: url("../../img/graphic-design/icons.jpg");
 }
 
 /* illustration ----------------------- */
@@ -27593,6 +27555,7 @@ img.social-media-preview {
   /* comics ------------------------ */
   /* about ------------------------- */
   /* blog -------------------------- */
+  /* responsive -------------------- */
 }
 .dark-mode h1, .dark-mode .h1, .dark-mode h2, .dark-mode .h2, .dark-mode h3, .dark-mode .h3, .dark-mode h4, .dark-mode .h4, .dark-mode dl dt, .dark-mode strong {
   color: #fff;
@@ -27935,12 +27898,15 @@ img.social-media-preview {
 .dark-mode .blog aside dl {
   border-top: 0.0625rem solid #4d4d4d;
 }
-
-/* responsive -------------------- */
 @media (max-width: 576px) {
-  .home.mas-content section.skills .item,
-.web section.capabilities .item {
+  .dark-mode .home section.skills .item,
+.dark-mode .web section.capabilities .item {
     border-bottom: 0.0625rem solid #4d4d4d;
+    border-right: 0;
+  }
+  .dark-mode .home section.skills .item.last-child,
+.dark-mode .web section.capabilities .item.last-child {
+    border-bottom: 0;
   }
 }
 
