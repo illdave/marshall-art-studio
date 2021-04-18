@@ -45,6 +45,7 @@ $border-default: 							rem(1px solid $border-default-color);
 $border-top:								$border-default;
 $border-light-color: 						lighten($border-default-color, 10%);
 $border-light: 								rem(1px solid $border-light-color);
+$table-border-color:						$border-default-color;
 
 $lightbox-image-border: 					rem(2px solid $white);
 $lightbox-data-color: 						$gray-light-med;
@@ -161,7 +162,27 @@ $contact-link-active-color:					$link-active-color;
 			background-color: $btn-bg;
 		}	
 	}
+	pre {
+		color: $code-color;
+		background: $item-bg;
+		strong {
+			color: $code-color-green;
+		}
+	}
 	
+	table, .table {
+		color: $text-color;
+		th, td {
+			border-color: $table-border-color;
+		}
+		th {
+			color: $headings-color;
+		}
+		> :not(:last-child) > :last-child > * {
+			border-bottom-color: $table-border-color;
+		}	
+	}	
+
 	
 	/* main navigation --------------- */
 	.main-navigation {
@@ -340,7 +361,18 @@ $contact-link-active-color:					$link-active-color;
 			padding-bottom: $spacer-small;
 			border-bottom: $border-default;
 		}
+	}
+	
+	.rip-jobs {
+		.rip-job {
+			border-top: $border-default;
+			&:first-child {
+				border-top: 0;
+			}	
+		}
 	}	
+	
+	
 	.tiled {
 		 a {
 			&.tile {
@@ -477,6 +509,19 @@ $contact-link-active-color:					$link-active-color;
 	}
 	.code-soup {
 		color: $code-soup-color;
+	}
+	
+	.mas-website-history {
+		.version {
+			border-top: $border-default;
+			h3 {}
+			dl {
+				dt {
+					margin-bottom: 0;
+				}
+				dd {}
+			}
+		}
 	}
 	
 	
@@ -651,6 +696,20 @@ $contact-link-active-color:					$link-active-color;
 					border-bottom: 0;
 				}
 			}	
+		}	
+		
+		table, .table {
+			th, td {
+			}
+			td {
+				&:before {
+				}
+			}
+			th {
+				background-color: transparent;
+				margin-top: 1rem;
+				border-bottom-width: rem(2px);
+			}
 		}	
 	}
 }

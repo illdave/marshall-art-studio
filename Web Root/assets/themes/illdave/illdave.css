@@ -25970,12 +25970,37 @@ strong, bold {
 
 table, .table {
   width: 100%;
+  color: #212529;
+}
+table th, table td, .table th, .table td {
+  border-color: #bfbfbf;
+}
+table th:first-child, table td:first-child, .table th:first-child, .table td:first-child {
+  padding-left: 0;
 }
 table th, .table th {
   font-family: "Proxima Nova Bold";
 }
 table.table-no-padding th, table.table-no-padding td, table.no-padding th, table.no-padding td, .table.table-no-padding th, .table.table-no-padding td, .table.no-padding th, .table.no-padding td {
   padding: 0;
+}
+table caption, .table caption {
+  display: none;
+}
+table > :not(:last-child) > :last-child > *, .table > :not(:last-child) > :last-child > * {
+  border-bottom-color: #bfbfbf;
+}
+table thead th, .table thead th {
+  border-bottom-width: 0.125rem;
+}
+table tfoot th, table tfoot td, .table tfoot th, .table tfoot td {
+  border-bottom: 0;
+  padding: 0;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+table tfoot th p, table tfoot td p, .table tfoot th p, .table tfoot td p {
+  margin-bottom: 0;
 }
 
 blockquote {
@@ -25999,6 +26024,16 @@ italic, em {
 bold, strong {
   font-family: "Proxima Nova Bold";
   font-weight: normal;
+}
+
+pre {
+  color: #d63384;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background: #eeeeee;
+  padding: 1rem 2rem;
+}
+pre strong {
+  color: #099;
 }
 
 /* main-navigation -------------------- */
@@ -26169,13 +26204,20 @@ section.picture-header .text {
   background-size: 20px;
 }
 
-.book-title, .magazine-title, .show-title, .tv-show-title, .company-name {
+.book-title,
+.magazine-title,
+.art-title,
+.show-title,
+.tv-show-title,
+.company-name {
   font-family: "Proxima Nova Italic";
 }
 
 h1 .book-title, .h1 .book-title,
 h1 .magazine-title,
 .h1 .magazine-title,
+h1 .art-title,
+.h1 .art-title,
 h1 .show-title,
 .h1 .show-title,
 h1 .tv-show-title,
@@ -26184,6 +26226,8 @@ h1 .company-name,
 .h1 .company-name, h2 .book-title, .h2 .book-title,
 h2 .magazine-title,
 .h2 .magazine-title,
+h2 .art-title,
+.h2 .art-title,
 h2 .show-title,
 .h2 .show-title,
 h2 .tv-show-title,
@@ -26192,6 +26236,8 @@ h2 .company-name,
 .h2 .company-name, h3 .book-title, .h3 .book-title,
 h3 .magazine-title,
 .h3 .magazine-title,
+h3 .art-title,
+.h3 .art-title,
 h3 .show-title,
 .h3 .show-title,
 h3 .tv-show-title,
@@ -26200,6 +26246,8 @@ h3 .company-name,
 .h3 .company-name, h4 .book-title, .h4 .book-title,
 h4 .magazine-title,
 .h4 .magazine-title,
+h4 .art-title,
+.h4 .art-title,
 h4 .show-title,
 .h4 .show-title,
 h4 .tv-show-title,
@@ -26207,6 +26255,7 @@ h4 .tv-show-title,
 h4 .company-name,
 .h4 .company-name, blockquote .book-title,
 blockquote .magazine-title,
+blockquote .art-title,
 blockquote .show-title,
 blockquote .tv-show-title,
 blockquote .company-name {
@@ -26341,6 +26390,12 @@ img.social-media-preview {
 }
 .jobs .job {
   margin-bottom: 1rem;
+  border-top: 0.0625rem solid #bfbfbf;
+  padding-top: 1rem;
+}
+.jobs .job:first-child {
+  border-top: 0;
+  padding-top: 0;
 }
 .jobs .job p.job-span {
   font-family: "Proxima Nova Italic";
@@ -26536,6 +26591,32 @@ img.social-media-preview {
   margin-bottom: 2rem;
 }
 
+.newspaper-intro {
+  margin-bottom: 2rem;
+}
+.newspaper-intro p {
+  margin-bottom: 0;
+}
+.newspaper-intro .first-sentence {
+  margin-bottom: 1rem;
+}
+
+.mas-website-history .version {
+  display: inline-block;
+  border-top: 0.0625rem solid #bfbfbf;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+.mas-website-history .version dl dt {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+.mas-website-history .version .picture-wrapper {
+  margin-bottom: 0.75rem;
+}
+.mas-website-history .version .picture-wrapper img {
+  margin-bottom: 0;
+}
 .list-inline li {
   display: inline-block;
 }
@@ -26741,6 +26822,18 @@ img.social-media-preview {
   margin-bottom: 0;
 }
 
+.rip-jobs .rip-job {
+  margin-bottom: 1rem;
+  border-top: 0.0625rem solid #bfbfbf;
+  padding-top: 1rem;
+}
+.rip-jobs .rip-job:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.rip-jobs .rip-job h3, .rip-jobs .rip-job .h3 {
+  margin-bottom: 0;
+}
 .newsflash .item {
   padding: 1rem 2rem 0;
   border: 0.0625rem solid #bfbfbf;
@@ -26766,7 +26859,10 @@ img.social-media-preview {
 
 .first-paragraph, .first-sentence {
   font-size: 2rem;
+  font-family: "Proxima Nova Italic";
   margin-bottom: 2rem;
+  line-height: 2.5rem;
+  color: #fff;
 }
 
 .vl {
@@ -26817,6 +26913,23 @@ img.social-media-preview {
 .form-check-input:checked {
   background-color: #007bff;
   border-color: #007bff;
+}
+
+.no-border {
+  border: 0;
+}
+.no-border img {
+  border: 0;
+}
+.no-border a img {
+  border: 0 !important;
+}
+
+.signature {
+  background: url("../../img/brand/mas-signature.png") no-repeat 0 0;
+  background-size: 4rem;
+  padding: 1rem 0 1.5rem 4.5rem;
+  font-family: "Proxima Nova Italic";
 }
 
 .jumbotron {
@@ -27271,8 +27384,11 @@ img.social-media-preview {
   top: 0;
   left: 0;
 }
+.blog article .picture-wrapper.left {
+  margin-right: 1.5rem;
+}
 .blog article figure {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   border: 0;
   padding: 0;
   position: relative;
@@ -27284,13 +27400,10 @@ img.social-media-preview {
   border-color: #007bff;
 }
 .blog article figure p {
-  position: absolute;
-  left: 0;
-  bottom: -0.5rem;
-  padding: 0.5rem 1rem;
+  position: static;
+  padding: 0;
+  margin-bottom: 0;
   color: rgba(179, 179, 179, 0.9);
-  width: 100%;
-  background: rgba(0, 0, 0, 0.9);
 }
 .blog article figure p a {
   color: #fff;
@@ -27369,6 +27482,9 @@ img.social-media-preview {
 .blog .latest {
   margin-bottom: 1rem;
 }
+.blog .top-image {
+  margin-top: 1rem;
+}
 .blog aside {
   line-height: 1.25rem;
   padding-bottom: 2rem;
@@ -27378,7 +27494,7 @@ img.social-media-preview {
 }
 .blog aside dl {
   border-top: 0.0625rem solid #bfbfbf;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   margin-bottom: 2rem;
 }
 .blog aside dl dt {
@@ -27401,6 +27517,14 @@ img.social-media-preview {
 }
 .blog.index article {
   clear: both;
+}
+.blog.index article figure.unboxed {
+  text-align: center;
+  float: none !important;
+}
+.blog.index article figure.unboxed img {
+  max-height: 9rem;
+  margin: 0 auto;
 }
 .blog.index article figure img {
   margin-bottom: 0;
@@ -27456,8 +27580,30 @@ img.social-media-preview {
     padding: 1rem 2rem 0;
   }
 
+  table th, table td, .table th, .table td {
+    display: block;
+    padding: 0.5rem;
+  }
+  table td:before, .table td:before {
+    content: attr(data-header);
+    font-weight: bold;
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+    padding-right: 1rem;
+  }
+  table th, .table th {
+    text-align: left;
+    background-color: #eeeeee;
+    padding: 5px;
+  }
+  table th[scope=col], .table th[scope=col] {
+    display: none;
+  }
+
   .first-paragraph, .first-sentence {
     font-size: 1rem;
+    line-height: 1.5rem;
     margin-bottom: 1rem;
   }
 
@@ -27584,6 +27730,25 @@ img.social-media-preview {
 .dark-mode a.btn {
   color: #fff;
   background-color: #ff4e00;
+}
+.dark-mode pre {
+  color: #d63384;
+  background: #111111;
+}
+.dark-mode pre strong {
+  color: #3c0;
+}
+.dark-mode table, .dark-mode .table {
+  color: #bfbfbf;
+}
+.dark-mode table th, .dark-mode table td, .dark-mode .table th, .dark-mode .table td {
+  border-color: #4d4d4d;
+}
+.dark-mode table th, .dark-mode .table th {
+  color: #fff;
+}
+.dark-mode table > :not(:last-child) > :last-child > *, .dark-mode .table > :not(:last-child) > :last-child > * {
+  border-bottom-color: #4d4d4d;
 }
 .dark-mode .main-navigation .navbar {
   border-bottom: 0.0625rem solid #4d4d4d;
@@ -27723,6 +27888,12 @@ img.social-media-preview {
   padding-bottom: 0.5rem;
   border-bottom: 0.0625rem solid #4d4d4d;
 }
+.dark-mode .rip-jobs .rip-job {
+  border-top: 0.0625rem solid #4d4d4d;
+}
+.dark-mode .rip-jobs .rip-job:first-child {
+  border-top: 0;
+}
 .dark-mode .tiled a.tile {
   border: 0.0625rem solid #fff;
 }
@@ -27810,6 +27981,12 @@ img.social-media-preview {
 }
 .dark-mode .code-soup {
   color: #3c0;
+}
+.dark-mode .mas-website-history .version {
+  border-top: 0.0625rem solid #4d4d4d;
+}
+.dark-mode .mas-website-history .version dl dt {
+  margin-bottom: 0;
 }
 .dark-mode .home section.skills .item {
   border-right: 0.0625rem solid #4d4d4d;
@@ -27907,6 +28084,11 @@ img.social-media-preview {
   .dark-mode .home section.skills .item.last-child,
 .dark-mode .web section.capabilities .item.last-child {
     border-bottom: 0;
+  }
+  .dark-mode table th, .dark-mode .table th {
+    background-color: transparent;
+    margin-top: 1rem;
+    border-bottom-width: 0.125rem;
   }
 }
 

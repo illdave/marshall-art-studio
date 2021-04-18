@@ -59,6 +59,12 @@
 	}
 	.job {
 		margin-bottom: $spacer-base-vertical;
+		border-top: $border-default;
+		padding-top: 1rem;
+		&:first-child {
+			border-top: 0;
+			padding-top: 0;
+		}
 		h3 {}
 		p {
 			&.job-span {
@@ -285,6 +291,42 @@
 	position: relative;
 	margin-bottom: 2rem;
 }
+.newspaper-intro {
+	margin-bottom: 2rem;
+	p {
+		margin-bottom: 0;
+	}
+	.first-sentence {
+		margin-bottom: 1rem;
+	}
+}
+
+.mas-website-history {
+	.version {
+		display: inline-block;
+		border-top: $border-default;
+		padding-top: 1rem;
+		margin-bottom: 1rem;
+		h3 {}
+		dl {
+			dt {
+				font-size: $h4-font-size;
+				margin-bottom: 0;
+			}
+			dd {}
+		}
+		.picture-wrapper {
+			margin-bottom: .75rem;
+			img {
+				margin-bottom: 0;
+			}
+		}
+		&.v1 {
+			
+		}
+	}
+}
+
 
 .list-inline {
 	li {
@@ -528,7 +570,16 @@
 
 .rip-jobs {
 	.rip-job {
-		h3 {}
+		margin-bottom: $spacer-base-vertical;
+		border-top: $border-default;
+		padding-top: 1rem;
+		&:first-child {
+			border-top: 0;
+			padding-top: 0;
+		}	
+		h3 {
+			margin-bottom: 0;
+		}
 		h4 {}
 		p {
 			&.title {}
@@ -574,7 +625,10 @@
 }
 .first-paragraph, .first-sentence {
 	font-size: $font-size-large;
+	font-family: $font-family-italic;
 	margin-bottom: $spacer-large;
+	line-height: 2.5rem;
+	color: $white;
 }
 
 .vl {
@@ -627,6 +681,25 @@
 .form-check-input:checked {
     background-color: $link-color;
     border-color: $link-color;
+}
+
+.no-border {
+	border: 0;
+	img {
+		border: 0;
+	}
+	a {
+		img {
+			border: 0 !important;
+		}
+	}
+}
+
+.signature {
+	background: url("#{$brand-image-path}/mas-signature.png") no-repeat 0 0;
+	background-size: 4rem;
+	padding: 1rem 0 1.5rem 4.5rem;
+	font-family: $font-family-italic;
 }
 
 .jumbotron {

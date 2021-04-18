@@ -98,6 +98,8 @@ $border-default-color: 						$gray-light;
 $border-default: 							rem(1px solid $border-default-color);
 $border-light: 								rem(1px solid $gray-light-medium);
 
+$table-border-color:						$border-default-color;
+
 $body-bg:									$white;
 $headings-color: 							$black;
 $text-color:								#212529;
@@ -261,6 +263,7 @@ $pictures-image-path:						$image-path/pictures;
 $logos-image-path:							$image-path/logos;
 $graphics-image-path:						$image-path/graphics;
 $blog-image-path:							$image-path/blog;
+$brand-image-path:							$image-path/brand;
 $open-graph-image-path:						$image-path/open-graph;
 
 

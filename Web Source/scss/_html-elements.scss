@@ -107,6 +107,13 @@ strong, bold {
 
 table, .table {
 	width: 100%;
+	color: $text-color;
+	th, td {
+		border-color: $table-border-color;
+		&:first-child {
+			padding-left: 0;
+		}
+	}
 	th {
 		font-family: $font-family-headers;
 	}
@@ -115,6 +122,30 @@ table, .table {
 		th, td {
 			padding: 0;
 		}
+	}
+	caption {
+		display: none;
+	}
+	> :not(:last-child) > :last-child > * {
+		border-bottom-color: $table-border-color;
+	}
+	thead {
+		th {
+			border-bottom-width: rem(2px);
+		}
+	}
+	
+	tfoot {
+		th, td {
+			border-bottom: 0;
+			padding: 0;
+			padding: 1rem 0;
+			margin-bottom: 2rem;
+			p {
+				margin-bottom: 0;
+			}
+		}
+		
 	}
 }
 
@@ -140,6 +171,16 @@ italic, em {
 bold, strong {
 	font-family: $font-family-bold;
 	font-weight: normal;
+}
+
+pre {
+	color: $code-color;
+	font-family: $code-font;
+	background: $item-bg;
+	padding: $spacer-base $spacer-large;
+	strong {
+		color: $code-color-green;
+	}
 }
 
 

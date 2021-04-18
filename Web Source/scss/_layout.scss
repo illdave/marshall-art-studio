@@ -92,13 +92,19 @@ section {
 	}		
 }
 
-.book-title, .magazine-title, .show-title, .tv-show-title, .company-name {
+.book-title, 
+.magazine-title, 
+.art-title, 
+.show-title, 
+.tv-show-title, 
+.company-name {
 	font-family: $font-family-italic;
 }
 
 h1, h2, h3, h4, blockquote {
 	.book-title, 
 	.magazine-title, 
+	.art-title, 
 	.show-title, 
 	.tv-show-title, 
 	.company-name {
