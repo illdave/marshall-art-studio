@@ -136,13 +136,18 @@ h1, h2, h3, h4, blockquote {
 	}
 	&.centered {
 		text-align: center;
-		.figure-caption {
+		.figure-caption, p {
 			text-align: left;
 		}
 		&.full-width {
 			img {
 				width: 100%;
 			}
+		}
+	}
+	&.full-width {
+		img {
+			width: 100%;
 		}
 	}
 	img {

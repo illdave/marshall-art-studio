@@ -26287,10 +26287,13 @@ blockquote .company-name {
 .picture-wrapper.centered {
   text-align: center;
 }
-.picture-wrapper.centered .figure-caption {
+.picture-wrapper.centered .figure-caption, .picture-wrapper.centered p {
   text-align: left;
 }
 .picture-wrapper.centered.full-width img {
+  width: 100%;
+}
+.picture-wrapper.full-width img {
   width: 100%;
 }
 .picture-wrapper img {
