@@ -26031,6 +26031,7 @@ pre {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   background: #eeeeee;
   padding: 1rem 2rem;
+  white-space: pre-wrap;
 }
 pre strong {
   color: #099;
@@ -27560,13 +27561,13 @@ img.social-media-preview {
 }
 .blog.index .older article figure {
   float: left;
-  width: 30%;
+  width: 20%;
   margin-right: 2rem;
   margin-bottom: 0;
 }
 .blog.index .older article header {
   float: left;
-  width: 60%;
+  width: 73%;
 }
 
 /* responsive ------------------------- */
