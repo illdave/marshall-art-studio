@@ -14,6 +14,7 @@ $theme-color-4:								$illdave-green;
 $theme-color-5:								$illdave-yellow;
 $theme-color-6:								$illdave-teal;
 $theme-color-7:								darken($theme-color-3, 5%); // dark blue 
+$theme-color-8: 							#00b1cb; // pastel foam
 
 $code-color-magenta: 						#e9008c;
 $code-color-green: 							#3c0;
@@ -26,9 +27,9 @@ $code-soup-color: 							$code-color-green;
 
 $body-bg:									$theme-color-bg;
 $headings-color: 							$white;
-$text-color:								lighten($theme-color-bg, 75%);
+$text-color:								lighten($theme-color-bg, 80%);
 $text-divider-color:						transparentize($text-color, 0.5);
-$link-color:								$theme-color-2;
+$link-color:								$theme-color-8;
 $link-hover-color:							$white;
 $link-active-color:							darken($link-color, 20%);
 
@@ -39,6 +40,9 @@ $link-img-border-active-color:				$link-active-color;
 $icon-link-color: 							$text-color;
 $icon-link-color-hover: 					$white;
 $icon-link-color-active: 					darken($icon-link-color, 30%);
+
+$excerpt-hover-color:						$white;
+$excerpt-active-color:						darken($text-color, 30%);
 
 $border-default-color:						lighten($theme-color-bg, 30%);
 $border-default: 							rem(1px solid $border-default-color);
@@ -87,7 +91,7 @@ $footer-bg: 								$body-bg;
 $footer-color: 								lighten($footer-bg, 50%);
 $footer-border-color: 						lighten($footer-bg, 20%);
 
-$section-bg: 								lighten($theme-color-bg, 13.5%);
+$section-bg: 								lighten($theme-color-bg, 9%);
 $section-bg-even: 							darken($section-bg, 20%);
 $section-bg-blog-even:  					$section-bg-even;
 
@@ -247,51 +251,49 @@ $contact-link-active-color:					$link-active-color;
 		}
 	}	
 	.sidebar {
-		aside {
-			.item {
-				&.contact {
-					background: $contact-bg;
-					h2, dt {
-						color: $contact-headings-color;
-					}
-					li {
-						color: $contact-text-color;
-						&:not(:last-child) {
-							margin-right: .5rem;
-						}			
-					}
-					a {
-						color: $contact-link-color;
-						&:hover {
-							color: $contact-link-hover-color;
-						}
-						&:active {
-							color: $contact-link-active-color;
-						}
-					}
+		.item {
+			&.contact {
+				background: $contact-bg;
+				h2, dt {
+					color: $contact-headings-color;
 				}
-				&.anecdote {}
-				&.powered-by {
-					dl {
-						dt {
-							color: $text-color;
-						}
-						dd {
-							.name {
-								color: $white;
-							}
-						}
-					}
+				li {
+					color: $contact-text-color;
+					&:not(:last-child) {
+						margin-right: .5rem;
+					}			
 				}
-				&.border-top {
-					border-top: $border-top !important;
-					padding-top: 1rem;
-					margin-top: 1rem;
+				a {
+					color: $contact-link-color;
+					&:hover {
+						color: $contact-link-hover-color;
+					}
+					&:active {
+						color: $contact-link-active-color;
+					}
 				}
 			}
-			ul {
-				margin-bottom: 0;
+			&.anecdote {}
+			&.powered-by {
+				dl {
+					dt {
+						color: $text-color;
+					}
+					dd {
+						.name {
+							color: $white;
+						}
+					}
+				}
 			}
+			&.border-top {
+				border-top: $border-top !important;
+				padding-top: 1rem;
+				margin-top: 1rem;
+			}
+		}
+		ul {
+			margin-bottom: 0;
 		}
 	}
 	figure {
@@ -328,6 +330,10 @@ $contact-link-active-color:					$link-active-color;
 	
 	/* utility ----------------------- */
 	
+	.first-paragraph, 
+	.first-sentence {
+		color: $headings-color;
+	}
 	.item {
 		background: transparent no-repeat 0 0;
 		color: $item-text-color;
@@ -627,8 +633,7 @@ $contact-link-active-color:					$link-active-color;
 		section {
 		}
 		.sidebar {
-			aside {
-				.item {
+			.item {
 					&.anecdote {
 						background: transparent;
 					}
@@ -660,7 +665,6 @@ $contact-link-active-color:					$link-active-color;
 						}
 					}			
 				}
-			}
 		}
 	}
 	
@@ -669,6 +673,30 @@ $contact-link-active-color:					$link-active-color;
 
 	.blog {
 		&.index {
+			article {
+				&:hover {
+					img {
+						border-color: $link-img-border-hover-color;
+						filter: $link-img-filter;
+					}
+					.excerpt {
+						color: $excerpt-hover-color;
+					}
+				}
+				&:active {
+					img {
+						border-color: $link-img-border-active-color;
+					}
+					.excerpt {
+						color: $excerpt-active-color;
+					}
+				}
+				figure {
+					img {
+						border: $link-img-border;
+					}
+				}			
+			}
 			.older {
 				background: $section-bg-blog-even;
 				h2 {
@@ -676,9 +704,17 @@ $contact-link-active-color:					$link-active-color;
 				}
 			}
 		}
-		aside {
+		.blog-nav {
 			dl {
 				border-top: $border-default;
+			}
+		}
+		article {
+			figure {
+				p {
+					padding-bottom: .5rem;
+					border-bottom: $border-default;
+				}
 			}
 		}
 	}

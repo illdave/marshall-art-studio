@@ -156,7 +156,7 @@
 		margin-top: 1rem;
 	}
 	
-	aside {
+	.blog-nav {
 		line-height: 1.25rem;
 		padding-bottom: $spacer-large;
 		a {
@@ -181,22 +181,30 @@
 			}
 		}
 		
-		.links {
-			.template,
-			.comic-book-history, 
-			.film-and-television, 
-			.doctor-who {
-				display: none;
-			}
+		.template,
+		.comic-book-history, 
+		.film-and-television, 
+		.doctor-who {
+			display: none;
 		}
 	}
 	.sticky-top {
 		top: $main-nav-height + $spacer-base;
 	}
-	
 	&.index {
 		article {
 			clear: both;
+			&:hover {
+				img {
+					border-color: $link-img-border-hover-color;
+					filter: $link-img-filter;
+				}
+			}
+			&:active {
+				img {
+					border-color: $link-img-border-active-color;
+				}
+			}
 			figure {
 				&.unboxed {
 					text-align: center;
@@ -208,6 +216,7 @@
 				}
 				img {
 					margin-bottom: 0;
+					border: $link-img-border;
 				}
 			}
 			header {

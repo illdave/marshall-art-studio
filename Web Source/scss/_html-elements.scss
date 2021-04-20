@@ -58,7 +58,7 @@ a {
 	&:hover {
 		img {
 			border-color: $link-img-border-hover-color;
-			filter: brightness(110%) saturate(110%);
+			filter: $link-img-filter;
 		}
 	}
 	&:active {
@@ -88,7 +88,7 @@ hr {
 }
 
 ul {
-	padding-left: 3rem;
+	padding-left: 1rem;
 }
 
 dl {
@@ -161,6 +161,9 @@ blockquote {
 figure {
 	img {
 		margin-bottom: $spacer-small;
+	}
+	p {
+	
 	}
 }
 

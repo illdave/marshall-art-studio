@@ -25951,7 +25951,7 @@ hr {
 }
 
 ul {
-  padding-left: 3rem;
+  padding-left: 1rem;
 }
 
 dl {
@@ -26015,7 +26015,6 @@ blockquote h4, blockquote .h4 {
 figure img {
   margin-bottom: 0.5rem;
 }
-
 italic, em {
   font-family: "Proxima Nova Italic";
   font-style: normal;
@@ -26153,7 +26152,7 @@ section.picture-header .text {
   margin-bottom: 0;
 }
 
-.sidebar aside .item {
+.sidebar .item {
   margin-bottom: 1rem;
 }
 
@@ -27319,44 +27318,44 @@ img.social-media-preview {
 .about section.picture-header .image {
   background-image: url("../../img/pictures/dave-chin-pose-2.jpg");
 }
-.about .sidebar aside .item {
+.about .sidebar .item {
   background-color: #dcf7ff;
 }
-.about .sidebar aside .item.contact {
+.about .sidebar .item.contact {
   padding: 1rem 1.5rem;
   background: #ff4e00;
 }
-.about .sidebar aside .item.contact h2, .about .sidebar aside .item.contact .h2 {
+.about .sidebar .item.contact h2, .about .sidebar .item.contact .h2 {
   color: #212529;
 }
-.about .sidebar aside .item.contact li {
+.about .sidebar .item.contact li {
   margin-bottom: 0.25rem;
 }
-.about .sidebar aside .item.contact a {
+.about .sidebar .item.contact a {
   color: #ffdccc;
 }
-.about .sidebar aside .item.contact a:before {
+.about .sidebar .item.contact a:before {
   color: #fff;
 }
-.about .sidebar aside .item.contact a:hover {
+.about .sidebar .item.contact a:hover {
   color: #fff;
 }
-.about .sidebar aside .item.contact a:hover:before {
+.about .sidebar .item.contact a:hover:before {
   color: #fff;
 }
-.about .sidebar aside .item.contact a:active {
+.about .sidebar .item.contact a:active {
   color: #ba3900;
 }
-.about .sidebar aside .item.contact a:active:before {
+.about .sidebar .item.contact a:active:before {
   color: #ba3900;
 }
-.about .sidebar aside .item.powered-by h4, .about .sidebar aside .item.powered-by .h4 {
+.about .sidebar .item.powered-by h4, .about .sidebar .item.powered-by .h4 {
   margin-bottom: 0;
 }
-.about .sidebar aside .item.powered-by dl dt {
+.about .sidebar .item.powered-by dl dt {
   color: #212529;
 }
-.about .sidebar aside .item.powered-by dl dd .name {
+.about .sidebar .item.powered-by dl dd .name {
   color: #fff;
   margin-right: 0.5rem;
 }
@@ -27489,31 +27488,31 @@ img.social-media-preview {
 .blog .top-image {
   margin-top: 1rem;
 }
-.blog aside {
+.blog .blog-nav {
   line-height: 1.25rem;
   padding-bottom: 2rem;
 }
-.blog aside a {
+.blog .blog-nav a {
   font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
 }
-.blog aside dl {
+.blog .blog-nav dl {
   border-top: 0.0625rem solid #bfbfbf;
   padding-top: 1rem;
   margin-bottom: 2rem;
 }
-.blog aside dl dt {
+.blog .blog-nav dl dt {
   margin-bottom: 0.25rem;
   font-size: 1.2rem;
 }
-.blog aside dl dd.active a {
+.blog .blog-nav dl dd.active a {
   font-family: "Proxima Nova Italic";
   color: #bfbfbf;
   cursor: default;
 }
-.blog aside .links .template,
-.blog aside .links .comic-book-history,
-.blog aside .links .film-and-television,
-.blog aside .links .doctor-who {
+.blog .blog-nav .template,
+.blog .blog-nav .comic-book-history,
+.blog .blog-nav .film-and-television,
+.blog .blog-nav .doctor-who {
   display: none;
 }
 .blog .sticky-top {
@@ -27521,6 +27520,13 @@ img.social-media-preview {
 }
 .blog.index article {
   clear: both;
+}
+.blog.index article:hover img {
+  border-color: #66b0ff;
+  filter: brightness(110%) saturate(110%);
+}
+.blog.index article:active img {
+  border-color: #004a99;
 }
 .blog.index article figure.unboxed {
   text-align: center;
@@ -27532,6 +27538,7 @@ img.social-media-preview {
 }
 .blog.index article figure img {
   margin-bottom: 0;
+  border: 0.0625rem solid #007bff;
 }
 .blog.index article header {
   border-bottom: 0;
@@ -27711,10 +27718,10 @@ img.social-media-preview {
   color: #fff;
 }
 .dark-mode p, .dark-mode li, .dark-mode dd {
-  color: #bfbfbf;
+  color: #cccccc;
 }
 .dark-mode a {
-  color: #ff4e00;
+  color: #00b1cb;
 }
 .dark-mode a img {
   border: 0.0625rem solid #fff;
@@ -27723,13 +27730,13 @@ img.social-media-preview {
   color: #fff;
 }
 .dark-mode a:hover img {
-  border-color: #ff4e00;
+  border-color: #00b1cb;
 }
 .dark-mode a:active {
-  color: #992f00;
+  color: #005865;
 }
 .dark-mode a:active img {
-  border-color: #992f00;
+  border-color: #005865;
 }
 .dark-mode a.btn {
   color: #fff;
@@ -27737,13 +27744,13 @@ img.social-media-preview {
 }
 .dark-mode pre {
   color: #d63384;
-  background: #111111;
+  background: #050505;
 }
 .dark-mode pre strong {
   color: #3c0;
 }
 .dark-mode table, .dark-mode .table {
-  color: #bfbfbf;
+  color: #cccccc;
 }
 .dark-mode table th, .dark-mode table td, .dark-mode .table th, .dark-mode .table td {
   border-color: #4d4d4d;
@@ -27795,7 +27802,7 @@ img.social-media-preview {
   color: gray;
 }
 .dark-mode section {
-  background-color: #222222;
+  background-color: #171717;
 }
 .dark-mode section.intro {
   background-color: black;
@@ -27804,39 +27811,39 @@ img.social-media-preview {
 .dark-mode section.even {
   background-color: black;
 }
-.dark-mode .sidebar aside .item.contact {
-  background: #111111;
+.dark-mode .sidebar .item.contact {
+  background: #050505;
 }
-.dark-mode .sidebar aside .item.contact h2, .dark-mode .sidebar aside .item.contact .h2, .dark-mode .sidebar aside .item.contact dt {
+.dark-mode .sidebar .item.contact h2, .dark-mode .sidebar .item.contact .h2, .dark-mode .sidebar .item.contact dt {
   color: #fff;
 }
-.dark-mode .sidebar aside .item.contact li {
+.dark-mode .sidebar .item.contact li {
   color: #fff;
 }
-.dark-mode .sidebar aside .item.contact li:not(:last-child) {
+.dark-mode .sidebar .item.contact li:not(:last-child) {
   margin-right: 0.5rem;
 }
-.dark-mode .sidebar aside .item.contact a {
-  color: #ff4e00;
+.dark-mode .sidebar .item.contact a {
+  color: #00b1cb;
 }
-.dark-mode .sidebar aside .item.contact a:hover {
+.dark-mode .sidebar .item.contact a:hover {
   color: #fff;
 }
-.dark-mode .sidebar aside .item.contact a:active {
-  color: #992f00;
+.dark-mode .sidebar .item.contact a:active {
+  color: #005865;
 }
-.dark-mode .sidebar aside .item.powered-by dl dt {
-  color: #bfbfbf;
+.dark-mode .sidebar .item.powered-by dl dt {
+  color: #cccccc;
 }
-.dark-mode .sidebar aside .item.powered-by dl dd .name {
+.dark-mode .sidebar .item.powered-by dl dd .name {
   color: #fff;
 }
-.dark-mode .sidebar aside .item.border-top {
+.dark-mode .sidebar .item.border-top {
   border-top: 0.0625rem solid #4d4d4d !important;
   padding-top: 1rem;
   margin-top: 1rem;
 }
-.dark-mode .sidebar aside ul {
+.dark-mode .sidebar ul {
   margin-bottom: 0;
 }
 .dark-mode figure {
@@ -27856,18 +27863,22 @@ img.social-media-preview {
   color: #fff;
 }
 .dark-mode .lightbox .lb-dataContainer .lb-data .lb-details .lb-caption a {
-  color: #ff4e00;
+  color: #00b1cb;
 }
 .dark-mode .lightbox .lb-dataContainer .lb-data .lb-details .lb-caption a:hover {
   color: #fff;
 }
 .dark-mode .lightbox .lb-dataContainer .lb-data .lb-details .lb-caption a:active {
-  color: #992f00;
+  color: #005865;
+}
+.dark-mode .first-paragraph,
+.dark-mode .first-sentence {
+  color: #fff;
 }
 .dark-mode .item {
   background: transparent no-repeat 0 0;
-  color: #bfbfbf;
-  border-color: rgba(191, 191, 191, 0.8);
+  color: #cccccc;
+  border-color: rgba(204, 204, 204, 0.8);
   padding: 0;
 }
 .dark-mode .item.even {
@@ -27878,10 +27889,10 @@ img.social-media-preview {
 }
 .dark-mode .item.boxed {
   padding: 1rem 2rem;
-  background: #111111;
+  background: #050505;
 }
 .dark-mode .boxed .client-details {
-  background: #090909;
+  background: black;
   padding: 2rem;
 }
 .dark-mode .boxed.even .client-details {
@@ -27902,10 +27913,10 @@ img.social-media-preview {
   border: 0.0625rem solid #fff;
 }
 .dark-mode .tiled a.tile:hover {
-  border-color: #ff4e00;
+  border-color: #00b1cb;
 }
 .dark-mode .tiled a.tile:active {
-  border-color: #992f00;
+  border-color: #005865;
 }
 .dark-mode .labeled img {
   margin-bottom: 0.5rem;
@@ -27917,46 +27928,46 @@ img.social-media-preview {
   border: 0.0625rem solid #fff;
 }
 .dark-mode .row.in-content a:hover img {
-  border-color: #ff4e00;
+  border-color: #00b1cb;
 }
 .dark-mode .row.in-content a:active img {
-  border-color: #992f00;
+  border-color: #005865;
 }
 .dark-mode .row.in-content.figure .figure-caption p {
   border-bottom: 0.0625rem solid #4d4d4d;
 }
 .dark-mode .prev-next .prev .fas, .dark-mode .prev-next .next .fas {
-  color: #bfbfbf;
+  color: #cccccc;
 }
 .dark-mode .prev-next .prev:hover .fas, .dark-mode .prev-next .next:hover .fas {
   color: #fff;
 }
 .dark-mode .prev-next .prev:active .fas, .dark-mode .prev-next .next:active .fas {
-  color: #737373;
+  color: gray;
 }
 .dark-mode .profile.inky-stories .image {
   background-image: url("../../img/pictures/dave-drawing-as-kid-1.jpg");
   background-size: 160%;
 }
 .dark-mode .profile.inky-stories .text a {
-  color: #ff4e00;
+  color: #00b1cb;
 }
 .dark-mode .profile.art-of-comic-book .image {
   background-image: url("../../img/pictures/comics-wip-1.jpg");
   background-size: cover;
 }
 .dark-mode .profile.art-of-comic-book .text a {
-  color: #ff4e00;
+  color: #00b1cb;
 }
 .dark-mode .profile .image {
   background: transparent center center no-repeat;
-  border: 0.375rem solid #090909;
+  border: 0.375rem solid black;
 }
 .dark-mode .profile .text {
-  background: #090909;
+  background: black;
 }
 .dark-mode .social li a:before, .dark-mode .social dd a:before {
-  color: #bfbfbf;
+  color: #cccccc;
 }
 .dark-mode .social li:hover a, .dark-mode .social dd:hover a {
   color: #fff;
@@ -27965,10 +27976,10 @@ img.social-media-preview {
   color: #fff;
 }
 .dark-mode .social li:active a, .dark-mode .social dd:active a {
-  color: #737373;
+  color: gray;
 }
 .dark-mode .social li:active a:before, .dark-mode .social dd:active a:before {
-  color: #737373;
+  color: gray;
 }
 .dark-mode .code-soup li {
   color: #3c0;
@@ -27994,7 +28005,7 @@ img.social-media-preview {
 }
 .dark-mode .home section.skills .item {
   border-right: 0.0625rem solid #4d4d4d;
-  background: #111111 center center;
+  background: #050505 center center;
   background-size: cover;
 }
 .dark-mode .home section.skills .item.last-child {
@@ -28023,7 +28034,7 @@ img.social-media-preview {
 .dark-mode .web .client-details {
   background: transparent;
   padding: 0;
-  color: #bfbfbf;
+  color: #cccccc;
 }
 .dark-mode .web .client-details h3, .dark-mode .web .client-details .h3 {
   color: #fff;
@@ -28033,7 +28044,7 @@ img.social-media-preview {
   color: #fff;
 }
 .dark-mode .web .boxed .client-details {
-  background: #111111;
+  background: #050505;
   padding: 2rem;
 }
 .dark-mode .web .boxed.even .client-details {
@@ -28045,30 +28056,46 @@ img.social-media-preview {
 .dark-mode .comics .skills .item p {
   margin-bottom: 0;
 }
-.dark-mode .about .sidebar aside .item.anecdote {
+.dark-mode .about .sidebar .item.anecdote {
   background: transparent;
 }
-.dark-mode .about .sidebar aside .item.powered-by {
+.dark-mode .about .sidebar .item.powered-by {
   background: transparent;
   border-top: 0.0625rem solid #4d4d4d;
   padding-top: 1rem;
 }
-.dark-mode .about .sidebar aside .item.powered-by h4, .dark-mode .about .sidebar aside .item.powered-by .h4 {
+.dark-mode .about .sidebar .item.powered-by h4, .dark-mode .about .sidebar .item.powered-by .h4 {
   margin-bottom: 0;
 }
-.dark-mode .about .sidebar aside .item.powered-by dl dt {
-  color: #bfbfbf;
+.dark-mode .about .sidebar .item.powered-by dl dt {
+  color: #cccccc;
 }
-.dark-mode .about .sidebar aside .item.powered-by dl dd .name {
+.dark-mode .about .sidebar .item.powered-by dl dd .name {
   color: #fff;
   margin-right: 0.5rem;
 }
-.dark-mode .about .sidebar aside .item.mas-logo {
-  background: #111111;
+.dark-mode .about .sidebar .item.mas-logo {
+  background: #050505;
   padding: 1rem;
 }
-.dark-mode .about .sidebar aside .item.mas-logo p {
+.dark-mode .about .sidebar .item.mas-logo p {
   margin-bottom: 0;
+}
+.dark-mode .blog.index article:hover img {
+  border-color: #00b1cb;
+  filter: brightness(110%) saturate(110%);
+}
+.dark-mode .blog.index article:hover .excerpt {
+  color: #fff;
+}
+.dark-mode .blog.index article:active img {
+  border-color: #005865;
+}
+.dark-mode .blog.index article:active .excerpt {
+  color: gray;
+}
+.dark-mode .blog.index article figure img {
+  border: 0.0625rem solid #fff;
 }
 .dark-mode .blog.index .older {
   background: black;
@@ -28076,8 +28103,12 @@ img.social-media-preview {
 .dark-mode .blog.index .older h2, .dark-mode .blog.index .older .h2 {
   border-bottom: 0.0625rem solid #4d4d4d;
 }
-.dark-mode .blog aside dl {
+.dark-mode .blog .blog-nav dl {
   border-top: 0.0625rem solid #4d4d4d;
+}
+.dark-mode .blog article figure p {
+  padding-bottom: 0.5rem;
+  border-bottom: 0.0625rem solid #4d4d4d;
 }
 @media (max-width: 576px) {
   .dark-mode .home section.skills .item,

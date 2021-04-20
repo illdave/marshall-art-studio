@@ -111,6 +111,7 @@ $link-active-color:							darken($link-color, 20%);
 $link-img-border:							rem(1px solid $link-color);
 $link-img-border-hover-color:				$link-hover-color;
 $link-img-border-active-color:				$link-active-color;
+$link-img-filter: 							brightness(110%) saturate(110%);
 
 $btn-color:									$white;
 $btn-bg:									$theme-color-2;
