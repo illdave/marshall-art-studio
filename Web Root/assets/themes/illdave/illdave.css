@@ -25996,8 +25996,6 @@ table thead th, .table thead th {
 table tfoot th, table tfoot td, .table tfoot th, .table tfoot td {
   border-bottom: 0;
   padding: 0;
-  padding: 1rem 0;
-  margin-bottom: 2rem;
 }
 table tfoot th p, table tfoot td p, .table tfoot th p, .table tfoot td p {
   margin-bottom: 0;
@@ -27611,11 +27609,24 @@ img.social-media-preview {
   table th[scope=col], .table th[scope=col] {
     display: none;
   }
+  table tfoot td, .table tfoot td {
+    padding: 0.5rem 0;
+  }
+  table tfoot td:before, .table tfoot td:before {
+    content: normal;
+  }
 
   .first-paragraph, .first-sentence {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .newspaper-intro {
     margin-bottom: 1rem;
+  }
+  .newspaper-intro .first-paragraph, .newspaper-intro .first-sentence {
+    margin-bottom: 0.5rem;
   }
 
   .gallery,
@@ -28124,6 +28135,10 @@ img.social-media-preview {
     background-color: transparent;
     margin-top: 1rem;
     border-bottom-width: 0.125rem;
+  }
+  .dark-mode .rip-jobs .rip-job:first-child {
+    border-top: 0.0625rem solid #4d4d4d;
+    padding-top: 1rem;
   }
 }
 

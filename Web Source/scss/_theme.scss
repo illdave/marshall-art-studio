@@ -733,7 +733,6 @@ $contact-link-active-color:					$link-active-color;
 				}
 			}	
 		}	
-		
 		table, .table {
 			th, td {
 			}
@@ -745,6 +744,14 @@ $contact-link-active-color:					$link-active-color;
 				background-color: transparent;
 				margin-top: 1rem;
 				border-bottom-width: rem(2px);
+			}
+		}	
+		.rip-jobs {
+			.rip-job {
+				&:first-child {
+					border-top: $border-default;
+					padding-top: 1rem;
+				}	
 			}
 		}	
 	}
