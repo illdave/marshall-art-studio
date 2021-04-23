@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition|Dynamic Transaction Rendering/Behaviors">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Enabling IntraPage DTR</title>
+        <link href="../../../../Resources/TableStyles/Note Table.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Product Definitions/Dynamic Transaction Rendering/Enabling IntraPage DTR.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Dynamic Transaction Rendering_Behaviors.htm">Dynamic Transaction Rendering/Behaviors</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Enabling IntraPage DTR</span>
+        </div>
+        <h1>Enabling IntraPage DTR</h1>
+        <p>This section explains of the details concerning intrapage Dynamic Transaction Rendering (DTR), especially around implementing an IItraPageDTRAssistant class and some of the subtleties.</p>
+        <h2>Repeating Precondition Data</h2>
+        <p>When the PreConditions getFieldValue() is called upon by the TDF for a field that repeats, a decision to return one of the values (indexed) versus all of the values as a set (non indexed) is determined by a method on the PreCondition class for intrapage / indexed based DTR. The framework, by default, returns repeating values for backward compatibility reasons. Repeating precondition data items that are specific to a roster entry must be identified by the application via the PreConditions.fieldIsIndexBased() method.</p>
+        <p>The following application override illustrates how the application can communicate to framework so that it can discriminate between repeating precondition data, which applies to the whole transaction (non-indexed) and repeating precondition data, which applies to a specific roster entry (indexed). </p>
+        <p>In the following example, the application inspects the element path of the precondition field being requested to determine whether the request refers to a specific roster entry:</p><pre class="prettyprint"><p>  /* (non-Javadoc)
+				* @see com.agencyport.preconditions.PreConditions#fieldIsIndexBased(java.lang.String)
+				* This method identifies which of the precondition fields are index based and which ones
+				* are not.
+				*/
+				protected boolean fieldIsIndexBased(String preConditionFieldName){
+				// Field name beginning with PersAutoLineBusiness.PersVeh are assumed to be index based
+				if ( preConditionFieldName.startsWith(persVehBaseXPath.getExpressionWithOnlyElementHierarchy()))
+				return true;
+				return super.fieldIsIndexBased(preConditionFieldName);
+		}</p></pre>
+        <h2>Operational Assumptions</h2>
+        <p>An IntraPage DTR AJAX call is launched when the user changes the value of a visible field that has been configured as a hot field in the DTR behavior repository. The request is structured as an XML&#160;body on the client side to be shipped via HTTP to the server. It is compromised of the following artifacts:</p>
+        <ul>
+            <li value="1">For each non-excluded field and hot field, a field element contains:<ul style="list-style-type: circle;"><li value="1">unique id</li><li value="2">interest level</li><li value="3">hot field flag</li><li value="4">origin flag</li><li value="5">the field's current value</li><li value="6">all HTTP&#160;cookie values associated with the current domain</li></ul></li>
+        </ul>
+        <p>The following is an example of what is sent to the server during the DTR AJAX:</p><pre class="prettyprint"><p>&lt;intraPageDTRRequest&gt;&lt;workItemId&gt;1216&lt;/workItemId&gt;&lt;fieldElement uniqueId="SP.DeleteVehicleTrigger" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.@id" interestLevel="2"&gt;GUID()&lt;/fieldElement&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.VehIdentificationNumber" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.HotAssistedEntry" interestLevel="2" isHot="true"&gt;1&lt;/fieldElement&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.HotYear" interestLevel="2" isHot="true"&gt;2007&lt;/fieldElement&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.HotMake" interestLevel="2" isOrigin="true" isHot="true"&gt;CHEVROLET&lt;/fieldElement&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.HotModel" interestLevel="1" isHot="true"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.HotVehBodyTypeCd" interestLevel="1" isHot="true"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.LeasedVehInd" interestLevel="2"/&gt;&lt;fieldElement uniqueId="SP.LeasedPurchaseDate" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.NewVehInd" interestLevel="2"&gt;1&lt;/fieldElement&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.CostNewAmt.Amt" interestLevel="2"/&gt;&lt;fieldElement uniqueId="symbolAgeGroup" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.@LocationRef" interestLevel="2"&gt;A20AE301CB11DFF89F928D3DA71F8C069A&lt;/fieldElement&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.Registration.StateProvCd" interestLevel="2"&gt;ME&lt;/fieldElement&gt;&lt;fieldElement uniqueId="garagingType" interestLevel="2"/&gt;&lt;fieldElement uniqueId="principleRatedDriver" interestLevel="2"&gt;ACA1D4CC7E992CCD37D3867048F0BA263A&lt;/fieldElement&gt;&lt;fieldElement uniqueId="vehicleClass" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.QuestionAnswer[QuestionCd='AUPMA07'].YesNoCd" interestLevel="2"/&gt;&lt;fieldElement uniqueId="territoryCode" interestLevel="2"/&gt;&lt;fieldElement uniqueId="distanceOneWay" interestLevel="2"/&gt;&lt;fieldElement uniqueId="daysPerWeek" interestLevel="2"/&gt;&lt;fieldElement uniqueId="numberWeeksMonths" interestLevel="2"/&gt;&lt;fieldElement uniqueId="performance" interestLevel="2"/&gt;&lt;fieldElement uniqueId="vehicleUseCode" interestLevel="2"/&gt;&lt;fieldElement uniqueId="carPoolInd" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.OdometerReading.NumUnits" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.EstimatedAnnualDistance.NumUnits" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.AntiTheftDeviceInfo.AntiTheftDeviceCd" interestLevel="2"/&gt;&lt;fieldElement uniqueId="SeatBeltTypeCd" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.AirBagTypeCd" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.AntiLockBrakeCd" interestLevel="2"/&gt;&lt;fieldElement uniqueId="LiabilityCoverage" interestLevel="2"&gt;100000/300000&lt;/fieldElement&gt;&lt;fieldElement uniqueId="PropertyDamageCoverage" interestLevel="2"&gt;50000&lt;/fieldElement&gt;&lt;fieldElement uniqueId="MedicalPaymentCoverage" interestLevel="2"&gt;5000&lt;/fieldElement&gt;&lt;fieldElement uniqueId="UninsuredCoverage" interestLevel="2"&gt;50000&lt;/fieldElement&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.Coverage[CoverageCd='UMPD'].Limit.FormatInteger" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.Coverage[CoverageCd='UMPD'].Deductible[DeductibleTypeCd='FL'].FormatInteger" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.Coverage[CoverageCd='COMP'].Deductible[DeductibleTypeCd='FL'].FormatInteger" interestLevel="2"&gt;500&lt;/fieldElement&gt;&lt;fieldElement uniqueId="CollisionDeductible" interestLevel="2"&gt;250&lt;/fieldElement&gt;&lt;fieldElement uniqueId="TowingLaborCoverage" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.Coverage[CoverageCd='RREIM'].Limit[LimitAppliesToCd='PerDay'].FormatInteger" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.Coverage[CoverageCd='RREIM'].Limit[LimitAppliesToCd='MaxAmount'].FormatInteger" interestLevel="2"/&gt;&lt;fieldElement uniqueId="PersAutoLineBusiness.PersVeh.HotAdditionalInterestInfoType" interestLevel="2" isHot="true"/&gt;&lt;page compoundKey="personalAuto/vehicle" isRoster="true"/&gt;&lt;index&gt;PersAutoLineBusiness.PersVeh[2]&lt;/index&gt;&lt;target&gt;PersAutoPolicyQuoteInqRq&lt;/target&gt;&lt;/intraPageDTRRequest&gt;</p></pre>
+        <p>After the server receives the request, it processes the request as follows:</p>
+        <ul>
+            <li value="1"><u>Initialization</u>
+                <ul style="list-style-type: circle;">
+                    <li value="1">Parses the incoming XML body assumed to conform to the root element: intraPageDTRRequest defined in DTR schema and creates a map of com.agencyport.trandef.intrapage.IntraPageDTRField instances for each field passed in the request.</li>
+                </ul>
+                <ul style="list-style-type: circle;">
+                    <li value="1">Initializes the PreConditions subsystem and brings that work item's instance into scope.</li>
+                    <li value="2">For DTR relating to indexed roster pages and having roster sources comprised of more than one repeating level, the application is required to implement the IIntraPageDTRAssistant.setupIndexManager() method. The reason for this is similar to why the application has to establish the index manager on the process side of roster page submissions when there is more than one level of repetition in the roster source. Applications need to refactor existing NestedAggregateHelper logic to allow the reuse from both call points.</li>
+                    <li value="3">All of the hot field values in the request, regardless of interest level, are mapped into the PreConditions instance via the use of PreConditions.setFieldValue(). This is the default behavior. If an application desires only the hot fields not currently excluded to be mapped into the PreConditions instance, the following application override of the PreConditons.setFieldValue() method is in order:
+						<pre class="prettyprint"><p>public void setFieldValue(String preConditionFieldName, String value, int interestLevel){        if ( interestLevel == TransactionDefinitionProvider.INTEREST_LEVEL_EXCLUDE )            return;        super.setFieldValue(preConditionFieldName, value, interestLevel);
+					}</p></pre></li>
+                </ul>
+                <br />The application's IIntraPageDTRAssistant.postinitialize() is called, affording the application to do any custom initialization necessary.
+        
+                
+			</li>
+        </ul>
+        <ul>
+            <li value="1"><u>Java Script Response Rendering</u>
+                <br />After initialization, the precondition instance is prepared to deliver the precondition/condition data values when the page image is rendered. The page instance for the current web page in context is rendered and evaluated to create dynamic JavaScript, which operates against the Javascript object model after it's delivered back to the client in the HTTP response body.
+				<br />While the page object model is being evaluated, the application has several opportunities to alter the content of the page when return is given back to the client. The application can modify the values of text fields  and the contents of the select lists and related entry. The two methods on the IIntraPageDTRAssistant class [IIntraPageDTRAssistant.reassignValue() and IIntraPageDTRAssistant.shouldRefreshListContents()] serve as the necessary hooks respectively.
+				<br />Change a Text Field: Calculating the expiration date, which is read only, from the effective date
+				<br /><pre class="prettyprint"><p>    public boolean reassignValue(BaseElement baseElement, BaseElement origin, IntraPageDTRBehaviorManager intraPageDTRBehaviorManager) {
+						if ( baseElement.getUniqueId().equals("policyExpirationDate")){
+						if ( origin.getUniqueId().equals("PolicyEffectiveDt")){
+						String effectiveDate = (String) getFieldValue("PolicyEffectiveDt", null);
+						if ( !BaseValidator.checkIsEmpty(effectiveDate)){
+						try {
+						APDate expirationDt = new APDate(effectiveDate);
+						Calendar calendar = expirationDt.get();
+						calendar.add(Calendar.YEAR, 1);
+						baseElement.setValue(expirationDt.getStringDate(APDate.DATE_FORMAT_MM_DD_YYYY));
+						return true;    // signal to framework that we want the value to be carried to the client
+						}
+						catch (ParseException pe){
+                        
+						}
+						}
+						}
+				}        return false;    }</p></pre><br />The framework invokes the IntraPageDTRAssistant.reassignValue() method on every text field on the page. The application implementation of this method determines which fields it should alter, the conditions under which to alter those fields and then uses the BaseElement.setValue() method to set the new value and return a true to signal to the framework that this method has altered the field currently under consideration.
+				<br />Change the contents of a select list: Rebuild the vehicle make list if the user changes the vehicle year
+				<br />This is the old year drives make drives model drives body type use case. If the vehicle year changes, then you need to rebuild the vehicle make, model and body type select lists. The following code is in order:
+				<br /><pre class="prettyprint"><p>public class PersonalAutoPreConditions extends PreConditions implements IIntraPageDTRAssistant {
+						public static final ElementPathExpression persVehBaseXPath = new ElementPathExpression("PersAutoLineBusiness.PersVeh");
+						public static final String hotAssistedEntryElementName = "HotAssistedEntry"; 
+						public static final String hotYearElementName = "HotYear"; 
+						public static final String hotMakeElementName = "HotMake"; 
+						public static final String hotModelElementName = "HotModel"; 
+						public static final String hotAdditionalInterestType = "HotAdditionalInterestInfoType";
+						public static final String hotVehBodyTypeCd = "HotVehBodyTypeCd";private boolean retainValue = false;/* (non-Javadoc)
+						* @see com.agencyport.trandef.intrapage.IIntraPageDTRAssistant#shouldRefreshListContents(com.agencyport.html.elements.BaseListElement, com.agencyport.html.elements.BaseElement, com.agencyport.trandef.intrapage.IntraPageDTRBehaviorManager)
+						* The logic contained in this method instructs the SDK IntraPage framework which lists to refresh depending
+						* on which hot field triggered the request to begin with. 
+						*/
+						public boolean shouldRefreshListContents(BaseListElement baseListElement, BaseElement origin, IntraPageDTRBehaviorManager intraPageDTRBehaviorManager){
+						if ( !retainValues ){
+						IntraPageDTRField field = intraPageDTRBehaviorManager.getField(baseListElement.getUniqueId());
+						if ( field == null || field.getCurrentInterestLevel() == TransactionDefinitionProvider.INTEREST_LEVEL_EXCLUDE){
+						baseListElement.setValue(baseListElement.getDefaultValue());
+						}
+						}
+						String originId = origin.getUniqueId();
+						String candidateRefreshId = baseListElement.getUniqueId();
+						if ( originId.endsWith(hotModelElementName)){
+						return candidateRefreshId.endsWith(hotVehBodyTypeCd);
+						}
+						else if ( originId.endsWith(hotMakeElementName)){
+						return candidateRefreshId.endsWith(hotModelElementName) || candidateRefreshId.endsWith(hotVehBodyTypeCd);
+						}
+						else if ( originId.endsWith(hotYearElementName)){
+						return candidateRefreshId.endsWith(hotMakeElementName) || candidateRefreshId.endsWith(hotModelElementName) ||
+						candidateRefreshId.endsWith(hotModelElementName) || candidateRefreshId.endsWith(hotVehBodyTypeCd);
+						}
+						return false;
+            
+						}Other methods ommitted for brevity.
+				}</p></pre><br />The framework invokes the IntraPageDTRAssistant.shouldRefreshListContents() method for every select list and filter list field on the page where the interest level is not excluded. The application returns a true to signal that the contents for a particular list field should rebuild and false to leave the current contents for a list alone. Typical implementation (like the one above) inspects the identity of the hot field that triggered the intrapage DTR&#160;AJAX call to begin with (BaseElement origin parameter above) to determine the dependent fields. If an application returns a true, then the framework invokes the appropriate list builder(s) registered with that TDF field element.
+				<br />In regards to which entry in the list is initially selected:
+				<br />The basic behavior of the framework preserves previously selected values in lists, where possible, when the list contents are rebuilt. 
+				<br /><table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0"><col class="TableStyle-Note_Table-Column-Column1" /><tbody><tr class="TableStyle-Note_Table-Body-Body1"><td class="TableStyle-Note_Table-BodyA-Column1-Body1"><p class="exampleheader">EXAMPLE:</p><p class="example">If a user selects 2007 for the year and Ford for the make, and then selects 2006, the vehicle make list is rebuilt and the framework, by default, attempts to select the Ford entry in the new vehicle make list as the selected entry if it is present going forward. </p></td></tr></tbody></table><br />If the previously selected entry cannot be resolved, then the default value registered on that TDF field element is used. If the application wants to alter this basic behavior, it can choose to update the current value on the BaseListElement to a non-null value, which overrides the framework's attempt to preserve the previously selected entry. This is the reason for the code at the prologue of the method above, which is included for illustrative purposes.
+			</li>
+            <li value="2"><u>How to Gain Access to Hot Field Data from Custom List Builders, etc.</u>
+                <br />All hot field values are mapped into the precondition instance (via PreConditions.setFieldValue) during the server initialization of an intrapage DTR request and are, thereby, available. To get addressability to the PreConditions instance, you can either use the DataManager.getPreConditions() method if you have addressability to a data manager instance or you can always use PreConditionsStore.getPreConditions() if you don't have a data manager in hand. 
+				<br />The following is an example of a custom list builder that supports the year drives make drives model use case:
+				<br /><pre class="prettyprint"><p>/*
+						* Created on Mar 30, 2007 by norm AgencyPort Insurance Services, Inc.
+						*/
+						package com.agencyport.custom.persauto;
+
+						import java.sql.Connection;
+						import java.sql.PreparedStatement;
+						import java.sql.ResultSet;
+						import java.util.LinkedList;
+						import java.util.List;
+
+						import com.agencyport.customlists.ICustomListBuilder;
+						import com.agencyport.data.DataManager;
+						import com.agencyport.database.DatabaseAgent;
+						import com.agencyport.fieldvalidation.validators.BaseValidator;
+						import com.agencyport.html.optionutils.ParseValueText;
+						import com.agencyport.logging.ExceptionLogger;
+						import com.agencyport.preconditions.PersonalAutoPreConditions;
+						import com.agencyport.preconditions.PreConditions;
+						import com.agencyport.utils.PerfObject;
+						import com.agencyport.utils.PerfObjectCollector;
+						import com.agencyport.webshared.DBCloseObjectMgr;
+						import com.agencyport.webshared.TranManager;
+
+						/**
+						* The YearMakeModelListBuilder class supports the year drives make drives model
+						* interface on the vehicle screen.
+						*/
+						public class YearMakeModelListBuilder implements ICustomListBuilder {
+						/*
+						* The DatabaseAgent is stateless. We only need a single instance that
+						* can be acquired once and shared across threads/requests.
+						*/
+						static protected DatabaseAgent databaseAgent = DatabaseAgent.getDatabaseInstance(); 
+						private static final String yearSelectStatement = 
+						databaseAgent.normalizeSQLStatement("select distinct year from ${db_table_prefix}yearmakemodel order by year desc");
+						private static final String makeSelectStatement = 
+						databaseAgent.normalizeSQLStatement("select distinct make from ${db_table_prefix}yearmakemodel where year = ? order by make");
+						private static final String modelSelectStatement = 
+						databaseAgent.normalizeSQLStatement("select distinct model from ${db_table_prefix}yearmakemodel where year = ? and make = ? order by model");
+						private List queryYearMakeModel(DataManager dataManager, String listId) {
+						TranManager tranMgr = new TranManager();
+						Connection dbConnection = null;
+						PreparedStatement pstmt = null;
+						ResultSet rs = null;
+						List data = new LinkedList();
+						try {
+						PreConditions pc = dataManager.getPreConditions();
+						dbConnection = tranMgr.getConnectionByJNDI();
+						if ( listId.endsWith("year")) {
+						pstmt = dbConnection.prepareStatement(yearSelectStatement);
+						}
+						else if ( listId.endsWith("make")){
+						String year = (String) pc.getFieldValue(PersonalAutoPreConditions.hotYearXPath.getExpressionWithOnlyElementHierarchy(), null);
+						if ( !BaseValidator.checkIsEmpty(year)){
+						pstmt = dbConnection.prepareStatement(makeSelectStatement);
+						pstmt.setInt(1, Integer.parseInt(year));
+						}
+						}
+						else if ( listId.endsWith("model")){
+				String year = (String) pc.getFieldValue(PersonalAutoPreConditions.hotYearXPath.getExpressionWithOnlyElementHierarchy(), null);               </p></pre><pre class="prettyprint"><p>if ( !BaseValidator.checkIsEmpty(year)){
+						String make = (String) pc.getFieldValue(PersonalAutoPreConditions.hotMakeXPath.getExpressionWithOnlyElementHierarchy(), null);
+						if ( !BaseValidator.checkIsEmpty(make)){
+						pstmt = dbConnection.prepareStatement(modelSelectStatement);
+						pstmt.setInt(1, Integer.parseInt(year));
+						pstmt.setString(2, make);
+						}
+						}
+						}
+            
+						if ( pstmt != null ){
+						rs = pstmt.executeQuery();
+						while (rs.next()) {
+						String value = rs.getString(1);
+						String listValue = ParseValueText.createValueTextPair(value, value);
+						data.add(listValue);
+						}    
+						}
+            
+						}
+						catch (Exception exception){
+						ExceptionLogger.log(exception, YearMakeModelListBuilder.class, "queryYearMakeModel");
+						}
+						finally {
+						DBCloseObjectMgr.closeResultSet(rs);
+						DBCloseObjectMgr.closeStatement(pstmt);
+						tranMgr.closeConnection();
+						}
+						return data;
+        
+						}
+						/* (non-Javadoc)
+						* @see com.agencyport.customlists.ICustomListBuilder#generate(com.agencyport.data.DataManager, java.lang.String, java.util.List)
+						*/
+						public List generate(DataManager dataManager, String customListId,
+						List existingListToUpdate) {
+						PerfObject perfObject = 
+						PerfObjectCollector.startNew(YearMakeModelListBuilder.class.getName() + ".generate");
+						List contents = queryYearMakeModel(dataManager, customListId);
+						existingListToUpdate.addAll(contents);
+						perfObject.stop();
+						return existingListToUpdate;
+						}
+
+						/* (non-Javadoc)
+						* @see com.agencyport.customlists.ICustomListBuilder#getDefaultValue(com.agencyport.data.DataManager, java.lang.String, java.util.List)
+						*/
+						public String getDefaultValue(DataManager dataManager, String customListId,
+						List displayList) {
+						int size = displayList.size();
+						if ( size &gt; 0 ){
+						String firstEntry = (String) displayList.get(0);
+						return ParseValueText.getValue(firstEntry);
+						}
+						return "";
+						}
+
+			}</p></pre></li>
+            <li value="3"><u>Optimizing/Reducing Intra-page DTR Based Web Content</u>
+                <br />A feature is available to determine whether an excluded page entity (field set or field) is related to a precondition that is hot field related. If the entity is not related to a hot field precondition, then that entity is physically removed from the server side page image. If a page entity is excluded and is solely based on precondition data not related to a hot field on that same page, the page entity does not need to be streamed to the browser at all. This optimizes client side loading at the expense of some additional server side overhead.
+				<br />Target applications that can benefit from this feature are:
+				<ul style="list-style-type: circle;"><li value="1">pages that contain a lot of content that is excluded more often than not</li><li value="2">applications running under IE&#160;6</li></ul><br />To enable this feature, you must be at the SDK level 3.6.0.00030 build or greater, and add the following line to your application properties:
+				<br /><pre class="prettyprint">optimize_IPDTR_content_size=true</pre><br />Other characteristics include:
+				<ul style="list-style-type: circle;"><li value="1">This feature only works if page entities are related directly to hot field based preconditions versus indirectly through some other set of preconditions</li><br />In cases where the product's build-in algorithm for determining whether a page entity is tied to a hot field does not yield the desired behavior (excludes when it shouldn't), applications can always resort to overriding the TransactionDefinitionProvider.interestLevelIsRelatedToHotFieldPreConditionOnPage() method and write a targeted solution.
+					<li value="2">Is OF&#160;by default for backward compatibility.</li><li value="3">Applies at application scope, meaning you can't vary this feature by page or transaction.</li></ul></li>
+        </ul>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

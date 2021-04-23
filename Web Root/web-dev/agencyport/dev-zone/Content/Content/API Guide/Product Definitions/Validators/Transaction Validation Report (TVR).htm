@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition|Validators|Transaction Validation">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Transaction Validation Report (TVR)</title>
+        <link href="../../../../Resources/TableStyles/Example Table.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Product Definitions/Validators/Transaction Validation Report (TVR).htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Validators.htm">Validators</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Transaction Validation Report (TVR)</span>
+        </div>
+        <h1>Transaction Validation Report (TVR)</h1>
+        <h2>What is TVR?</h2>
+        <p>The Transaction Validation Report (TVR) provides a way to run SDK based field validations and other compliant connectors (Xarc Connector, for example) against the entire work item.</p>
+        <ul>
+            <li value="1">Think of TVR as “ensuring” data integrity, reporting on and presenting messages for “incorrect” data</li>
+            <li value="2">TVR runs the same field validation and other compliant connectors (i.e. Xarc Connector) that the user fires when they press continue on each page</li>
+            <li value="3">TVR does not perform data correction (for example, bumping and slotting)</li>
+            <li value="4">TVR does not perform data clean up (for example, deleting data)</li>
+            <li value="5">The application tracks (persists) how the user advances or jumps around through the work flow of the transaction</li>
+            <li value="6">The application tracks (persists) when TVR is run - will reduce the need to rerun TVR when data changes have not been applied to the work item</li>
+        </ul>
+        <p>Making the assumption that users visit pages in sequential order (in order of the menu – top to bottom), data for a given page is validated on "Continue" for a data entry page and upon "Add" of a roster item on a roster page. If the user continues through the application without going back and making changes to a previous page, all data should be validated up until this point. Since TVR now tracks the pages that have been last updated, TVR determines what pages have been validated up until that point. Only the page on which TVR is invoked would require validation. TVR no longer needs to go back through every page within the application.</p>
+        <h2>Sample Transaction</h2>
+        <p>The following is a sample transaction with TVR configured for notable milestones, such as Premium Summary and Policy Issuance, along with several scenarios to illustrate when TVR is run.</p>
+        <p>
+            <img src="../../../../Resources/Images/bitmap.png" />
+        </p>
+        <p><u>Scenario 1 - Quote pages - Straight-thru processing</u>
+        </p>
+        <ul>
+            <li value="1">User navigates sequentially through the transaction pages – 1,2,3,4,5,6,7</li>
+            <li value="2">TVR page 7 =&gt; TVR does not run</li>
+            <li value="3">User saves and exits quote</li>
+        </ul>
+        <p><u>Scenario 2 - Quote &amp; Issue pages - Straight-thru processing</u>
+        </p>
+        <ul>
+            <li value="1">User navigates sequentially through the transaction pages – 1,2,3,4,5,6,7,8,9,10,11</li>
+            <li value="2">TVR page 7 =&gt; TVR does not run</li>
+            <li value="3">TVR page 11 =&gt; TVR does not run</li>
+        </ul>
+        <p><u>Scenario 3 - Re-quote</u>
+        </p>
+        <ul>
+            <li value="1">User opens saved quote and changes data on page 2, continues off of page 2 and then accesses 3,4,5,6,7 sequentially</li>
+            <li value="2">TVR page 7 =&gt; TVR does not run</li>
+        </ul>
+        <p><u>Scenario 4 - Re-quote</u>
+        </p>
+        <ul>
+            <li value="1">User opens saved quote and changes data on page 2, continues off of page 2, skips page 3 and then accesses 4,5,6,7 sequentially</li>
+            <li value="2">TVR page 7 =&gt; TVR runs for pages 3,4,5,6</li>
+        </ul>
+        <p><u>Scenario 5 - Re-quote</u>
+        </p>
+        <ul>
+            <li value="1">User opens saved quote, changes data on page 4, changes data on page 2, does not hit continue on page 2, goes to 5, 6</li>
+            <li value="2">TVR page 7 =&gt; TVR runs for pages 2,3,4,5,6</li>
+        </ul>
+        <p><u>Scenario 6 - Re-quote</u>
+        </p>
+        <ul>
+            <li value="1">User enters data on pages 1,2,3,4, goes back to page 2 and changes data and clicks continue, goes back to 4,5,6,7 sequentially</li>
+            <li value="2">TVR page 7 =&gt; TVR runs for pages 2,3,4,5,6</li>
+        </ul>
+        <p style="text-decoration: underline;">Scenario 7 - Quote pages - Straight–thru processing and revisits pages 2 and 4 without change (i.e., no impactful change)</p>
+        <ul>
+            <li value="1">User navigates sequentially through the transaction pages – 1,2,3,4,5,6,7</li>
+            <li value="2">TVR page 7 =&gt; TVR does not run</li>
+            <li value="3">User goes back to view page 2, user goes to view page 4 and then goes back to Premium Summary</li>
+            <li value="4">TVR page 7 =&gt; TVR does not run</li>
+        </ul>
+        <p><u>Scenario 8 - Quote pages - Straight–thru processing and revisits a page with a page impactful change</u>
+        </p>
+        <ul>
+            <li value="1">User navigates sequentially through the transaction pages – 1,2,3,4,5,6,7</li>
+            <li value="2">TVR page 7 =&gt; TVR does not run</li>
+            <li value="3">User goes back to page 2, changes data, clicks continue and then goes back to Premium Summary</li>
+            <li value="4">TVR page 7 = 3,4,5,6</li>
+        </ul>
+        <h2>Additional Notes</h2>
+        <p>There are some cases when a user may submit a request and then go back and modify data on a certain page. If the user changes some information on a page in the middle of the application and jumps to the last available page before the quote page, the pages that are between this last updated page and the quote require validation since the data integrity may have been impacted. TVR will validate these pages. Any pages upstream of the last updated page are still assumed valid and do not require revalidation.</p>
+        <p>Another change to TVR is the persistence of the results to the database. This is to ensure that TVR is not run again if there were no changes to the application since TVR was last executed. The TVR results have a timestamp that is compared to the timestamp of the current ACORD document. If the ACORD document was not updated since the last TVR timestamp, TVR is pulled from the database. The persistence of TVR is optional.</p>
+        <h2>TVR Tracking and Impactful Fields</h2>
+        <p>The basic goal of TVR tracking is to minimize the execution of redundant validations when certain workflow patterns are followed. The notion of impactful fields provides the ability to further control when validations should be engaged. This pertains to when the user revisits a previous page in the transaction and makes one or more substantive or impactful changes to the work item and then skips to a page downstream in the workflow they already visited.</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example"> If a user is on the quote summary page and jumps back and fixes a typo to the application’s name on page one and then jumps right back to the quote summary page, you probably wouldn’t want TVR to run again. However, the default TVR tracking algorithm would indeed run it again because it can’t distinguish between a field that has an impact on referential integrity (hence the notion of an impactful field) and one that doesn’t. You would agree that the application name in and of itself should not affect referential integrity of the work item. If, however, the user is on the quote summary page and jumps back and changes the effective date, then you would most definitely want TVR to rerun.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The following are some important guidelines around the configuration of impactful pages and fields.</p>
+        <ul>
+            <li value="1">You can control “impactfulness” at page or field granularity with the application properties: <b>&lt;LOB&gt;.pages_impacting_TVR</b> and <b>&lt;LOB&gt;.fields_impacting_TVR</b> respectfully.</li>
+            <li value="2"><b>VERY IMPORTANT</b>: OOTB the SDK assumes that ALL pages and fields are impactful. Once you start configuring impactful pages or fields, YOU MUST ACCOUNT FOR ALL OF THEM. If <b>&lt;LOB&gt;.pages_impacting_TVR</b> property is missing, then all pages in the transaction are considered impactful. If <b>&lt;LOB&gt;.fields_impacting_TVR</b> property is missing, then all fields in the transaction are considered impactful. If <b>&lt;LOB&gt;.pages_impacting_TVR</b> property is configured, then ONLY those pages in the transaction are considered impactful. If <b>&lt;LOB&gt;.fields_impacting_TVR</b> property is configured, then ONLY those fields in the transaction are considered impactful.</li>
+            <li value="3">A decision to utilize this optimization will introduce some brittleness into the application since any new fields subsequently added to the transaction may need to be accounted for in the aforementioned properties.</li>
+            <li value="4"><b>&lt;LOB&gt;.pages_impacting_TVR</b> refers to a semi-colon delimited list of page ids. The order is not important.</li>
+            <li value="5"><b>&lt;LOB&gt;.pages_impacting_TVR</b> refers to a semi-colon delimited list of AP XPaths. Please note that for fields that have their own unique ids, their AP XPath values must be used. Again order is not important.</li>
+            <li value="6">Additional refinement of what constitutes a substantive change can be done by extending the SDK’s <b>com.agencyport.trandef.validation.BasicPageTracker.substantiveDifference(</b>) method. Your extension’s class name is registered with the framework via the <b>&lt;LOB&gt;.transaction_validation_tracker_class_name</b> application property.</li>
+            <li value="7">Programmatic access to the TVR tracking record instance for a work item is available from the ControlData structure and accessible by calling the <b>ControlData.getTransactionValidationTrackingRecord()</b> method. This tracking record will provide that last page in the transaction a substantive change was made  and the last time TVR was ran, as well as a few other pieces of information.</li>
+        </ul>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

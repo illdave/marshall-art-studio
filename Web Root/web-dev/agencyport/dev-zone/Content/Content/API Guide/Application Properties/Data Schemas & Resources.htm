@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Application Properties">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Data Schemas and Data Schema Resources</title>
+        <link href="../../../Resources/TableStyles/Example Table.css" rel="stylesheet" />
+        <link href="../../../Resources/TableStyles/Basic Table Type.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/API Guide/Application Properties/Data Schemas &amp; Resources.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Application Properties.htm">Application Properties</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Data Schemas and Data Schema Resources</span>
+        </div>
+        <h1>Data Schemas and Data Schema Resources</h1>
+        <p>The DATA_SCHEMA and DATA_SCHEMA_RESOURCES&#160;properties are the way in which an application can make the XML schemas known to Agencyport XML Engine (AXE). Both properties support the notion of multiple schemas via a semi-colon delimited list. </p>
+        <ul>
+            <li value="1">DATA_SCHEMAS assumes that the XML schema files are physically located on the file system and is the traditional way of telling AXE about your schema. </li>
+            <li value="2">DATA_SCHEMA_RESOURCES assumes that the schemas are either available to the class loader or is a URL. An application can use this technique if they choose to bundle resources, such as schemas in a jar file.</li>
+        </ul>
+        <p>These entries list the data schemas known to the system. The simple syntax for "naming"&#160;an individual schema is:</p>
+        <p>xsd_filename[Element:MyRootElementName]</p>
+        <p>MyRootElementName becomes the value of the target attribute in the transaction file.</p><pre class="prettyprint"><p>############################################################</p><p># DATA_SCHEMAS</p><p># Supports multiple schema files separated by  semi-colons.</p><p>############################################################</p><p>ACORD_FILE_NAME_1_7_0=1_7_0/ap_acord-pc-v1_7_0-nodoc-nocodes.xsd</p><p>PRECONDITIONS_SCHEMA_FILE_NAME=preconditions/preconditions.xsd</p><p>TRANSACTION_DEFINITION_RULE_BASE_SCHEMA_FILE_NAME=behavior/transactionDefinitionBehavior.xsd</p><p>DATA_SCHEMAS=</p><p>${my_context_path}WEB-INF/schemas/${ACORD_FILE_NAME_1_7_0}[Element:PersAutoPolicyQuoteInqRq,Element:PersAutoPolicyModRq,Element:WorkCompPolicyQuoteInqRqElement:WorkCompPolicyModRq];\\</p><p>${my_context_path}WEB-INF/schemas/${PRECONDITIONS_SCHEMA_FILE_NAME}[Element:PersonalAutoPreConditions];\</p><p>${my_context_path}WEB-INF/schemas/${PRECONDITIONS_SCHEMA_FILE_NAME}[Element:WorkersCompPreConditions];\</p><p>${my_context_path}WEB-INF/schemas/${TRANSACTION_DEFINITION_RULE_BASE_SCHEMA_FILE_NAME}[Element:transactionDefinitionBehavior]</p><p>DATASERVICES_SCHEMA_DIR=schemas/</p><p>CHOICEPOINT_SCHEMA_FILE=${DATASERVICES_SCHEMA_DIR}choicepoint.xsd</p><p>DATA_SCHEMA_RESOURCES=http://wiki.keyonce.com/documents/AgencyPortal/schemas/transactionDefinitionBehavior.xsd[Element:transactionDefinitionBehavior];\</p><p>${CHOICEPOINT_SCHEMA_FILE}[Element:NCFRequest,Element:NCFResponse]</p></pre>
+        <h2>Transaction Files</h2>
+        <p>The transaction_file_manager_mode of dynamic is normally used when developing the system. This causes the file to reload into the J2EE server whenever it changes. Once in production, the setting should be set to cache.</p>
+        <p>The transaction_definition_files_directory entry provides the location of the transaction definition files.</p>
+        <p>The transaction_definition_files entry lists the available transaction files. This is how the framework "knows" about transactions.</p><pre class="prettyprint"><p>############################################################</p><p>#    TRANSACTION FILES</p><p>#</p><p># Specify the full path of the directory where the transaction files are stored</p><p>#</p><p># Specify the operating mode of the TransactionFileManager - dynamic or cache.  Use dynamic for testing.</p><p>#</p><p># Specify the list of transaction definition files, separated by ;</p><p>#</p><p>transaction_definition_files_directory=${my_context_path}WEB-INF\\definitions\\</p><p>page_library_files_directory=${my_context_path}WEB-INF\\pageLibrary\\</p><p>print_transaction_definition_file=true</p><p>transaction_definition_file_dump_directory=${output_dir}transaction_dump/</p></pre>
+        <h2>Transaction Package Name</h2>
+        <p>Normally, every transaction known to the system are listed in the transaction package name section. This tells the system where to find the user-tailored servlets for a transaction. The syntax is:</p><pre class="prettyprint"><p>transactionName.root_command_class_name=packageName.prefix</p></pre>
+        <p>Where root_command_class_name is constant, transactionName must match a transaction name (persauto in the above example), packageName is the Java package where any custom classes reside and .prefix (optional) is used to form a common prefix for all the custom classes.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">CMD has been used to prefix all of the sample servlets. For personalauto, the entry might look like the following:</p><pre class="prettyprint"><p class="example">persauto.root_command_class_name=com.yourco.servlets.persauto</p></pre>
+                        <p class="example">The following is a more extensive example:</p><pre class="prettyprint"><p class="example">############################################################</p><p class="example"># TRANSACTION PACKAGE NAME</p><p class="example"># There should be an entry here for each transaction file, just above.</p><p class="example"># The transaction name qualifier in the property name (e.g. persauto) is</p><p class="example"># directly associated with the</p><p class="example"># transaction_definition_files=&lt;transaction name&gt;=xml file name, just above</p><p class="example"># The entry should contain the package name where the transaction</p><p class="example"># application custom code lives, as well as any common</p><p class="example"># Java class name prefix (e.g. CMD).</p><p class="example"># .root_command_class_name is a constant.</p><p class="example">personalAuto.root_command_class_name=com.agencyport.servlets.persauto.CMD</p><p class="example">endorsePersonalAuto.root_command_class_name=com.agencyport.servlets.persauto.endorse.CMD</p><p class="example">workersComp.root_command_class_name=com.agencyport.servlets.workerscomp.CMD</p><p class="example">endorseWorkersComp.root_command_class_name=com.agencyport.servlets.workerscomp.endorse.CMD</p></pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Database</h2>
+        <p>The application properties are J2EE server and database dependent. The datasource entry provides JNDI support from the application server (e.g., JRun).</p>
+        <ul>
+            <li value="1">jdbc_driver</li>
+            <li value="2">database_url</li>
+            <li value="3">database_username</li>
+            <li value="4">database_password</li>
+        </ul>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">The following is an example of database configuration:</p><pre class="prettyprint"><p class="example">############################################################</p><p class="example"># DATABASE</p><p class="example">#</p><p class="example"># The JNDI datasource name set up in JRUN. See jrun-resourses.xml in</p><p class="example"># SERVER-INF directory of the Jrun server.</p><p class="example"># The 4 parameters starting with jdbc_driver are used ONLY for</p><p class="example"># batch (normally non JRun testing) processes.</p><p class="example">#SQL Server</p><p class="example">datasource=AgencyPortal</p><p class="example">database_agent_class_name=com.agencyport.database.SQLDatabaseAgent</p><p class="example">#Oracle</p><p class="example">#datasource=oratest2</p><p class="example">#database_agent_class_name=com.agencyport.database.OracleDatabaseAgent</p><p class="example">#DB2</p><p class="example">#datasource=db2test</p><p class="example">#database_agent_class_name=com.agencyport.database.DB2DatabaseAgent</p><p class="example">#database_agent_class_name=com.agencyport.database.DB2XMLDatabaseAgent</p><p class="example">#db_table_prefix=malbert.</p><p class="example">jdbc_driver=macromedia.jdbc.MacromediaDriver</p><p class="example">database_url=jdbc:macromedia:sqlserver://wayland:1433;databaseName=test1_keyonce_com;SelectMethod=cursor</p><p class="example">database_username=test1_keyonce_com</p><p class="example">database_password=myPassword</p></pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The datasource property identifies the JNDI name that refers to the database connection parameters. The database_agent_class_name specifies the SDK database agent class to use for the application.</p>
+        <h2>Database Table Prefixing</h2>
+        <p>In some installations, you may need to prefix tables when the user id provided in the JNDI is not the owner of the tables or stored procedures. The following table prefix setting instructs the SDK database framework to apply the specified prefix in front of table names. If you use this facility, it is important to add the dot (.) at the end of the prefix value.</p><pre class="prettyprint"><p>db_table_prefix=agencyportal.</p></pre>
+        <p>For application specific SQL&#160;to tables, you can use the following&#160;API to normalize the SQL&#160;to apply prefixing:</p><pre class="prettyprint"><p>DatabaseAgent. normalizeSQLStatement()</p></pre>
+        <p>Assuming the above prefix value, the following expression is returned for the following given input string:</p>
+        <p>Input:</p><pre class="prettyprint"><p>Select * from ${db_table_prefix}tablename</p></pre>
+        <p>Output:</p><pre class="prettyprint"><p>Select * from agencyportal.tablename</p></pre>
+        <h2>Log Configuration</h2>
+        <p>The following property instructs the AgencyPortal framework to defer all logging configuration to the web container. If running under WebSphere, consider using the WebSphere admin console for logging configuration and setting the following flag to true:</p><pre class="prettyprint"><p>defer_logging_initialization=true</p></pre>
+        <p>Where logging.properties complies with the JDK logging facility:</p><pre class="prettyprint"><p>############################################################
+#      Logging Configuration File
+# http://java.sun.com/j2se/1.4.2/docs/guide/util/logging/overview.html#1.2
+############################################################
+
+############################################################
+#      Global properties
+############################################################
+# "handlers" specifies a comma separated list of log Handler 
+# classes.  These handlers will be installed during VM startup.
+# Note that these classes must be on the system classpath.
+# By default we only configure a ConsoleHandler, which will only
+# show messages at the INFO and above levels.
+
+# To also add the FileHandler, use the following line instead.
+handlers=java.util.logging.FileHandler, java.util.logging.ConsoleHandler
+
+# Default global logging level.
+# This specifies which kinds of events are logged across
+# all loggers.  For any given facility this global level
+# can be overridden by a facility specific level
+# Note that the ConsoleHandler also has a separate level
+# setting to limit messages printed to the console.
+.level=INFO
+
+############################################################
+# Handler specific properties.
+# Describes specific configuration info for Handlers.
+# The FileHandler.pattern determines the location of the log file - The SDK takes care of substituting
+# any ${var} style characters variables in the property value. 
+# See java.util.logging.FileHandler for supported % based variables (%g triggers the file rotation generations to kick in).
+############################################################
+java.util.logging.FileHandler.pattern=${output_log_dir}framework%g.log
+java.util.logging.FileHandler.limit=20000000
+java.util.logging.FileHandler.count=3
+#java.util.logging.FileHandler.formatter=com.agencyport.logging.LogFormatter WILL NOT work since
+#all logging classes need to be accessible to the system class loader (versus the application class loader)
+java.util.logging.FileHandler.formatter=java.util.logging.SimpleFormatter
+java.util.logging.FileHandler.append=true
+
+# If you don't set the ConsoleHandler.level to ALL then any logging message finer than INFO will be
+# excluded by the ConsoleHandler itself (versus the Logger)  
+java.util.logging.ConsoleHandler.level=ALL
+java.util.logging.ConsoleHandler.formatter=java.util.logging.SimpleFormatter
+
+############################################################
+# Facility specific properties.
+# Provides extra control for each logger.
+############################################################
+com.agencyport.logging.level=CONFIG
+com.agencyport.bootservice.level=CONFIG
+com.agencyport.servlets.base.level=FINE
+#com.agencyport.trandef.provider.level=FINEST</p></pre>
+        <p>The following section is used only for 3.7 backward compatibility; only use if both the defer_logging_initialization or the logging_config_file properties are missing. Applications are encouraged to adopt one or the two previous techniques, following where to write the log file, max number of entries for a file and the rotation parameters. The log is designed to allow for continual operation and log backup.</p><pre class="prettyprint"><p>############################################################
+# LOG FILE CONFIGURATION
+framework_logging_queue_capacity=200000
+
+#Analysts use the following
+#output_log_dir=${my_context_path}WEB-INF\\temp\\runtimelogs\\
+
+#Developers use the following
+output_dir=c:/runtime/framework/
+output_log_dir=${output_dir}runtimelogs\\
+framework_log_to_console=false
+framework_logging_file_directory=${output_log_dir}
+framework_logging_file_name=framework.txt
+framework_logging_file_rotation_sets=1
+framework_logging_file_append=true</p></pre>
+        <h2>Log Levels per Package</h2>
+        <p>This section allows the package to set the log level. Common log levels are: FINE, INFO,&#160;WARNING, SEVERE. Refer to the Java logging API for more information.</p><pre class="prettyprint"><p>############################################################
+# LOG LEVELS per PACKAGE
+#
+#  Format - a name (full dot notation) of the package = value
+#  where value is one of:
+#     OFF SEVERE WARNING INFO CONFIG FINE FINER FINEST ALL
+
+framework_loggers=com.agencyport.logging=INFO;\
+com.agencyport.bootservice=ALL;\
+com.agencyport.data=ALL;\
+com.agencyport.menu=INFO;\
+com.agencyport.pagebuilder=INFO;\
+com.agencyport.security=INFO;\
+com.agencyport.shared=INFO;\
+com.agencyport.trandef=ALL;\
+com.agencyport.utils=INFO;\
+com.agencyport.html.elements=INFO;\
+com.agencyport.html.optiongen=INFO;\
+com.agencyport.html.optionutils=INFO;\
+com.agencyport.servlets.base=ALL;\
+com.agencyport.servlets.home=ALL;\
+com.agencyport.servlets.security=ALL;\
+com.agencyport.connector=ALL;\
+com.agencyport.policyadmin=ALL;\
+com.agencyport.fieldvalidation.connector=ALL;\
+com.agencyport.arcrule=INFO;\
+com.agencyport.trandef.provider=INFO;\
+com.agencyport.preconditions=FINE</p></pre>
+        <h2>Client Side Debugging</h2>
+        <p>The property client_debug value is passed to the client side Java script. A true value enables the AgencyPortal debug console.</p><pre class="prettyprint"><p>client_debug=true</p></pre>
+        <p>
+            <img src="../../../Resources/Images/debugconsole_479x429.png" style="width: 479;height: 429;" />
+        </p>
+        <h2>Performance Subsystem</h2>
+        <p>If the performance system is turned on (by presence of a log file name), the framework writes a number of performance metrics to the output file. The log characteristics of the file are controllable in the same manner as the base log file (described above).</p><pre class="prettyprint"><p>############################################################
+# PERFORMANCE SUBSYSTEM
+# This subsystem is turned on by supplying a file name.
+# If this file name is not there then the performance collector
+# is dormant.
+# The default file open is append (NO). If you want a fresh copy of the performance
+# record file on every new Jrun instance then use YES.
+
+PERFORMANCE_RESULTS_FILENAME=${output_dir}perflogs/performance.log
+PERFORMANCE_RESULTS_TRUNCATE_ON_STARTUP=NO
+PERFORMANCE_RESULTS_NUMBER_OF_GENERATIONS=3
+PERFORMANCE_RESULTS_CAPACITY=200000</p></pre>
+        <p>DOCUMENT_STORE_SIZE</p>
+        <p>The XML data structure holding the transaction date (APDataCollection) is cached in memory. Set this property to the approximate number of concurrent users, unless that number is very large. Set this property to 0 (zero) in clustered configurations. The default value when this property is 0. For clustered based installations that use multiple application instances to support an application, ensure that the DOCUMENT_STORE_SIZE parameter is set to 0.</p><pre class="prettyprint"><p>############################################################
+# DOCUMENT_STORE_SIZE
+#    Sets the maximum number of APDataCollection documents
+#  that will be held in memory.
+
+DOCUMENT_STORE_SIZE=10</p></pre>
+        <h2>Option Lists</h2>
+        <p>Set the following option list parameters:</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Basic Table Type.css');" class="TableStyle-Basic_Table_Type" cellspacing="0">
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" style="width: 213px;" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">option_list_directory</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Provides the directory location of all option list files.</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">option_list_xml_files</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Lists 1 to n option list files.</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">option_list_providers</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Provides two option list readers by default. One reads xml, the second reads options from a database table (See exampleStateLookup Table in the database for the required format). The database option list reader is commented out by default.</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">default_xml_option_list_provider_alias</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyA-Column1-Body1">Allows for creating a short name, instead of the full name, for the XML option reader to use in the transaction file.</td>
+                </tr>
+            </tbody>
+        </table><pre class="prettyprint"><p>############################################################
+# OPTION LISTS
+# Provide the directory where option list files live.
+# Provide the names of all the option list files. Semi-colon delimited.
+# Specify the html select option list provider classes available to the framework and applications.
+# Provide the short name for the option list provider, to use in the transaction file. E.g.
+#             optionList="xmlreader:codeListRef.xml:state"
+
+option_list_directory=${my_context_path}WEB-INF\\codelists\\
+option_list_providers=com.agencyport.html.optiongen.DefaultXMLOptionProvider;\
+com.agencyport.dynamiclists.DynamicListProvider
+
+default_xml_option_list_provider_alias=xmlreader
+
+option_list_xml_files=codeListRef.xml;\
+applInfoCodeListRef.xml;\
+persAutoCodeListRef.xml;\
+workersCompCodeListRef.xml</p></pre>
+        <h2>Dynamic Select Lists</h2>
+        <p>The dynamic_list_template_xml_files lists 1 to n dynamic list template XML files. House these lists in the same directory as the option_list_xml_files since the default dynamic list provider assumes this location.</p><pre class="prettyprint"><p>#############################################################
+# Dynamic List Templates
+#############################################################
+dynamic_list_template_xml_files=dynamicListTemplates.xml;\
+personalAutoDynamicListTemplates.xml</p></pre>
+        <h2>option_list_providers</h2>
+        <p>Since the dynamic list provider uses the same initialization hook as the option list's infrastructure, the option_list_providers should also contain references to the dynamic list provider. The default one to use is com.agencyport.dynamiclists.DynamicListProvider.</p><pre class="prettyprint"><p>option_list_providers=com.agencyport.html.optiongen.DefaultXMLOptionProvider;\</p></pre>
+        <h2>Views Support</h2>
+        <p>Set the following views support parameters:</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Basic Table Type.css');" class="TableStyle-Basic_Table_Type" cellspacing="0">
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" style="width: 213px;" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">views_directory</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Provides the directory location of all view XML&#160;files.</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">view_xml_files</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyA-Column1-Body1">Lists 1 to n view files.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Since view files describe logical views on top of APDataCollection data access, the same provider is shared with the domXML framework.</p><pre class="prettyprint"><p>###########################################################
+# View support
+###########################################################
+views_directory=${my_context_path}WEB-INF\\views\\
+view_xml_files=commonViews.xml;\
+personalAutoViews.xml;\
+workersCompViews.xml;\
+applInformationViews.xml</p></pre>
+        <h2>Special Field Helpers</h2>
+        <p>The special_field_helper_repository parameter provides the list of conformant special field helper class names that support tight integration.</p><pre class="prettyprint"><p>###############################################################
+# Special Field Helper Factory
+# The following semi colon delimited list provides all of the special field helper
+# Java class names across the entire application to the special field helper factory
+special_field_helper_repository=com.agencyport.custom.persauto.LeasedPurchaseDateFieldHelper;\
+com.agencyport.custom.persauto.OtherStateLicenseFieldHelper;\
+com.agencyport.custom.persauto.GaragingLocationReferentialIntegrityHelper;\
+com.agencyport.custom.persauto.DriverReferentialIntegrityHelper;\
+com.agencyport.custom.persauto.VehicleReferentialIntegrityHelper;\
+com.agencyport.custom.workersComp.PolicyInformationHelper</p></pre>
+        <h2>HTML Template File</h2>
+        <p>The HTML template file provides the location of an html_element_definitions.txt file extension. An extension is only necessary if an application wants to alter one or more templates defined in the SDK's copy. The SDK&#160;maintains an immutable copy of this configuration file in apwebapp.jar. If an application requires an alteration of one or more template names in the SDK's version, the following configuration is loaded on top of the SDK's version, overlaying any templates in the former with the template definitions in the latter. The specification of the html_template_file property is only necessary if an application needs to alter open or more SDK HTML template definitions.</p><pre class="prettyprint"><p>############################################################
+# HTML TEMPLATE FILE
+# Specify the full path and file name the file containing any application html templates alterations/modifications
+
+html_template_file=${my_context_path}WEB-INF\\my_application_html_element_definitions.txt</p></pre>
+        <h2>Boot Service Providers</h2>
+        <p>The boot service providers lists several built-in service providers that require some activity to take place during application boot up, such as the HTMLTemplateManager and the TransactionDefinitionManager. User-supplied classes or subsystems are listed here.</p><pre class="prettyprint"><p>############################################################
+# BOOT SERVICE PROVIDERS
+# Specify the classes that implement the IBootServiceInft
+# interface.  These classes are classes that do some type
+# of application boot strapping work and need to be loaded
+# before the application can begin accepting requests.
+# A semi-colon ; delimited list of classes
+
+boot_service_providers=\
+com.agencyport.html.elements.HTMLTemplateManager;\
+com.agencyport.html.optiongen.OptionProviderManager;\
+com.agencyport.domXML.web.APDOMFactoryManager;\
+com.agencyport.trandef.TransactionDefinitionManager;\
+com.agencyport.connector.ConnectorProcessor;\
+com.agencyport.pdf.PDFLicenseManager;\
+com.agencyport.widgets.SpecialFieldHelperFactory;\
+com.agencyport.arcrule.APadaptors.ArcRuleInitializer</p></pre>
+        <h2>Connector Configuration</h2>
+        <p>This property provides the location of the connector configuration file. </p><pre class="prettyprint"><p>############################################################
+# CONNECTOR CONFIGURATION
+
+CONNECTOR_CONFIG_FILE=${my_context_path}WEB-INF\\connectorConfigFile.xml</p></pre>
+        <h2>Builtin Field Validation Override</h2>
+        <p>The default SDK&#160;field validation connector manager (com.agencyport.fieldvalidation.connector.BuiltinFieldValConnectorManager) suffices for the majority of circumstances. However, if the precondtions that determine whether to run the connector need modified, an application can decide to extend the com.agencyport.fieldvalidation.connector.BuiltinFieldValConnectorManager base class and override the continueWithExecute method. You can configure this derived from at application scope and it will apply to all transactions. You only need to provide the following property in cases where the default implementation in the SDK&#160;needs extended or overridden:</p><pre class="prettyprint"><p>builtin_field_vals_connector=&lt;Java package class name of a connector which will be used by this application as the builtin in field validation manager&gt;</p></pre>
+        <h2>SAVE_AND_EXIT_NEXT_PAGE</h2>
+        <p>This entry defines where the application "goes" when the framework standard Return button is pressed (on the HTML page).</p><pre class="prettyprint"><p>############################################################
+# SAVE and EXIT NEXT Page specification
+# ${INTEGRATION_APPLICATION_ROOT} will be substituted with
+# the return value from ApplicationIntegrator.getApplicationRoot()
+# NOTE: This substitution only works if it is at the beginning of the value
+# as is shown below.
+# Other substitutions:
+# The framework will also wire in other substitutions
+# from string values (only string values) that reside in the ControlData
+# instance. To specify as such use the "controlData" specifier followed
+# by a '.' and then the name of the item that is in the ControlData instance.
+# All of this should be enclosed starting with '${' and ending with '}'
+# Default save and exit next page is /DisplayLogonForm if the following
+# is not specified.
+# The following setting (WIP_TYPE_ID) assumes that the peer application has sent over the WIP_TYPE_ID
+# with as a custom field during the LogonProfileExchange process. So when the user presses save and exit
+# the user will be redirected to the peer application.
+#SAVE_AND_EXIT_NEXT_PAGE=${INTEGRATION_APPLICATION_ROOT}/TestIntegration&amp;WIP_TYPE_ID=${controlData.WIP_TYPE_ID}
+# The following setting allows the save and exit page to be the WIP in the current application
+# instead of the default which is DisplayLogonForm.
+
+SAVE_AND_EXIT_NEXT_PAGE=/DisplayWorkInProgress</p></pre>
+        <h2>PRINT_SESSION_ATTRIBUTES_TO_SYSTEM_OUT</h2>
+        <p>This entry defines whether the application prints all the session attributes out to the command window. It is usually set to true during development and false otherwise.</p><pre class="prettyprint"><p>print_session_attributes_to_system_out=YES</p></pre>
+        <h2>ID Attribute Maintenance</h2>
+        <p>The autoMaintainIdAttributes=true entry engages the automatic id attribute maintenance at application scope.</p>
+        <h2>Shorter GUIDs</h2>
+        <p>The RandomGUID class generates 36 byte globally unique ids. For upload and policy change work items, this can increatese the XML payload size by a factor of 2 -&gt; 3 since id attribute values are applied to all of the elements. </p>
+        <p>The property system_generated_id_attribute_type supports the creation of shorter values for the id attribute. If this property is missing or equal to the value of guid, then the historical usage of the RandomGUID class is engaged, producing the generation of the 36 byte globally unique id values. If the value is equal to docuid, then a document unique sequence number generates. The value generated follows the following format: Nnnnnnnn (where the N is the character N and nnnnnnn is a sequence number unique within the scope of both the current and original documents maintained by APDataCollection). </p>
+        <p>If you want to dynamically generate an id value form custom code, conforming to the specified format in the property file, the API APDataCollection.generateUID() exposes this same functionality to Java application programmers. The following XML stream includes the docuid property setting:</p><pre class="prettyprint"><p>&lt;PersAutoPolicyQuoteInqRq&gt;
+&lt;RqUID&gt;E86640F5-50EC-4142-C53A-FD0F8C225D56&lt;/RqUID&gt;
+&lt;TransactionRequestDt id="N1"&gt;2004-07-27&lt;/TransactionRequestDt&gt;
+&lt;CurCd id="N2"&gt;USD&lt;/CurCd&gt;
+    &lt;Producer id="N3"&gt;
+    &lt;GeneralPartyInfo id="N4"&gt;
+    &lt;NameInfo id="N5"&gt;
+    &lt;CommlName id="N6"&gt;
+&lt;CommercialName id="N7"&gt;Barefoot Bay / Towerhill Partners&lt;/CommercialName&gt;
+&lt;/CommlName&gt;
+&lt;/NameInfo&gt;</p></pre>
+        <h2>Commands</h2>
+        <p>The commands list tells, for a given page, which servlet category to run. It displays backwards at first, until its purpose is understood.</p>
+        <p>The URL portion of the servlet (command) to run for a given page is dynamically generated at run time. The name is based on the name found in the page's id and certain other factors. You can refer to this name as the target servlet.</p>
+        <p>The framework looks in the override class list for a match to the target servlet name. If it finds a match, it knows which base class (standard framework supplied class) to execute. However, when a page requires special processing, the name of the user-created servlet must not be found in the override list, and the framework will attempt to load the actual target class and not a base class.</p><pre class="prettyprint"><p>############################################################
+# COMMAND Class Map
+############################################################
+com.agencyport.servlets.persauto.CMDDisplaydisplayFile=com.agencyport.servlets.shared.CMDDisplaydisplayFile
+com.agencyport.servlets.persauto.endorse.CMDDisplaylaunchPASRequest=com.agencyport.servlets.base.CMDBaseLaunchPASRequest
+com.agencyport.servlets.workerscomp.endorse.CMDDisplaylaunchPASRequest=com.agencyport.servlets.base.CMDBaseLaunchPASRequest
+com.agencyport.servlets.persauto.endorse.CMDDisplaypolicyChangeSummary=com.agencyport.servlets.shared.endorse.CMDDisplaypolicyChangeSummary
+com.agencyport.servlets.workerscomp.endorse.CMDDisplaypolicyChangeSummary=com.agencyport.servlets.shared.endorse.CMDDisplaypolicyChangeSummary
+com.agencyport.servlets.persauto.endorse.CMDProcesspolicyChangeSummary=com.agencyport.servlets.shared.endorse.CMDProcesspolicyChangeSummary
+com.agencyport.servlets.workerscomp.endorse.CMDProcesspolicyChangeSummary=com.agencyport.servlets.shared.endorse.CMDProcesspolicyChangeSummary
+com.agencyport.servlets.persauto.endorse.CMDDisplayPolicyChangePDF=com.agencyport.servlets.shared.endorse.CMDDisplayPolicyChangePDF
+com.agencyport.servlets.workerscomp.endorse.CMDDisplayPolicyChangePDF=com.agencyport.servlets.shared.endorse.CMDDisplayPolicyChangePDF
+
+POLICY_IMAGE_CLASS=com.agencyport.policyadmin.DemoPolicyImageRetriever
+PAS_URL=${my_portal_app}/servlet/com.agencyport.servlets.examples.PolicyAdminSimultator
+ACTIVATE_PAS_SIMULATION=true</p></pre>
+        <h2>Keywords</h2>
+        <p>You can define keywords for use in other properties</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p><pre class="prettyprint"><p class="example">my_portal_app=http://localhost:8105/AgencyPortal</p><p class="example">my_portal_app_frontservlet=${my_portal_app}/FrontServlet</p></pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Property Concatenation</h2>
+        <p>Applications can decide to have multiple properties files for a variety of reasons. The property concatenation operator += allows for the distribution of the same property value across multiple files. This eliminates the need to centralize multiple property values in one spot in one property file.</p>
+        <p>The property concatenation operator allows you to distribute multiple property values to multiple spots in one to n property files.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">Main property file:</p><pre class="prettyprint"><p class="example">view_xml_files=commonViews.xml;\</p><p class="example">applInformationViews.xml</p></pre>
+                        <p class="example">Worker's compensation specific property file:</p><pre class="prettyprint"><p class="example">view_xml_files+=workersCompViews.xml</p></pre>
+                        <p class="example">Personal auto specific property file:</p><pre class="prettyprint"><p class="example">view_xml_files+=personalAutoViews.xml</p></pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The approved way of loading additional property files into an application is to extend the SDK's com.agencyport.servlets.shared.InitializerServlet class and the loadApplicationProperties() method, ensuring to invoke the SDK's super class’s implementation before doing whatever custom application property loading that is deemed necessary.</p><pre class="prettyprint"><p>    protected void loadApplicationProperties(ServletConfig config, String applicationContextPath) 
+        throws APException {
+        
+        // Let SDK do it's own thing first
+        super.loadApplicationProperties(config, applicationContextPath);
+
+        // Now do our own thing        
+    }</p></pre>
+        <h2>Controlling Exception information Rendered to the Browser</h2><pre class="prettyprint"><p>################################################################################
+# show_extended_error_detail controls whether or not to display extended error
+# details on the navigation error jsp (APErrorJSP.jsp). It is false by default.
+################################################################################
+show_extended_error_detail=true</p></pre>
+        <h2>Customizing Framework Base Classes</h2>
+        <p>The application can easily extend several of the framework classes to modify or extend the framework's own implementation. These are spread out over a variety of functional areas. The technique to convey your derived class to the factory method is via application properties. The following table documents most of the classes that you can extended:</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Basic Table Type.css');" class="TableStyle-Basic_Table_Type" cellspacing="0">
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" style="width: 560px;" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Functional Area(s)</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Framework Base Class</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Factory Method</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Java class name application property</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Scope</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Comments</th>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Reading a work item into a set of HTML data containers for upload, transaction validation and correction</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">com.agencyport.data.TransactionDataReader</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">com.agencyport.data.TransactionDataReader.create()</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">transactionId.transaction_data_reader_class_name</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Transaction</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Applications can extend the base transaction data reader class to support the data read operations related to non-SDK pages.</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">DTR - transaction definition provider creation</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">com.agencyport.trandef.provider.builtin.XMLTransactionDefinitionprovider</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">com.agencyport.trandef.provider.TransactionDefinitionProvider.createFromAppPropertyName</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">TDP.&lt;transaction id&gt; where transaction id relates to the transaction id in the TDF</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Transaction</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Applications can extend the product's XML transaction definition provider class to add content to a page that does not originate in the TDF.</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Policy change</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">com.agencyport.policysummary.changesummary.changemanagement.PolicyChangeSummarizer</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">com.agencyport.policysummary.changemanagement.PolicyChangeSummarizerFactory.createPCS</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">&lt;LOB from&#160;TDF&gt;.pcs_class_name</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Transaction LOB</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Applications can extend policy change summarizer implementations to modify several different behaviors associated with the base implementation.</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">User preferences/defaults persistence</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">com.agencyport.defaults.DefaultsDBManager</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">com.agencyport.defaults.DefaultsDBManager.create</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">defaults_db_manager_class_name</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Application</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Applications can extend to alter the sort/filtering criterion to a user's default list.</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">JSP&#160;helper</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">com.agencyport.jsp.JSPHelper</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">com.agencyport.jsp.JSPHelper.get</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">jsphelper_class_name</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Application</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">The framework uses this helper class to help reduce JSP Java inline source complexity. Applications can extend this class to add new functionality for custom pages.</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">Database monitoring</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">&lt;none&gt; custom class must fully implement the com.agencyport.domXML.web.ICustomDBMAnagerMonitor</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">com.agencyport.domXML.web.APDOMDBManager static initializer</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">custom_dbmanager_monitor_class_name</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">Application</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyA-Column1-Body1">Application hook for any APDOMDBManager managed data acess.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

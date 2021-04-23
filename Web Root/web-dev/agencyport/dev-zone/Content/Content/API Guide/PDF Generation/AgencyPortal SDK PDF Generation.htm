@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>AgencyPortal SDK PDF&#160;Generation</title>
+        <link href="../../../Resources/TableStyles/Example Table.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/API Guide/PDF Generation/AgencyPortal SDK PDF Generation.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">AgencyPortal SDK PDF&#160;Generation</span>
+        </div>
+        <h1>AgencyPortal SDK PDF&#160;Generation</h1>
+        <p>AgencyPortal SDK includes a PDF&#160;core facility with support an open source PDFBox library.</p>
+        <p>ACORD&#160;forms are filled out with ACORD&#160;XML&#160;for a work item per page layout. A page layout (a proprietary XML) contains one or more field layout elements; one for each field on the ACORD&#160;PDF. Each file element has its own unique id attribute, which is used for identification purposes. The PDF x, y coordinates, font size and size are contained on each field layout element as shown in the following XML&#160;for ACORD 130 form:</p>
+        <p>
+            <img src="../../../Resources/Images/acord130layout_510x201.png" style="width: 510;height: 201;" />
+        </p>
+        <p>The coordinate (x,y) starts with the upper left corner as the origin in inch. </p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">The AgencyInfo field on the PDF&#160;starts at 0.35 inches from the left and 0.92 inches from the top, and has a maximum of 40 characters, as shown in the green box of the pdf template:</p>
+                        <p class="example">
+                            <img src="../../../Resources/Images/acordworkerscompform_557x252.png" style="width: 557;height: 252;" class="border" />
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The PDF internal structures maintain a media box. The media box is measured in points, where an inch equals 72 points.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">The page size of a document with a letter layout is 8.5x11 inches. This has an equivalent media box with coordinate (0,0) at the lower left corner and coordinate (612,792) at the upper right corner (8.5 inches * 72 = 612 points, 11 inches * 72 = 792 points).</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Application developers can print text and insert objects within the media box. The SDK&#160;library seamlessly converts the coordinate in inch in the layout to points on the media box. </p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">The AgencyInfo field prints at the coordinate (25.2, 66.24) on the media box.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Transformation Matrix</h2>
+        <p>A PDF page can use a matrix to scale, rotate or skew elements with a transformation matrix to determine the coordinate system. If text shows up in wrong coordinates and incorrect font size, the transformation matrix is most likely in play since PDFBox library does not automatically apply the transformation when texts or objects are rendered.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">A transformation matrix (0.12 0 0 0.12 0 0) means the rest of the page will be set at a scale of 12/100ths at horizontal and vertical directions. At that scale, the font sized "70," scaled, comes out at 8.4 pts. </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>To get text at a size of 12pt, use 12/0.12 = 100 (scaled units), you must also position coordinates  scaled at the same rate. With such a transformation matrix in play, the coordinate of the upper right corner on the media box seems to be magnified to (5100, 6600). If the AgencyInfo field is printed at the coordinate (25.2, 66.24) on the magnified media box, the texts does not show up in the correct position or font. AgencyInfo field should show up at coordinate (210, 552) on the magnified media box (25.2/0.12=210, 66.24/0.12=552). </p>
+        <p>How can you apply the transformation matrix? There are two options:</p>
+        <ul>
+            <li value="1">Replace the ACORD&#160;PDF&#160;templates with the transformation matrix with templates that do not have the transformation. Most of the ACORD&#160;PDF&#160;templates do not have the transformation matrix.</li>
+            <li value="2">Apply the transformation matrix via ACORD PDF layout configurations. AgencyPortal SDK (apwebapp.jar) includes a command line utility, LayoutTester, which you can use to extract the matrix. </li>
+        </ul>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">Run the following command:</p>
+                        <p class="commandcode">“LayoutTester -pdf C:/temp/acord131.pdf -pdf_layout C:/temp/ACORD_131_LAYOUT.xml -extract_scale 1 -out c:/temp/out.pdf “</p>
+                        <p class="example">The console printouts indicate that three pages of Acord131.pdf have the same transformation matrix (0.12, 0.0, 0.0, 0.12, 0.0, 0.0).</p>
+                        <p class="example">***Transformation matrix (cm) (Acord131.pdf) Page 1:(0.12, 0.0, 0.0, 0.12, 0.0, 0.0) </p>
+                        <p class="example">***Transformation matrix (cm) (Acord131.pdf) Page 2:(0.12, 0.0, 0.0, 0.12, 0.0, 0.0) </p>
+                        <p class="example">***Transformation matrix (cm) (Acord131.pdf) Page 3:(0.12, 0.0, 0.0, 0.12, 0.0, 0.0)</p>
+                        <p class="example">This requires the PDF&#160;layout configuration to be adjusted with a scale factor to account for the transformation matrix:</p>
+                        <p class="example">A new attribute for layout page elements, scaleFactor, is added with a default value of 1.0. For example, scaleFactor="0.12" for page 1, 2 and 3 for Acord131.</p><pre class="prettyprint"><p class="example">&lt;pdf_layout name="ACORD_131_LAYOUT"&gt;
+             &lt;page pageNum="1" scaleFactor="0.12"&gt;
+             &lt;page pageNum="2" scaleFactor="0.12"&gt;
+             &lt;page pageNum="3" scaleFactor="0.12"&gt;</p></pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The scaleFactor is automatically applied by the AgencyPortal SDK&#160;when texts are rendered. Application developers or analysts still work with the coordinates of fields in inch and regular font sizes if there was no transformation matrix.</p>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

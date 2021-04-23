@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Security">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Security Provider</title>
+        <link href="../../../Resources/TableStyles/Best Practice Table.css" rel="stylesheet" />
+        <link href="../../../Resources/TableStyles/Important Table.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/API Guide/Security/Security Provider.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Security.htm">Security</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Security Provider</span>
+        </div>
+        <h1>Security Provider</h1>
+        <p>The security provider layer has intimate knowledge of the underlying security repository. It's main function is to render ACSI security model entities (subjects, roles, permissions and user groups) from the carrier's selected security system of record.</p>
+        <p>The application team has direct responsibility for transforming the entities served up by the carrier's security back end, regardless of the protocol, into those ACSI security model entities. The security back end could be an exposed LDAP or Windows Active Directory model, a relational database, such as SQL Server, or a set of proprietary web services.</p>
+        <ul>
+            <li value="1">The ISecurityProvider interface defines the standard mechanism for the acquisition of security model entities. It contains all of the inner workings and knowledge on how to call the back end security system of record. It acts as the general supplier of the security model entities on behalf of the security profile manager and other places in the product that may need said entities, such as subjects, roles, permissions and user groups. It is internally leveraged by the base security profile manager to build the various pieces of the security model.</li>
+        </ul>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Important Table.css');" class="TableStyle-Important_Table" cellspacing="0">
+            <col class="TableStyle-Important_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Important_Table-Body-Body1">
+                    <td class="TableStyle-Important_Table-BodyA-Column1-Body1">
+                        <p class="importantheader">IMPORTANT:</p>
+                        <p class="important">Application teams must implement the entire interface from scratch since there is no abstract class to extend.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="subheading">Basic Steps to Make Your Application ACSI&#160;Compliant</p>
+        <ul>
+            <li value="1">Implement the security provider interface: com.agencyport.security.provider.ISecurityProvider
+				<br /><table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Best Practice Table.css');" class="TableStyle-Best_Practice_Table" cellspacing="0"><col class="TableStyle-Best_Practice_Table-Column-Column1" /><tbody><tr class="TableStyle-Best_Practice_Table-Body-Body1"><td class="TableStyle-Best_Practice_Table-BodyA-Column1-Body1"><p class="bestpracticeheader">BEST&#160;PRACTICE:</p><p class="bestpractice">Relegate the use of roles as merely containers for permissions. If the back end security provider serves up permissions, then use them. If the back end security provider doesn't expose permissions explicitly, build a suitable model based on the role at the time the security model/profile is constructed.</p></td></tr></tbody></table></li>
+            <li value="2">Extend the abstract security profile manager class: com.agencyport.security.profile.impl.SecurityProfileManager</li>
+            <li value="3">Register class name of security profile manager as an application property: security.profile_manager_classname
+				<br /><table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Best Practice Table.css');" class="TableStyle-Best_Practice_Table" cellspacing="0"><col class="TableStyle-Best_Practice_Table-Column-Column1" /><tbody><tr class="TableStyle-Best_Practice_Table-Body-Body1"><td class="TableStyle-Best_Practice_Table-BodyA-Column1-Body1"><p class="bestpracticeheader">BEST&#160;PRACTICE:</p><p class="bestpractice">Extend the above abstract class rather than implementing the interface from scratch.</p></td></tr></tbody></table></li>
+            <li value="4">Extend the security profile abstract class: com.agencyport.security.profile.impl.SecurityProfile</li>
+            <li value="5">Register class name as an application property: security.profile_classname</li>
+            <li value="6">Extend the security filter abstract class: com.agencyport.security.filter.SecurityFilter
+				<ul style="list-style-type: circle;"><li value="1">Configure security filter in web.xml as appropriately</li><li value="2">Implement new and/or reu-use existing secure resource functionality as appropriate<ul style="list-style-type: square;"><li value="1">Register factories for secure resources as an application property list under the name of secure_resource_factories</li></ul></li></ul><br /><table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Best Practice Table.css');" class="TableStyle-Best_Practice_Table" cellspacing="0"><col class="TableStyle-Best_Practice_Table-Column-Column1" /><tbody><tr class="TableStyle-Best_Practice_Table-Body-Body1"><td class="TableStyle-Best_Practice_Table-BodyA-Column1-Body1"><p class="bestpracticeheader">BEST&#160;PRACTICE:</p><p class="bestpractice">All AgencyPortal applications should leverage the 4.0 security filter to protect against unauthorized URL spoofing. If you currently have a 3.x security profile implementation, consider to adopt the product's own security filter as the standard and customize only if necessary. If you currently don't use a security filter, seriously consider adopting the 4.0 implementation.</p><p class="bestpractice">AgencyPortal comes with a security filter implementation that only lacks the handleSecurityException method. This method is in charge of navigation details when a security exception is raised and is left up to the application to fill in. Applications should extend AgencyPortal's com.agencyport.security.filter.SecurityFilter abstract base class rather than creating a custom security filter.</p></td></tr></tbody></table><br /><table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Best Practice Table.css');" class="TableStyle-Best_Practice_Table" cellspacing="0"><col class="TableStyle-Best_Practice_Table-Column-Column1" /><tbody><tr class="TableStyle-Best_Practice_Table-Body-Body1"><td class="TableStyle-Best_Practice_Table-BodyA-Column1-Body1"><p class="bestpracticeheader">BEST&#160;PRACTICE:</p><p class="bestpractice">Decisions to use the security implementations in product applications need to be approved by product development. Unless the specific application is using the security reference implement direction, which is a VERY&#160;rare occurrence, the application should never have a compile or run time dependency on apsecurityreference.jar. This jar file should rarely be deployed.</p></td></tr></tbody></table></li>
+        </ul>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

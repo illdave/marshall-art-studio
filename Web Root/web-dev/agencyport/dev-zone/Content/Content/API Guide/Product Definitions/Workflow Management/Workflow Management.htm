@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Workflow Management</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Product Definitions/Workflow Management/Workflow Management.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Workflow Management</span>
+        </div>
+        <h1>Workflow Management</h1>
+        <p>AgencyPortal's workflow management feature and <a href="../Connectors/Connectors.htm">connectors</a> go hand in hand. Workflow operations are configured in a connector set in an entity called an instruction. Instructions, like connectors, can be modified with DTR&#160;behaviors. Additionally, instructions can be conditionally executed based on the outcome of one or more connectors. The following example illustrates three workflow instructions that are predicated on the outcome of one connector:</p><pre class="prettyprint"><p>&lt;connectors type="process" &gt;
+    &lt;connector id="generalInfo_Page" type="XARC" &gt;
+		&lt;xarcRules id="X1" ruleLibraryId="generalInfo" /&gt;
+    &lt;/connector&gt;
+    &lt;instruction id="I2" type="generateMessage"
+		value="This quote will be referred"
+		severity="warning" &gt;
+		&lt;when connector="generalInfo_Page" /&gt;
+    &lt;/instruction&gt;
+    &lt;instruction id="I1" type="statusChange"
+		value="REFER"&gt;
+		&lt;when connector="generalInfo_Page" /&gt;
+    &lt;/instruction&gt;
+    &lt;instruction id="I3" type="assign" &gt;
+		&lt;when connector="generalInfo_Page" /&gt;
+		&lt;target principal="underwriter" type="user" /&gt;
+    &lt;/instruction&gt;
+&lt;/connectors&gt;</p></pre>
+        <p>In the above example, if the XArc connector where to run and it returned an outcome of met conditions, then the three instructions will run. </p>
+        <ul>
+            <li value="1">The first will create a referral message that displays on the application</li>
+            <li value="2">The second will change the work item status to a referred status.</li>
+            <li value="3">The third will assign the work item to the user whose login id is underwriter.</li>
+        </ul>
+        <p>A connector's outcome is separate and distinct from whether a connector throws an error condition. Although they can be related, they are treated separately (i.e., the value from the IConnector.run() method governs whether to continue with subsequent connectors). This is independent from the outcome return value emitted by ConnectorManager. The latter is what is used to trigger workflow instructions; the former is used to determine whether subsequent connectors should be executed.</p>
+        <p>Processing of workflow operations is handled by a component that implements the interface com.agencyport.workflow.IWorkflowManager. AgencyPortal is accompanied with a basic implementation of that interface with the Java class com.agencyport.workflow.WorkflowManager that is engaged with no extra configuration. it supports all of the built-in instruction types of generateMessage, statusChange, assign, updateServiceData (refer to the Timeline feature for more information on this type) and updateAPData. The basic implementation for the assign operation assumes that the application's ACSI&#160;ISecurityProfileManager returns an ISecurityProvider implementation that can resolve subject and user group lookup request by login id and group name respectively.</p>
+        <p>Custom instructions can be configured, which the base implementation will silently ignore. Applications must extend the base class to support the carrying out of custom instructions. To make your custom workflow manager known to the system, this is done via an attribute on the connectors level:</p><pre class="prettyprint"><p>&lt;connectors type="process" workflowManagerClassName=”test.agencyport.workflow.CustomWorkflowManager”&gt;
+    &lt;connector id="generalInfo_Page" type="XARC" &gt;
+		&lt;xarcRules id="X1" ruleLibraryId="generalInfo" /&gt;
+	&lt;/connector&gt;
+     
+    &lt;instruction id="I1" type="custom" &gt;
+		&lt;when connector="generalInfo_Page" /&gt;
+		&lt;customParameters&gt;&lt;![CDATA[custom configuration goes here]]&gt;&lt;/customParameters&gt;
+    &lt;/instruction&gt;
+     
+&lt;/connectors&gt;</p></pre><pre class="prettyprint"><p>package test.agencyport.workflow;
+     
+import org.jdom.Element;
+     
+import com.agencyport.connector.model.Instruction;
+import com.agencyport.workflow.WorkflowContext;
+import com.agencyport.workflow.WorkflowException;
+import com.agencyport.workflow.WorkflowManager;
+import com.agencyport.workitem.model.IWorkItem; /**
+ * The CustomWorkflowManager class illustrates how to extend the basic workflow manager
+ * class to support a custom instructions.
+ */
+public class CustomWorkflowManager extends WorkflowManager {
+	/* (non-Javadoc)
+	 * @see com.agencyport.workflow.WorkflowManager#carryOutCustom(com.agencyport.connector.model.Instruction)
+	 */
+	@Override
+	public void carryOutCustom(Instruction instruction) throws WorkflowException {
+		// We really don't do anything in this example but show how to
+		// get around.
+		Element instructionElement = instruction.getMetaData(); // the sky is the limit in terms of what can be configured on the &lt;instruction&gt;
+		Element customParameters = instructionElement.getChild("customParameters");
+		String value = customParameters.getText(); // extract custom parameter value
+     
+		WorkflowContext context = this.getContext();
+		IWorkItem workItem = context.getWorkItem();
+     
+		// Here we update the work item only and leave the database update to the framework.
+		workItem.setPropertyValue("custom_Property", value);
+     
+    }
+     
+}</p></pre>
+        <div class="MCMiniTocBox_0">
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Workflow Management Database Updates.htm">Workflow Management Database Updates</a>
+            </p>
+        </div>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

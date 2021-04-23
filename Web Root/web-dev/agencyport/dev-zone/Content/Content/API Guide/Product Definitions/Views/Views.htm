@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Views</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Product Definitions/Views/Views.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Views</span>
+        </div>
+        <h1>Views</h1>
+        <p>Views are used to support complex relationships when there is not a one-to-one relationship between a field on the screen and a target in the data store.</p>
+        <p>The default SDK&#160;data engine is good at processing XML values when there is a one-to-one relationship between what is rendered on the page and the underlying representation in the XML. However, there are several cases where this one to one relationship does not fit.</p>
+        <ul>
+            <li value="1">For coverage limits, combined single limits and splits are rendered with one page artifact, but can have up to four potential spots in the XML that need processed to render a compliant ACORD structure. In short, if you pick a CSL, then the split limits need to be deleted and visa versa since they are typically treated as mutually exclusive entities.</li>
+            <li value="2">For code value, code descriptions are combined as a single item in a select list. The underlying ACORD&#160;structure treats them as two discreet element values. </li>
+            <li value="3">Roster display lines are something defined where a single column on a roster line should be composed of the aggregation of several atomic values delimited with various static characters. For instance, an address is typically composed of an address line, city, state and zip code.</li>
+            <li value="4">There are cases where an empty value from the page should actually trigger a delete of an XML element hierarchy rather than just store an empty value in the XML element value. Examples of this scenario are ACORD&#160;coverages. Typically, there is an option list selection, such as Select One, or an empty edit value that really means to delete the coverage altogether.</li>
+            <li value="5">Other cases where the relationship between the value associated with the visual rendering and the underlying XML representation in the underlying data model is a one to many relationship. The use of the Agencyport XML schema typically exacerbates this issue.</li>
+        </ul>
+        <p>You can accomplish the processing of each of these scenarios by writing custom code on both the display and process side. The SDK&#160;supports a view layer infrastructure on top of the underlying XML framework that accomplishes the same goals; thereby, reducing the number of times a developer must turn to custom code.</p>
+        <p class="subheading">Additional Information About Views</p>
+        <p>For a view-based TDF field on a roster page to inherit the appropriate index management state on both the display and process sides, the TDF&#160;field element id attribute value must begin with the roster source as its base, as follows:</p><pre class="prettyprint"><p>&lt;page id="vehicle" source="PersAutoLineBusiness.PersVeh" title="Vehicles" type="roster" forceViewOnUpload="true" &gt;
+
+        &lt;pageElement type="fieldset" legend="Safety Features" id="safetyFeaturesMA"&gt;
+            &lt;fieldElement type="selectlist" id="PersAutoLineBusiness.PersVeh.AntiTheftDeviceInfo[AntiTheftDeviceCd='Y']" label="Anti-Theft Devices"
+                                  viewId="personalAutoViews.xml:PersonalAuto.AntiTheftDevice" required="true" defaultValue="" &gt;
+                &lt;optionList reader="xmlreader" source="codeListRef.xml" target="selectOne"/&gt;
+                &lt;optionList reader="xmlreader" source="codeListRef.xml" target="boolean"/&gt;
+            &lt;/fieldElement&gt;
+    &lt;/pageElement&gt;
+
+&lt;/page&gt;</p></pre>
+        <p>Views and special field helpers are mutually exclusive from a product standpoint. However, special field helpers can programmatically call view methods, as follows:</p><pre class="prettyprint"><p>/* (non-Javadoc)
+     * @see com.agencyport.widgets.SpecialFieldHelper#setSpecialDisplayFieldValue(com.agencyport.html.elements.BaseElement, java.lang.String, com.agencyport.widgets.SpecialFieldHelper.FieldInfoEntry)
+     */
+    protected void setSpecialDisplayFieldValue(BaseElement baseEl, String xpathToForeignAggregate, FieldInfoEntry fieldInfoEntry) {
+            
+        String value = getDefaultValueForDisplay();
+        String leased = apData.getFieldValue(ElementPathExpression.buildNextElementPath(xpathToForeignAggregate, "LeasedVehInd"), "0");
+        
+        try {
+            if (leased.equals("0")) {
+                value = getDateView().read(apData, null, getDefaultValueForDisplay(), xpathToForeignAggregate + ".PurchaseDt");            }
+            else {
+                value = getDateView().read(apData, null, getDefaultValueForDisplay(), xpathToForeignAggregate + ".LeasedDt");            }
+        }
+        catch (APException apEx){} // eat for now
+        baseEl.setValue(value);
+    }    
+    
+    /**
+     * Retrieve the data format view class
+     * @return
+     */
+    private static IView getDateView(){
+        return  ViewRepository.getView("commonViews.xml:DateFormatter");    }</p></pre>
+        <h2>Types of Views</h2>
+        <ul>
+            <li value="1">Standard
+				<ul style="list-style-type: circle;"><li value="1">Standard</li><li value="2">Aggregate Exists Boolean - used with fields not stored in the data store when a boolean false is selected.</li><li value="3">Remarks - used to store remarks with a reference to a foreign aggregate.</li><li value="4">Date Format - used to store a date in the ACORD&#160;format (YYYY-MM-DD) and read the date back to the screen format.</li><li value="5">Custom - coded by a developer when none of the provided views will satisfy a requirement.</li></ul></li>
+            <li value="2">Mutually Exclusive - views that require data to be stored in multiple locations in the XML document.
+				<ul style="list-style-type: circle;"><li value="1">Standard</li><li value="2">Custom - coded by a developer when none of the provided views will satisfy a requirement.</li></ul></li>
+            <li value="3">Display
+				<ul style="list-style-type: circle;"><li value="1">Standard</li><li value="2">Custom - coded by a developer when none of the provided views will satisfy a requirement.</li></ul></li>
+        </ul>
+        <div class="MCMiniTocBox_0">
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="View File.htm">View File</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Example View File.htm">Example View File</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Adding a View in TK.htm">Adding a View in Toolkit</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Importing a View Collection in TK.htm">Importing a View Collection in Toolkit</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Renaming a View Collection in TK.htm">Renaming a View Collection in Toolkit</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Deleting a View Collection in TK.htm">Deleting a View Collection in Toolkit</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Exporting a View Collection in Toolkit.htm">Exporting a View Collection in Toolkit</a>
+            </p>
+        </div>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

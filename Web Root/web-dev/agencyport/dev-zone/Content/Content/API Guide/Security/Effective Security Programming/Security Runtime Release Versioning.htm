@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Security|Effective Security Programming">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Security Runtime Release Versioning</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Security/Effective Security Programming/Security Runtime Release Versioning.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Security.htm">Security</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Effective Security Programming.htm">Effective Security Programming</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Security Runtime Release Versioning</span>
+        </div>
+        <h1>Security Runtime Release Versioning</h1>
+        <p>This section outlines changes to the core security library since AgencyPortal 4.0. Depending on the version of the&#160;SDK that your application is based on, these details may impact the specific techniques outlined in the step-by-step guide:</p>
+        <ul>
+            <li value="1">The <b style="font-style: italic;">com.agencyport.security.credentials.CookieAgent</b> class was promoted to the core security library. It was originally packaged as part of the security reference library. There was no change to the public interface.</li>
+            <li value="2">The <b style="font-style: italic;">com.agencyport.security.credentials.CredentialsAgency</b> class in the core security library became a concrete, instantiable class. All methods previous found in the com.agencyport.security.credentials.BuiltinCredentialsAgent class from the security reference library were promoted to this class to make the class in the security reference a shell of its former self.</li>
+            <li value="3">Much of the functionality that was originally part of the <b style="font-style: italic;">com.agencyport.security.profile.builtin.BuiltinSecurityProfileManager</b> class in the security reference component was either promoted up to the <b style="font-style: italic;">com.agencyport.security.profile.SecurityProfileManager</b> or to a new brand class in apwebapp.jar called <b style="font-style: italic;">com.agencyport.security.profile.builtin.PortalSecurityProfileManager</b>. Depending on which version of the SDK&#160;you are using, this will impact which base profile manager class you will extend from.</li>
+        </ul>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

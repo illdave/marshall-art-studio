@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Localization of AgencyPortal Product Definitions</title>
+        <link href="../../../../Resources/TableStyles/Example Table.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Product Definitions/Localization of AP Product Def/Localization of AgencyPortal Product Definitions.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Localization of AgencyPortal Product Definitions</span>
+        </div>
+        <h1>Localization of AgencyPortal Product Definitions</h1>
+        <p>This section reviews the steps an application team must take to prepare an application for a locale other than US English. Before embarking on such an endeavor, the application team needs to take into consideration the following best practices and guidelines:</p>
+        <ol>
+            <li value="1">Take the time to fully read and understand the DevZone document (<span style="color: #ff0000; font-weight: bold;">[link to Resource Bundles section]</span>). </li>
+            <li value="2">Use the approved Eclipse plug-in specifically designed for editing resource bundle content when editing property based resource bundle entries. You can download this plug-in <a href="http://sourceforge.net/projects/eclipse-rbe/">here</a>. All of the core base resource bundles of the framework, as well as those for the Spanish translation of the personal auto LOB template were authored using this valuable plug-in.</li>
+            <li value="3">Place any application properties relating to localization into its own private properties file. The LOB&#160;templates use a properties file called localization.properties. The following application properties should be included:
+				<ul><li value="1">local.resource_bundle_paths</li><li value="2">local.local_emulation</li><li value="3">application.is_locale_aware - see the write up on this in the Configuration section (<span style="color: #ff0000; font-weight: bold;">[link to Resource Bundles section]</span>)</li><li value="4">the resource bundle map, which links the product artifacts to their respective base resource bundles
+		            <br /><table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0"><col class="TableStyle-Example_Table-Column-Column1" /><tbody><tr class="TableStyle-Example_Table-Body-Body1"><td class="TableStyle-Example_Table-BodyA-Column1-Body1"><p class="exampleheader">EXAMPLE:</p><p class="example">The following is an example of such a properties file:</p><pre class="prettyprint"><p class="example">################################################################################ # localization.properties
+		# Properties specific to localization. ################################################################################
+		################################################################################ # Resource Bundle Path
+		# A semi-colon delimited paths which will be searched when a resource bundle
+		# is being requested. ################################################################################ spanish_root=C:/tomcat6/webapps/pompey/web/WEB-INF/resource_bundles/es locale.resource_bundle_paths+=C:/Projects/sdk/apresources/resource_bundles/es;\ ${spanish_root}
+		################################################################################ # Locale emulation
+		# format is &lt;language code&gt;,&lt;country code&gt;,&lt;variant string&gt; ################################################################################ locale.locale_emulation=
+		################################################################################ # Locale awareness flag defaults to false. Once turned on an application will
+		# begin to pick up resource bundle translations for product definitions ################################################################################ application.is_locale_aware=true
+		################################################################################
+		# Resource bundle cache parameters pertain to all resource bundles including
+		# those that are part of the core product, product definition oriented ones,
+		# and any the application adds. Do not change the defaults as they are helpful
+		# in communicated what the system defaults the values to when missing. ################################################################################ resource_bundle_cache_max_size_system_default=20 resource_bundle_cache_max_size=${resource_bundle_cache_max_size_system_default} resource_bundle_cache_age_in_minutes_system_default=30 resource_bundle_cache_age_in_minutes=${resource_bundle_cache_age_in_minutes_system_default}
+		###################################################################
+		# Resource bundle map ################################################################### #rb-map.properties auto generated by com.agencyport.locale.ResourceBundleGenerator #Wed Aug 25 10:44:54 EDT 2010
+		pageLibrary.AUTO=pageLibrary_AUTO behavior.persautoBehaviors.xml=behavior_persautoBehaviors_xml tdf.endorsePersauto=tdf_endorsePersauto xarcRule.agencyApplicantInformation=xarcRule_agencyApplicantInformation optionList.persautoCodeListRef.xml=optionList_persautoCodeListRef_xml optionList.codeListRef.xml=optionList_codeListRef_xml optionList.persLinesCodeListRef.xml=optionList_persLinesCodeListRef_xml tdf.persautoQuickQuote=tdf_persautoQuickQuote tdf.renewPersauto=tdf_renewPersauto
+		tdf.persauto=tdf_persauto</p></pre></td></tr></tbody></table></li></ul></li>
+            <li value="4">The translation effort (constructing the other language translation of the US English entities) should be deferred as long as possible until an application is stable with regards to the following:
+            	<ul><li value="1">The configuration and content of product artifacts (TDF, page libraries, XArc rules, option lists) is well-established and not subject to large scale change.</li><li value="2">The identity attribute values across the various entities are well-established and not subject to wholesale future changes.
+            	<br />In general, the more volatile a set of product definition entities are (concerning their identity and their placement in the transaction workflow), the larger the effort to synchronize existing localized content.</li></ul></li>
+            <li value="5">Before running the resource bundle generator utility, ensure each of the following has first been carried out:
+				<ul><li value="1">For any field element not having a unique id, assign a short and yet meaningful unique id to those field elements. Unique ids for fields need to be unique within an artifact. Internally, these unique ids partially compose a resource bundle entry key, which is used to access the resource bundle value. Since resource bundle keys are really nothing more than an application property key, the key cannot contain any '=' characters. <b>Any transaction with one or more unique ids containing XPath predicates must be refactored so that the unique ids do not contain such predicates. The refactoring could have a cascading effect on any existing DTR behaviors or other custom code written against such fields</b>.</li><li value="2">Assign a meaningful id to every field set that has a legend.</li><li value="3">Any validations and corrections with custom messaging must be assigned a meaningful id value.</li><li value="4">Every XArc message must be assigned a meaningful id value.</li></ul></li>
+            <li value="6">After the resource bundle generator utility has run, examine the output of the resource bundle generator utility to ensure that neither system generated GUIDs or null values have made their way into the resource bundle entry keys. The presence of either indicates the operations described in the previous step were not thorough. The following are examples of the types of output that must be addressed before a translation effort can be embarked upon:
+				<ul><li value="1">An XArc rule example where there is no id on the message element:
+				<br /><pre class="prettyprint"><p>MultiStateRule_field.null=Using Field - This is a multistate policy</p></pre></li><li value="2">A TDF&#160;field of type message where a GUID id is rendering because the field element does not have an explicit one:
+				<br /><pre class="prettyprint"><p>AACF455EECFA6EA8828A4D20997F08540A.message=Please enter the previous address if
+the time at current residence is less than 3 years.</p></pre></li></ul></li>
+            <li value="7">After you've started the translation effort, additional product definition entries may need to be introduced into an artifact. Rerunning the resource bundle generator tool allows you to pick up the translations of existing content. The resultant resource bundles should contain the localized content for the old entities and un-localized (US English) content for the newly introduced entities.</li>
+            <li value="8">If the identities of any entities have changed, the related resource bundle entries must be adjusted manually. The task to move content registered under one key in an old resource bundle to its new key in a new resource bundle is a manual one.</li>
+            <li value="9">If product entity deletions are committed, then rerun the utility to remove the associated entries from the resource bundles.</li>
+            <li value="10">Localization of 3.x Arc Rule messaging is not supported.</li>
+        </ol>
+        <p>Other important items to note:</p>
+        <ul>
+            <li value="1">The <code>application.is_locale_aware</code> boolean application property controls whether the page subsystem attempts to render localized content. The property defaults to <i>false</i>, so it must be set to <i>true</i> to trigger the access of localized content. Even if an application's product definitions are configured with all of the correct localized resource bundles, the framework will ignore any attempts to use such resource bundles when this flag is <i>false</i>.</li>
+            <li value="2">Each product artifact resource, TDF, page library, option list, XArc rule and DTR behavior have an associated base resource bundle name. The construct used to draw the relationship between a product artifact resource and its base resource bundle name is the resource bundle map. The resource bundle generating utility creates the resource bundle map. However, the responsibility of adding that map into the application properties (<b>localization.properties</b>) is that of the developer.</li>
+            <li value="3">The framework uses a technique called <i>key inferencing</i> for relating the various page, option list, rule, and behavior entities to their respective resource bundle entries. This design allows for the complete separation of product artifact content from the localization of that content. As a result, the product artifacts are free from any additional decorations that are local oriented. The key inferencing algorithm uses the entity id values partly to build the keys for accessing localized content entry from the resource bundle.</li>
+        </ul>
+        <div class="MCMiniTocBox_0">
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Localizing Your Content.htm">Localizing Your Content</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Index.htm">Index</a>
+            </p>
+        </div>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

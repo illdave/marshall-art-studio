@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Referential Integrity</title>
+        <link href="../../../../../Resources/TableStyles/Basic Table Type.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../../Default.htm#Content/API Guide/Product Definitions/Advanced Data Management/Referential Integrity/Referential Integrity.htm">Open topic with navigation</a>
+        </p>
+        <h1>Referential Integrity</h1>
+        <p>It is preferable to package referential integrity logic as a special field helper. You can configure this by creating a hidden field element with an id that matches one of the special field helper screen ids. You must override the display and update methods to do nothing and override the deleteForeignAggregate() method and recoverForeignAggregate if the application supports recovery.</p>
+        <p>To integrate your special field helpers with the framework so the display, update and delete functions automatically invoke, make sure the following characteristics of your special field helper pervades.</p>
+        <h2>Characteristics of a Conformant Special Field Helper</h2>
+        <p>The following are the characteristics of a conformant special field helper:</p>
+        <ol>
+            <li value="1">You must register the class as one of the class names in the application properties under the special_field_helper_repository property.
+        	<br /><pre class="prettyprint"><p># The following semi colon delimited list provides all of the special field helper
+# Java class names across the entire application to the special field helper factory which comply with the new special field helper model
+special_field_helper_repository=com.agencyport.custom.persauto.LeasedPurchaseDateFieldHelper;\
+com.agencyport.custom.persauto.OtherStateLicenseFieldHelper</p></pre></li>
+            <li value="2">You must register the name of the special field helper factory as one of the boot_service_providers in the application properties.
+<br /><pre class="prettyprint"><p>boot_service_providers=\
+com.agencyport.html.elements.HTMLTemplateManager;\
+com.agencyport.html.optiongen.OptionProviderManager;\
+com.agencyport.trandef.TransactionDefinitionManager;\
+com.agencyport.domXML.web.APDOMFactoryManager;\
+com.agencyport.connector.ConnectorProcessor;\
+com.agencyport.conditionalDisplay.ConditionalDisplayProcessor;\
+com.agencyport.pdf.PDFLicenseManager;\
+com.agencyport.widgets.SpecialFieldHelperFactory</p></pre></li>
+            <li value="3">The class must inherit from com.agencyport.widgets.SpecialFieldHelper (not just BaseHelper).</li>
+            <li value="4">The class must have a default empty constructor.</li>
+            <li value="5">The class cannot accept any instance level state beyond what is passed by the com.agencyport.widgets.BaseHelper.init() method.</li>
+            <li value="6">The class must conform to the following public method signatures and not use other public instance methods other than what is exposed by the SpecialFieldHelper base class to support the notions of display, update, delete or recover:
+        <br /><table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Basic Table Type.css');" class="TableStyle-Basic_Table_Type" cellspacing="0"><col class="TableStyle-Basic_Table_Type-Column-Column1" /><col class="TableStyle-Basic_Table_Type-Column-Column1" /><tbody><tr class="TableStyle-Basic_Table_Type-Body-Body1"><td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1" style="font-weight: bold;">public void setSpecialDispalyFields(Page) for the display side</td><td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">A well designed special field helper implements the protected void setSpecialDisplayFieldValue(BaseElement baseEl, String xpathToForeignAggregate, FieldInfoEntry fieldInfoEntry) and does not override this method accepting its implementation.</td></tr><tr class="TableStyle-Basic_Table_Type-Body-Body1"><td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1" style="font-weight: bold;">public void prepareForUpdate(int dataAccessType) for update preparation</td><td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">This method was added as part of the canonical API to give special field helpers a change to acquire additional state from APDataCollection before the APDataCollection is updated by the framework.</td></tr><tr class="TableStyle-Basic_Table_Type-Body-Body1"><td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1" style="font-weight: bold;">public void updateForeignAggregate() for update</td><td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">You can override this method, but other public methods to perform the updated should not be present.</td></tr><tr class="TableStyle-Basic_Table_Type-Body-Body1"><td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1" style="font-weight: bold;">public void deleteForeignAggregate() for delete</td><td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">You can override this method, but other public methods to perform the delete should not be present. Special field helpers that manage data entries, which are not truly foreign, should provide an empty implementation.</td></tr><tr class="TableStyle-Basic_Table_Type-Body-Body1"><td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1" style="font-weight: bold;">public postDeleteAggregate() for post delete</td><td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">This is a placeholder and called by the framework after the action delete on APDataCollection is carried out.</td></tr><tr class="TableStyle-Basic_Table_Type-Body-Body1"><td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1" style="font-weight: bold;">public void recoverForeignAggregate(ElementPathExpression) for recovery</td><td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">You must override this method to provide an invocation point for recovery of foreign aggregates.</td></tr><tr class="TableStyle-Basic_Table_Type-Body-Body1"><td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1" style="font-weight: bold;">public void onRecoverParentAggregate (ElementPathExpression, ElementPathExpression) for recovery when the parent of what is being recovered must itself be recovered</td><td class="TableStyle-Basic_Table_Type-BodyA-Column1-Body1"><p>You can override/extend this method. The base implementation supports the situation when an aggregate is recovered, but the parent that it used to be hung onto current document is also deleted and is not currently present. This assumes that the parents is recovered, including all siblings of the intended aggregate as a precondition. </p><p>The default SDK&#160;implementation deletes all of the siblings of the aggregate that is the target of the recovery action. A limitation of this default implementation is that it only supports recovery situations when the recovered parent is a direct parent of the target aggregate and not a grandparents or great grandparent of some sort. This method is called conditionally bt the SDK&#160;only in situations when the parent of the intended aggregate is recovered and not called when the parentage is already intact. If this method is invoked, the recoverForeignAggregate() method is invoked.</p></td></tr></tbody></table></li>
+            <li value="7">The order of special field helper invocation is considered immaterial if multiple special field helpers are configured for a given TDF page; none of the those special field helpers can depend on the order in which they are invoked by the SDK.</li>
+            <li value="8">The special field ids used in the TDF directly corresponds with the special field ids registered in the SpecialFieldHelper.FieldInfoEntry table of the related special field helper derived class. The special field ids in the TDF have corresponding screen field ids in the FieldInfoEntry map of the special field helper class. Screen field ids within a special field helper must not only be unique for a page, but across the entire application scope. Make every attempt to ensure your special field helpers are compliant with the above characteristics so that you can retire the APCommand based custom code that invokes these classes. The following invocation sequence rules apply after you register your special field helper with the framework in accordance with the above list:
+        	<ul><li value="1">On display, the field helpers are engaged after the framework has initialized the base elements for non-special fields and for field supported by views.</li><li value="2">On update, the special field helper's prepareForUpdate() method is engaged before the framework has updated APDataCollection from non-special fields and for fields supported by views.</li><li value="3">On update, the special field helper's updateForeignAggregate() method is engaged after the framework has updated APDataCollection from non-special fields and for fields supported by views.</li><li value="4">On delete, the special field helper's deleteForeignAggregate() method is engaged before the framework has deleted the aggregate on APDataCollection.</li><li value="5">On delete, special field helper's postDeleteAggregate() method is engaged after the framework has deleted the aggregate on APDataCollection.</li><li value="6">On recover, the special field helpers recoverForeignAggregate() method is engaged after the framework has recovered the main aggregate on the APDataCollection from the original document view and copied to the current document view.</li></ul></li>
+        </ol>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

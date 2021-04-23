@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Security|Effective Security Programming|ASCI Step-by-Step Guide">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Extending the Security Profile Manager</title>
+        <link href="../../../../Resources/TableStyles/Important Table.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/Best Practice Table.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/Basic Table Type.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/Note Table.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Security/Effective Security Programming/Security Profile Manager.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Security.htm">Security</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Effective Security Programming.htm">Effective Security Programming</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Extending the Security Profile Manager</span>
+        </div>
+        <h1>Extending the Security Profile Manager</h1>
+        <h2>Inflating the Security Model</h2>
+        <p>The security profile manager provides the mechanism for authenticating the user, inflating the security profile during an SSO&#160;handshake, as well as persisting the security profile to session. The security profile manager also serves as the single point for the acquisition of security provider instances.</p>
+        <p>The version of the AgencyPortal SDK with which you are working with dictates which class to extend from. You should follow the following best practices:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Best Practice Table.css');" class="TableStyle-Best_Practice_Table" cellspacing="0">
+            <col class="TableStyle-Best_Practice_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Best_Practice_Table-Body-Body1">
+                    <td class="TableStyle-Best_Practice_Table-BodyA-Column1-Body1">
+                        <p class="bestpracticeheader">BEST&#160;PRACTICE</p>
+                        <p class="bestpractice">For versions 4.2.102 and greater, extend the <i>com.agencyport.security.profile.builtin.PortalSecurityProfileManager</i> class from apwebapp.jar. </p>
+                        <p class="bestpractice">For any earlier versions, extend the <i>com.agencyport.security.profile.impl.SecurityProfileManager</i> class found in the core security library.</p>
+                        <p class="bestpractice"><b>DO&#160;<u>NOT</u> extend the BuiltinSecurityProfileManager class found in the security reference library.</b>
+                        </p>
+                        <p class="bestpractice">If you are on a version of the SDK prior to 4.2.102, you are free to "lift"&#160;some of the methods from the PortalSecurityProfileManager class into your own manager class to satisfy the contract of the interface.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The sample implementation for this component is located in the samples security jar as follows:</p>
+        <p>
+            <img src="../../../../Resources/Images/securitysamples_carriersecurityprofilemanager_561x396.png" style="width: 561;height: 396;" />
+        </p>
+        <p>First, review the factory method for gaining access to security provider instances:</p><pre class="prettyprint"><p>	   private final static ThreadLocalStorage&lt;ISecurityProvider&gt; securityProviderStore = new 
+ThreadLocalStorage&lt;ISecurityProvider&gt;();
+	   public ISecurityProvider getSecurityProvider() {
+			  ISecurityProvider securityProvider = securityProviderStore.get(); 
+			  if ( securityProvider == null ) {
+					 securityProvider = CarrierSecurityProvider.create(); 
+					 securityProviderStore.set(securityProvider);
+			  } 
+			  return securityProvider;
+	  }</p></pre>
+        <p>This particular technique utilizes a thread local data structure so that once a security provider is handed out on a given thread/request, subsequent access results in the same instances handed out. This allows the security provider to hold onto any request state from access to access. As long as the AgencyPortal SDK's security filter is "front ending" all of your application end points (NOTE:&#160;it should be), the security filter will properly clear the thread local storage at the end of the HTTP request's scope.</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Important Table.css');" class="TableStyle-Important_Table" cellspacing="0">
+            <col class="TableStyle-Important_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Important_Table-Body-Body1">
+                    <td class="TableStyle-Important_Table-BodyA-Column1-Body1">
+                        <p class="importantheader">IMPORTANT:</p>
+                        <p class="important">It is important to remember that the security profile manager implementation follows a singleton design pattern, wherein one instance is shared across all threads, which precludes the possibility of adding instance data members to your security profile manager implementation.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Two methods that deserve review are the read subject (readSubject) and the authenticate subject (or login) methods. </p>
+        <p>The document reviews the read subject method first.</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0">
+            <col class="TableStyle-Note_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Note_Table-Body-Body1">
+                    <td class="TableStyle-Note_Table-BodyA-Column1-Body1">
+                        <p class="noteheader">NOTE:</p>
+                        <p class="note">The <b>PortalSecurityProfileManager</b> class has a concrete readSubject implementation. However, if you extend this class, you should automatically override the <b>PortalSecurityProfileManager.readSubject</b> method since it cannot predict the peculiarities of how a subject is represented on an HTTP request in your application.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table><pre class="prettyprint"><p>ISubject readSubject(HttpServletRequest request) 
+			 throws SecurityException;</p></pre>
+        <p>As the method name suggests, the main objective of this method is to inflate a subject instance from the incoming HTTP request, taking into account the various ways a subject might be represented on the request (i.e., Connect5 incoming request or SSO&#160;handshake request). The returned subject instance is considered unauthenticated and is "filled out" only to the extent needed to subsequently authenticate the user. </p>
+        <p>The implementation of this method varies drastically from application to application. The sample implementation's method is a total fabrication, except for the parts that deal with upload writer and URL&#160;pop requests initiated from Connect5. Discern the aspects of the method that are fabricated and those aspects that are not from the comments included in this class. This particular sample method hides the knowledge on how to extract the login id from the request via the <i style="font-weight: bold;">CarrierCookieAgenct.getLoginId()</i> method.</p>
+        <p>The second method of note is the method that is responsible for authenticating the subject. Again, the method you override depends on whether you are extending the <i style="font-weight: bold;">PortalSecurityPorfileManager</i> or the <i style="font-weight: bold;">SecurityProfileManager</i> class. In the sample security profile manager, we are assuming a 4.2.102 SDK or above, hence the implementation of the <i style="font-weight: bold;">authenticateSubject</i> method. If you are using an SDK prior to that, you must implement the login method. </p>
+        <p>The main function of either of these methods is to return the authentication subject filled in with various properties. This subject instance is one stored in the security profile. Your implementation should call your security provider's <b style="font-style: italic;">getSubject()</b> method to do this work.</p>
+        <p>If you are on an SDK version previous to 4.2.102, you must build out the following methods. The following table lists those methods and the potential suggested implementation:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Basic Table Type.css');" class="TableStyle-Basic_Table_Type" cellspacing="0">
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Method</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Suggested Implementation</th>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td style="font-weight: bold;font-style: italic;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">buildProfile</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1"><pre class="prettyprint"><p>public ISecurityProfile buildProfile(ISubject subject)
+			throws SecurityException, AuthenticationFailedException,
+AccountLockedException, PasswordChangeRequiredException { 
+			ISecurityProfile securityProfile = create(); 
+			securityProfile.setSubject(subject);
+			ISecurityProvider securityProvider = getSecurityProvider(); 
+			securityProfile.setRoles(securityProvider.getRoles(subject.getId
+())); 
+securityProfile.setUserGroups(securityProvider.getUserGroups(subject.getId
+())); 
+			return securityProfile;
+}</p></pre>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td style="font-weight: bold;font-style: italic;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">createUnauthenticatedSubject</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1"><pre class="prettyprint"><p>protected static ISubject createUnauthenticatedSubject(String loginId, 
+String unencryptedPassword) throws SecurityException {
+		 SecurityModelFactory factory = SecurityModelFactory.get(); 
+		 return factory.createSubject(loginId, unencryptedPassword);
+}</p></pre>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td style="font-weight: bold;font-style: italic;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">logout</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Lift PortalSecurityProfileManager.logout from version 4.2.102 or above</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td style="font-weight: bold;font-style: italic;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">login</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Lift PortalSecurityProfileManager.login from version 4.2.102 or above</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td style="font-weight: bold;font-style: italic;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">getAgencyConnectUserCredentials</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Lift PortalSecurityProfileManager.getAgencyConnectUserCredentials from version 4.2.102 or above</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td style="font-weight: bold;font-style: italic;" class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">recoverSession</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyA-Column1-Body1">Lift PortalSecurityProfileManager.recoverSession from version 4.2.102 or above</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

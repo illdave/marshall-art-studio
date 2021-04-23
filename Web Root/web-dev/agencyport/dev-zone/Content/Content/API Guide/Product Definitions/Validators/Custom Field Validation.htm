@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition|Validators">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Custom Field Validation</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Product Definitions/Validators/Custom Field Validation.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Validators.htm">Validators</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Custom Field Validation</span>
+        </div>
+        <h1>Custom Field Validation</h1>
+        <p>The ability to create custom field validators allows the application developer to extend the library of built-in validators. Every field validator, built-in or custom, must implement to SDK&#160;Java interface, com.agencyport.fieldvalidation.validators.IValidaor. All of the built-in SDK&#160;validators extend an abstract class <i>com.agencyport.fieldvalidation.validators.BaseValidator</i>.</p>
+        <p>Application groups can also choose to extend this class rather than implement the entire interface from scratch. The BaseValidator class simplifies the Java script generation to some degree and includes an optimized Java script method cache. It also separates the validation invocation into an <i>isValid()</i> method call followed by an error message rendering call when the <i>isValid()</i> returns a <b>false</b>. </p>
+        <p>The following examples detail two different custom field validators:</p>
+        <ul>
+            <li value="1">One fully implements the IValidator interface, although it does not server up client side Java script.</li>
+            <li value="2">The other extends the BaseValidator abstract class in a manner consistent to the build-in SDK validators.</li>
+        </ul>
+        <p>Both sets of source code are located in the src.jar file that is part of the full apwebapp.zip package.</p>
+        <h2>Custom Field Validation Example #1</h2>
+        <p>The following sample code provides an example of a custom validator that handles both SSN and FEIN formats. Internally, it uses the SSN and FEIN&#160;built-in validators based on the section of another field. In some ways, this is a cross-field validation test.</p>
+        <p>Assume the following TDF is configured:</p><pre class="prettyprint"><p>&lt;pageElement&gt;
+    &lt;fieldElement type="selectlist" id="InsuredOrPrincipal[InsuredOrPrincipalInfo.InsuredOrPrincipalRoleCd='Insured'].GeneralPartyInfo.NameInfo.TaxIdentity.TaxIdTypeCd" label="Tax Id Type" required="false" help="" defaultValue=""&gt;
+        &lt;optionList reader="xmlreader" source="codeListRef.xml" target="selectOne"/&gt;
+        &lt;optionList reader="xmlreader" source="codeListRef.xml" target="taxIdType"/&gt;
+    &lt;/fieldElement&gt;
+    &lt;fieldElement type="text" id="InsuredOrPrincipal[InsuredOrPrincipalInfo.InsuredOrPrincipalRoleCd='Insured'].GeneralPartyInfo.NameInfo.TaxIdentity.TaxId" label="Tax Id" required="false" size="14" maxLength="11" defaultValue=""&gt;
+        &lt;validation type="custom"&gt;test.agencyport.validators.FEINandSSNValidator&lt;/validationElement&gt;
+    &lt;/fieldElement&gt;    
+&lt;/pageElement&gt;</p></pre>
+        <p>Assume the following is a fragment in the codeListRef.xml:</p><pre class="prettyprint"><p>&lt;optionList id="taxIdType"&gt;
+    &lt;option enabled="true" value="FEIN"&gt;FEIN&lt;/option&gt;
+    &lt;option enabled="true" value="SSN"&gt;SSN&lt;/option&gt;
+&lt;/optionList&gt;</p></pre>
+        <p>The following is the Java code:</p><pre class="prettyprint"><p>/*
+ * Created on Jun 27, 2006 by norm AgencyPort Insurance Services, Inc.
+ */
+package test.agencyport.validators;
+
+import com.agencyport.fieldvalidation.ValidationContext;
+import com.agencyport.fieldvalidation.ValidationError;
+import com.agencyport.fieldvalidation.ValidationManager;
+import com.agencyport.fieldvalidation.javascript.JavaScriptMethodBodyInfo;
+import com.agencyport.fieldvalidation.javascript.JavaScriptMethodInvocationAndErrorInfo;
+import com.agencyport.fieldvalidation.validators.BaseValidator;
+import com.agencyport.fieldvalidation.validators.IValidator;
+import com.agencyport.html.elements.ValidationElement;
+import com.agencyport.webshared.HTMLDataContainer;
+
+/**
+ * The FEINandSSNValidator class looks at the TaxIdType field in the HTML data
+ * container and decides whether to apply the SSN or FEIN builtin
+ * validator against the current data value. It also makes the Tax Id type
+ * field required if the user entered a tax id. 
+ */
+public class FEINandSSNValidator implements IValidator {
+    
+    private static final String taxIdTypeFieldId = "InsuredOrPrincipal[InsuredOrPrincipalInfo.InsuredOrPrincipalRoleCd='Insured'].GeneralPartyInfo.NameInfo.TaxIdentity.TaxIdTypeCd"; 
+
+    /* (non-Javadoc)
+     * @see com.agencyport.fieldvalidation.validators.IValidator#isStateless()
+     * If a class returns true then the validation framework will cache this instance
+     * and reuse freely and concurrently across threads from that point onward.
+     */
+    public boolean isStateless(){
+        return true;    // We are promising that there is no state managed by this class
+    }
+
+    /* (non-Javadoc)
+     * @see com.agencyport.fieldvalidation.validators.IValidator#validate(com.agencyport.fieldvalidation.validators.ValidationContext)
+     * This is an example of a simple custom validation method since the real validation is done by one of the AgencyPortal's
+     * own builtin validators.
+     */
+    public ValidationError validate(ValidationContext validationContext){
+        HTMLDataContainer dataContainer = validationContext.getHtmlDataContainer();
+        String taxIdType = dataContainer.getStringValue(taxIdTypeFieldId);
+        String taxId = validationContext.getValue();
+        
+        // If the user told us a tax id without telling us the tax id type then the
+        // tax id type now becomes required (dynamically) since we can only
+        // perform the format test once the user has told us the tax id type.
+        if ( !BaseValidator.checkIsEmpty(taxId) &amp;&amp; BaseValidator.checkIsEmpty(taxIdType) ){
+            return new ValidationError("Tax Id Type is required when Tax Id is entered", 
+                    this, 
+                    taxIdType, 
+                    taxIdTypeFieldId, 
+                    "Tax Id Type");
+        }
+        
+        // Determine which builtin validator to dispatch out to. 
+        IValidator formatTaxIdValidator = null;
+        if ( taxIdType.equals("SSN"))
+            formatTaxIdValidator = ValidationManager.acquireBuiltinValidator(IValidator.BUILTIN_SSN_VALIDATOR_TYPE);
+        else    
+            formatTaxIdValidator = ValidationManager.acquireBuiltinValidator(IValidator.BUILTIN_FEIN_VALIDATOR_TYPE);
+        return formatTaxIdValidator.validate(validationContext);
+    }
+    
+    /* (non-Javadoc)
+     * @see com.agencyport.fieldvalidation.validators.IValidator#generateJavaScriptHook(com.agencyport.html.elements.ValidationElement)
+     * Defer to server - NO CLIENT SIDE validation logic provided on this custom class
+     */
+    public String generateJavaScriptHook(ValidationElement validationElement){
+        return null;    // let server side do this
+    }
+
+    /* (non-Javadoc)
+     * @see com.agencyport.fieldvalidation.validators.IValidator#generateJavaScriptInfo(com.agencyport.fieldvalidation.ValidationContext)
+     * Defer to server - NO CLIENT SIDE validation logic provided on this custom class
+     */
+    public JavaScriptMethodInvocationAndErrorInfo generateJavaScriptInfo(ValidationContext validationContext) {
+        return null;
+    }
+
+    /* (non-Javadoc)
+     * @see com.agencyport.fieldvalidation.validators.IValidator#getJavaScriptValidationMethod()
+     * Defer to server - NO CLIENT SIDE validation logic provided on this custom class
+     */
+    public JavaScriptMethodBodyInfo getJavaScriptMethodInfo() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+}</p></pre>
+        <h2>Custom Field Validation Example #2</h2>
+        <p>The following sample code provides an example of a custom validator that handles MASS&#160;driver's license number formats.</p>
+        <p>Assume the following TDF&#160;is configured:</p><pre class="prettyprint"><p>&lt;fieldElement type="text" id="PersAutoLineBusiness.PersDriver.DriverInfo.License[LicenseTypeCd='Driver' &amp;amp;&amp;amp; StateProvCd='MA'].LicensePermitNumber" label="License Number" required="false" size="30" maxLength="30" defaultValue="" groupId="PersAutoLineBusiness.PersDriver.DriverInfo.License[LicenseTypeCd='Driver' &amp;amp;&amp;amp; StateProvCd='MA']"&gt;
+    &lt;validation type="custom"&gt;test.agencyport.validators.MassDriversLicenseNumberValidator&lt;/validation&gt;
+&lt;/fieldElement&gt;</p></pre>
+        <p>The following is what the Java code would look like:</p><pre class="prettyprint"><p>/*
+ * Created on Jul 12, 2006 by norm AgencyPort Insurance Services, Inc.
+ */
+package test.agencyport.validators;
+
+import java.util.Properties;
+
+import com.agencyport.fieldvalidation.ValidationContext;
+import com.agencyport.fieldvalidation.javascript.JavaScriptMethodBodyInfo;
+import com.agencyport.fieldvalidation.javascript.JavaScriptWriter;
+import com.agencyport.fieldvalidation.validators.IValidator;
+import com.agencyport.fieldvalidation.validators.builtin.RegExValidator;
+
+/**
+ * The MassDriversLicenseNumberValidator class validates a MASS driver's license
+ * number.
+ */
+public class MassDriversLicenseNumberValidator extends RegExValidator {
+    /**
+     * The &lt;code&gt;defaultErrorMessageTemplate&lt;/code&gt; is the error message that will be
+     * used if the validation element on this TDF field element does not have a message
+     * attribute to override this.
+     */
+    private static final String defaultErrorMessageTemplate = 
+        "${field_label} must be a recognized Massachusett's driver license format";
+    /**
+     * The &lt;code&gt;massDriversLicenseRegExpressionToMatch&lt;/code&gt; supports both the old
+     * SSN (no dash) format of 'nnnnnnnnn' and the newer system generated numbers that
+     * begin with the letter 'S'.
+     */
+    private static final String massDriversLicenseRegExpressionToMatch = "S|\\d\\d{8}";
+    /**
+     * The &lt;code&gt;requiredLength&lt;/code&gt; is the length test that will be applied regardless
+     * of whether it is the old style or new style license formats.
+     */
+    private static final int requiredLength = 9;
+    /* (non-Javadoc)
+     * @see com.agencyport.fieldvalidation.validators.BaseValidator#getDefaultErrorMessageTemplate(com.agencyport.fieldvalidation.validators.ValidationContext)
+     */
+    protected String getDefaultErrorMessageTemplate(ValidationContext validationContext){
+        return defaultErrorMessageTemplate;
+    }
+    /* (non-Javadoc)
+     * @see com.agencyport.fieldvalidation.validators.BaseValidator#getVariableMapForErrorMessageTemplate(com.agencyport.fieldvalidation.validators.ValidationContext)
+     */
+    protected Properties getVariableMapForErrorMessageTemplate(ValidationContext validationContext){
+        return createStartingMapWithFieldLabelVariable(validationContext);
+    }
+    /* (non-Javadoc)
+     * @see com.agencyport.fieldvalidation.validators.BaseValidator#isValid(com.agencyport.fieldvalidation.validators.ValidationContext)
+     * This generates an error if the value does not pass as a valid MASS drivers
+     * license format.
+     */
+    protected boolean isValid(ValidationContext validationContext) {
+        // Get the data value to test
+        String value = validationContext.getValue();
+        if ( !isEmpty(value)) {
+            // Do a length test and a regular expression test
+            return  value.length() == requiredLength &amp;&amp; 
+                    findPattern(massDriversLicenseRegExpressionToMatch, value);
+        } 
+        else
+            // driver license number must be empty
+            return true;
+    }
+
+    /* (non-Javadoc)
+     * @see com.agencyport.fieldvalidation.validators.BaseValidator#getType()
+     */
+    protected String getType() {
+        return IValidator.CUSTOM_VALIDATOR_TYPE;
+    }
+
+    /* (non-Javadoc)
+     * @see com.agencyport.fieldvalidation.validators.BaseValidator#appendJavaScriptValidationBody(com.agencyport.fieldvalidation.javascript.JavaScriptMethodBodyInfo)
+     * This method is responsible for providing the client Java script for this validation
+     * test. The base class (BaseValidator) creates the function header and ending curly brace.
+     */
+    protected void appendJavaScriptValidationBody(JavaScriptMethodBodyInfo jsmi) {
+        JavaScriptWriter jsw = jsmi.getMethodBodyWriter();
+        jsw.beginLine(1);
+        jsw.addContent(javaScriptIsEmptyTest);
+        jsw.endLine();
+        jsw.beginLine(1);
+        jsw.addContent("return (value.length == ");
+        jsw.addContent(requiredLength);
+        jsw.addContent(") &amp;&amp; (value.search(/");
+        jsw.addContent(massDriversLicenseRegExpressionToMatch);
+        jsw.addContent("/) &gt; -1);");
+        jsw.endLine();
+    }
+    
+    /**
+     * The Java script method name must be unique.
+     * @see com.agencyport.fieldvalidation.validators.BaseValidator#getJavaScriptMethodName()
+     */
+    protected String getJavaScriptMethodName() {
+        return "verifyMassDriversLicenseNumber";
+    }
+  }
+
+
+
+}</p></pre>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

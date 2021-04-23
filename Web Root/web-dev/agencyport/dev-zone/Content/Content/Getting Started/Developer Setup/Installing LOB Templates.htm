@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started|Developer Setup|Release Distribution">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Installing LOB Templates</title>
+        <link href="../../../Resources/TableStyles/Note Table.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/Getting Started/Developer Setup/Installing LOB Templates.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../Getting Started.htm">Getting Started</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Developer Setup.htm">Developer Setup</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Release Distribution.htm">Release Distribution</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Installing LOB Templates</span>
+        </div>
+        <h1>Installing LOB Templates</h1>
+        <p>Template dependencies are not packaged into the archetype. This is to allow developers to selectively include the line of business (LOB)&#160;templates of their choice into the environments. Installing a template is a one-time process. One or more template zip files are pulled down from the repository and then extracted into your project. </p>
+        <p>Perform the following to install and include a LOB template(s):</p>
+        <ol>
+            <li value="1">Reference the lob-install profile that came with your pom.xml. The <code>maven-dependency-plugin</code> lists an <code>artifactItem </code>dependency on commlauto and homeowners by default. You can add/remove other LOBs if needed. Browse the Nexus server to see the available templates.</li><pre class="prettyprint">               &lt;artifactItems&gt;    &lt;!-- you may add multiple LOB's by adding additional artifactItem --&gt; 
+                    &lt;artifactItem&gt; &lt;!-- Please check the AP Maven Repo for available artifacts  --&gt; 
+                         &lt;groupId&gt;com.agencyport.sdk&lt;/groupId&gt;
+                         &lt;artifactId&gt;aptemplates&lt;/artifactId&gt;
+                         &lt;version&gt;5.0-SNAPSHOT&lt;/version&gt;  &lt;!-- Version Name --&gt; 
+                         &lt;classifier&gt;commlauto&lt;/classifier&gt; &lt;!-- LOB Name --&gt; 
+                         &lt;type&gt;zip&lt;/type&gt;
+                         &lt;overWrite&gt;false&lt;/overWrite&gt;
+                         &lt;outputDirectory&gt;${project.basedir}/&lt;/outputDirectory&gt;
+                    &lt;/artifactItem&gt;
+               &lt;/artifactItems&gt;
+</pre>
+            <li value="2">Run the following command from the root of your project:</li>
+            <p class="commandcode">mvn -P lob-install dependency:unpack resources:copy-resources clean</p>
+            <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0">
+                <col class="TableStyle-Note_Table-Column-Column1" />
+                <tbody>
+                    <tr class="TableStyle-Note_Table-Body-Body1">
+                        <td class="TableStyle-Note_Table-BodyA-Column1-Body1">
+                            <p class="noteheader">NOTE:</p>
+                            <p class="note">As part of this process, a <code>lob-markers</code> folder generates. The meta-data within this folder prevents a template, which has already been installed, from being overwritten if the command is run on subsequent occasions. As such, you should commit the <code>lob-markers </code>directory  to your SCM&#160;system.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <li value="3">Refresh your workspace in Eclipse.</li>
+        </ol>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

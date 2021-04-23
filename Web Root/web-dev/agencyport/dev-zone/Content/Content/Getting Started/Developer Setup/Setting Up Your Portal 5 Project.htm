@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started|Developer Setup|Release Distribution">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Setting Up Your Portal 5 Project</title>
+        <link href="../../../Resources/TableStyles/Note Table.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/Getting Started/Developer Setup/Setting Up Your Portal 5 Project.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../Getting Started.htm">Getting Started</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Developer Setup.htm">Developer Setup</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Release Distribution.htm">Release Distribution</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Setting Up Your Portal 5 Project</span>
+        </div>
+        <h1>Setting Up Your Portal 5 Project</h1>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0">
+            <col class="TableStyle-Note_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Note_Table-Body-Body1">
+                    <td class="TableStyle-Note_Table-BodyA-Column1-Body1">
+                        <p class="noteheader">NOTE:</p>
+                        <p class="note">We expect that only one member of the team will go through the setup process and subsequent publish to SVN. Ideally, this should be performed at the start of a project. Team members will check out the project from subversion and import it into Eclipse as a Maven project. Refer to the following procedure for more information: <a href="http://books.sonatype.com/m2eclipse-book/reference/creating-sect-importing-projects.html">Importing Maven Projects</a>.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>SDK&#160;core is distributed as a Maven <a href="http://dictionary.reference.com/browse/archetype">archetype</a>. You can refer to <a href="https://maven.apache.org/guides/introduction/introduction-to-archetypes.html">Introduction to Archetypes</a> on the Maven website for more information; however, in simple terms, think of a Maven archetype as a Getting Started project. We publish this archetype on our Nexus repository. If you do not have access to the Nexus repository, refer to the <a href="Alternate Steps.htm">Alternate Steps: Consuming the Archetype from an FTP&#160;Site</a> topic for more information.</p>
+        <p>Perform the following to consume a published archetype from a command line:</p>
+        <p>(Refer to the <a href="https://maven.apache.org/archetype/maven-archetype-plugin/examples/generate-alternative-catalog.html">Generate Project Using an Alternative Catalog</a> on the Maven website for more information.)</p>
+        <ol>
+            <li value="1">Run the following command:</li>
+            <p class="commandcode">mvn -U archetype:generate -DarchetypeCatalog=http://10.21.39.108:8081/nexus/service/local/repositories/releases/content/archetype-catalog.xml</p>
+            <li value="2">Follow the prompts below to select the 'portal archetype' and configure your new project.
+        	<br />Refer to the <a href="http://maven.apache.org/guides/mini/guide-naming-conventions.html">Guide to naming conventions on groupId, artifactId and version</a> topic on the Maven website for more information on Maven's conventions for naming your new project artifacts.</li>
+            <ol style="list-style-type: lower-alpha;">
+                <li value="1">The first prompt lists the archetypes available in the archetype catalog. Select the archetype named '<code>com:Agencyport.sdk.portal-archetype</code>'.
+                <br /><img src="../../../Resources/Images/Getting Started/Developer Setup Guide/choosearchetype.png" /></li>
+                <li value="2">Provide a group ID for your project. It's a good convention to use a name that matches your project's top-level Java package name. For example, '<code>com.stateauto</code>'.
+            	<br /><img src="../../../Resources/Images/Getting Started/Developer Setup Guide/defineproperty.png" /></li>
+                <li value="3">Provide an artifact ID for your porject. This will be the name of your project. For example, '<code>portal</code>'.
+                <br /><img src="../../../Resources/Images/Getting Started/Developer Setup Guide/defineartifactid.png" /></li>
+                <li value="4">Provide a version number or press Enter to use the default. Refer to the <a href="http://mojo.codehaus.org/versions-maven-plugin/version-rules.html">Maven Version Number Rules</a> topic on the Mojo website for more information.
+                <br /><img src="../../../Resources/Images/Getting Started/Developer Setup Guide/defineversion.png" /></li>
+                <li value="5">Provide a package name or press Enter to use the default:
+                <br /><img src="../../../Resources/Images/Getting Started/Developer Setup Guide/definepackage2.png" /></li>
+                <li value="6">Enter '<code>Y</code>' to confirm. This creates a portal project that is based on our archetype in the current directory.
+           		<br /><img src="../../../Resources/Images/Getting Started/Developer Setup Guide/confirm.png" /></li>
+            </ol>
+        </ol>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

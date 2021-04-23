@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition|Advanced Data Management|ACORD Simplified Programming|ACORD Simplified: A Step by Step Guide|Adjusting the TDF to Use the ACORD Simplified Model|Creating Necessary Transformers to Support ACORD Simplified To/From ACORD Standard Transformations">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Configuring the Transformers Resource</title>
+        <link href="../../../../../Resources/TableStyles/Important Table.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../../Default.htm#Content/API Guide/Product Definitions/Advanced Data Management/ACORD Simp Pgm/Configuring the Transformers Resource.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Advanced Data Management.htm">Advanced Data Management</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Configuring the Transformers Resource</span>
+        </div>
+        <h1>Configuring the Transformers Resource</h1>
+        <p>Configuration is necessary to supply the order and type of the transformation units that you have developed. This configuration falls along LOB boundaries nicely. Each transformer step is executed in the order as it is physically sequenced in the resource. </p>
+        <table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Important Table.css');" class="TableStyle-Important_Table" cellspacing="0">
+            <col class="TableStyle-Important_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Important_Table-Body-Body1">
+                    <td class="TableStyle-Important_Table-BodyA-Column1-Body1">
+                        <p class="importantheader">IMPORTANT:</p>
+                        <p class="important">It is important to point out that for the registration of these transformations to be automatically made, the LOB attribute value on the transformer element must match the LOB on the associated work item's APDataCollection.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The following is a sample the contents in the bop_transfomers.xml:</p><pre class="prettyprint"><p>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;transformers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:noNamespaceSchemaLocation="http://reference.agencyport.com/schemas/4.2/transformer/transformer.xsd" &gt; lob="BOP"&gt;
+		  &lt;transformer name="AP BOP Simplfied ACORD to ACORD standard" type="aggregator" targetFormat="ACORDStandard"
+					&lt;step name="BOP Transformation target - ACORD Standard Step 1" type="XSLT" xsltResourceId="bop_standard_stage_1.xsl" /&gt;
+					&lt;step name="BOP Transformation target - ACORD Standard Step 2" type="XSLT" xsltResourceId="bop_standard_stage_2.xsl" /&gt;
+					&lt;step name="Shared Standard Built-in Transformations" type="link" linkedTo="builtin-standardizations" /&gt;
+		  &lt;/transformer&gt;
+		  &lt;transformer name="ACORD standard to AP BOP Simplfied ACORD " type="aggregator" targetFormat="ACORDSimplified" lob="BOP"&gt;
+					&lt;step name="BOP Transformation target - ACORD Simplified Step 1" type="XSLT" xsltResourceId="bop_simplified_stage_1.xsl" /&gt;
+					&lt;step name="BOP Transformation target - ACORD Simplified Step 2" type="XSLT" xsltResourceId="bop_simplified_stage_2.xsl" /&gt;
+		  &lt;/transformer&gt; 
+&lt;/transformers&gt;</p></pre>
+        <table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Important Table.css');" class="TableStyle-Important_Table" cellspacing="0">
+            <col class="TableStyle-Important_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Important_Table-Body-Body1">
+                    <td class="TableStyle-Important_Table-BodyA-Column1-Body1">
+                        <p class="importantheader">IMPORTANT:</p>
+                        <p class="important">It is important to note the following interesting configuration:</p><pre class="prettyprint"><p class="important">&lt;step name="Shared Standard Built-in Transformations" type="link" linkedTo="builtin-standardizations" /&gt;</p></pre>
+                        <p class="important">This will link to a set of transformations that the product offers out of the box. The functionality that these transformations include are generic and LOB agnostic operations:</p>
+                        <ol>
+                            <ul>
+                                <li class="important" style="margin-bottom: 0;margin-top: 0;" value="1">Removal of the ModInfo.AP_DomainAggregateXPath</li>
+                                <li class="important" style="margin-bottom: 0;margin-top: 0;" value="2">Removal of the saved_xxxxxxx attributes</li>
+                                <li class="important" style="margin-bottom: 0;margin-top: 0;" value="3">Removal of empty aggregates</li>
+                            </ul>
+                        </ol>
+                        <p class="important">Changes are your trading partners will not want to receive any of the above content.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The transformation processing units and the transformers XML&#160;resource are stored in the system, such as the following:</p>
+        <p>
+            <img src="../../../../../Resources/Images/transformers.jpg" />
+        </p>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

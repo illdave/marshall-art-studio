@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition|Connectors">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>JSR94 Connector Manager</title>
+        <link href="../../../../Resources/TableStyles/Note Table.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/Basic Table Type.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Product Definitions/Connectors/JSR94 Connector Manager.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Connectors.htm">Connectors</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">JSR94 Connector Manager</span>
+        </div>
+        <h1>JSR94 Connector Manager</h1>
+        <p>This section refer to a connecter specifically created to use with rules engines that comply with the JSR94 specification, and it is:</p>
+        <ul>
+            <li value="1">A generic adapter between the Agencyport ConnectorManager interface and any JSR94 based rules engine</li>
+            <li value="2">It supports the JSR94 notion of both local and remote rule execution sets</li>
+        </ul>
+        <p>To engage a JSR94 based rule engine for a given step, you must provide a reference to this class in the connectorConfigFile.xml as follows:</p><pre class="prettyprint"><p>&lt;transaction id="personalAuto"&gt;
+    &lt;page id="generalInfo"&gt; 
+        &lt;connector stepId="step1"&gt;
+            &lt;connectorManagerClassName&gt;com.agencyport.connector.jsr94.JSR94ConnectorManager&lt;/connectorManagerClassName&gt;
+        &lt;/connector&gt;
+    &lt;/page&gt;
+&lt;/transaction&gt;</p></pre>
+        <p>There are a number of runtime parameters needed to create a rule provider, optionally register a rule execution set, establish a rule session, build the correct object list for the rule set, execute the rule set and process the output for a given step. For JSR94 base connector steps, the &lt;connector&gt; XML element in the configuration file contains a &lt;jsr94Info&gt; sub-element, which can specify many of the runtime parameters. </p>
+        <p>The following table lists the XML&#160;attributes that designates these various runtime parameters. It is also important to note that if certain attributes are missing, that their values can also be read from the properties file. The latter technique can be used for those runtime parameters that are common to multiple JSR94 connector steps; thereby minimizing the need to recode redundant parameters:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Basic Table Type.css');" class="TableStyle-Basic_Table_Type" cellspacing="0">
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Element Name</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Description</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Valid Values</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Sample Values</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Property Item Used if Missing</th>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">rule_service_provider_name</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Designates the Java class name in the vendor rules engine that implements the RuleServiceProvider interface.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Any valid Java class name that implements the JSR94 RuleServiceProvider interface</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">com.yasutech.
+qrules.QuickRulesRuleServiceProvider</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">default_ rule_service_provider_name</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">execution_mode</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Determines whether a LocalRuleExecutionSetProvider or a RuleExecutionSetProvider is used to create the rule execution set.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <ul>
+                            <li value="1">local</li>
+                            <li value="2">remote</li>
+                        </ul>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">local or remote</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">
+                        <p>default_execution_mode</p>
+                        <p>If this is missing as well, then a default of local is used</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">rule_set_uri</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Uniquely identifies the rule set for this connector setup.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">The format is typically dictated by the specific rule engine vendor</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">personalAuto.genericlInfo</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">N/A</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">rule_set_image_directory</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">The directory where rule set images are stored. This, along with the rule set image, will construct a full path name .This parameter is typically expressed as a property item.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">A vaid file name</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">C:\myrules\</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">default_rule_set_image_directory</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">rule_set_image</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">This is used to identify the file name associated with a rule execution set. The contents of which are totally vendor specific.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">A valid file name</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">data/personalAutoGeneralInfo.xml</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">N/A</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">object_list</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Defines the object reference names that are in the data bundle that should be copied to the input object list. These are the objects that the rule set will operate against. The MessageMap object that is in the data bundle is automatically added as the first object in the object list. Other objects are added in the order in which their names are ordered in this attribute. Multiple object names should be delimited with a comma character.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">ALL&#160;signifies to take all the objects in the data bundle and move them to the object list.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">APDATACOLLECTION,HTML_DATA_CONTAINER</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">default_object_list</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">create_rule_session_prop_directory</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">The directory where the create rule session prop file is stored.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Specific to operating system</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">C:\myrules\props</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">default_rule_session_prop_directory</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">create_rule_session_prop_file</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">The property file name that contains any specific vendor rule session creation flags.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">A valid file name</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">quickRules.properties</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">default_create_rule_session_prop_file</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">cache_ruleset_mode</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">This governs whether the ruleset should be cached. This only refers to rulesets that have a rule image attribute. Any other caching that is done is beyond the scope of this component and depends on the caching techniques of the rule engine vendor.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <ul>
+                            <li value="1">cache</li>
+                            <li value="2">dynamic</li>
+                        </ul>
+                        <p>Dynamic is the default if neither is qualified</p>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">cache</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Default_cache_ruleset_mode</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">
+                        <p>Governs the amount of time that cached rule sets are held before they are refreshed. The unit of message for this value is in minutes. </p>
+                        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0">
+                            <col class="TableStyle-Note_Table-Column-Column1" />
+                            <tbody>
+                                <tr class="TableStyle-Note_Table-Body-Body1">
+                                    <td class="TableStyle-Note_Table-BodyA-Column1-Body1">
+                                        <p class="noteheader">NOTE:</p>
+                                        <p class="note">Please note that this parameter can only be set as a property item</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">
+                        <ul>
+                            <li value="1">30</li>
+                            <li value="2">10</li>
+                        </ul>
+                        <p>The default value, if missing, is 30 minutes</p>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyA-Column1-Body1">default_cache_ruleset_timeout_in_minutes</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The following is an example of an actual JSR94 connector step, as prescribed in the configuration file. This particualr one sets up a field validation step for the general info page on the personal auto app:</p><pre class="prettyprint"><p>&lt;page id="generalInfo"&gt;
+    &lt;connector stepId="step1"&gt;
+        &lt;connectorManagerClassName&gt;com.agencyport.connector.jsr94.JSR94ConnectorManager&lt;/connectorManagerClassName&gt;
+        &lt;jsr94Info rule_service_provider_name="com.yasutech.qrules.QuickRulesRuleServiceProvider" execution_mode="local" rule_set_uri="personalAuto.generalInfo" rule_set_image="data/personalAutoGeneralInfo.xml" object_list="APDATACOLLECTION" /&gt;
+    &lt;/connector&gt;
+&lt;/page&gt;</p></pre>
+        <p>After the JSR94ConnectorManager executes the rule set, the following post actions are taken:</p>
+        <ul>
+            <li value="1">The MessageMap is traversed and, for any messages that are marked as errors, the bad field list is updated with the field id associated with that message.</li>
+            <li value="2">The postProcess method returns a true if there are any messages in the message map for the steps marked as error.</li>
+        </ul>
+        <p>There may be situations when the JSR94ConnectorManager's default behavior needs modified. There are several methods that can be overridden to achieve the desired behavior:</p>
+        <ul>
+            <li value="1">getRuleSessionProperties() is called to create a rule session property map specific to a vendor engine. If, for some reason, the default implementation that uses a configured property file is not sufficient, this hook is available.</li>
+            <li value="2">checkForErrorsAndUpdateBadFieldList() is called to traverse the MessageMap and look for any error messages and map the associated field id associated to the bad field list. If this behavior is not desired, this hook can be taken advantage of.</li>
+        </ul>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

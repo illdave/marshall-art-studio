@@ -1,0 +1,341 @@
+/* MadCap Table Style: */
+
+/*<meta Version="9" />*/
+
+mcTableStyle
+{
+	name: Important Table;
+	border-collapse: collapse;
+	max-id: 3;
+	background-color: #ffe4e1;
+}
+
+mcTableColumnStyle
+{
+	span: 1;
+	name: Column1;
+	id: 0;
+}
+
+mcTableHeadStyle
+{
+	span: 1;
+	name: Header1;
+	id: 2;
+}
+
+mcTableBodyStyle
+{
+	span: 1;
+	name: Body1;
+	id: 1;
+}
+
+mcTableFootStyle
+{
+	span: 1;
+	name: Footer1;
+	id: 3;
+}
+
+
+/* Cell Styles: */
+ 
+.TableStyle-Important_Table
+{
+	border-collapse: collapse;
+	background-color: #ffe4e1;
+	border-spacing: 0px 0px;
+}
+
+.TableStyle-Important_Table-Column-Column1
+{
+	
+}
+
+.TableStyle-Important_Table-Head-Header1
+{
+	
+}
+
+.TableStyle-Important_Table-HeadI-Column1-Header1
+{
+	
+}
+
+.TableStyle-Important_Table-HeadI-Column1-Header1 p
+{
+	
+}
+
+.TableStyle-Important_Table-HeadE-Column1-Header1
+{
+	
+}
+
+.TableStyle-Important_Table-HeadE-Column1-Header1 p
+{
+	
+}
+
+.TableStyle-Important_Table-HeadF-Column1-Header1
+{
+	
+}
+
+.TableStyle-Important_Table-HeadF-Column1-Header1 p
+{
+	
+}
+
+.TableStyle-Important_Table-HeadH-Column1-Header1
+{
+	
+}
+
+.TableStyle-Important_Table-HeadH-Column1-Header1 p
+{
+	
+}
+
+.TableStyle-Important_Table-HeadD-Column1-Header1
+{
+	
+}
+
+.TableStyle-Important_Table-HeadD-Column1-Header1 p
+{
+	
+}
+
+.TableStyle-Important_Table-HeadC-Column1-Header1
+{
+	
+}
+
+.TableStyle-Important_Table-HeadC-Column1-Header1 p
+{
+	
+}
+
+.TableStyle-Important_Table-HeadB-Column1-Header1
+{
+	
+}
+
+.TableStyle-Important_Table-HeadB-Column1-Header1 p
+{
+	
+}
+
+.TableStyle-Important_Table-HeadA-Column1-Header1
+{
+	
+}
+
+.TableStyle-Important_Table-HeadA-Column1-Header1 p
+{
+	
+}
+
+.TableStyle-Important_Table-HeadG-Column1-Header1
+{
+	
+}
+
+.TableStyle-Important_Table-HeadG-Column1-Header1 p
+{
+	
+}
+
+.TableStyle-Important_Table-Foot-Footer1
+{
+	
+}
+
+.TableStyle-Important_Table-FootI-Column1-Footer1
+{
+	
+}
+
+.TableStyle-Important_Table-FootI-Column1-Footer1 p
+{
+	
+}
+
+.TableStyle-Important_Table-FootE-Column1-Footer1
+{
+	
+}
+
+.TableStyle-Important_Table-FootE-Column1-Footer1 p
+{
+	
+}
+
+.TableStyle-Important_Table-FootF-Column1-Footer1
+{
+	
+}
+
+.TableStyle-Important_Table-FootF-Column1-Footer1 p
+{
+	
+}
+
+.TableStyle-Important_Table-FootH-Column1-Footer1
+{
+	
+}
+
+.TableStyle-Important_Table-FootH-Column1-Footer1 p
+{
+	
+}
+
+.TableStyle-Important_Table-FootD-Column1-Footer1
+{
+	
+}
+
+.TableStyle-Important_Table-FootD-Column1-Footer1 p
+{
+	
+}
+
+.TableStyle-Important_Table-FootC-Column1-Footer1
+{
+	
+}
+
+.TableStyle-Important_Table-FootC-Column1-Footer1 p
+{
+	
+}
+
+.TableStyle-Important_Table-FootB-Column1-Footer1
+{
+	
+}
+
+.TableStyle-Important_Table-FootB-Column1-Footer1 p
+{
+	
+}
+
+.TableStyle-Important_Table-FootA-Column1-Footer1
+{
+	
+}
+
+.TableStyle-Important_Table-FootA-Column1-Footer1 p
+{
+	
+}
+
+.TableStyle-Important_Table-FootG-Column1-Footer1
+{
+	
+}
+
+.TableStyle-Important_Table-FootG-Column1-Footer1 p
+{
+	
+}
+
+.TableStyle-Important_Table-Body-Body1
+{
+	
+}
+
+.TableStyle-Important_Table-BodyI-Column1-Body1
+{
+	
+}
+
+.TableStyle-Important_Table-BodyI-Column1-Body1 p
+{
+	
+}
+
+.TableStyle-Important_Table-BodyE-Column1-Body1
+{
+	
+}
+
+.TableStyle-Important_Table-BodyE-Column1-Body1 p
+{
+	
+}
+
+.TableStyle-Important_Table-BodyF-Column1-Body1
+{
+	
+}
+
+.TableStyle-Important_Table-BodyF-Column1-Body1 p
+{
+	
+}
+
+.TableStyle-Important_Table-BodyH-Column1-Body1
+{
+	
+}
+
+.TableStyle-Important_Table-BodyH-Column1-Body1 p
+{
+	
+}
+
+.TableStyle-Important_Table-BodyD-Column1-Body1
+{
+	
+}
+
+.TableStyle-Important_Table-BodyD-Column1-Body1 p
+{
+	
+}
+
+.TableStyle-Important_Table-BodyC-Column1-Body1
+{
+	
+}
+
+.TableStyle-Important_Table-BodyC-Column1-Body1 p
+{
+	
+}
+
+.TableStyle-Important_Table-BodyB-Column1-Body1
+{
+	
+}
+
+.TableStyle-Important_Table-BodyB-Column1-Body1 p
+{
+	
+}
+
+.TableStyle-Important_Table-BodyA-Column1-Body1
+{
+	
+}
+
+.TableStyle-Important_Table-BodyA-Column1-Body1 p
+{
+	
+}
+
+.TableStyle-Important_Table-BodyG-Column1-Body1
+{
+	
+}
+
+.TableStyle-Important_Table-BodyG-Column1-Body1 p
+{
+	
+}
+
+

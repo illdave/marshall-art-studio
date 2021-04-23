@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Enhanced DTR Processing</title>
+        <link href="../../../Resources/TableStyles/Example Table.css" rel="stylesheet" />
+        <link href="../../../Resources/TableStyles/Note Table.css" rel="stylesheet" />
+        <link href="../../../Resources/TableStyles/Basic Table Type.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/xxx/Enhanced DTR Processing/Enhanced DTR Processing.htm">Open topic with navigation</a>
+        </p>
+        <h1>Enhanced DTR Processing</h1>
+        <p>Several improvements to the precondition and behavior processors accompany the 5.0 released of the SDK. Many of the improvements were based on feedback from services projects collected over a long period of time since the inception of DTR, circa 2007, with version 3.5. The overall goals of these improvements are to reduce the amount of custom code necessary to support complex preconditions, to reduce the complexity and number of behaviors while maintaining functional parity, improve the DTR development and debugging experience in general and to improve the run time response time and throughput of the DTR page rendering engine.</p>
+        <h2>Improvements to PreCondition Configuration and Synchronization</h2>
+        <p>Since the inception of DTR, preconditions employed an independently managed data schema, access and storage facility from the XML associated with the related work item. Initially, the rationale for this separation was rooted in the assertion that the data values necessary to drive dynamic content were limited to a handful of data entities that could be easily shredded along various points along the transaction workflow. Please remember that previous to the introduction of DTR, applications were fairly limited in their ability to render dynamic content. Unfortunately, this assertion did not play out in the end and this design ultimately led to the following issues:</p>
+        <ol>
+            <li value="1">Precondition data values that were out of synchronization with the related work item XML. The method <b style="font-style: italic;">updatePersistableState</b>() method had to be called in order to synchronize precondition data with the work item XML&#160;data. Application custom code, especially custom connector logic (but not limited), ran into subsequent page rendering issues if updates to the work item XML&#160;were not followed up with explicit calls to this method, leading to developer inefficiencies, frustration and ultimately pressure on both product and services technical support groups.</li>
+            <li value="2">Additional runtime overhead was incurred to support separately managed preconditions data storage. This included additional memory, XML parsing, shredding, cloning and database access time.</li>
+        </ol>
+        <p>To address the above issues, the 5.0 PreConditions subsystem was enhanced to facilitate a mechanism so that preconditions and their related work items could share the same APDataCollection instance reference. This would solve the ubiquitous synchronization issue and give substantial boost to performance by eliminating the extra overhead of memory, reading, writing, parsing, shredding and/or cloning the precondition XML.</p>
+        <p>The conveyance of synchronization intent, as well as other configuration intent, has changed with 5.0 through a set of SDK specific annotations applied to the application's PreCondition extension point class.</p>
+        <h2>Annotations New to the PreConditions Class</h2>
+        <p>Several annotations have been introduced to support various facets of precondition configuration. The application properties based mechanisms used in 3.x/4.x to convey which TDF transactions a preconditions class supports and the XML schema that it uses have been deprecated. The following is the list of annotations that are supported for preconditions:</p>
+        <ul>
+            <li value="1"><b>SynchronizationInfo</b> - conveys which synchronization mode the SDK should employ to maintain preconditions and work item XML synchronization. If this annotation is missing, then the USE_DEFAULT mode is assumed. The following synchronization modes are supported:</li>
+            <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Basic Table Type.css');" class="TableStyle-Basic_Table_Type" cellspacing="0">
+                <col class="TableStyle-Basic_Table_Type-Column-Column1" style="width: 113px;" />
+                <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+                <tbody>
+                    <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                        <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1" style="font-weight: bold;">DIRECT</td>
+                        <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">used to instruct the framework to share the same identical APDataCollection instance between the work item&#160;XML&#160;and precondition instance. This is the most efficient and preferred mode, but requires that the work item XML&#160;and the precondition share the XML schema. Under this mode, updates to preconditions are immediately reflected in the work item XML&#160;and vice versa. Under this mode, the method <b>updatePersistableState</b> becomes unnecessary and, if called, is merely a no-op. By using this mode, the need for a preconditions database table becomes necessary. This is the default mode of synchronization when the work item XML and the preconditions share the same schema.</td>
+                    </tr>
+                    <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                        <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1" style="font-weight: bold;">DYNAMIC</td>
+                        <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">used to instruct the framework to dynamically synchronize the precondition data collection in real time as updates are applied to the work item XML data collection, two independently managed data collection instances. Updates applied to the work item XML are immediately picked up in the preconditions using the <b>com.agencyport.domXML.IFieldAccessMonitor</b> mechanism introduced in 4.2. However, updates made to the preconditions are not transferred to the work item XML. This assumes that the XML schemas that support both the work item XML and the preconditions are compatible, although not the same. Any updates applied to the work item XML that fail when applied to the precondition data collection are ignored. Under this mode, like the mode of&#160;<b>DIRECT</b>, the method <b>updatePersistableState</b> method becomes unnecessary and, if called, is a no-op. This is the default mode of synchronization when the work item XML and the preconditions do NOT share the same schema.</td>
+                    </tr>
+                    <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                        <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1" style="font-weight: bold;">CLONE</td>
+                        <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">used to instruct the framework to clone the work item XML when the <b>updatePersistableState</b> method is called. This assumes that both the work item XML&#160;and preconditions share the same schema. This mode may be appropriate for older applications that overrode <b>updatePersistableState</b> method to avoid the overhead of fine grain shredding or other issues encountered with the 3.x/4.x automatic precondition shredding mechanism. When updating 4.x applications, teams are strongly encouraged to use the <b>DIRECT</b> mode instead of this mode.</td>
+                    </tr>
+                    <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                        <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1" style="font-weight: bold;">SHRED</td>
+                        <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">the closest thing to how synchronization was managed by the 3.x/4.x framework. When upgrading 4.x applications, teams are strongly encouraged to use the <b>DIRECT</b> mode instead of this mode. If <b>DIRECT</b> mode cannot be used because preconditions uses a different schema than the work item XML&#160;DOM, then <b>DYNAMIC</b>&#160;is the next best thing. This mode should be used only as a last resort as a stop gap measure during the process of upgrading a 4.x application to 5.x.</td>
+                    </tr>
+                    <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                        <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1" style="font-weight: bold;">USE_DEFAULT</td>
+                        <td class="TableStyle-Basic_Table_Type-BodyA-Column1-Body1">not really a synchronization mode. This mode merely instructs the framework to select the best fitting mode on its own. The framework will select a realized synchronization mode of <b>DIRECT</b> if the preconditions implementation and work item data collection use the same underlying XML&#160;schema. The framework will select a mode of <b>DYNAMIC</b> if the preconditions implementation and work item data collection use different underlying XML schemas.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>The following are an examples illustrating the use of this annotation:</p>
+            <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+                <col class="TableStyle-Example_Table-Column-Column1" />
+                <tbody>
+                    <tr class="TableStyle-Example_Table-Body-Body1">
+                        <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                            <p class="exampleheader">EXAMPLE 1:</p><pre class="prettyprint"><p class="example">@SynchronizationInfo (mode=SynchronizationMode.USE_DEFAULT)
+public class HomeownersPreConditions extends PreConditions {
+}</p></pre>
+                            <p class="example">In this example, the homeowners precondition class is instructing the framework to decide itself on the best fitting synchronization mode. Since this preconditions class employs the same XML schema s the work item, due to the absence of a <b>SchemaSupported</b> annotation, the framework will select a mode of <b>DIRECT</b>.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+                <col class="TableStyle-Example_Table-Column-Column1" />
+                <tbody>
+                    <tr class="TableStyle-Example_Table-Body-Body1">
+                        <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                            <p class="exampleheader">EXAMPLE 2:</p><pre class="prettyprint"><p class="example">@SynchronizationInfo (mode=SynchronizationMode.DYNAMIC)
+@SchemaSupported("PersonalAutoPreConditions" )
+public class PersonalAutoPreConditions extends PreConditions  {
+}</p></pre>
+                            <p class="example">In this example, the personal auto precondition class is instructing the framework to use a synchronization mode of <b>DYNAMIC</b>. The use of a <b>SchemaSupported</b> annotation prescribes a different XML schema, <b>PersonalAutoPreConditions</b>, used by any of the supported transactions (TDFs) and since that mode of <b>DIRECT</b> cannot be used. Had the application used the USE_DEFAULT mode, the framework would have also selected the <b>DYNAMIC</b>&#160;mode.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </ul>
+        <ul>
+            <li value="1"><b>LOBSupported</b> - The affinity between a precondition class and its supported line(s) of business is conveyed through this annotation. This annotation contains two properties of interested: the lob and the version properties. The lob and version properties are linked to the product.@type and product.@version values in the application's product database, respectively. For all intents and purposes, the type attribute on a product element entry in the product database is the moral equivalent to the LOB designation on related TDFs. For all of the transactions (artifacts of type tdf) within this product type/version combination so designated, a preconditions class is assumed to serve.</li>
+            <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+                <col class="TableStyle-Example_Table-Column-Column1" />
+                <tbody>
+                    <tr class="TableStyle-Example_Table-Body-Body1">
+                        <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                            <p class="exampleheader">EXAMPLE:</p>
+                            <p class="example">This following example illustrates the use of this annotation:</p><pre class="prettyprint"><p class="example">
+@LOBSupported(lob = "AUTOB", version = @Version({5,0,0,0}))
+public class CommlAutoPreConditions extends PreConditions {
+}</p></pre>
+                            <p class="example">Assuming the following product database configuration:</p><pre class="prettyprint"><p class="example">            &lt;product type ="AUTOB" version="5.0.0.0" title= "Commercial Auto" path= "commlAuto" description ="Commercial Auto" id= "N148"&gt;
+                       &lt;artifact type ="tdf" resourceId="commlAuto.xml" title= "New Commercial Auto Application" /&gt;
+                       &lt;artifact type ="tdf" resourceId="quickQuoteCommlAuto.xml" title= "Commercial Auto Quick Quote"/&gt;
+                       &lt;artifact type ="tdf" resourceId="endorseCommlAuto.xml" title= "Commercial Auto Endorsement"/&gt;
+                       &lt;artifact type ="tdf" resourceId="renewalCommlAuto.xml" title= "Commercial Auto Renewal"/&gt;
+                 &lt;/product&gt;</p></pre>
+                            <p class="example">In this example, this preconditions class will support the 5.0 versions of these four transactions (TDFs) within the AUTOB product type. Please note that the 3.x/4.x means for relating a precondition's class to one or more transactions via application properties (as shown here) is no longer necessary and is deprecated:</p><pre class="prettyprint"><p class="example">
+commlAuto_preconditions_javaclassname=com.agencyport.commlAuto.preconditions.CommlAutoPreConditions
+preconditions_factory_list+=commlAuto,CommlAutoPolicyQuoteInqRq,${commlAuto_preconditions_javaclassname}
+preconditions_factory_list+=endorseCommlAuto,CommlAutoPolicyModRq,${commlAuto_preconditions_javaclassname}
+preconditions_factory_list+=renewalCommlAuto,CommlAutoPolicyRenewRq,${commlAuto_preconditions_javaclassname}</p></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </ul>
+        <ul>
+            <li value="1"><b>TransactionSupported</b> - The affinity between a precondition class and its supported transaction(s) is conveyed through this annotation. In general, this annotation is not necessary when the <b>LOBSupported</b> annotation is used and only becomes necessary if different precondition classes support different transactions within a single LOB. The case for using this annotation is extremely rate.</li>
+            <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+                <col class="TableStyle-Example_Table-Column-Column1" />
+                <tbody>
+                    <tr class="TableStyle-Example_Table-Body-Body1">
+                        <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                            <p class="exampleheader">EXAMPLE:</p>
+                            <p class="example">The following example illustrates the use of this annotation:</p><pre class="prettyprint"><p class="example">@TransactionSupported(id ="endorseCommlAuto", version=@Version ({4,2}) )
+public class CommlAutoEndorsementPreConditions extends PreConditions  {
+}</p></pre>
+                            <p class="example">In this example, the commercial auto endorsement preconditions class will only support the 4.2 version of the transaction where the transaction.@id = "endorseCommIAuto."</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </ul>
+        <ul>
+            <li value="1"><b>SchemaSupported</b> - provides a way for a precondition extension class to convey the supporting XML schema (data collection name) other than what is expressed by the related transaction's target (transaction.@target). This should only be configured if the precondition class and the work item XML&#160;share different XML&#160;schemas, which is assumed to be a rare occurrence and should be avoided where possible.</li>
+            <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+                <col class="TableStyle-Example_Table-Column-Column1" />
+                <tbody>
+                    <tr class="TableStyle-Example_Table-Body-Body1">
+                        <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                            <p class="exampleheader">EXAMPLE:</p>
+                            <p class="example">The following is an example illustrating the use of this annotation:</p><pre class="prettyprint"><p class="example">@LOBsSupported ({@LOBSupported (lob = "TESTTDP" , version = @Version({5,0})),
+                      @LOBSupported(lob = "XARCTEST", version = @Version({5,0})),
+                     @LOBSupported(lob = "TESTTDP", version = @Version({5,1})),
+                     @LOBSupported(lob = "AUTOP", version = @Version({5,0}))})
+     @SynchronizationInfo (mode=SynchronizationMode.DYNAMIC)
+    @SchemaSupported ("PersonalAutoPreConditions" )
+     public class PersonalAutoPreConditions extends PreConditions  {
+     }</p></pre>
+                            <p class="example">In this example, the personal auto preconditions class uses its own XML schema distinct from the schema used by the work items.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </ul>
+        <ul>
+            <li value="1"><b>LOBsSupported</b> - the array form for conveying more than one <b>LOBSupported</b> LOB/version combination. </li>
+            <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0">
+                <col class="TableStyle-Note_Table-Column-Column1" />
+                <tbody>
+                    <tr class="TableStyle-Note_Table-Body-Body1">
+                        <td class="TableStyle-Note_Table-BodyA-Column1-Body1">
+                            <p class="noteheader">NOTE:</p>
+                            <p class="note">The lower case 's,' between the 'B' and 'S' character.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+                <col class="TableStyle-Example_Table-Column-Column1" />
+                <tbody>
+                    <tr class="TableStyle-Example_Table-Body-Body1">
+                        <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                            <p class="exampleheader">EXAMPLE:</p>
+                            <p class="example">The following illustrates where two LOBSupported versions are conveyed:</p><pre class="prettyprint"><p class="example">
+@LOBsSupported ({@LOBSupported (lob = "HOME", version = @Version({5,0,0,0})),
+                     @LOBSupported(lob = "HOME" , version = @Version({5,1,0,0}))})
+     public class HomeownersPreConditions extends PreConditions {
+     }</p></pre>
+                            <p class="example">In this situation, the application has two versions of the HOME LOB product type. This one HomeownersPreConditions class will serve both products.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </ul>
+        <ul>
+            <li value="1"><b>TransactionsSupported</b> - the array form for conveying more than one TransactionSupported id/version combination. </li>
+            <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0">
+                <col class="TableStyle-Note_Table-Column-Column1" />
+                <tbody>
+                    <tr class="TableStyle-Note_Table-Body-Body1">
+                        <td class="TableStyle-Note_Table-BodyA-Column1-Body1">
+                            <p class="noteheader">NOTE:</p>
+                            <p class="note">The lower case 's,' between the 'n' and 'S' character.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </ul>
+        <h3>PreCondition getFieldValue Optimization</h3>
+        <p>Analysis of past performance tests has shown that there was an opportunity to improve the response time of this method. Depending on the number and complexity of behaviors involved, this method can be called hundreds, if not thousands, of times during the course of page rendering - a real hot spot. Several applications have built cashing harnesses into their application's custom precondition <b>getFieldValue</b> mechanism. </p>
+        <p>As of 5.0, a robust cashing mechanism has been added to the base PreCondition class to optimize the performance of this method. The key into each cached value is a composite key comprised of three items: the precondition field name, its related int [] index, and the APDataCollection view type in context when the call is being made. The cache is a harsh map that is built up as calls to <b>getFieldValue</b> are made by the DTR subsystem. The cache is cleared on the following events:</p>
+        <ol>
+            <li value="1">Any time the <b>IndexManager.setCurrentIdArray</b> method is called.</li>
+            <li value="2">Any time any of the following <b>PreConditions</b> class methods are called:<ol style="list-style-type: lower-alpha;"><li value="1"><b>clearCache</b></li><li value="2"><b>attach</b></li><li value="3"><b>clone</b></li><li value="4"><b>setFieldValue</b></li><li value="5"><b>shred</b></li><li value="6"><b>synchronize</b></li><li value="7"><b>updatePeristableState</b></li></ol></li>
+        </ol>
+        <p>Applications can utilize the same caching mechanism for derived values that are calculated by custom Java code. In the following example, a custom implementation of the <b>getFieldValue</b> illustrates its proper usage:</p><pre class="prettyprint"><p>      /**
+       * {@inheritDoc}
+       */
+      @Override
+      public Object getFieldValue(String preConditionFieldName,
+                  String defaultValueIfNotPresent, WhereClause whereClause) {
+            
+             if( preConditionFieldName.equals(ICommlAutoConstants.COMML_RATE_STATE_PROV_CD_XPATH)) {
+                  PreConditionsCacheKey cacheKey = this.createCacheKey(preConditionFieldName);
+                  String stateProvCd = (String) this.getCachedValue(cacheKey);
+                   if (StringUtilities. isEmpty(stateProvCd)){
+                         // grab that state associated with the selected location index and return
+                        String locationIndex = (String) getFieldValue(ICommlAutoConstants.COMML_VEHICLE_XPATH + ".HotGaragedLocationRef", "" );
+                        String stateProvCdXPath = "Location[@id='" + locationIndex + "'].Addr.StateProvCd" ;
+                        stateProvCd = data.getFieldValue(stateProvCdXPath, "");
+                         this.putCachedValue(cacheKey, stateProvCd);
+                  }
+                   return stateProvCd;
+            } else {
+                  return super.getFieldValue(preConditionFieldName, defaultValueIfNotPresent, whereClause);
+            }   
+      }</p></pre>
+        <h3>Changes to Public APIs</h3>
+        <p>Several notable changes regarding the <b>PreConditions</b> class and supporting classes accompany 5.0:</p>
+        <ul>
+            <li value="1">To fix a long standing support issue relating to IPDTR and the exclusion of hot fields containing values, the <b>PreConditions.setFieldValue</b> method's base implementation was changed to clear the data value in preconditions for any hot field that has been excluded due to a prior IPDTR call. Previous to this, applications may have needed to override this method and apply special logic when the interested level = exclude.</li>
+            <li value="2">In support of new synchronization modes:<ul style="list-style-type: circle;"><li value="1">The <b>com.agencyport.preconditions.SynchronizationMode</b> enumeration contains all of the supported synchronization modes.</li><li value="2">The <b>PreConditions.attach</b> method, a new method used by the framework to make the work item <b>APDataCollection</b> instance known to the PreConditions instance.</li><li value="3">The <b>PreConditions.get/setSynchronizationMode</b> methods provide access to get or set the synchronization mode active for a given <b>PreConditions</b> instance. Only under rare cases should the application code ever need to call the set method.</li><li value="4">The <b>PreConditionsStore.read</b> method has been fully deprecated. Any custom code using this method will need to be identified, re-mediated and changed to use the new <b>PreConditions.acquire</b> method during the upgrade process.</li><li value="5">The <b>PreConditionsStore.acquire</b> method is the functional equivalent to what used to be handled by the deprecated method <b>PreConditionsStore.read</b>.</li></ul></li>
+            <li value="3">In support of precondition cashing optimization:<ul style="list-style-type: circle;"><li value="1">The <b>com.agencyport.preconditions.PreConditionsCacheKey</b> class is the type for the key into the getFieldValue cache.</li><li value="2">The <b>PreConditions.createCacheKey</b> method creates a <b>PreConditionsCacheKey</b> given a precondition field name.</li><li value="3">The <b>PreConditions.getCachedValue</b> method returns the cached value for the given key. Null is returned if none is currently found in the cache.</li><li value="4">The <b>PreConditions.putCachedValue</b> method add/updates the value for the given key.</li><li value="5">The <b>PreConditions.clearCache</b> method should be used to clear the cache. Typically, the application does not need to call this.</li></ul></li>
+        </ul>
+        <h3>Improvements to Behavior Configuration and Interoperability</h3>
+        <p>One of the reasons custom precondition getFieldValue logic was historically needed is driven by the fact that many conditions have relatively complex logic (at least logic that supersedes a simple value retrieval from the APDataCollection store that the preconditions class is managing). Many applications in the past customized their <b>Preconditions.getFieldValue</b> methods to support W3C XPath. As of 5.0, W3C 1.0 XPATH using Jaxen is now supported on behavior where clauses on both the precondition name attribute and on the text value on the precondition element itself. This feature should eliminate the need to implement custom Java code for many of the derived preconditions.</p>
+        <p>XPath processing has been enhanced with several custom XPATH&#160;functions to supplement date and index management functionality. XML behavior markup has also been upgraded to support behaviors that are associated with a particular grouping or segmentation of content known as "classes." The hope of this feature is to reduce the number and complexity of behaviors.</p>
+        <p>Another feature introduced allows applications to control the relative weighting a behavior should be given. In the past, applications may have needed to make some exclusions of content supersede explicit inclusions under certain circumstances. Their only resource at the time was to write a custom TDP. Using names, such as "uber" or "super" excludes were attributed to this pattern by some. Now, with this feature, there is no longer a need to write a custom TDP just to have control over behavior weighting. </p>
+        <p>Lastly, behavior debugging has been extremely difficult in the past. A&#160;new behavior markup syntax to engage debugging output was designed to provide the developer with a log into how an interest level for one or more page entities is derived.</p>
+        <h3>Annotations New to the Custom TrandationDefinitionProvider Class</h3>
+        <p>Several annotations have been introduced to support custom transaction provider configuration. The application properties based mechanisms used in 3.x/4.x to convey which TDF transactions a TDP class supports. The following is a list of annotations that are supported for preconditions:</p>
+        <ul>
+            <li value="1"><b>LOBSupported</b> - The affinity between a custom TDP class and its supported line(s) of business is conveyed through this annotation. This annotation contains two properties of interest: the <b>lob</b> and the <b>version</b> properties. The <b>lob</b> and <b>version</b> properties link to the <b>product.@type</b> and <b>product.@version</b> values in the application's product database respectively. For all intents and purposes, the type attribute on a product element entry in the product database is the moral equivalent to the LOB designated on related TDFs. For all of the transactions (artifacts of type <b>tdf</b>) within this product type/version combination so designated, a custom TDP class is assumed to serve.</li>
+            <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+                <col class="TableStyle-Example_Table-Column-Column1" />
+                <tbody>
+                    <tr class="TableStyle-Example_Table-Body-Body1">
+                        <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                            <p class="exampleheader">EXAMPLE:</p>
+                            <p class="example">The following illustrates the use of this annotation:</p><pre class="prettyprint"><p class="example">@LOBSupported(lob = "WORK", version = @Version({5,0,0,0}))
+public class WorkersCompTDP extends XMLTransactionDefinitionProvider {
+}</p></pre>
+                            <p class="example">Similar as to how the <b>LOBSupported</b> annotation pertains to the PreConditions applies here as well.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </ul>
+        <ul>
+            <li value="1"><b>TransactionSupported</b> - The affinity between the custom TDP class and its supported transaction(s) is conveyed through this annotation. In general, this annotation is not necessary when the <b>LOBSupported</b> annotation is used and only becomes necessary if different TDP classes support different transactions within a single LOB. The case for using this annotation is extremely rare:</li>
+            <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+                <col class="TableStyle-Example_Table-Column-Column1" />
+                <tbody>
+                    <tr class="TableStyle-Example_Table-Body-Body1">
+                        <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                            <p class="exampleheader">EXAMPLE:</p>
+                            <p class="example">The following illustrates the use of this annotation:</p><pre class="prettyprint"><p class="example">
+@TransactionSupported(id ="workersComp" , version=@Version ({4,2}) )
+public class WorkersCompTDP extends XMLTransactionDefinitionProvider {
+}</p></pre>
+                            <p class="example">In this example, the workers compensation custom&#160;TDP class will only support the 4.2 version of the transaction where the transaction.@id - "workersComp."</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </ul>
+        <ul>
+            <li value="1"><b>LOBsSupported</b> - the array form for conveying more than one <b>LOBSupported</b> LOB/version combination.</li>
+            <li value="2"><b>TransactionsSupported</b> - the array form for conveying more than one <b>TransactionSupported</b> id/version combination.</li>
+        </ul>
+        <h3>Behavior XML Markup Enhanced to Support W3C XPath Evaluation on Where Clauses</h3>
+        <p>W3C XPath statements are distinguished from other instructions by encompassing the XPath statement within an XPath{} sequence. </p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p><pre class="prettyprint"><p class="example">  &lt; behavior id= "includeOBELCoverageLimit" title ="Include OBEL Limit if in NY AND OBEL = 'Yes'"&gt;
+    &lt;do action ="include" /&gt;
+    &lt;where &gt;
+      &lt;preCondition name ="HotRateState"&gt; in('NY')&lt;/ preCondition&gt;
+      &lt;preCondition name ="XPATH{ count(CommlAutoLineBusiness/CommlRateState[StateProvCd='NY']/CommlVeh/CommlCoverage[CoverageCd='OBEL']) }"&gt;gt(0) &lt;/preCondition &gt;
+    &lt;/where &gt;
+    &lt;for&gt; */optionalCoverages/supplementalCoverages/obelCoverageLimit&lt;/for &gt;
+  &lt;/ behavior&gt;</p></pre>
+                        <p class="example">The narrative for this example is: "In NY state, if there are one or more vehicles with the OBEL coverage, then include the OBEL&#160;coverages limit field on New York's optional coverages page."</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>It is important to mention that the XPath statement within an XPath{} sequence must be 100% W3C XPath and cannot contain TDF field element unique IDs. The framework makes no adjustments to the XPath expression.</p>
+        <p>The following functions are provided to facilitate better date handling and index management processing. All functions are in namespace under the URI of http://www.agencyport.com. The prefix to use for this is <b>ap</b>. XPath used in <b>XArc Rules</b> also now shares the use of these same XPath custom functions supplied by the framework:</p>
+        <table style="mc-table-style: url('../../../Resources/TableStyles/Basic Table Type.css');border-left-style: solid;border-left-width: 1px;border-left-color: #000000;border-right-style: solid;border-right-width: 1px;border-right-color: #000000;border-top-style: solid;border-top-width: 1px;border-top-color: #000000;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #000000;margin-left: 0;margin-right: auto;" class="TableStyle-Basic_Table_Type" cellspacing="0">
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Function</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Description</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Sample</th>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">ap:dateAdd</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <p>Adds a duration argument to a date argument and returns the calculated date.&#160;The duration argument is in the format conforming to the XPath date period as in PyYmMdD where P, Y, M and D are fixed constants, while y is the number of years, m is the number of months and d is the number of days. The date argument is assumed to be a valid date in the yyyy-MM-dd format. It can also be one of the following values for designating current relative date values:</p>
+                        <ol>
+                            <li value="1">#today</li>
+                            <li value="2">#yesterday</li>
+                            <li value="3">#tomorrow</li>
+                        </ol>
+                        <p>You can use negative numbers to designate subtraction.</p>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1"><pre class="prettyprint">ap:dateAdd(AccidentViolationDt, 'P3Y0M0D') </pre>- add 3 years to the accident violation date element</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">ap:dateAfter</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Evaluates two yyyy-MM-dd date arguments and returns true if the first one is after the second.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1"><pre class="prettyprint">ap:dateAfter(ap:dateAdd(AccidentViolationDt, 'P3Y0M0D'), '#today')</pre> - add 3 years to the accident violation date and return true if that result falls after today</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">ap:dateBefore</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Evaulates two yyyy-MM-dd date arguments and returns true if the first one is before the second.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1"><pre class="prettyprint">ap:dateBefore(ap:dateAdd(AccidentViolationDt, 'P3Y0M0D'), '#today')</pre> - add 3 years to the accident violation date and return true if that result falls before today</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">ap:dateEquals</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Evaluates two yyyy-MM-dd date arguments and returns true if the first one equals the second.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1"><pre class="prettyprint">ap:dateEquals(EffectiveDt, TransactionEffectiveDt)</pre> - compare the effective date of the policy and the transaction effective date returning true if they are equal</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">ap:dateAfterOrEquals</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Evaluates two yyyy-MM-dd date arguments and returns true if the first one is equal to or later than the second.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">ap:dataBeforeOrEquals</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Evaluates two yyyy-MM-dd date arguments and returns true if the first one is equal to or before the second.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">ap:currentPosition</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Useful for writing XPaths that need to focus in on a specific XML entity most likely linked to the current entity in context. Accepts an AP AXE XPath argument (note one with the '.' dot delimiter) and returns the index of that argument normalized to a 1 based position().</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1"><pre class="prettyprint" xml:space="preserve">sum(PersPolicy/AccidentViolation[@DriverRef = //PersAutoLineBusiness/PersDriver[position() = 
+ap:currentPosition('PersAutoLineBusiness.PersDriver')]/@id]/DamageTotalAmt/Amt)</pre> - determine the current position (1 based) of the current driver that is currently  in context and sum up all of the violation amounts for that particular driver</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">ap:getVar</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">A corollary to ap:currentPosition. For each repeating element in the current IndexManager instance for the in flight request, this provides access to the @id attribute value of each of those specific repeating elements currently in context. The naming pattern used for the single parameter that this custom function accepts is <b>&lt;element name&gt;Id</b>.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyA-Column1-Body1"><pre class="prettyprint">//PersAutoLineBusiness/PersDriver[@id = ap:getVar('ap:PersDriverId')]</pre> -
+For the driver whose id attribute value matches the variable named PersDriverId which is initialized with the <u>PersDriver.@id</u> value for the current driver in context in index manager</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Where Clauses Applied at Behavior XML&#160;Resource Scope</h3>
+        <p>Historically, where clauses could only appear within a &lt;behavior&gt; statement. As of 5.0, you can now configure a where clause at the beginning of a behavior resource. A where clause at this scope is functionally equivalent to configuring that same where clause upon each behavior within the resource. If you segment your behaviors into resources by a common condition, then you can dramatically cut down on the number of redundant where clauses that are required.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">The following is an example illustrating the statement above:</p>
+                        <p class="example">Relevant snipped from a behavior file called <i>myBehaviors.xml</i></p><pre class="prettyprint"><p class="example">&lt;transactionDefinitionBehavior</p><p class="example">       xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://reference.agencyport.com/schemas/5.0/behavior/transactionDefinitionBehavior.xsd" &gt;
+      &lt;!--  the following where clause will be applied to all behavior entries in this resource --&gt;
+      &lt;where &gt;
+             &lt;preCondition name ="StateProvCd"&gt;MA&lt;/ preCondition&gt;
+      &lt;/where &gt;
+&lt;/transactionDefinitionBehavior&gt;</p></pre>
+                        <p class="example">For all behaviors configured in <i>myBehaviors.xml</i>, the above where clause will be added.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>ORing Where Clause Capability</h3>
+        <p>Previous to this feature, multiple behaviors with the same do.@action and &lt;for&gt; statements with different where clauses had to be configured in order to achieve an ORed outcome. As of 5.0, multiple where clauses can be applied within one behavior statement. This can reduce the number of behaviors for applications that follow this pattern.</p><pre class="prettyprint">
+      &lt;behavior title="Driver level at risk question: If the total damage amount across all accidents for the current driver in context within the last 3 years was greater than $3500.00 for any driver over the age of 25 OR greater than $2000.00 for drivers younger than 25 years of age"
+                   debug= "true" debugFilter ="*/*/*/driverAtRisk" &gt;
+             &lt;do action ="alter" &gt;
+                   &lt;property name ="required"&gt;true&lt;/ property&gt;
+             &lt;/do &gt;
+            &lt;where&gt;
+                   &lt;!-- Make the driver at risk field required if there are any accidents within the last 3 years totaling over 3500 dollars --&gt;
+                   &lt;preCondition
+                         name= "XPATH{ sum(PersPolicy/AccidentViolation[ap:dateAfter(ap:dateAdd(AccidentViolationDt, 'P3Y0M0D'), '#today') and
+                        @DriverRef = //PersAutoLineBusiness/PersDriver[position() = ap:currentPosition('PersAutoLineBusiness.PersDriver')]/@id]/DamageTotalAmt/Amt) }" &gt;gt(3500.00)&lt;/ preCondition&gt;
+             &lt;/where &gt;
+             &lt;!--  OR  --&gt;
+             &lt;where&gt;
+                   &lt;!-- Make the driver at risk field required if there are nny accidents by drivers 25 years or less within the last 3 years totaling over 2000 dollars --&gt;
+                   &lt;preCondition
+                        name="XPATH{ sum(PersPolicy/AccidentViolation[ap:dateAfter(ap:dateAdd(AccidentViolationDt, 'P3Y0M0D'), '#today') and
+                        @DriverRef = ap:getVar('ap:PersDriverId') and
+                        ap:dateAfter(ap:dateAdd(//PersAutoLineBusiness/PersDriver[@id = ap:getVar('ap:PersDriverId')]/DriverInfo/PersonInfo/BirthDt, '25y'), '#today')]/DamageTotalAmt/Amt) }" &gt;gt(2000.00)&lt;/ preCondition&gt;
+             &lt;/where &gt;
+             &lt;for &gt;*/*/*/driverAtRisk &lt;/for &gt; 
+      &lt;/behavior &gt;</pre>
+        <h3>Applying Behaviors to Content within a Shared Class</h3>
+        <p>With 3.x/4.x, the page entity targets of all behaviors were limited to one or more &lt;for&gt; statements, each prescribing the unique IDs of the designated page content. The asterisk (*) wile card character helped this go a long way. New with 5.0, page entities can be grouped or segmented into classes of content using the new class attribute. Behavior &lt;for&gt; statements can then be written against these classes. Classifications of content can be at page, pageElement or fieldElement scope. A class attribute can contain one or more tokens where tokens are space delimited. On the &lt;for&gt; statements, classes are distinguished from typical TDF unique IDs since they begin with the dot (.) character. This feature should help reduce the amount of behavior content and simplify behavior authoring/debugging life cycle and, perhaps, revolutionize how behaviors are conceptualized.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">This example leverages the classification of behaviors into US state segments:</p><pre class="prettyprint"><p class="example">
+      &lt;fieldElement id="f1" class="StateSpecific CT" /&gt;
+      &lt;fieldElement id="f2" class="StateSpecific CT" /&gt;
+        &lt;behavior &gt;
+             &lt;do action ="exclude" /&gt;
+             &lt;for &gt;*/.StateSpecific &lt;/for &gt;
+             &lt;for &gt;*/*/.StateSpecific &lt;/for &gt;
+             &lt;for &gt;*/*/*/.StateSpecific &lt;/for &gt;
+      &lt;/behavior &gt;
+
+
+      &lt;behavior &gt;
+             &lt;do action ="include" /&gt;
+             &lt;for &gt;*/.CT &lt;/for &gt;
+             &lt;for &gt;*/*/.CT &lt;/for &gt;
+             &lt;for &gt;*/*/*/.CT &lt;/for &gt;
+      &lt;/behavior &gt;</p></pre>
+                        <p class="example">In the above example, when the US&#160;state is anything other than CT, both fields are excluded.</p>
+                        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0">
+                            <col class="TableStyle-Note_Table-Column-Column1" />
+                            <tbody>
+                                <tr class="TableStyle-Note_Table-Body-Body1">
+                                    <td class="TableStyle-Note_Table-BodyA-Column1-Body1">
+                                        <p class="noteheader">NOTE:</p>
+                                        <p class="note">The starting dot in the &lt;for&gt; command distinguishes those tokens as class directives versus unique ID specifications.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Controlling Relative Weighting of Behaviors</h3>
+        <p>Normally, the default weighting of behaviors during conflict resolution does not need to be altered and is sufficient for most situations. There may arise situations where behaviors that exclude content should supersede behaviors that explicitly include content under certain conditions. Weighting is conveyed numerically with the bigger the number, the more weight. The default numerical weight values assigned to the interest levels are as follows:</p>
+        <ul>
+            <li value="1">implicit include - 0</li>
+            <li value="2">alter - 10</li>
+            <li value="3">exclude - 20</li>
+            <li value="4">explicit include - 30</li>
+        </ul>
+        <p>Given the above default weight assignments, if both of the following behaviors were to evaluate to true, the inclusion behavior would win over the exclusion behavior. This may not be the desired outcome.</p><pre class="prettyprint"><p>
+        &lt;behavior &gt;
+             &lt;do action = "exclude" /&gt;
+
+             &lt;where &gt;
+                   &lt;preCondition name = "Program"&gt;!UPSCALE&lt;/ preCondition &gt;
+                         &lt;/where &gt;
+             &lt;for &gt;*/content &lt;/for &gt;
+       &lt;/behavior &gt;
+
+
+       &lt;behavior &gt;
+             &lt;do action = "include" /&gt;
+
+             &lt;where &gt;
+                   &lt;preCondition name = "StateProvCd"&gt;in('NY', 'PA, 'NJ')&lt;/ preCondition &gt;
+                         &lt;/where &gt;
+             &lt;for &gt;*/content &lt;/for &gt;
+       &lt;/behavior &gt;</p></pre>
+        <p>A business requirement might exist, stipulating that if the insurance program selected is not equal to the value 'UPSCALE' then the content should be excluded, regardless of any other conditions that might bring it into view. Hence, the notion of "uber" exclude. As of 5.0, behaviors can now have a <b>weight</b> attribute wherein the author can override the default weight value that is assigned to that action/interest level.</p><pre class="prettyprint">
+        &lt;behavior weight="40" &gt;
+             &lt;do action = "exclude" /&gt;
+
+             &lt;where &gt;
+                   &lt;preCondition name = "Program"&gt;!UPSCALE&lt;/ preCondition &gt;
+                         &lt;/where &gt;
+             &lt;for &gt;*/content &lt;/for &gt;
+       &lt;/behavior &gt;
+
+
+       &lt;behavior &gt;
+             &lt;do action = "include" /&gt;
+
+             &lt;where &gt;
+                   &lt;preCondition name = "StateProvCd"&gt;in('NY', 'PA, 'NJ')&lt;/ preCondition &gt;
+                         &lt;/where &gt;
+             &lt;for &gt;*/content &lt;/for &gt;
+       &lt;/behavior &gt;
+</pre>
+        <h3>Improving the Debugging Experience</h3>
+        <p>Additional behavior markup has been added to allow the developer to turn on debugging at the behavior level. There is a <b>debug</b> boolean flag that, when true, turns on the debugging feature for the specific behavior. There is also an optional debugFilter that works similarly to a &lt;for&gt; statement, allowing the debug output to only be applicable for the page entity expression; thereby, cutting down on the "noise" in the log.</p>
+        <p>There is an additional application properties boolean flag called <b>application.behavior_debugging_flag</b> that must also be turned to true in order for the debug output to become active.&#160;This allows debug markup to remain on behaviors even in production, but can be all turned off with one application property flag so it does not impede runtime performance.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">The following is a sample of the type of debugging output generated. In the following example, the StateProvCd value was MA.</p>
+                        <p class="example">The first evaluation is determining the applicability of the behavior to the speedingCoverage field element. Note that without the debugFilter there would be a lot of noise here for each field on this page in the TDF. The following evaluation returns a true meaning this behavior is applicable to the content specified in the &lt;for&gt; statement:</p>
+                        <p class="example"><code>Apr 24, 2014 12:23:53 PM com.agencyport.trandef.behavior.BehaviorComparator compare</code>
+                        </p>
+                        <p class="example"><code>INFO: Preliminary evaluation of behavior: com.agencyport.trandef.behavior.BehaviorEntry [id=N10, key=*/vehicle/nonMACoverages/speedingCoverage, behavior=INTEREST_LEVEL_INCLUDE, weight=30 (set to default), where clauses=[com.agencyport.trandef.behavior.WhereClause[name=StateProvCd, value=CT, isSetRequested=false, isCountRequested=false, xPath=null], com.agencyport.trandef.behavior.WhereClause[name=XPATH{ PersPolicy/ContractTerm/EffectiveDt }, value=DateAfter('2006-12-31'), isSetRequested=false, isCountRequested=false, xPath=XPathExpression [xPathExpression= PersPolicy/ContractTerm/EffectiveDt ]], com.agencyport.trandef.behavior.WhereClause[name=XPATH{ PersPolicy/ContractTerm/EffectiveDt }, value=DateBefore(#today), isSetRequested=false, isCountRequested=false, xPath=XPathExpression [xPathExpression= PersPolicy/ContractTerm/EffectiveDt ]], com.agencyport.trandef.behavior.WhereClause[name=XPATH{ PersPolicy/ContractTerm/EffectiveDt }, value=DateEqual(XPATH{PersPolicy/ContractTerm/EffectiveDt}), isSetRequested=false, isCountRequested=false, xPath=XPathExpression [xPathExpression= PersPolicy/ContractTerm/EffectiveDt ]], com.agencyport.trandef.behavior.WhereClause[name=XPATH{ substring(PersPolicy/ContractTerm/EffectiveDt, 1, 4) }, value=XPATH{ substring(PersPolicy/ContractTerm/EffectiveDt, 1, 4) }, isSetRequested=false, isCountRequested=false, xPath=XPathExpression [xPathExpression= substring(PersPolicy/ContractTerm/EffectiveDt, 1, 4) ]]]] against the current evaluation key: tdpTest/vehicle/nonMACoverages/speedingCoverage evaluated to true</code>
+                        </p>
+                        <p class="example">The second evaluation is engaged only if the first evaluation is true; this is where precondition evaluation comes into play.</p><code><p class="example">Apr 24, 2014 12:23:53 PM com.agencyport.trandef.behavior.BehaviorComparator compare
+                        </p><p class="example">INFO: Secondary evaluation of behavior: com.agencyport.trandef.behavior.BehaviorEntry [id=N10, key=*/vehicle/nonMACoverages/speedingCoverage, behavior=INTEREST_LEVEL_INCLUDE, weight=30 (set to default), where clauses=[com.agencyport.trandef.behavior.WhereClause[name=StateProvCd, value=CT, isSetRequested=false, isCountRequested=false, xPath=null], com.agencyport.trandef.behavior.WhereClause[name=XPATH{ PersPolicy/ContractTerm/EffectiveDt }, value=DateAfter('2006-12-31'), isSetRequested=false, isCountRequested=false, xPath=XPathExpression [xPathExpression= PersPolicy/ContractTerm/EffectiveDt ]], com.agencyport.trandef.behavior.WhereClause[name=XPATH{ PersPolicy/ContractTerm/EffectiveDt }, value=DateBefore(#today), isSetRequested=false, isCountRequested=false, xPath=XPathExpression [xPathExpression= PersPolicy/ContractTerm/EffectiveDt ]], com.agencyport.trandef.behavior.WhereClause[name=XPATH{ PersPolicy/ContractTerm/EffectiveDt }, value=DateEqual(XPATH{PersPolicy/ContractTerm/EffectiveDt}), isSetRequested=false, isCountRequested=false, xPath=XPathExpression [xPathExpression= PersPolicy/ContractTerm/EffectiveDt ]], com.agencyport.trandef.behavior.WhereClause[name=XPATH{ substring(PersPolicy/ContractTerm/EffectiveDt, 1, 4) }, value=XPATH{ substring(PersPolicy/ContractTerm/EffectiveDt, 1, 4) }, isSetRequested=false, isCountRequested=false, xPath=XPathExpression [xPathExpression= substring(PersPolicy/ContractTerm/EffectiveDt, 1, 4) ]]]]</p><p class="example">XPathVariables [{}]</p><p class="example">Comparison of where clause: com.agencyport.trandef.behavior.WhereClause[name=StateProvCd, value=CT, isSetRequested=false, isCountRequested=false, xPath=null] against the preconditions data store value: MA evaluated to false</p></code>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

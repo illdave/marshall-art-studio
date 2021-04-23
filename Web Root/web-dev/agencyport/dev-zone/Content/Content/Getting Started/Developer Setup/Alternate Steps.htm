@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started|Developer Setup|Release Distribution">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Alternate Steps: Consuming the Archetype from an FTP Site</title>
+        <link href="../../../Resources/TableStyles/Example Table.css" rel="stylesheet" />
+        <link href="../../../Resources/TableStyles/Note Table.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/Getting Started/Developer Setup/Alternate Steps.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../Getting Started.htm">Getting Started</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Developer Setup.htm">Developer Setup</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Release Distribution.htm">Release Distribution</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Alternate Steps: Consuming the Archetype from an FTP Site</span>
+        </div>
+        <h1>Alternate Steps: Consuming the Archetype from an FTP Site</h1>
+        <p>If you don't have access to our Nexus site, we publish the contents of our repository to an FTP&#160;site. At this time, Maven does not support archetype downloading from an FTP site, so the following steps are a littler different than those listed in the <a href="Setting Up Your Portal 5 Project.htm">Setting Up Your Portal 5 Project</a> procedure.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0">
+            <col class="TableStyle-Note_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Note_Table-Body-Body1">
+                    <td class="TableStyle-Note_Table-BodyA-Column1-Body1">
+                        <p class="noteheader">NOTE:</p>
+                        <p class="note">Maven holds credential details and other user specific configuration in the <a href="settings.xml.htm">settings.xml</a> files. Refer to the <a href="http://books.sonatype.com/mvnref-book/reference/appendix-settings-sect-details.html">Setting Details</a> topic on the Sonatype site for more information.</p>
+                        <p class="note">Every developer is responsible for setting up their settings.xml file appropriately with their credentials.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Perform the following to consume the archetype from an FTP site:</p>
+        <ol>
+            <li value="1">Create a folder on your machine to house the archetype files.
+        	<table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0"><col class="TableStyle-Example_Table-Column-Column1" /><tbody><tr class="TableStyle-Example_Table-Body-Body1"><td class="TableStyle-Example_Table-BodyA-Column1-Body1"><p class="exampleheader">EXAMPLE:</p><p class="example"><code>c:\tools\archetype\</code></p></td></tr></tbody></table></li>
+            <li value="2">Log into the FTP site (using FileZilla or some other tool) and copy the archetype-catalog.xml file from the FTP site to the new folder you just created.
+            <br />The catalog file is located at sftp.agencyport.com/repositories/releases/archetype-catalog.xml.</li>
+            <li value="3">Open up the archetype-catalog.xml file on your machine with a text editor. The archetype elements in there have a child element named repository, which is currently pointing at the FTP site. You need to update this element to point it back into the folder on your machine in the location where you have been working.
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0"><col class="TableStyle-Example_Table-Column-Column1" /><tbody><tr class="TableStyle-Example_Table-Body-Body1"><td class="TableStyle-Example_Table-BodyA-Column1-Body1"><p class="exampleheader">EXAMPLE:</p><p class="example"><pre class="prettyprint">&lt;repository&gt;file://C:/tools/archetype/ &lt;/repository&gt;</pre></p></td></tr></tbody></table></li>
+            <li value="4">Create the following folder structure under the stage folder:
+		<table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0"><col class="TableStyle-Example_Table-Column-Column1" /><tbody><tr class="TableStyle-Example_Table-Body-Body1"><td class="TableStyle-Example_Table-BodyA-Column1-Body1"><p class="example"><code>com\agencyport\sdk</code></p></td></tr></tbody></table></li>
+            <li value="5">Copy the portal-archetype folder from the FTP&#160;(located at sftp.agencyport.com/repositories/releases/com/Agencypot/sdk/portal-archetype) to the sdk folder created in step 4.
+      		<br /><img src="../../../Resources/Images/Getting Started/Developer Setup Guide/portal-archetype folder.png" /></li>
+            <li value="6">Open a command prompt and run the following MVN <code>archetype:generate</code> command (substitute in the correct path from your filesystem, if necessary):</li>
+            <p class="commandcode">mvn archetype:generate -DarchetypeCatalog=file://C:\tools\archtype\test\archetype-catalog.xml</p>
+            <li value="7">Follow the command prompt instructions above and create your project from the archetype.</li>
+            <li value="8">Open the POM&#160;file. Towards the bottom of the file, there are some commented out settings you can use to point at the FTP&#160;location to resolve the AP&#160;SDK&#160;dependencies.</li>
+            <li value="9">Uncomment the FTP deployment settings and comment out or delete the Nexus deployment settings.</li>
+            <li value="10">Go to <code>USER_HOME/ .m2/settings.xml</code> and add the FTP&#160;credentials (refer to pom.xml) to the settings.xml file under the &lt;servers&gt; aggregate.</li>
+        </ol>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

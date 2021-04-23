@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Transaction Definition/Page Library</title>
+        <link href="../../../../Resources/TableStyles/Basic Table Type.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/Example Table.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Product Definitions/Transaction Definition _ Page Library/Transaction Definition_PageLibrary.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Transaction Definition/Page Library</span>
+        </div>
+        <h1>Transaction Definition/Page Library</h1>
+        <h2>Transaction Definition</h2>
+        <p>The metadata contained in the transaction file is used for the following:</p>
+        <ul>
+            <li value="1">building HTML pages</li>
+            <li value="2">building the menu bar for the transaction</li>
+            <li value="3">determining page navigation</li>
+            <li value="4">mapping the HTML&#160;data fields to the data store</li>
+        </ul>
+        <p>The transaction definition is a set of metadata that describes a single transaction.</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">A new business submission, renewal or endorsement for a line of business is described by a transaction definition file.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The TransactionDefinitionManager class reads the transaction definition file and builds transaction objects based on the content of the definition file. A transaction object contains a collection of page objects and an associated menu template.</p>
+        <p>Within a transaction definition file, one or more pages are defined. Each of the pages contains one or more sections, termed page elements, and each of the page elements contain one or more HTML&#160;elements.</p>
+        <p>The transaction definition describes the placement, or rendering, of each of these components on the HTML&#160;page and at the field level, describing where each piece of data lives in the data store.</p>
+        <p>The navigation menu of the screen is derived from the transaction definition file.</p>
+        <p>As mentioned above, the vast majority of insurance applications can be constructed using only a few basic "HTML page types." These page types are:</p>
+        <table style="width: 100%;margin-left: 0;margin-right: auto;mc-table-style: url('../../../../Resources/TableStyles/Basic Table Type.css');" class="TableStyle-Basic_Table_Type" cellspacing="0">
+            <col style="width: 120px;" class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <ul>
+                            <li value="1">data entry</li>
+                        </ul>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">The most common and is used for any collection of loosely related HTML&#160;elements. Visualize a page capturing basic insured information, such as name, tax id, legal entity, mailing address, etc.</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <ul>
+                            <li value="1">roster</li>
+                        </ul>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Pages that are used to capture and display repeating data (e.g., covered locations, loss history, etc).</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">
+                        <ul>
+                            <li value="1">display only</li>
+                        </ul>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyA-Column1-Body1">Normally summary type pages that have no (or very few) data entry elements, such as a rating (quote) results page or a review page.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Refer to the <a href="Index of TDF elements.htm">Index of TDF&#160;Elements</a> for references.</p>
+        <p>The following illustrates a simplified transaction file of a simple two-page transaction TDF. Many attributes have been omitted for display purposes.</p><pre class="prettyprint"><p>&lt;transaction id="WC" title="Workers Compensation" target="WCPolicy"&gt;
+    &lt;page id="generalInfo" title="General Information" type="dataEntry"&gt;
+    
+        &lt;pageElement type="tips"&gt;
+            &lt;fieldElement type="message"&gt;
+                For help click on the question mark icon.
+            &lt;/fieldElement&gt;
+        &lt;/pageElement&gt;
+
+        &lt;pageElement type="fieldset" legend="Insured Information"&gt;
+            &lt;fieldElement type="text" id="InsuredName" label="Name of Insured" /&gt;
+            &lt;fieldElement type="text" id="DBA" label="Doing Business As" /&gt;
+            &lt;fieldElement type="text" id="TaxId" label="FEIN/SSN" /&gt;
+            &lt;fieldElement type="text" id="YearsInBusiness" label="Years In Business" /&gt;
+            &lt;fieldElement type="selectlist" id="LegalEntity" label="Legal Entity"&gt;
+              &lt;optionList reader="xmlreader" source="codes.xml" target="legalEntity" /&gt;
+            &lt;/fieldElement&gt;
+         &lt;/pageElement&gt;
+        
+    &lt;/page&gt;
+    
+    &lt;page id="locations" source="Location" title="Risk Locations" type="roster"&gt;
+        
+        &lt;pageElement type="roster" legend="Risk Location" maxentries="22"&gt;   
+            &lt;fieldElement type="column" id="Address" label="Address" /&gt;
+            &lt;fieldElement type="column" id="City" label="City" /&gt;
+            &lt;fieldElement type="column" id="State" label="State" /&gt;
+            &lt;fieldElement type="column" id="Zipcode" label="Zip" /&gt;
+        &lt;/pageElement&gt;
+
+        &lt;pageElement type="fieldset" legend="Add Location"&gt;
+            &lt;fieldElement type="text" id="Address" label="Address" /&gt;
+            &lt;fieldElement type="text" id="Address2" label="Address Line 2" /&gt;
+            &lt;fieldElement type="text" id="City" label="City" /&gt;
+            &lt;fieldElement type="text" id="State" label="State" /&gt;
+            &lt;fieldElement type="text" id="ZipCode" label="Zip Code" /&gt;
+        &lt;/pageElement&gt;
+        
+    &lt;/page&gt;
+&lt;/transaction&gt;</p></pre>
+        <p>Web pages generated by this code display to the end user as follows:</p>
+        <p><span style="color: #ff0000; font-weight: bold;">[NEED&#160;5.0 SAMPLES&#160;HERE]</span>
+        </p>
+        <h2>Page Library</h2>
+        <p>You can define pages in files called page libraries. A page is created in either a page library or a transaction in the same way, but only pages defined in page libraries can be imported across transactions. Pages created within a shared product page library can be imported into multiple LOB transactions.</p>
+        <div class="MCMiniTocBox_0">
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Index of TDF elements.htm">Index of TDF elements</a>
+            </p>
+        </div>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

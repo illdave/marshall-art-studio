@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Getting Started|Developer Setup|Deploying Project Locally via Maven">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Setting Up a Tomcat Server</title>
+        <link href="../../../Resources/TableStyles/Note Table.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/Getting Started/Developer Setup/Setting Up a Tomcat Server.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../Getting Started.htm">Getting Started</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Developer Setup.htm">Developer Setup</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Deploying Project Locally via Maven.htm">Deploying Project Locally via Maven</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Setting Up a Tomcat Server</span>
+        </div>
+        <h1>Setting Up a Tomcat Server</h1>
+        <p>Perform the following to set up a new server and point it to a local Tomcat instance:</p>
+        <ol>
+            <li value="1">Make sure your local Tomcat installation has the necessary JDBC jars made available.</li>
+            <li value="2">Set up a new server within Eclipse and point it to your Tomcat installation:
+        <ol style="list-style-type: lower-alpha;"><li value="1">Right click on the Servers view of the Java EE perspective.</li><li value="2">Select New.</li><li value="3">Click Server.</li></ol><ul><img src="../../../Resources/Images/Getting Started/Developer Setup Guide/Tomcat_697x256.png" class="border" style="width: 697;height: 256;" /></ul></li>
+            <li value="3">Select the Tomcat v7.0 Server and click Finish.
+            <br /><img src="../../../Resources/Images/Getting Started/Developer Setup Guide/definetomcatserver.png" class="border" /><table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0"><col class="TableStyle-Note_Table-Column-Column1" /><tbody><tr class="TableStyle-Note_Table-Body-Body1"><td class="TableStyle-Note_Table-BodyA-Column1-Body1"><p class="noteheader">NOTE:</p><p class="note"><span style="color: #ff0000;">Do NOT add any modules yet.</span></p></td></tr></tbody></table><br />Do not edit your runtime environments at this time. Just make sure your Tomcat and Eclipse project are using JDK 7.
+            <br />You can return and edit your runtime environments at a later time by navigating to Window &gt; Preferences &gt; Server &gt; Runtime Environments.
+            </li>
+            <li value="4">In the server settings, select the Use Tomcat installation (takes control of Tomcat installation) option and change the Deploy path to webapps.
+            <br /><img src="../../../Resources/Images/Getting Started/Developer Setup Guide/serverlocations_454x223.png" style="width: 454;height: 223;" class="border" /></li>
+            <li value="5">Increase the memory by adding -Xmx2G to the VM arguments.
+            <br /><img src="../../../Resources/Images/Getting Started/Developer Setup Guide/-xmx2g.png" class="border" /></li>
+            <li value="6">Add your newly created project to the server by highlighting an available resource and clicking the Add button.
+            <br /><img src="../../../Resources/Images/Getting Started/Developer Setup Guide/addandremove_508x515.png" class="border" style="width: 508;height: 515;" /></li>
+            <li value="7">Disable the Auto Reload for the module.
+            <br /><img src="../../../Resources/Images/Getting Started/Developer Setup Guide/disableautoreload_556x248.png" class="border" style="width: 556;height: 248;" /></li>
+            <li value="8">Click Finish.</li>
+        </ol>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

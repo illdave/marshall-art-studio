@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Work Item Assistant</title>
+        <link href="../../../Resources/TableStyles/Example Table.css" rel="stylesheet" />
+        <link href="../../../Resources/TableStyles/Important Table.css" rel="stylesheet" />
+        <link href="../../../Resources/TableStyles/Note Table.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/API Guide/Work Item Assistant/Work Item Assistant.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Work Item Assistant</span>
+        </div>
+        <h1>Work Item Assistant</h1>
+        <p>Work Item Assistant was developed in response to the increasing demand for collaboration technology within the portal. We have learned firsthand from agents that a high degree of collaboration between agents and a variety of parties at an insurance company are often required to issue new insurance policies. Numerous email, fax and telephone exchanges are required for business to take place between parties, increasing the operating expenses associated with the process and negatively impacting the purchasing experience for the insurance buyer.</p>
+        <p>Work Item Assistant t helps alleviate much of the back and forth faxing, emailing and telephone calls by allowing increased communication within the portal. The assistant allows agents and insurance carrier employees to communicate real time with in a quite, upload file attachments at any point within the transaction and receive email notifications for specific events.</p>
+        <h2>Interface</h2>
+        <p>Work Item Assistant becomes available only after the user saves or continues from the first page in the work item. At that point, the transaction is created in the database. The assistant displays on the right hand side of the portal when a user opens a work item/quote. The assistant is an accordion that you can configure to contain multiple accordion sections, including the following:</p>
+        <ul>
+            <li value="1">comments</li>
+            <li value="2">file attachments</li>
+            <li value="3">other active users</li>
+        </ul>
+        <p>
+            <img src="../../../Resources/Images/wia_policycoverages_637x191.png" style="width: 637;height: 191;" class="border" />
+        </p>
+        <p>The assistant allows you to add comments and file attachments on any page within a transaction, as well as allow users to see that other users are working within the same work item. This element of the feature allows for nearly real-time communication among users that are in the same work item. </p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Important Table.css');" class="TableStyle-Important_Table" cellspacing="0">
+            <col class="TableStyle-Important_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Important_Table-Body-Body1">
+                    <td class="TableStyle-Important_Table-BodyA-Column1-Body1">
+                        <p class="importantheader">IMPORTANT:</p>
+                        <p class="important">The following are a couple of important points about the interface:</p>
+                        <p class="important">You can turn on/off Work Item Assistant at the transaction level.</p>
+                        <p class="important">Each section is available to all users by default; however, you can configure this availability by user role and role group (such as agent or underwriter).</p>
+                        <p class="important">A count displays in each section to indicate how many comments, file attachments and active users exist for the transaction. You can expand each section to view the actual comments, file attachments and active user usernames.</p>
+                        <p class="important">Comments, file attachments and active user usernames are added to the assistant within 15 seconds of their entry&#160;(i.e., it may take up to 15 seconds for a comment to display, but no longer).</p>
+                        <p class="important">You can configure multiple sections of the same type (e.g., a given assistant can have multiple comment sections).</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>User Roles and Role Groups</h2>
+        <p>You can configure the accordion sections within the Work Item Assistant to allow some user roles more access and permissions than others. You can also put restrictions on a section so that only a specific set of users can view and access that section.</p>
+        <p>Users associated to a specific role or role group who are not defined for a specific section cannot view that section in the application.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">The assistant can be configured so that internal comments can only be viewed by underwriters and external comments can be viewed by underwriters and agents.</p>
+                        <p class="example">
+                            <img src="../../../Resources/Images/wia_comments_226x106.png" style="width: 226;height: 106;" class="border">
+                            </img>
+                        </p>
+                        <p class="example">Comments and internal comments sections are included; there can be multiple comments and file attachment accordion sections with unique names and user/role groups set up.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Comments</h3>
+        <p>Click on the Comments accordion section header to view any comments entered for the work item. To leave a comment, enter text in the text box and click the Comment button. Comments entered display within 15 seconds; you cannot delete comments.</p>
+        <p>
+            <img src="../../../Resources/Images/wia_addcomments_209x339.png" style="width: 209;height: 339;" class="border" />
+        </p>
+        <h3>File Attachments</h3>
+        <p>Users have the ability to add file attachments to any page within the transaction by expanding a File Attachment accordion section, browsing for the file and attaching it to the assistant. File attachments display within 15 sections of uploading. You can open any file attachment within the assistant by double-clicking on the file icon.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0">
+            <col class="TableStyle-Note_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Note_Table-Body-Body1">
+                    <td class="TableStyle-Note_Table-BodyA-Column1-Body1">
+                        <p class="noteheader">NOTE:</p>
+                        <p class="note">The file attachment section display is slightly different in a Chrome browser; other browsers display a button labeled Browse and Chrome displays the button as Choose File.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <img src="../../../Resources/Images/wia_fileattachment_212x373.png" style="width: 212;height: 373;" class="border" />
+        <p>A recent addition to the File Attachment section is the ability to select Document Type. IF the list of types needs to differ by line of business, you can configure Work item Assistant for each product to meet this need. You can write custom rules to validate whether a specific document type exists if certain types are required for your business. The display of the Document&#160;Type field is optional. If the field displays, a document type is required for selection.</p>
+        <h3>Other Active Users</h3>
+        <p>If you are in a work item that another user is currently viewing, the assistant lets you know of the other user's presence. </p>
+        <ul>
+            <li value="1">When other users have the work item open, the username of each other active user displays in the accordion section. </li>
+            <li value="2">If there are no other active users in the work item, the following text displays when you expand the Other Active Users section:&#160;No other active users.</li>
+        </ul>
+        <p>
+            <img src="../../../Resources/Images/wia_generalinfo_528x246.png" style="width: 528;height: 246;" class="border" />
+        </p>
+        <h2>Email-Based Notifications</h2>
+        <p>Functionality is provided to streamline the process to send email notifications to specific users or user groups when:</p>
+        <ul>
+            <li value="1">the status of a work item changes</li>
+            <li value="2">a comment is made</li>
+            <li value="3">a file attachment is added</li>
+        </ul>
+        <p>With this functionality, users do not have to be within a work item or even logged into the portal to be notified of activity on a quote</p>
+        <p>The email notifications contain a link that brings users to the associated work item.</p>
+        <p>
+            <img src="../../../Resources/Images/wia_emailnotify_652x134.png" style="width: 652;height: 134;" class="border" />
+        </p>
+        <div class="MCMiniTocBox_0">
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Work Item Assistant Configuration.htm">Work Item Assistant Configuration</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Email Notifications.htm">Email Notifications</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Creating a New Assistant.htm">Creating a New Assistant</a>
+            </p>
+        </div>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

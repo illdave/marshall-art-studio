@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>settings.xml</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/Getting Started/Developer Setup/settings.xml.htm">Open topic with navigation</a>
+        </p>
+        <h1>settings.xml</h1><pre class="prettyprint"><p>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd"&gt;
+
+  &lt;!-- servers
+   | This is a list of authentication profiles, keyed by the server-id used within the system.
+   | Authentication profiles can be used whenever maven must make a connection to a remote server.
+   |--&gt;
+  &lt;servers&gt;
+    &lt;server&gt;
+      &lt;id&gt;deployment&lt;/id&gt;
+      &lt;username&gt;deployment&lt;/username&gt;
+      &lt;password&gt;deployment123&lt;/password&gt;
+    &lt;/server&gt;
+  &lt;/servers&gt;
+
+  &lt;mirrors&gt;
+    &lt;mirror&gt;
+      &lt;!--This sends everything else to /public except AP snapshot builds.  --&gt;
+      &lt;id&gt;nexus&lt;/id&gt;
+      &lt;mirrorOf&gt;*,!ap-internal-snapshots&lt;/mirrorOf&gt;
+      &lt;url&gt;http://10.21.39.108:8081/nexus/content/groups/public&lt;/url&gt;
+    &lt;/mirror&gt;
+  &lt;/mirrors&gt;
+
+  &lt;profiles&gt;
+    &lt;profile&gt;
+      &lt;id&gt;nexus&lt;/id&gt;
+      &lt;!--Enable snapshots for the built in central repo to direct --&gt;
+      &lt;!--all requests to nexus via the mirror --&gt;
+      &lt;repositories&gt;
+        &lt;repository&gt;
+          &lt;id&gt;central&lt;/id&gt;
+          &lt;url&gt;http://central&lt;/url&gt;
+          &lt;releases&gt;
+            &lt;enabled&gt;true&lt;/enabled&gt;
+          &lt;/releases&gt;
+          &lt;snapshots&gt;
+            &lt;enabled&gt;true&lt;/enabled&gt;
+          &lt;/snapshots&gt;
+        &lt;/repository&gt;
+      &lt;/repositories&gt;
+     &lt;pluginRepositories&gt;
+        &lt;pluginRepository&gt;
+          &lt;id&gt;central&lt;/id&gt;
+          &lt;url&gt;http://central&lt;/url&gt;
+          &lt;releases&gt;
+            &lt;enabled&gt;true&lt;/enabled&gt;
+          &lt;/releases&gt;
+          &lt;snapshots&gt;
+            &lt;enabled&gt;true&lt;/enabled&gt;
+          &lt;/snapshots&gt;
+        &lt;/pluginRepository&gt;
+      &lt;/pluginRepositories&gt;
+    &lt;/profile&gt;
+
+
+    &lt;!-- Settings for SONAR --&gt;
+    &lt;profile&gt;
+      &lt;id&gt;sonar&lt;/id&gt;
+      &lt;properties&gt;
+          &lt;!-- Example for MySQL--&gt;
+          &lt;sonar.jdbc.url&gt;
+            jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;amp;characterEncoding=utf8
+          &lt;/sonar.jdbc.url&gt;
+          &lt;sonar.jdbc.username&gt;sonar&lt;/sonar.jdbc.username&gt;
+          &lt;sonar.jdbc.password&gt;password&lt;/sonar.jdbc.password&gt;
+          &lt;!-- Optional URL to server. Default value is http://localhost:9000 
+          &lt;sonar.host.url&gt;
+            http://myserver:9000
+          &lt;/sonar.host.url&gt; --&gt;
+      &lt;/properties&gt;
+
+      &lt;!-- Sonar Config--&gt;
+      &lt;!--
+      &lt;properties&gt;
+          
+          &lt;sonar.jdbc.url&gt;
+            jdbc:jtds:sqlserver://dev-db03:1433;databaseName=SONAR_4_1_sdk;SelectMethod=Cursor
+          &lt;/sonar.jdbc.url&gt;
+          &lt;sonar.jdbc.username&gt;sonar41&lt;/sonar.jdbc.username&gt;
+          &lt;sonar.jdbc.password&gt;sonar41&lt;/sonar.jdbc.password&gt;
+          &lt;sonar.jdbc.driver&gt;net.sourceforge.jtds.jdbc.Driver&lt;/sonar.jdbc.driver&gt;
+          &lt;sonar.java.language&gt;java&lt;/sonar.java.language&gt;
+          &lt;sonar.java.profile.name&gt;AP_Java_Profile&lt;/sonar.java.profile.name&gt;
+          &lt;sonar.java.source.version&gt;1.7&lt;/sonar.java.source.version&gt;
+          &lt;sonar.java.target.version&gt;1.7&lt;/sonar.java.target.version&gt;
+          &lt;sonar.js.language&gt;js&lt;/sonar.js.language&gt;
+          &lt;sonar.js.profile.name&gt;AP_JavaScript_Profile&lt;/sonar.js.profile.name&gt;
+          &lt;sonar.host.url&gt;
+            http://dev-app10:8144/sonar
+          &lt;/sonar.host.url&gt; 
+      &lt;/properties&gt;
+      --&gt;
+
+
+    &lt;/profile&gt;
+  &lt;/profiles&gt;
+
+  &lt;activeProfiles&gt;
+    &lt;!--make the profile active all the time --&gt;
+    &lt;activeProfile&gt;nexus&lt;/activeProfile&gt;
+    &lt;activeProfile&gt;sonar&lt;/activeProfile&gt;
+  &lt;/activeProfiles&gt;
+&lt;/settings&gt;
+</p></pre>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

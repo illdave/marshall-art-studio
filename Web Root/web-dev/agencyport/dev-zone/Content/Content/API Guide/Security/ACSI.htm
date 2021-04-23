@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Security">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>ACSI</title>
+        <link href="../../../Resources/TableStyles/Example Table.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/API Guide/Security/ACSI.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Security.htm">Security</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">ACSI</span>
+        </div>
+        <h1>ACSI</h1>
+        <p>The ACSI layer is a set of interfaces that standardizes how a security model is represented, how entries that compose a security model/profile are brought to life and the set of supporting, collaborating entities that are responsible for responding to various authentication and authorization assertions on behalf of the current user.</p>
+        <p>The following diagram illustrates a basic security profile and its underlying security model:</p>
+        <p>
+            <img src="../../../Resources/Images/ACSIModel_504x306.png" style="width: 504;height: 306;" />
+        </p>
+        <p class="subheading">Subject</p>
+        <p>A subject refers to a user in this context. A subject has a name, user id (by way of a principal) and a set of credentials.</p>
+        <p class="subheading">Role</p>
+        <p>A role represents a collection of permissions related to a subject by way of its identity. A role has, in many cases, assumed an intrinsic meaning in and of itself and has, historically, been used as the only entity in making authorization assertions ('is user in role'?). </p>
+        <p>A role provides an easy way to maintain permissions across a larger group of users without having to maintain permissions at the user level. An "agent that is licensed to sell personal lines" is an example of a role. </p>
+        <p>One of the benefits of roles in security models is that it provides a short hand way of maintaining permissions across a large number of users without the need to visit the permissions that were individually assigned to each user when a broad level change is involved.</p>
+        <p class="subheading">Role Group</p>
+        <p>A role group provides a way to share a role across multiple subjects. </p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">personal lines agent</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="subheading">User Groups (Work Groups)</p>
+        <p>A user group is an aggregation of one or more subjects sharing a common business interest, typically within common locale. This influences data ownership, visibility and, ultimately, access to data/work items. </p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1">
+            </col>
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">Examples of user groups are:</p>
+                        <p class="example">retail agency ABC</p>
+                        <p class="example">carrier XYZ</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>User groups can be represented hierarchically, such as super agencies, agencies and sub agencies.</p>
+        <p class="subheading">Permissions</p>
+        <p>A permission represents the right to carry out a specific action or execute a specific type of request.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">"Does the current user have the right to bind/issue policies?"</p>
+                        <p class="example">"Is this agent licensed to sell a particular LOB?"</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Some security models view permissions as optional. The 'isUerInRole' functionality is viewed by some as adequate in many cases.</p>
+        <p>Permissions granted to the user are the union of the permissions granted through each role that the user participates in, as well as the permission directly assigned to the user. Permissions are typically related to a role that has a related role group with a distinct name, but a user can also be directly assigned permissions using a role specifically allocated for the user (in which case, there is no role group name).</p>
+        <p>Negative permissions are not currently supported.</p>
+        <p>One of the main considerations facing application teams is whether to embrace permissions. It is the expressed option of Agencyport's product development team that using permissions for authorization runtime assertions is a superior technique to inferring said authorizations from a role name or role identity by itself. Although ACSI supports authorization assertions based solely on role name or identity for backward compatibility, we believe the use of permissions is a more flexible, maintainable and sustainable approach. For instance, the following code is trying to verify whether the current user has the right to bind a policy. Assume that there are three roles:&#160;agent, super agent and underwrite; the two latter can bind policies.</p>
+        <p>Role-based approach (inferior):</p><pre class="prettyprint"><p>if ( roles.isUserInRole(principal, "superagent")||roles.isUserInRole(principal, "underwriter")){
+    // user can bind policies
+}
+else {
+    // user cannot bind policies
+} </p></pre>
+        <p>Permission-based approach (superior):</p><pre class="prettyprint"><p>if ( roles.checkPermission(principal, "canBind")){
+    // user can bind policies
+}
+else {
+    // user cannot bind policies
+} </p></pre>
+        <p>The latter approach makes the assumption that the canBind permission was created and attached to the role of underwriter and super agent at security profile creation time. The advantage of this is that the main line code does not care about the role per say, but just that one of the roles contained on the current security profile contains a permission canBind. If the particular physical security provider at the application's disposal does not serve up discreet permissions, then the following logic is necessary when building the profile for the current user:</p><pre class="prettyprint"><p>IRoles roles = securityProfile.getRoles();
+IRole role = roles.getRoleByName(principal, "superagent");
+if (role == null )
+    role = roles.getRoleByName(principal, "underwriter");
+if (role != null ) {
+    SecurityModelFactory factory = SecurityModelFactory.get();
+    IPermission canBind = factory.createPermission(new Id("canBind"), "canBind");
+    role.addPermission(canBind);
+}</p></pre>
+        <p class="subheading">Security Profile</p>
+        <p>A container of the roles that a unique subject participates in and the user groups to which he/she is a member.</p>
+        <p><b>Identity</b>:</p>
+        <p>All of the security model entities, including subjects, roles, permissions and user groups, are comprised with both an:</p>
+        <ul>
+            <li value="1">identity</li>
+            <li value="2">name</li>
+        </ul>
+        <p>Identity is supported by the AgencyPortal Java class com.agencyport.idId, which supports both numeric and string-based identity. The important thing to note is that, internally at runtime, the property is what is leveraged to satisfy low level equality and hashing operations. All of the interfaces for all of these entities do support alternate access mechanisms by name; thereby, making the coding effort easier at the application level.</p>
+        <p><b>Security Object Instantiation</b>
+        </p>
+        <p>ACSI embraces a robust factory design pattern for all of the security model entities and supporting class implementations, making it unnecessary to "hijack" product code into your project as necessary. If you find you are still in the habit of hijacking Agencyport product class files into your project, then you are probably doing something fundamentally wrong.</p>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

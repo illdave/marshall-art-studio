@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Upload Writer Programming">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Technical Solution</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/API Guide/Upload Writer Programming/Technical Solution.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Effective Upload Writer Programming.htm">Upload Writer Programming</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Technical Solution</span>
+        </div>
+        <h1>Technical Solution</h1>
+        <p>Id retention is carried out during the TDF&#160;based data transfer process rather than as a followup operation. The TDF based data transfer is primarily a set of read and write operations carried out against two separate APDataCollection instances. These two APDataCollection instances are managed by the upload data manager reading from the input APDataCollection and writing to the output APDataCollection.</p>
+        <p>During the read operation, a set of intermediate HTML data containers are created to hold onto the data values that originate from the input data collection. During the write operation, the values contained within the HTML&#160;data containers are then written to the output data collection. A natural outgrowth of this design means that the data values extracted from the input data collection are limited to the XML&#160;elements that have an explicit definition in the TDF, regardless of whether a view or SFH is in play for that field. In other words, one or more XML&#160;elements sitting on the input APDataCollection are silently ignored and not transferred.</p>
+        <p>The ComprehensiveIdAttributePreserv class monitors both read operations upon the input APDataCollection and write operations applied to the output APDataCollection via the IFieldAccessMonitor interface. This class also supports the IIdAttributePerserver interface. During read operations, this class tracks id attribute values by holding onto XML&#160;elements from the input APDataCollection instance and associating these XML elements with their respective source ideas, data value, governing XPath and, most importantly, its source TDF&#160;field. As write operations are carried out, namely as new XML hierarchy is built, the id attribute values corresponding to the current TDF field are applied to the XML hierarchy being build. The following diagram illustrates the collaboration between the input data collection, the comprehensive id attribute preserver instance and the output data collection at a very high level:</p>
+        <p>
+            <img src="../../../Resources/Images/IdTrackingRepositorydiagram_757x140.png" style="width: 757;height: 140;" />
+        </p>
+        <p>The following set of classes and interactive diagrams are included to help understand the order of operations during an upload writer transaction:</p>
+        <h2>Class Model</h2>
+        <p>The following diagram illustrates the two salient classes that play various roles during an upload writer / Turnstile request: ImportBaseServlet and UploadData Manager. The diagram also includes two interfaces and one class that support the id retention capability: IFieldAccessMonitor, IIdAttributePreserver, ComprehensiveIdAttributePreserver. The referential integrity class, BasicReferentialIntegrityManager, is illustrated since it is used to carry out the default referential integrity operations immediately before the TDF&#160;based data transfer.</p>
+        <p>
+            <img src="../../../Resources/Images/classmodeldiagram_761x579.png" style="width: 761;height: 579;" />
+        </p>
+        <h2>com.agencyport.domXML.IFieldAccessMonitor</h2>
+        <p>The <b>IFieldAccessMonitor</b> interface provides a mechanism to monitor field access operations against APDataCollection instances. All methods are invoked AFTER the operation has taken place against the APDataCollection.&#160;The various methods are listener only in nature and have no impact on the operation just executed.</p>
+        <h2>com.agencyport.domXML.changemanagement.ids.IIdAttributePreserver</h2>
+        <p>The <b>IIdAttributePreserver</b> interface is the interface used by APDataCollection to preserver id attribute values across a working document and a reference read only document.</p>
+        <h2>com.agencyport.domXML.changemanagement.ids.comprehensive.ComprehensiveIdAttributePreserver</h2>
+        <p>The <b>ComprehensiveIdAttributePreserver</b> class provides a comprehensive algorithm for reclaiming id attribute values, specifically while data values are moved between different XML documents. Extending this class is an advanced topic and should only be done upon first conferring with product development.</p>
+        <h2>com.agencyport.domXML.widgets.APDataCollectionDebugOutputter</h2>
+        <p>The <b>APDataCollectionDebugOutputter</b> class is a handy class that can be used to write the eight various documents managed by APDataCollection to a series of files on the file system. ImportBaseServlet engages this class to write out all eight managed documents to the file system as one of the very last things before returning to the upload writer caller.</p>
+        <div class="MCMiniTocBox_0">
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Sequence Diagrams.htm">Sequence Diagrams</a>
+            </p>
+        </div>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

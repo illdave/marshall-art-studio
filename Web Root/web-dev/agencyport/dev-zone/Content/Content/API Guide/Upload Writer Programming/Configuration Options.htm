@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Upload Writer Programming">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Configuration Options</title>
+        <link href="../../../Resources/TableStyles/Basic Table Type.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/API Guide/Upload Writer Programming/Configuration Options.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Effective Upload Writer Programming.htm">Upload Writer Programming</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Configuration Options</span>
+        </div>
+        <h1>Configuration Options</h1>
+        <p>This section outlines the mechanics for altering the various aspects of upload writer functionality from its default out of the box functionality. Many of the aspects can be altered entirely through configuration, which should always be a goal of the application development team. Other aspects may require extension to achieve the desired end state. The following table provides an inventory of some of the aspects of upload writer functionality that are alterable, the default behavior and how to modify that behavior.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Basic Table Type.css');" class="TableStyle-Basic_Table_Type" cellspacing="0">
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">#</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Aspect</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Out of the box behavior</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Alteration Options</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Example</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Additional Comments and Constraints</th>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">1</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Establish the security profile</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">A security profile is built from the user credentials accompanying the inbound request XML&#160;payload using standard ACSI interfaces.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <p>First, exhaust the possibility of establishing the security profile at the security filter level. Second, determine why the out of box implementation is not adequate. Perhaps a slight adjustment to your SecurityProfileManager is all that is needed. Lastly, extend the <b>BaseDistributedConversionStepServlet.</b></p>
+                        <p><i>establishSecurityProfile</i> method as a last resort.</p>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">N/A</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Preferably and optimally, the security filter has already established the security profile using ACSI&#160;cookies.</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">2</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Transforming the incoming&#160;XML document to maximize the amount of data that is not dropped on the floor</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <p>Invokes a registered target ACORD&#160;Simplified transformer from the <b>ImportBaseServlet</b>.</p>
+                        <p><i>convertACORDStandardToACORDSimplified</i>
+                        </p>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <p>First, consider packaging any logic of this nature into a bonafide registered artifact. Lastly, extend <b>ImportBaseServlet</b>.</p>
+                        <p><b style="font-style: italic; font-weight: normal;">convertACORDStandardToACORDSimplified</b> and/or <b>ImportBaseServlet</b>.</p>
+                        <p><i>executeCustomAlterPreUploadDataManagement</i> methods</p>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">N/A</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">3</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Transforming the outgoing XML document back to its ACORD&#160;standard format</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <p>Invokes a registered target ACORD&#160;Simplified transfer from the <b>ImportBaseServlet</b>.</p>
+                        <p><i>convertACORDSimplifiedToACORDStandard</i>
+                        </p>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <p>First, consider packaging any logic of this nature into a bonafide registered transformer artifact. Lastly, extend <b>ImportBaseServlet</b>.</p>
+                        <p><i>convertACORDSimplifiedToACORDStandard</i> and/or <b>ImportBaseServlet</b>.</p>
+                        <p><i>executeCustomAlterPostUploadDataManagement</i> methods</p>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">N/A</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">4</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Capturing the various XML&#160;documents managed by APDataCollection to disk</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Determines the existence of an application property named <b>debug_upload_transformations_dump_path</b>. This property, if present, dictates the directory that all views managed by the outgoing APDataCollection are written to.</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <p>Configuration via application property:</p>
+                        <p><b>debug_upload_transformations_dump_path</b>
+                        </p>
+                        <p>If the application property is missing, then this feature is turned off.</p>
+                        <p>Programatically via the protected method:</p>
+                        <p><b>ImportBaseServlet</b>.</p>
+                        <p><i>writeAPDataToDebugOutput</i>
+                        </p>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <p><b>debug_upload_transformations_dump_path=</b>
+                        </p>
+                        <p><i>${output_dir}upload_transformations</i>
+                        </p>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">&#160;</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">5</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Controlling which original document is selected as "system of record"&#160;original document</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <p>This is controlled by a combination of internal state and TDF/LOB/application property named <b>original_document_system_of_record</b>.</p>
+                        <p>If the upload writer TDF transaction does not support original values via the method <b>Transaction</b><i>.supportsOriginalValues()</i>, then the application property is ignored and the original document is nulled out.</p>
+                        <p>If the id retention parameter is true and the value of this property is <b>front_door_document</b>, then the original "front door" document is used; otherwise, a clone of the current document before data corrections serves as the system of record original document.</p>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <p>Configuration via TDF/LOB/application property:</p>
+                        <p><b>original_document_system_of_rocord</b>
+                        </p>
+                        <p style="font-style: italic;">Valid values:</p>
+                        <ul>
+                            <li style="font-style: italic;" value="1">front_door_document</li>
+                            <li style="font-style: italic;" value="2">current_document_before_data_corrections (default value)</li>
+                        </ul>
+                        <p>Programmatically via the protected method:</p>
+                        <p><b>UploadDataManager</b>.</p>
+                        <p><i>getOriginalDocumentSystemOfRecord</i>
+                        </p>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1"><b>application.original_document_system_of_record=</b><i>front_door_document</i>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">If an application needs to vary this setting by LOB or TDF, then the TDF&#160;based application property has precedence over the LOB based application property, which has precedence over the application based application property.</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">6</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Turning on/off the id retention feature</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">This is controlled by a boolean TDF/LOB/application property named <b>should_retain_id_attributes</b></td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">
+                        <p>Configuration via TDF/LOB/application property: <b>should_retain_id_attributes</b></p>
+                        <p style="font-style: italic;">Valid values:</p>
+                        <ul>
+                            <li style="font-style: italic;" value="1">true</li>
+                            <li style="font-style: italic;" value="2">false (default value)</li>
+                        </ul>
+                        <p>Programmatically via the protected method: <b>ImportBaseServlet</b>.<i>ShouldRetainAttributes</i></p>
+                    </td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">&#160;</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">During development/debugging phase, additional debugging information will be sent to the log by the ComprehensiveIdAttributePreserver class if the logging level is increased to the <i>FINE</i>&#160;level. <b>com.agencyport.domXML.changemanagement.ids.comprehsensive.level</b>=<i>FINE</i></td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">7</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">Determination of work item ownership</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">Work item ownership given to the current user and the primary user group of the current user identified on the security profile</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">Programmatically via the protected method: <b>ImportBaseServlet</b>.<i>determineWorkItemOwnership</i></td>
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">N/A</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyA-Column1-Body1">&#160;</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

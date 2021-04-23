@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition|Advanced Data Management|ACORD Simplified Programming|ACORD Simplified: A Step by Step Guide|Adjusting the TDF to Use the ACORD Simplified Model">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Creating Necessary Transformers to Support ACORD Simplified To/From ACORD Standard Transformations</title>
+        <link href="../../../../../Resources/TableStyles/Important Table.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../../Default.htm#Content/API Guide/Product Definitions/Advanced Data Management/ACORD Simp Pgm/ACORD Standard Transformations.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Advanced Data Management.htm">Advanced Data Management</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Creating Necessary Transformers to Support ACORD Simplified To/From ACORD Standard Transformations</span>
+        </div>
+        <h1>Creating Necessary Transformers to Support ACORD Simplified To/From ACORD Standard Transformations</h1>
+        <p>Product definitions were enhanced is AgencyPortal 4.1 to support a new built-in resource type called the transformer type with the requisite resource provider implementation. </p>
+        <table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Important Table.css');" class="TableStyle-Important_Table" cellspacing="0">
+            <col class="TableStyle-Important_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Important_Table-Body-Body1">
+                    <td class="TableStyle-Important_Table-BodyA-Column1-Body1">
+                        <p class="importantheader">IMPORTANT:</p>
+                        <p class="important">It is important to note that these transfer resource types are not visible in the toolkit product menu.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Refer to the <a href="http://reference.agencyport.com/schemas/4.2/transformer/transformer.xsd">XML schema definition</a> for the transfers product type.</p>
+        <p>
+            <img src="../../../../../Resources/Images/T_transformer.jpg" />
+        </p>
+        <p>The task of building out the transformations can begin once your application's ACORD simplified data model is finalized and made to manifest in your application's extension schema file. Before performing this task, we recommend you first review additional information on transformations. Refer to the XX (link to special field helpers topic) topic for more information.</p>
+        <p>The product only supports two distinct sets of transformation steps:</p>
+        <ul>
+            <li value="1">From an ACORD standard representation to your own application's ACORD simplified representation</li>
+            <li value="2">From your own application's ACORD simplified representation to an ACORD&#160;standard representation</li>
+        </ul>
+        <p>This process is limited to the following directions, as described in this product enumeration:</p><pre class="prettyprint"><p>/**
+ * The TargetFormat enumeration delineates the supported target transformation formats. 
+ */
+public enum TargetFormat { 
+		  /**
+		   * The &lt;code&gt;ACORDSimplified&lt;/code&gt; identifies the transformation target format for Agencyport's simplification of the ACORD 1.x format published
+		   * by Agencyport's schema extensions of ACORD.
+		   */
+		  ACORDSimplified
+		  /**
+		   * The &lt;code&gt;ACORDStandard&lt;/code&gt; identifies the transformation target format for the XML format according to
+the ACORD 1.x schema published 
+		   * by www.acord.org.
+		   */
+		  ACORDStandard, </p><p>}</p></pre>
+        <p>The product automatically engages the first of these transformations (<code>ACORDSimplified</code>) during an upload writer operation. Refer to the following to see how the <b style="font-style: italic;">ImportBaseServlet.transform()</b> method calls the <i style="font-weight: bold;">ImportBaseServlet.convertACORDStandardToACORDSimplified()</i> and how it automatically engages the transfer if <i style="text-decoration: underline; font-style: normal;">one has been registered</i>:</p><pre class="prettyprint"><p>protected void convertACORDStandardToACORDSimplified(APDataCollection apData, AgencyConnectConversionStepData stepData) 
+					throws APException {
+		  apData.setDocument((Document) apData.getCurrentDocument().clone(), 
+IXMLConstants.VIEW_CURRENT_ACORD_STANDARD_DOCUMENT, false);
+		  IAPDataCollectionTransformer transformer = apData.getRegisteredTransformer(TargetFormat.ACORDSimplified); 
+		  if ( transformer != null ){
+					// Update the current document in place, leaving the ACORD standard document untouched on its own view
+					transformer.transform(apData, TargetFormat.ACORDSimplified, null); 
+					writeAPDataToDebugOutput(apData, "convertACORDStandardToACORDSimplified");
+		  }
+}</p></pre>
+        <div class="MCMiniTocBox_0">
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Creating Transformation Processing Units.htm">Creating Transformation Processing Units</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Configuring the Transformers Resource.htm">Configuring the Transformers Resource</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Product Database.htm">Registering the Transfer Resource in the Product Database</a>
+            </p>
+        </div>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

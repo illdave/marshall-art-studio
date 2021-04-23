@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Security">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Protection Against CSRF Threats</title>
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/API Guide/Security/Protection Against CSRF Threats.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Security.htm">Security</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Protection Against CSRF Threats</span>
+        </div>
+        <h1>Protection Against CSRF Threats</h1>
+        <p>CSRF stands for Cross Site Request Forgery. Refer to the <a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">Cross-Site Request Forgery (CSRF)</a> site for a detailed explanation of this security topic.</p>
+        <p>As security expectations continue to escalate by the security officers at the insurance carrier, omitting support for this in our product will be harder and harder to define as time goes on.</p>
+        <h2>Basic Approach</h2>
+        <p>The technique for protecting against CSRF is based on a mechanism that dispenses a unique, secure, hard to guess identifier to the browser when the content is rendered. When a subsequent request (HTTP GET or POST) is made on the server, one of the first things done by the security filter is to check that the incoming identifier matches the identifier on record. If the identifier is missing or does not match the one on record, then a security exception is raised, an audit trail record is written to the database and the user is directed to an error page.</p>
+        <h2>Technical Design</h2>
+        <h3>Dispensing of CSRF Tokens</h3>
+        <p>One technical approach maintains one single unique identifier at user/session scope that is dispensed over and over again with each request. Although this is an improvement over nothing at all, the product team decided to adopt an approach that assigns a new, unique, secure and hard to guess identifier with each inbound request when one is called. These identifiers, hereafter, are referred to as CSRF tokens. These CSRF tokens are unique and distinct to inbound HTTP request/user combination, and are stored in session and referred to later to verify a valid CSRF inbound request.</p>
+        <p>To mitigate memory bloat, a circular buffer of n CSRF token instances (where n is configurable) was implemented. Some approaches remove the CSRF token as the first request processed. This is by far the most secure way of handling this, but also prevents the user from using the browser back button. It also introduces a lot of complexity to AJAX requests.</p>
+        <p>The design approach we embraced is to retain the CSRF token in a circular buffer until it is overwritten. CSRF token instances generate on the fly when requested by the JSP subsystem, each HTTP request having its own unique CSRF token. If multiple forms or links need a CSRF token value, the same token value is  used within that particular request.</p>
+        <h3>Targeted Processing</h3>
+        <p>The most secure application would protect every inbound HTTP request with a CSRF token. We adopted a more targeted approach, protecting only those HTTP requests that result in either an insert, update or delete transaction to the database or that navigate through a work item. All FrontServlet (both GET and POST methods) and WorkItemAction (both GET and POST methods) URIs are guarded with CSRF protection. Product teams can alter supported CSRF configuration to allow an application project to protect other types of requests, assuming they also update their custom JSPs/Javascript AJAX logic to dispense out CSRF token values appropriately.</p>
+        <h3>Verification of CSRF Tokens</h3>
+        <p>The ACSI security filter ensures that inbound requests for those URIs that match the requisite configuration contain a valid CSRF token. Action will be taken, regardless of whether the CSRF token is wrong OR missing.</p>
+        <p>CSRF token verification is forgone if there is no session allocated to the request, assuming that other authentication means are undertaken to ensure the request is being delivered from a legitimate source.</p>
+        <h2>Supporting Public APIs</h2>
+        <p><b>com.agencyport.security.csrf.ICSRFGuard</b> is the main interface that exposes the primary mechanism for dispensing CSRF tokens and for verifying that inbound requests are appropriately provisioned with CSRF tokens.</p>
+        <p>Methods:</p><pre class="prettyprint"><p>      /**
+       * Installs the CSRF guard onto the session.
+       * @param session is the session for the user.
+       * @throws com.agencyport.security.exception.SecurityException if the installation fails.
+       */
+      void install(HttpSession session) throws com.agencyport.security.exception.SecurityException;
+      
+      /**
+       * Returns whether or not the CSRF guard is active or not. Typically during performance testing CSRF
+       * guards are turned off.
+       * @return &lt;code&gt; true&lt;/code&gt; if CSRF protection is on.
+       */
+      boolean isActive();
+    /**
+     * Prepares a request for CSRF handling. This is called at the very beginning by the security filter allowing the guard
+     * to initialize itself.
+     * @param request is the current HTTP request.
+       * @throws com.agencyport.security.exception.SecurityException if the installation fails.
+     */
+    void initialize(HttpServletRequest request) throws com.agencyport.security.exception.SecurityException;
+   
+    /**
+     * Generates a new/returns the current CSRF token.
+     * @return the current CSRF token.
+     */
+    String getCurrentCSRFToken();
+   
+    /**
+     * Returns the CSRF tag name to use in the application.
+     * @return the CSRF tag name to use in the application.
+     */
+    String getCSRFTokenTagName();
+   
+    /**
+     * Verifies that the inbound request is properly provisioned with a valid CSRF token.
+     * @param request is the current HTTP request.
+     * @throws CSRFViolationException if the request is not properly provisioned with a valid CSRF token.
+     */
+    void verifyRequest(HttpServletRequest request) throws CSRFViolationException;  
+</p></pre>
+        <p><b>com.agencyport.security.csrf.CSRFHelper</b> is a helper utility class that simplifies getting access to the ICSRFGuard instance for the current request/session.</p>
+        <p>Methods:</p><pre class="prettyprint"><p>      /**
+       * Returns the guard currently installed on the HTTP sesssion. This accesses the session
+       * by way of the LoggingContextStore giving access the the current HTTP request which gives
+       * access to the underlying session.
+       * @return the guard currently installed on the HTTP session.
+       */
+      public static ICSRFGuard getCSRFGuard();
+      /**
+       * Returns the guard currently installed on the HTTP session.
+       * @param request is the current request from which the session is derived.
+       * @return the guard currently installed on the HTTP session.
+       */
+      public static ICSRFGuard getCSRFGuard(HttpServletRequest request);
+      /**
+       * Returns the guard currently installed on the HTTP session.
+       * @param session is the current session.
+       * @return the guard currently installed on the HTTP session.
+       */
+      public static ICSRFGuard getCSRFGuard(HttpSession session);
+</p></pre>
+        <p><b>com.agencyport.jsp.JSPHelper</b> is a helper utility class that was enhanced to provide CSRF tokens from JSP constructs.</p>
+        <p>New Methods:</p><pre class="prettyprint"><p>   /**
+     * Returns the current CSRF token value.
+     * @return the current CSRF token value.
+     * @since 5.0
+     */
+    public String getCSRFToken();
+
+Start Example
+&lt;script&gt;
+      ap.workItemAssistant.init(' &lt;%=jspHelper.getTransaction().getId().toString() %&gt;',
+                                            '&lt;%=jspHelper.getPage().getId().toString() %&gt;',
+                                            '&lt;%=jspHelper.getWorkItemId() %&gt;',
+                                            '&lt;%=jspHelper.getClientUpdateInterval() %&gt;',
+                                            '&lt;%=jspHelper.getClientUpdateMaxTimeout() %&gt;',
+                                            '&lt;%=jspHelper.getCSRFToken()%&gt; ');
+&lt;/script&gt;
+End Example
+   
+    /**
+     * Appends the CSRF token to the HREF.
+     * @param href is the HREF to append to.
+     * @return the HREF with the CSRF token appended.
+     * @since 5.0
+     */
+    public String appendCSRFToken(String href);
+
+Start Example
+     JSPHelper jspHelper = JSPHelper.get(securityProfile.getRequest());
+     url = jspHelper.appendCSRFToken(url); 
+End Example
+tags/page/csrf.tag is a new JSP tag in the ‘ap’ name space that simplifies the addition of a CSRF token hidden field to an HTML form.
+Start Example
+&lt;form action ="FrontServlet" id="accountForm" name= "accountForm" method ="post" class="form-horizontal"&gt;          
+     &lt;input type ="hidden" name= "TRANSACTION_NAME" id="TRANSACTION_NAME" value ="&lt;%=tran.getId()%&gt; " /&gt;
+     &lt;input type ="hidden" name="WORKITEMID" id= "WORKITEMID" value ="&lt;%=details.getAccountId().toString()%&gt; "&gt;
+     &lt;ap:csrf /&gt;
+End Example
+</p></pre>
+        <p><b>tags/page/csrf.tag</b> is a new JSP tag in the ‘ap’ name space that simplifies the addition of a CSRF token hidden field to an HTML form.</p><pre class="prettyprint"><p>Start Example
+&lt;form action ="FrontServlet" id="accountForm" name= "accountForm" method ="post" class="form-horizontal"&gt;          
+     &lt;input type ="hidden" name= "TRANSACTION_NAME" id="TRANSACTION_NAME" value ="&lt;%=tran.getId()%&gt; " /&gt;
+     &lt;input type ="hidden" name="WORKITEMID" id= "WORKITEMID" value ="&lt;%=details.getAccountId().toString()%&gt; "&gt;
+     &lt;ap:csrf /&gt;
+End Example
+</p></pre>
+        <h2>Supporting Configuration</h2>
+        <p>The CSRF module is driven in part by configuration. Since this infrastructure is related to security, the best home for any specific application configuration is in acsi.properties file. The following are the various configuration options:</p>
+        <ul>
+            <li value="1"><b>security.csrf_protection</b> is a boolean true/false flag that allows an application to turn off CSRF protection at the application level. If this flag is absent, then its default value is true. When this flag is off, verification of CSRF tokens by Agencyport security filter are not carried out. The only time to turn this flag off is during performance testing.  Since performance testing is based on the execution of pre-recorded scripts, the CSRF tokens that were records are longer valid when the scripts run.</li>
+            <li value="2">s<b>ecurity.csrf_uri-include_list</b> specifies which HTTP requests to engage CSRF verification. The OOTB product currently supports CSRF protection against all FrontServlet and WorkItemAction HTTP requests (both GET and POST methods). There is no default and a proper configuration for this option looks like this:</li><pre class="prettyprint"><p>############################################################
+# ACSI - CSRF protection configuration
+# CSRF supports a list of URIs and methods (POST, GET) which
+# the framework will protect against potential CSRF attacks.
+# The configuration is formatted as a list of URIs delimited by semi-colons with
+# the specific methods within parenthesis following each URI
+# each method delimited with a comma.  
+############################################################
+security.csrf_uri_include_list=FrontServlet(POST,GET);\
+WorkItemAction(POST,GET)
+</p></pre>
+        </ul>
+        <ul>
+            <li value="1"><b>security.csrf_token_repo_max_size</b> is an integer based application property that allows an application to control the size of the circular buffer. The default value is 128. An application will rarely need to override this value and should consult product development before doing so.</li>
+        </ul>
+        <h2>Testing Strategies</h2>
+        <h3>Performance Testing</h3>
+        <p>When running performance tests, the <b>security.csrf_protection</b> flag must be set to false; otherwise, all FrontServlet and WorkItem Action HTTP requests will fail. When recording performance test scripts, the setting of this flag is not important.</p>
+        <h2>Functional/Vulnerability Testing</h2>
+        <p>There are many places in the framework where FrontServlet and WorkItemAction requests are launched. Any place where either of these end points are executed, whether it be the commit of a work item page, a URL link on a work item’s left navigation menu or a work item action taken from the home page or work queue, CSRF tokens should be rendered out as form variables or JS data.</p>
+        <p>The following is an example from the work queue where the CSRF token is located:</p><pre class="prettyprint">
+    &lt;span&gt;&lt;/span&gt;
+    &lt;input id="WORKITEMID" type="hidden" value="1351"&gt;&lt;/input&gt;
+    &lt;input id="action" type="hidden" value="Open"&gt;&lt;/input&gt;
+    &lt;input id="openmode" type="hidden" value="E"&gt;&lt;/input&gt;
+    &lt;!--
+     tags\page\csrf.tag
+    --&gt;
+    &lt;input id="CSRF_TOKEN" type="hidden" value="aa8509d8ff294f98949cb18cac76cad6" name="CSRF_TOKEN"&gt;&lt;/input&gt;
+    &lt;!--
+     End tags\page\csrf.tag
+    --&gt;
+     &lt;/span&gt;
+</pre>
+        <p>The following is also an example of a CSRF token on a TDF page:</p><pre class="prettyprint"><p>&lt;p&gt;                                             
+  &lt;input type="hidden" name="NEXT" value="SaveToDefaults" /&gt;
+
+  &lt;input type="hidden" name="WORKITEMID" value="1351" /&gt;
+
+  &lt;input type="hidden" name="FROMLIGHTBOX" value="lb_save_to_default" /&gt;
+
+  &lt;input type="hidden" name="METHOD" value="Process" /&gt;
+
+  &lt;input type="hidden" name="PAGE_NAME" value="generalInfo" /&gt;
+
+  &lt;input type="hidden" name="TRANSACTION_NAME" value="workersComp" /&gt;
+
+  &lt;!-- tags\page\csrf.tag--&gt;
+
+  &lt;input type="hidden" name="CSRF_TOKEN" id="CSRF_TOKEN" value="0e86482067f91af07561e0956637cb66" /&gt;     
+  &lt;!-- End tags\page\csrf.tag--&gt;
+</p></pre>
+        <p>You will also notice that the URL in the address bar has a CSRF token when a work item is opened. For example:</p>
+        <p>
+            <img src="../../../Resources/Images/API Guide/Security Improvements/CSRFURL.png" class="border" />
+        </p>
+        <p>When testing, ensure the following:</p>
+        <ol>
+            <li value="1">If the CSRF token values on the address bars, form fields or other JS variables are altered or removed, the following pages should be rendered when the request is executed:
+            <br /><img src="../../../Resources/Images/API Guide/Security Improvements/Oops_433x106.png" class="border" style="width: 433;height: 106;" /></li>
+            <li value="2">If the CSRF token values on address bars, form fields or other JS variables are altered or removed, the following action is taken and an audit trail record should be written to the audit log audit_misc table when the request is executed:
+        	<br /><img src="../../../Resources/Images/API Guide/Security Improvements/auditlog.png" class="border" /></li>
+            <li value="3">Test to ensure that all aspects and all nooks and crannies of the four supported LOB templates work as expected. CSRF tokens were provisioned using the &lt;ap:csrf/&gt; JSP tag on the custom summary pages on each LOB. These CSRF tokens are validated when the Save and Exit button is pressed.
+            <br /><img src="../../../Resources/Images/API Guide/Security Improvements/summarypage_504x228.png" class="border" style="width: 504;height: 228;" /></li>
+            <li value="4">Any comprehensive testing effort should include a test using the ZED Attack Proxy tool that was introduced in v.4.6. There are specific configuration options available in this tool specifically for testing the CSRF protection aspect of security. Refer to the <a href="http://subversion.agencyport.com/ap_products/documentation/all/Best Practices/vulnerability/OWASP Zed Attack Proxy.docx">OWASP Zed Attack Proxy (ZAP)</a> document for more information on using this tool.</li>
+        </ol>
+        <h3>Verification of Work Item Actions</h3>
+        <p>Request level verification of work item actions is carried out to protect against the unauthorized execution of actions against work items. This is in support of the OWASP Top 10 #7 tenet titled: A7 - Missing Function Level Access Control.</p>
+        <h4>Supporting Configuration</h4>
+        <p>Verification of work item actions is controlled by application property configuration. Since this infrastructure is related to security, the best home for any specific application configuration is in the <b>acsi.properties</b> file. The following are the various configuration options:</p><pre class="prettyprint"><p>
+############################################################
+# ACSI - Work Item and Account Action Verification Configuration
+# the framework will verify that user has the authority to execute the action on work items and accounts.
+############################################################
+# Setting the following flag to false will deactivate work item action verification.
+security.verify_work_item_actions=true
+# The following map relates incoming work item action values to their permission name counterparts. This is used to verify that user has the authority to execute
+# the incoming action on the work item.
+security.action_to_permission_map=MoveWorkItems,accessCanMove;\
+MergeAccount,accessCanMerge;\
+Delete,accessCanDelete;\
+DoAssign,accessCanAssign;\
+Copy,accessCanCopy</p></pre>
+        <h3>Verification of Redirect Target URLs</h3>
+        <p>All URLs that are a target passed to HttpServletResponse.sendRedirect() are validated by default. This is in support of the OWASP Top 10 #10: Unvalidated Redirects and Forwards.</p>
+        <h4>Supporting Configuration</h4>
+        <p>Verification of work item actions is controlled by application property configuration. Since this infrastructure is related to security, the best home for any specific application configuration is in <b>acsi.properties</b> file. The following are the various configuration options:</p><pre class="prettyprint"><p>
+############################################################
+# ACSI - URL Verification Configuration
+# the framework will verify URLs redirected to.
+############################################################
+# Setting the following flag to false will deactivate url verification.
+security.verify_urls=true
+# The following list provides a white list of valid starting sequences for URLs
+security.valid_url_start_sequences=${my_portal_app};\
+${APPLICATION_NAME};\
+/${APPLICATION_NAME};\
+DisplayHomePage</p></pre>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

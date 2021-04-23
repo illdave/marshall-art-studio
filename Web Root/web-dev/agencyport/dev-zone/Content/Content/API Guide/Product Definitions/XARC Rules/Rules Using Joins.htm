@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition|XARC Rules|Example XARC Rules">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Rules Using Joins</title>
+        <link href="../../../../Resources/TableStyles/Example Table.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/Tip Table.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Product Definitions/XARC Rules/Rules Using Joins.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="XARC Rules.htm">XARC Rules</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Rules Using Joins</span>
+        </div>
+        <h1>Rules Using Joins</h1>
+        <p><b>Rule</b>:</p>
+        <p>Every vehicle should have driver use percentage equals to 100%. Display the following error message “${year} ${make} ${model}: Use percentage is not equal to 100%” for vehicles that do not have use percentage equal to 100%.</p>
+        <p><b>Fields</b>:</p>
+        <p>Vehicle Reference on Driver Vehicle: <code>PersPolicy.DriverVeh.@VehRef</code></p>
+        <p>Use Percentage: <code>PersPolicy.DriverVeh.UsePct</code></p>
+        <p>Vehicle Make: <code>PersAutoLineBusiness.PersVeh.Manufacturer</code></p>
+        <p>Vehicle Model: <code>PersAutoLineBusiness.PersVeh.Model</code></p>
+        <p>Vehicle Year: <code>PersAutoLineBusiness.PersVeh.ModelYear</code></p>
+        <p><b>Approach</b>:</p>
+        <p>Since this rule uses data from Vehicles aggregate and DriverVeh aggregate, we have to join the two aggregates using the reference ids. You must write a custom xpath to perform this join and loop over all the vehicles since the message needs to display for each vehicle that meets the conditions.</p>
+        <p><b>Steps to write this rule</b>:</p>
+        <ol>
+            <li value="1">Add PersAutoLineBusiness.PersVeh page source to loop over vehicles. 
+				<br /><img src="../../../../Resources/Images/joins_pagesource_593x214.png" style="width: 593;height: 214;" class="border" /></li>
+            <li value="2">Join the vehicle with the corresponding DriverVeh aggregate and get the usePct. Use an xpath such as:
+				<br />“/PersAutoPolicyQuoteInqRq/PersPolicy/DriverVeh[@VehRef = /PersAutoPolicyQuoteInqRq/PersAutoLineBusiness/PersVeh[position()= #INDEX]/@id ]/UsePct”
+				<br />#INDEX is a built-in keyword that will be replaced with the index of the vehicle being lopped over since you need to get a total usePct use of the sum function.
+				<br /><table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Tip Table.css');" class="TableStyle-Tip_Table" cellspacing="0"><col class="TableStyle-Tip_Table-Column-Column1" /><tbody><tr class="TableStyle-Tip_Table-Body-Body1"><td class="TableStyle-Tip_Table-BodyA-Column1-Body1"><p class="tipheader">TIP:</p><p class="tip">When looping over an aggregate an qualifying a sub element of the aggregate with an external element, the xpath for the external element has to be specified all the way from the root of the document.</p><table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0"><col class="TableStyle-Example_Table-Column-Column1" /><tbody><tr class="TableStyle-Example_Table-Body-Body1"><td class="TableStyle-Example_Table-BodyA-Column1-Body1"><p class="exampleheader">EXAMPLE:</p><p class="example"><code>/PersAutoPolicyQuoteInqRq/PersPolicy/DriverVeh[@VehRef = /PersAutoPolicyQuoteInqRq/PersAutoLineBusiness/PersVeh/@id]</code></p><p class="example">In this example, the xpath for vehicle id is specific all the way from the root of the xml document.</p></td></tr></tbody></table></td></tr></tbody></table><br /><img src="../../../../Resources/Images/joins_xpath_630x96.png" style="width: 630;height: 96;" class="border" /></li>
+            <li value="3">Select operator "not="
+				<br /><img src="../../../../Resources/Images/joins_not=_629x98.png" style="width: 629;height: 98;" class="border" /></li>
+            <li value="4">Enter the value of 100 for the right operand.
+				<br /><img src="../../../../Resources/Images/joins_value100_629x110.png" style="width: 629;height: 110;" class="border" /></li>
+            <li value="5">Add local variables for vehicle year, make, mode (as shown below).
+				<br /><img src="../../../../Resources/Images/joins_localvariable_628x180.png" style="width: 628;height: 180;" class="border" /><br /><img src="../../../../Resources/Images/joins_localvariablemake_626x182.png" style="width: 626;height: 182;" class="border" /><br /><img src="../../../../Resources/Images/joins_localvariablemodel_619x177.png" style="width: 619;height: 177;" class="border" /></li>
+            <li value="6">Add a message using variables created.
+				<br /><img src="../../../../Resources/Images/joins_message_624x108.png" style="width: 624;height: 108;" class="border" /></li>
+        </ol>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

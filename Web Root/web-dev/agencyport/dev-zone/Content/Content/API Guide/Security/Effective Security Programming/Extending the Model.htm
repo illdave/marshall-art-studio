@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Security|Effective Security Programming|ASCI Step-by-Step Guide|Fleshing Out the ACSI Security Model">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Extending the Model</title>
+        <link href="../../../../Resources/TableStyles/Example Table.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/Best Practice Table.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Security/Effective Security Programming/Extending the Model.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Security.htm">Security</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Effective Security Programming.htm">Effective Security Programming</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Extending the Model</span>
+        </div>
+        <h1>Extending the Model</h1>
+        <p>After you have studied all of the interfaces, you may come to the conclusion that the core security library implementation classes are adequate as is. In which case, you may skip to this step. However, if you have concluded that one or more security model entities needs augmentation, follow the following steps:</p>
+        <ol>
+            <li value="1">Identify which security model entities need  augmented or modified based on your evaluation of the security requirements made on your application.</li>
+            <li value="2">Extend those security model entity classes by adding data members or functionality that are not modeled in the core security model classes.
+        
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Best Practice Table.css');" class="TableStyle-Best_Practice_Table" cellspacing="0"><col class="TableStyle-Best_Practice_Table-Column-Column1" /><tbody><tr class="TableStyle-Best_Practice_Table-Body-Body1"><td class="TableStyle-Best_Practice_Table-BodyA-Column1-Body1"><p class="bestpracticeheader">BEST&#160;PRACTICE:</p><p class="bestpractice" style="margin-bottom: 0;">Although the security architecture allows you to implement any of the security model entity interfaces entirely from scratch, <u>you should always consider extending the core security model class first</u> before contemplating a full custom implementation.</p><p class="bestpractice" style="margin-bottom: 0;"><br /></p><p class="bestpractice">Remember that the base security model entity classes are part of the core security library and should be leveraged where and whenever possible.</p></td></tr></tbody></table></li>
+        </ol>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Best Practice Table.css');" class="TableStyle-Best_Practice_Table" cellspacing="0">
+            <col class="TableStyle-Best_Practice_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Best_Practice_Table-Body-Body1">
+                    <td class="TableStyle-Best_Practice_Table-BodyA-Column1-Body1">
+                        <p class="bestpracticeheader">BEST&#160;PRACTICE:</p>
+                        <p class="bestpractice">Ensure that all of your security model extensions contain a toString method. Moreover, it is a good practice in general to implement a toString() method on any application custom Java class that is "stateful."</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="subheading">Sample References</p>
+        <p>Let's review the entity we selected to illustrate this principle in the samples security zip package. Again, the entities you extend may be different or the reason for extension may be rooted in a different cause. For our sample security package, we have augmented the subject entity to track whether the user is an internal user and to track whether the user has been authenticated. Review the CarrierSubject Java class located in the sample's security zip package for more details.</p>
+        <p>
+            <img src="../../../../Resources/Images/security_samples_src_508x265.png" style="width: 508;height: 265;" class="border" />
+        </p>
+        <p>For the security factory to create this custom extension, you must register the full package Java class names in acsi.properties for this class. The following is an example on how to register our custom carrier subject class:</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p><pre class="prettyprint"><p class="example">################################################################################
+# Properties specific to the support of ACSI ################################################################################
+## ACSI properties - engages correct implementations for various application ACSI extensions
+security.subject_classname=com.carrier.security.model.CarrierSubject</p></pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The next time the AgencyPortal framework or your custom application security provider calls either of the security model factory methods, <i style="font-weight: bold;">createSubject(IUserPrincipal)</i> or <i style="font-weight: bold;">createSubject(String, String)</i>, a CarrierSubject instance, is created instead of the default one. Remember that all ACSI properties, like any other application properties, are loaded once at application bootstrap time only. During the development phase, if you happen to add or change one of these application properties while your application service is running, you must reboot the server in order for the new values to take effect.</p>
+        <div class="MCMiniTocBox_0">
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Supporting Fine Grained Permissions.htm">Importance of Supporting Fine Grained Permissions</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="Case for Fine Grained Permissions.htm">Making the Case for Fine Grained Permissions</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="Intro Fine Grained Permissions.htm">How to Introduce Fine Grained Permissions</a>
+            </p>
+        </div>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

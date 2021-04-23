@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Data">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>XML Schema</title>
+        <link href="../../../Resources/TableStyles/Basic Table Type.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/API Guide/Data/XML Schema.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Data.htm">Data</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">XML Schema</span>
+        </div>
+        <h1>XML Schema</h1>
+        <p>The APDataCollection is based on a valid XSD schema. The schema supplies the following important pieces of information to the AXE:</p>
+        <ul>
+            <li value="1">Defines the XML hierarchy that the application will use.</li>
+            <li value="2">Defines which elements are required and optional.</li>
+            <li value="3">Defines which elements repeat.</li>
+            <li value="4">Defines the sequencing, or the order of sub elements, in relation to the parent element.</li>
+        </ul>
+        <p>An XSD&#160;schema contains support for many complex features, such as data types for element values, enumerations for lists, etc. The APDataCollection supports only a core set of features required by the framework.</p>
+        <p>The following table defines the behavior of AXE in conjunction with the relevant XSD&#160;expressions:</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Basic Table Type.css');" class="TableStyle-Basic_Table_Type" cellspacing="0">
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <col class="TableStyle-Basic_Table_Type-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">AXE characteristic</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">XSD Syntax</th>
+                    <th style="text-align: left;" class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">AXE default if not explicitly specified in&#160;XSD</th>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Element is required</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">minOccurs="n" (where n is greater than zero)</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Element is required</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Element is optional</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">minOccurs="0"</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Element is required</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Element is repeating</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">maxOccurs="n" or "unbounded (where n is greater than 1)</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Element is not repeating</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">Element is non repeating</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyE-Column1-Body1">maxOccurs="1"</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyD-Column1-Body1">Element is not repeating</td>
+                </tr>
+                <tr class="TableStyle-Basic_Table_Type-Body-Body1">
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">Element is mutually exclusive with other sibling elements defined within group</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyB-Column1-Body1">&lt;xsd:choice&gt;</td>
+                    <td class="TableStyle-Basic_Table_Type-BodyA-Column1-Body1">N/A</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Data Schemas and Data Schema Resources</h2>
+        <p>The DATA_SCHEMAS and DATA_SCHEMA_RESOURCES properties are the way in which an application can make the XML&#160;schemas known to AXE. Both properties support the notion of multiple schemas via a semi-colon delimited list. </p>
+        <p>The first property, DATA_SCHEMAS, assumes that the XML&#160;schema files are physically located on the file system and is the traditional way of telling&#160;AXE about your schema.</p>
+        <p>The second property, DATA_SCHEMA_RESOURCES, assumes that the schemas are either available to the class loader or is a URL. </p>
+        <p>An application can use the second technique if they choose to bundle resources, such as schemas in a jar file.</p>
+        <p>These entries list the data schemas known to the system. The simple syntax for "naming" an individual schema is:</p>
+        <p>xsd_filename[Element:MyRootElementName]</p>
+        <p>In the transaction file, MyRootElementName becomes the value of the target attribute:</p><pre class="prettyprint"><p>############################################################
+# DATA_SCHEMAS
+# Supports multiple schema files separated by  semi-colons.
+############################################################
+ACORD_FILE_NAME_1_7_0=1_7_0/ap_acord-pc-v1_7_0-nodoc-nocodes.xsd
+PRECONDITIONS_SCHEMA_FILE_NAME=preconditions/preconditions.xsd
+TRANSACTION_DEFINITION_RULE_BASE_SCHEMA_FILE_NAME=behavior/transactionDefinitionBehavior.xsd
+
+DATA_SCHEMAS=
+${my_context_path}WEB-INF/schemas/${ACORD_FILE_NAME_1_7_0}[Element:PersAutoPolicyQuoteInqRq,Element:PersAutoPolicyModRq,Element:WorkCompPolicyQuoteInqRqElement:WorkCompPolicyModRq];\\
+${my_context_path}WEB-INF/schemas/${PRECONDITIONS_SCHEMA_FILE_NAME}[Element:PersonalAutoPreConditions];\
+${my_context_path}WEB-INF/schemas/${PRECONDITIONS_SCHEMA_FILE_NAME}[Element:WorkersCompPreConditions];\
+${my_context_path}WEB-INF/schemas/${TRANSACTION_DEFINITION_RULE_BASE_SCHEMA_FILE_NAME}[Element:transactionDefinitionBehavior]
+DATASERVICES_SCHEMA_DIR=schemas/
+CHOICEPOINT_SCHEMA_FILE=${DATASERVICES_SCHEMA_DIR}choicepoint.xsd
+DATA_SCHEMA_RESOURCES=http://wiki.keyonce.com/documents/AgencyPortal/schemas/transactionDefinitionBehavior.xsd[Element:transactionDefinitionBehavior];\
+${CHOICEPOINT_SCHEMA_FILE}[Element:NCFRequest,Element:NCFResponse]</p></pre>
+        <h2>Creating a XSD Schema</h2>
+        <p>Creating XSD files from scratch is difficult with a plain text editor. It is well worth investing in a tool, such as Altoa's XML Spy<sup>tm</sup>, for creating XSDs from scratch or for altering existing XSD files.</p>
+        <p>If the application data model is based on ACORD, you can use existing ACORD&#160;XSD unchanged or alter it to fit the requirements of the application.</p>
+        <p>Another way to create an XSD is to generate an XML instance based on the desired XML structure, open it in a tool, such as Altova's XML Spy<sup>tm</sup>, and then have the tool generate the schema. Refer to the <a href="http://www.w3.org/TR/xmlschema-0/">XML Schema Part 0</a> documentation section of the W3C website for more information on the source specification for XSD.</p>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

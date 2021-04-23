@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition|Validators">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Built-in Field Validation Connector</title>
+        <link href="../../../../Resources/TableStyles/Note Table.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Product Definitions/Validators/Built-in Field Validation Connector.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Validators.htm">Validators</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Built-in Field Validation Connector</span>
+        </div>
+        <h1>Built-in Field Validation Connector</h1>
+        <p>The server side field validations are implemented as an SDK connector. The difference is that explicit configuration is not required in the application's connector configuration file to engage the field validations.</p>
+        <h2>Process Side Field Validations</h2>
+        <p>When server side field validations are enabled, the connector that hosts the built-in field validation method to run is "injected" dynamically into the connector list for a given page as the first connector to run.This forgoes the need to explicitly configure the built-in field validation connector to run. The default implementation of this connector is thought to serve the majority of needs by applications; however, you may need to extend the default base class, com.agencyport.fieldvalidation.connector.BuildinFieldValConnector, if you need to change one or more of the following behaviors:</p>
+        <ol>
+            <li value="1">The preconditions that contribute toward the decision whether to run the field validation methods for an entire page. The method that can be overridden/extended is boolean continueWithExecute(Map dataBundle). The base implementation tests for the following&#160;"true" conditions:
+				<ul><li value="1">The fieldValidations="enabled" is set at the transaction level in the TDF</li><li value="2">The fieldValidations="serverSideDisabled" is not configured on the page under consideration</li><li value="3">The page is an SDK framework based page</li><li value="4">If the page is not a roster page</li><li value="5">If the page is a roster page and the actions are EDIT or COPY</li></ul><br />The above logic is contained in the method protected boolean continueWithExecute(Map dataBundle). Derived forms can override this if the above logic should be altered. This logic is also available for use via a static method on the shouldRunFieldValidation(Map dataBundle) class public static boolean, making this logic available outside the scope of this instance.</li>
+            <li value="2">The list of fields that have their field validation methods run. Before the validation methods are run, each field in the TDF&#160;is checked to determine its candidacy for running its set of validation methods. The base implementation tests for the following "true" conditions.
+				<ul><li value="1">If a field has a data value on the servlet request (has a field in the HTMLDataContainer), then any field validation method configured on that field will run.</li><li value="2">Some HTML controls like radio button or check box controls (question-answer elements) do not have inut data parameters streamed into the server when the user does not answer the question at all. The base implementation makes a further check on the control type so that required validations will still run on these types of controls, regardless of whether there is data value present in the HTMLDataContainer.</li></ul></li>
+        </ol>
+        <h2>Display Side Field Validations / Connectors</h2>
+        <p>Display side field validation methods should be engaged to enhance the upload experience. The feature can be enabled by applying the prevalidate="true" attribute at either the transaction or page level of the TDF. The idea behind this notion is to give the user feedback about the validity of the upload data as soon as possible rather than waiting for the user to press 'Continue.' Data entry, roster display and roster edit pages qualify for this experience. Both data entry and roster edit pages run prevalidation on first view of the data.</p>
+        <p>For data entry pages, the notion of "first view"&#160;is tied directly to the page visited flag. For roster edit pages, the repeating aggregate's saved state attribute is used when a value of false triggers prevalidation on entry into the roster edit page. </p>
+        <p>On roster display pages, the framework iterates through all of the roster items and runs prevalidation for each entry whose saved attribute value is not yet set (neither true nor false). When an error situation is encountered for that particular roster item, the visual rendering for that particular roster item is altered to provide a way for the user to distinguish between valid and invalid roster items. Furthermore, the detailed error messages generated by any connectors run on the display side of a display roster page are in fact suppressed.</p>
+        <p>In the following example the second driver has something wrong, which requires the user's attention. To force the user to visit all invalid roster items, the forceViewOnUpload="true" must be configured for that page in the TDF.</p>
+        <p><span style="color: #ff0000; font-weight: bold;">[NEED&#160;UPDATED&#160;5.0 SCREEN]</span>
+        </p>
+        <p>User-defined connectors can also be engaged on the display side by configuring those connectors with the supportsPrevalidation="true" attribute. </p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0">
+            <col class="TableStyle-Note_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Note_Table-Body-Body1">
+                    <td class="TableStyle-Note_Table-BodyA-Column1-Body1">
+                        <p class="noteheader">NOTE:</p>
+                        <p class="note">For roster display pages, the connectors are assummed to be HTMLDataContainer based and not transaction (APDataCollection) based. If a user-defined connector is not HTMLDataContainer, then you should probably wait to run it on the process side of the roster display.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

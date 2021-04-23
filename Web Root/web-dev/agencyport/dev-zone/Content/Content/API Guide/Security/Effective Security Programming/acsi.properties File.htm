@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Security|Effective Security Programming|ASCI Step-by-Step Guide">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Setting Up an acsi.properties File</title>
+        <link href="../../../../Resources/TableStyles/Best Practice Table.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Security/Effective Security Programming/acsi.properties File.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Security.htm">Security</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Effective Security Programming.htm">Effective Security Programming</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Setting Up an acsi.properties File</span>
+        </div>
+        <h1>Setting Up an acsi.properties File</h1>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Best Practice Table.css');" class="TableStyle-Best_Practice_Table" cellspacing="0">
+            <col class="TableStyle-Best_Practice_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Best_Practice_Table-Body-Body1">
+                    <td class="TableStyle-Best_Practice_Table-BodyA-Column1-Body1">
+                        <p class="bestpracticeheader">BEST&#160;PRACTICE:</p>
+                        <p class="bestpractice">Every project should store all of the application properties specific to ACSI in its own acsi.properties file. This file will look something like the following:</p><pre class="prettyprint"><p class="bestpractice">################################################################################
+# Properties specific to the support of ACSI ################################################################################
+## ACSI properties - engages correct implementations for various application ACSI extensions security.profile_classname=com.agencyport.security.profile.builtin.PortalSecurityProfile security.profile_manager_classname=com.carrier.security.CarrierSecurityProfileManager
+############################################################
+# ACSI
+# Factory list for implementations of com.agencyport.security.resource.ISecureResourceFactory interface.
+# Each factory implementation is a factory for a com.agencyport.security.resource.ISecureResource instance
+# which is sensitive to the current security profile.
+# Examples of secure resources are menus and front servlet (front controller).
+# These are used by security filter. The menu resource is also used
+# to support the menu UI.
+############################################################ secure_resource_factories=com.agencyport.secure.menu.provider.SecureMenuFactory;com.agencyport.secure.front.SecureFrontControllerFactory</p></pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Add a reference in the additional_properties_to_load property list of the main application properties file so the initializer servlet can locate the properties file:</p><pre class="prettyprint"><p>############################################################ 
+# Link to other properties files ############################################################ 
+resources_root=${my_context_path}WEB-INF/ additional_properties_to_load=${resources_root}acsi.properties</p></pre>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

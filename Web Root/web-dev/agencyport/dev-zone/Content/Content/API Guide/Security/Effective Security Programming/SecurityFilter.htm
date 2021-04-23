@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Security|Effective Security Programming|ASCI Step-by-Step Guide|Implementing the Security Filter">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Configuring the Security Filter</title>
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Security/Effective Security Programming/SecurityFilter.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Security.htm">Security</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Effective Security Programming.htm">Effective Security Programming</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Configuring the Security Filter</span>
+        </div>
+        <h1>Configuring the Security Filter</h1>
+        <p>Configure the security filter in web.xml to guard as many edge points of the application server as possible.</p>
+        <p>There are two basic approaches to ensure that it is engaged on the appropriate edge points. The first one creates an explicit filter mapping for each end point to protect.</p><pre class="prettyprint"><p>&lt;filter&gt; 
+		&lt;description&gt;AgencyPort Common Security Interface Servlet Filter&lt;/description&gt; 
+		&lt;display-name&gt;ACSISecurityFilter&lt;/display-name&gt; 
+		&lt;filter-name&gt;ACSISecurityFilter&lt;/filter-name&gt; 
+		&lt;filter-class&gt;com.carrier.security.filter.CarrierSecurityFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+		&lt;filter-name&gt;ACSISecurityFilter&lt;/filter-name&gt;
+		&lt;url-pattern&gt;/FrontServlet&lt;/url-pattern&gt; 
+&lt;/filter-mapping&gt;
+&lt;filter-mapping&gt; 
+		&lt;filter-name&gt;ACSISecurityFilter&lt;/filter-name&gt; 
+		&lt;url-pattern&gt;/DisplayWorkInProgress&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+&lt;filter-mapping&gt;
+		&lt;filter-name&gt;ACSISecurityFilter&lt;/filter-name&gt;
+		&lt;url-pattern&gt;/LaunchWorkItem&lt;/url-pattern&gt; 
+&lt;/filter-mapping&gt;</p></pre>
+        <p>The other technique uses a broader reaching, leveraging wild card in the filter mapping and a specific exclusion filtering feature built into AP's core security filter implementation.</p><pre class="prettyprint"><p>&lt;filter&gt; 
+		&lt;description&gt;AgencyPort Common Security Interface Servlet Filter&lt;/description&gt; 
+		&lt;display-name&gt;ACSISecurityFilter&lt;/display-name&gt; 
+		&lt;filter-name&gt;ACSISecurityFilter&lt;/filter-name&gt; 
+		&lt;filter-class&gt;com.carrier.security.filter.CarrierSecurityFilter&lt;/filter-class&gt; 
+		&lt;init-param&gt;
+				&lt;description&gt;Exclusion filter is expressed as a list of tokens, each entry delimited by a 
+semi-colon. The basic
+				algorithm checks the request URI against each of these items and circumvents the usual 
+security screening done against
+				the request if the URI contains any one of the entries in this list.
+				&lt;/description&gt; 
+				&lt;param-name&gt;security_filter_exclusion_list&lt;/param-name&gt;
+				&lt;param-value&gt;Logon;.js;.gif;.ico;.css.png;.jpg&lt;/param-value&gt; 
+		&lt;/init-param&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+		&lt;filter-name&gt;ACSISecurityFilter&lt;/filter-name&gt;
+		&lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;</p></pre>
+        <p>There is an obvious advantage to the latter technique. As new end points are introduced during development, the security filter will be engaged by default. In the first technique, each new end point requires an explicit addition to the web.xml to engage the security filtering. The latter technique is the preferred technique.</p>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

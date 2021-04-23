@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition|Advanced Data Management|ACORD Simplified Programming|ACORD Simplified: A Step by Step Guide">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Adjusting the TDF to Use the ACORD Simplified Model</title>
+        <link href="../../../../../Resources/TableStyles/Example Table.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../../Default.htm#Content/API Guide/Product Definitions/Advanced Data Management/ACORD Simp Pgm/ACORD SImplified Model.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Advanced Data Management.htm">Advanced Data Management</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Adjusting the TDF to Use the ACORD Simplified Model</span>
+        </div>
+        <h1>Adjusting the TDF to Use the ACORD Simplified Model</h1>
+        <p>This part of the job will be fairly time consuming, depending on the number of fields that have been impacted; another reason to ensure that the simplified ACORD&#160;model has been finalized and thoroughly vetted before starting this step.</p>
+        <p>If the starting point of your application is one that uses SFHs heavily, then you will have an extensive job on your hands. You will need to change and verify the XPath home for each field impacted by the simplified remodeling effort.</p>
+        <table style="width: 100%;mc-table-style: url('../../../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">You will need to change XPaths from something like this:</p><pre class="prettyprint"><p class="example">	&lt;fieldElement type="text" 
+id="SP.BOPLineBusiness.PropertyInfo.CommlPropertyInfo[SubjectInsuranceCd='BMEBU'].CommlCoverage[Cover ageCd='BMEBU'].Limit.FormatInteger" label="Equipt Brkdwn Sub-limit" size="10" maxLength="14" &gt;
+		&lt;validation type="numeric" id="N206" /&gt; 
+	&lt;/fieldElement&gt;</p></pre>
+                        <p class="example">To something like this:</p><pre class="prettyprint"><p class="example">	&lt;fieldElement type="text" 
+id="CommlSubLocation.CommlPropertyInfo[SubjectInsuranceCd='BMEBU'].CommlCoverage[CoverageCd=' BMEBU'].Limit.FormatInteger" label="Equipt Brkdwn Sub-limit" size="10" maxLength="14" &gt;
+		&lt;validation type="numeric" id="N206" /&gt; 
+	&lt;/fieldElement&gt;</p></pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="MCMiniTocBox_0">
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Removing Old SFHs from Your Application.htm">Removing Old SFHs from Your Application</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="ACORD Standard Transformations.htm">Creating Necessary Transformers to Support ACORD Simplified To/From ACORD Standard Transformations</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="Creating Transformation Processing Units.htm">Creating Transformation Processing Units</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="Configuring the Transformers Resource.htm">Configuring the Transformers Resource</a>
+            </p>
+            <p class="MiniTOC2_0"><a class="MiniTOC2" href="Product Database.htm">Registering the Transfer Resource in the Product Database</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Converting Application to Use New XPaths.htm">Converting Application to Use New XPaths</a>
+            </p>
+            <p class="MiniTOC1_0"><a class="MiniTOC1" href="Other Pertinent Information.htm">Other Pertinent Information</a>
+            </p>
+        </div>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Upload Writer Programming">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Best Practices for an Effective Upload Writer Development Exercise</title>
+        <link href="../../../Resources/TableStyles/Important Table.css" rel="stylesheet" />
+        <link href="../../../Resources/TableStyles/Note Table.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../Default.htm#Content/API Guide/Upload Writer Programming/Best Practices for Effective Upload Writer.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Effective Upload Writer Programming.htm">Upload Writer Programming</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Best Practices for an Effective Upload Writer Development Exercise</span>
+        </div>
+        <h1>Best Practices for an Effective Upload Writer Development Exercise</h1>
+        <p>The following are best practices and guiding principals for an effective upload writer development exercise:</p>
+        <p class="subheading">Write the Minimum Code Necessary to Satisfy Business Requirements</p>
+        <p>Application teams should:</p>
+        <ul>
+            <li value="1">Review/re-engineer previous upload writer implementations, when appropriate, to take full advantage of the refactoring of the ImportBaseServlet and UploadDataManager classes.</li>
+            <li value="2">Consider packaging custom transformation logic (XLST or Java) as a registered transformer so that the upload framework can automatically engage it as part of the default process.</li>
+            <li value="3">Leverage as much product code as possible</li>
+        </ul>
+        <p class="subheading">Beware of Thread Safety and the Stateful ImportBaseServlet Class</p>
+        <p>The <b>ImportBaseServlet</b> class indirectly inherits from <b>javax.servlet.http.HttpServlet</b>, implying that storing any request level data values on instances of this class are a complete "no-no."</p>
+        <p>If you need to store request level data values spanning function callout points, you should not add them to your <b>ImportBaseServlet</b> extension since this will compromise the accuracy while concurrent upload writer requests are being serviced. Instead, you should extend the <b>com.agencyport.agencyconnect.ImportDataBundle</b> class and place any custom data members therein. </p>
+        <p>The factory method <b>ImportBaseServlet</b>.<i>createImportBundle()</i> needs to be overridden in the application's <b>ImportBaseServlet</b> extension to facilitate the instantiation of such extended import data bundle class. If you need to get at this instance in a function where the reference to the current import data bundle is not passed as an explicit parameter, you can use the method <b>ImportBaseServlet</b>.<i>getImportDataBundle()</i> to regain addressability.</p>
+        <p>Conversely, a unique <b>UploadDataManager</b> instance is created for each upload writer request serviced so this concern does not apply to extensions of this class.</p>
+        <p class="subheading">Turning on the Id Retention Option</p>
+        <p>Id retention adds a certain amount of overhead to the TDF based data transfer process. It only needs to be on if, and only if, a comprehensive XML&#160;change management document with ModInfo or ChangeStatus segments is required of the upload writer.</p>
+        <p class="subheading">Page Composition Should Rely Solely on DTR&#160;Rather than Custom Javascript</p>
+        <p>Page images are needed to satisfy the read operations carried out by the TDF based data transfer process. The non-excluded fields on the page images govern which fields to extract from the incoming XML&#160;document. Service side DTR is engaged to generate those page images; Javascript is not engaged. Therefore, what previously worked well for a manually entered work item can quickly fall apart as upload is introduced. Unfortunately, upload is many times an "after thought" on projects. </p>
+        <p>After this guiding principle becomes self evident, the job of refactoring custom Javascript over to DTR&#160;behavior equivalence becomes an unexpected and unfortunate extra line item on the application project plan, adding unnecessary additional cost to the project.</p>
+        <p class="subheading">Augmenting the XML Document with&#160;Additional Data</p>
+        <p>You may need to add additional data values to the XML&#160;document, especially to support requests that are headless and require an XML&#160;response document to returned to the calling agent (e.g., real time rating requests). Service calls, such as address cleansing, MVR, Clue, Choicepoint and rating engine calls are a few examples to note.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Important Table.css');" class="TableStyle-Important_Table" cellspacing="0">
+            <col class="TableStyle-Important_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Important_Table-Body-Body1">
+                    <td class="TableStyle-Important_Table-BodyA-Column1-Body1">
+                        <p class="importantheader">IMPORTANT:</p>
+                        <p class="important">Custom application code that is called upon to apply data values returned from external calls to the output XML&#160;document should transfer data values one by one, allowing the APDATACollection class to determine whether the update operation is truly an insert or update scenario. Custom code needs to be very careful not to delete existing XML id attributes of any existing parent XML aggregates that are reflected in the original document.&#160;</p>
+                        <p class="important">Custom code that effectually deletes and then re-adds XML&#160;aggregate groups with corresponding original document XML aggregates will most likely result in a change management report that does not reflect reality as well as it could. As a goal, avoid the "delete/add" syndrome.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The standard TDF&#160;based data transfer process does not execute display or process side connectors as part of the read page/write page operations. Therefore, the invocation of these "data enhancement" service calls will need to be handled with application custom code elsewhere. The placement of this custom code depends on where the respective service calls need to be made in relation to set of operations carried out by the framework. The following describes the most frequent set of possibilities:</p>
+        <ul>
+            <li value="1"><b>Augmenting the data collection before the TDF based transfer process executes</b> - you may determine that one or more of these services may need to be called before the TDF based data transfer process begins. There is an assumption that these additional values would be transferred to the <u>input</u> document have been accounted for in the TDF&#160;as discreet fields that they are automatically transferred over to the <u>output</u> document during the follow up TDF based data transfer process. Assuming these assumptions are true, then there are a couple of potential places to locate this code:<ul style="list-style-type: circle;"><li value="1"><b>ImportBaseServlet</b>.executeCustomAlterPreUploadDataManagement()</li><li value="2"><b>UploadDataManager</b>.<i>executePreDataTransfer()</i> (make sure you call super.executePreDataTransfer() before returning)</li></ul></li>
+            <li value="2"><b>Augmenting the data collection while the TDF based data transfer process executes</b> - you may determine that one or more of these services may need to be called while the TDF&#160;based data transfer process is executing. To achieve this, you need to override the <b>UploadDataManager</b>.<i>update(APDataCollection, PageDataContainer)</i> method.</li>
+        </ul><pre class="prettyprint"><p>@Override
+protected void update(APDataCollection output, PageDataContainer pageDataContainer) throws APException{ 
+		// Execute services that need to be run before the data in the page data container is transferred to the output data collection
+		// Transfer the data by calling the framework.
+		super.update(output, pageDataContainer);
+		// Execute services that need to be run after the data in the page data container has been transferred to the output data collection 
+}</p></pre>
+        <ul>
+            <li value="1"><b>Augmenting the data collection after the TDF based data transfer process concludes, but before the data corrections run</b> - you may determine that one or more of these services may need to be called after the TDF&#160;based data transfer process executes, but before data corrections run. The best way to achieve this is to extend the <b>UploadDataManager</b>.<i>executePostDataTransfer()</i> method. Ensure that you delegate to the framework's version of this method before returning from this override.</li>
+        </ul><pre class="prettyprint"><p>		protected void executePostDataTransfer(APDataCollection output, Transaction transaction, boolean 
+retainIdAttributes) throws APException {
+			// Call services
+			// Delegate to framework
+			super.executePostDataTransfer(output, transaction, retainIdAttributes);
+		}</p></pre>
+        <ul>
+            <li value="1"><b>Augmenting the data collection after data correction runs, but before the work item is persisted</b> - you may determine that one or more of these services may need to be called after data correction runs. The best place to locate this code is in the <b>ImportBaseServlet</b>.<i>executeCustomAlterPostUploadDataManagement()</i>.</li>
+        </ul>
+        <p class="subheading">Returning an XML Response via Conversion Step Data Structure</p>
+        <p>Returning an XML response is required certain times when the upload writer is asked to carry out a headless transaction, such as a real time rating call. The best place to locate the code, which takes the output data collection now replete as a work item, is to extend the method <b>ImportBaseServlet</b>.<i>writeResponse()</i>.</p>
+        <p>The following is a code example that returns the comprehensive merged document back to the caller:</p><pre class="prettyprint"><p>		/* (non-Javadoc)
+		 * @see com.agencyport.agencyconnect.ImportBaseServlet#writeResponse(com.agencyport.agencyconnect.ImportDataBundle,
+com.agencyport.connect.conversion.distributed.AgencyConnectConversionStepData) 
+		 */
+		@Override
+		protected AgencyConnectConversionStepData writeResponse(ImportDataBundle importDataBundle, AgencyConnectConversionStepData 
+stepData) throws APException {
+				// Engage the framework's logic first
+				AgencyConnectConversionStepData responseStepData = super.writeResponse(importDataBundle, stepData);
+				// Send the comprehensive merge document back to the caller
+				APDataCollection output = importDataBundle.getApData();
+				MergeManager mergeManager = output.createMergeManager(IXMLConstants.VIEW_ORIGINAL_DOCUMENT, 
+IXMLConstants.VIEW_CURRENT_DOCUMENT);
+				int savePoint = output.changeMergeViewType(mergeManager, IXMLConstants.VIEW_MERGED_DOCUMENT); 
+				try{ 
+						responseStepData.setOutputStream(output.getXMLDocument());
+				}
+				catch (IOException ioException){
+						throw APException.create(ioException);
+				}
+				finally {
+						// Restore view in context
+						output.changeViewType(savePoint);
+				}
+				return responseStepData; 
+		}</p></pre>
+        <p class="subheading">Returning an XML&#160;Response with Change Status Segments via Conversion&#160;Step Data Structure</p>
+        <p>The following is a variation that returns ChangeStatus segments instead of ModInfo segments. Again, an extension to the <b>ImportBaseServlet</b>.<i>writeReponse()</i> method.</p><pre class="prettyprint"><p>		/* (non-Javadoc)
+		 * @see com.agencyport.agencyconnect.ImportBaseServlet#writeResponse(com.agencyport.agencyconnect.ImportDataBundle,
+com.agencyport.connect.conversion.distributed.AgencyConnectConversionStepData) */
+		@Override
+		protected AgencyConnectConversionStepData writeResponse(ImportDataBundle importDataBundle, AgencyConnectConversionStepData 
+stepData) throws APException {
+				// Engage the framework's logic first
+				AgencyConnectConversionStepData responseStepData = super.writeResponse(importDataBundle, stepData);
+				
+				// Send the comprehensive merge document back to the caller via a true response with change status segments.
+				APDataCollection output = importDataBundle.getApData();
+				
+				// Set up current and original response documents on the response data collection.
+				APDataCollection response = APDOMFactory.createDataCollection("PersAutoPolicyQuoteInqRs"); 
+				response.setDocument(getResponseEquivalentDocument(output.getDocument())); 
+				response.setDocument(getResponseEquivalentDocument(output.getDocument(IXMLConstants.VIEW_ORIGINAL_DOCUMENT)),
+IXMLConstants.VIEW_ORIGINAL_DOCUMENT, false);
+
+				// Allocate a merge manager to generate the change status segments.
+				MergeManager mergeManager = new MergeManager("ChangeStatus", "MsgStatus",
+								response, IXMLConstants.VIEW_ORIGINAL_DOCUMENT, IXMLConstants.VIEW_CURRENT_DOCUMENT); 
+				int savePoint = response.changeMergeViewType(mergeManager, IXMLConstants.VIEW_MERGED_DOCUMENT);
+				try{ 
+						responseStepData.setOutputStream(response.getXMLDocument()); 
+				}
+				catch (IOException ioException){
+				} 
+						throw APException.create(ioException);
+				}
+				finally {
+						// Restore view in context
+						output.changeViewType(savePoint);
+				}		
+				return responseStepData;
+		}
+		/**
+		 * Clones a document, changes its root element to PersAutoPolicyQuoteInqRs and then 
+		 * returns it.
+		 * @param document is the document to clone.
+		 * @return the response version of the incoming document
+		 */
+		private Document getResponseEquivalentDocument(Document document){
+				Document response = (Document) document.clone(); 
+				response.getRootElement().setName("PersAutoPolicyQuoteInqRs"); 
+				return response;
+		}</p></pre>
+        <p class="subheading">Returning XML Response with Change Status Segments via Conversion Step Data Structure Based on a Different Original Document than the one we Persist with the Work Item as the Original Document System or Record</p>
+        <p>There may be times when the original document used as the basis for the change management report back to the upload writer clients needs to be different than the one that becomes the original document system of record. The following example illustrates this technique.</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0">
+            <col class="TableStyle-Note_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Note_Table-Body-Body1">
+                    <td class="TableStyle-Note_Table-BodyA-Column1-Body1">
+                        <p class="noteheader">NOTE:</p>
+                        <p class="note">We have extended the <b>UploadDataManager</b> class and overloaded its getOriginalDocumentSystemOfRecord() method so that it can save the front door original document, but return a clone of the current document that reflects the state of the XML document immediately before data corrections run.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table><pre class="prettyprint"><p>		package com.agencyport.persauto.servlets;
+
+		import java.io.IOException;
+
+		import org.jdom.Document;
+
+		import com.agencyport.agencyconnect.AgencyManagementSystemId;
+		import com.agencyport.agencyconnect.ImportBaseServlet;
+		import com.agencyport.agencyconnect.ImportDataBundle;
+		import com.agencyport.connect.conversion.distributed.AgencyConnectConversionStepData; 
+		import com.agencyport.data.DataManager;
+		import com.agencyport.domXML.APDOMFactory;
+		import com.agencyport.domXML.APDataCollection;
+		import com.agencyport.domXML.Aggregate;
+		import com.agencyport.domXML.ElementPathExpression;
+		import com.agencyport.domXML.IXMLConstants;
+		import com.agencyport.domXML.IdIterator;
+		import com.agencyport.domXML.changemanagement.MergeManager;
+		import com.agencyport.shared.APException;
+		import com.agencyport.trandef.Transaction;
+		import com.agencyport.upload.UploadDataManager;
+		
+		public class PersAutoUploadWriter extends ImportBaseServlet {
+
+				/**
+				 * The PAUploadDataManager class
+				 */
+				static public class PAUploadDataManager extends UploadDataManager { 
+						/**
+						 * The &lt;code&gt;frontDoor&lt;/code&gt; is a place to hold onto the original document
+						 * that we use for the purposes of creating the comprehensive change management report which 
+						 * is returned to the application which invoked this upload writer.
+						 */
+						private Document frontDoor;
+						/**
+						 * @param dataManager
+						 * @param input
+						 * @throws APException
+						 */
+						public PAUploadDataManager(DataManager dataManager, 
+										APDataCollection input) throws APException {
+								super(dataManager, input);
+						}
+	
+						/**
+						 * @param dataManager
+						 * @param input
+						 * @param stepData
+						 * @throws APException
+						 */
+						public PAUploadDataManager(DataManager dataManager,
+										APDataCollection input, AgencyConnectConversionStepData stepData) 
+										throws APException {
+						super(dataManager, input, stepData);
+						}
+						/**
+						 * Override so that we can utilize one original document as the permanent system of record
+						 * but hold onto a different document for the purposes of the comprehensive change management * report returned to the upload writer client.
+						 * @see
+com.agencyport.upload.UploadDataManager#getOriginalDocumentSystemOfRecord(com.agencyport.trandef.Transaction, 
+com.agencyport.domXML.APDataCollection, boolean)
+						 */
+						@Override
+						protected Document getOriginalDocumentSystemOfRecord(Transaction transaction, APDataCollection
+dataCollectionAfterUploadDataManagerRan, boolean retainIdAttributes) throws APException {
+							// Here we assume that the framework will return the front door document by the way we have configured
+							// this application.
+							frontDoor = super.getOriginalDocumentSystemOfRecord(transaction, 
+dataCollectionAfterUploadDataManagerRan, retainIdAttributes);
+							// Return a clone of the current document for the system of record.
+							return (Document) dataCollectionAfterUploadDataManagerRan.getCurrentDocument().clone();
+						}
+
+						/**
+						 * @return the front door document
+						 */
+						public Document getFrontDoorDocument() {
+								return frontDoor;
+						}
+				}
+				/**
+				 * The &lt;code&gt;serialVersionUID&lt;/code&gt; 
+				 */
+				private static final long serialVersionUID = 3986496925077019386L;
+				
+				/* (non-Javadoc)
+				 * @see com.agencyport.agencyconnect.ImportBaseServlet#getPropertyNamePrefix()
+				 *
+				 */
+				protected String getPropertyNamePrefix(int workItemId, String conversionGuid, APDataCollection apData) {
+							return "PERSAUTO";
+				}
+
+				/* (non-Javadoc)
+				 * @see com.agencyport.agencyconnect.ImportBaseServlet#writeResponse(com.agencyport.agencyconnect.ImportDataBundle,
+com.agencyport.connect.conversion.distributed.AgencyConnectConversionStepData) 
+				 */
+				@Override
+				protected AgencyConnectConversionStepData writeResponse(ImportDataBundle importDataBundle, 
+AgencyConnectConversionStepData stepData) throws APException {
+						// Engage the framework's logic first
+						AgencyConnectConversionStepData responseStepData = super.writeResponse(importDataBundle, stepData);
+
+						// Send the comprehensive merge document back to the caller via a true response with change status segments. 
+						APDataCollection output = importDataBundle.getApData();
+
+						// Set up current and original response documents on the response data collection. 
+						APDataCollection response = APDOMFactory.createDataCollection("PersAutoPolicyQuoteInqRs"); 
+						response.setDocument(getResponseEquivalentDocument(output.getDocument()));
+
+				
+						// Get the front door original document
+						PAUploadDataManager uploadManager = (PAUploadDataManager) importDataBundle.getUploadDataManager(); 
+						response.setDocument(getResponseEquivalentDocument(uploadManager.getFrontDoorDocument()),
+IXMLConstants.VIEW_ORIGINAL_DOCUMENT, false);
+
+						// Allocate a merge manager to generate the change status segments. 
+						MergeManager mergeManager = new MergeManager("ChangeStatus", "MsgStatus",
+										response, IXMLConstants.VIEW_ORIGINAL_DOCUMENT, IXMLConstants.VIEW_CURRENT_DOCUMENT); 
+						int savePoint = response.changeMergeViewType(mergeManager, IXMLConstants.VIEW_MERGED_DOCUMENT);
+						try{ 
+								responseStepData.setOutputStream(response.getXMLDocument());
+						}
+						catch (IOException ioException){
+								throw APException.create(ioException);
+						}
+						finally {
+								// Restore view in context
+								output.changeViewType(savePoint);
+						}
+						return responseStepData;
+				}
+				/**
+				 * Clones a document, changes its root element to PersAutoPolicyQuoteInqRs and then 
+				 * returns it.
+				 * @param document is the document to clone.
+				 * @return the response version of the incoming document
+				 */
+				private Document getResponseEquivalentDocument(Document document){ 
+						Document response = (Document) document.clone(); 
+						response.getRootElement().setName("PersAutoPolicyQuoteInqRs"); 
+						return response;
+				}
+				/* (non-Javadoc)
+				 * @see com.agencyport.agencyconnect.ImportBaseServlet#createUploadDataManager(com.agencyport.data.DataManager,
+com.agencyport.domXML.APDataCollection, com.agencyport.connect.conversion.distributed.AgencyConnectConversionStepData) 
+				 */
+				protected UploadDataManager createUploadDataManager(DataManager dataManager, APDataCollection apData, 
+AgencyConnectConversionStepData stepData) throws APException {
+				return new PAUploadDataManager(dataManager, apData, stepData);
+				} 
+		}</p></pre>
+        <p>&#160;</p>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

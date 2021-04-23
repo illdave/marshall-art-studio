@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Product Definition|Advanced Data Management|ACORD Simplified Programming|ACORD Simplified: A Step by Step Guide">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Sample Transformers</title>
+        <link href="../../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../../Default.htm#Content/API Guide/Product Definitions/Advanced Data Management/ACORD Simp Pgm/Sample Transformers.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../../Product Definitions.htm">Product Definition</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Advanced Data Management.htm">Advanced Data Management</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Sample Transformers</span>
+        </div>
+        <h1>Sample Transformers</h1>
+        <p>The sample transforms listed in this section are for illustration only.</p>
+        <h2>BOP ACORD&#160;Standard to ACORD Simplified</h2>
+        <p class="subheading">bop_simplified.xsl</p><pre class="prettyprint"><p>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+			&lt;xsl:output method="xml" /&gt;
+			&lt;!-- CommlSubLocation Copy CommlPropertyInfo, GlassSignInfo,GeneralLiabilityClassification and Location.SubLocation
+						note that this template is 'matched' recursively and will be 'executed'
+									once per CommlSubLocation aggregate in the source document. see identity transform
+						--&gt;
+			&lt;xsl:template match="CommlSubLocation"&gt;
+						&lt;xsl:variable name="locRef" select="@LocationRef"/&gt; 
+						&lt;xsl:variable name="subLocRef" select="@SubLocationRef"/&gt;
+						&lt;xsl:copy&gt;
+							&lt;!-- COPY everything that is an existing child of CommlSubLocation --&gt;
+									&lt;xsl:apply-templates select="@*|node()" /&gt;
+									&lt;!-- COPY in specific aggregates from elsewhere in the document where the loc/subloc references match. note 'mode' --&gt;
+									&lt;xsl:apply-templates select="//BOPLineBusiness/PropertyInfo/CommlPropertyInfo[@SubLocationRef=$subLocRef]"
+mode="preserveme"/&gt;
+									&lt;xsl:apply-templates select="//BOPLineBusiness/LiabilityInfo/GeneralLiabilityClassification[@SubLocationRef=$subLocRef]" mode="preserveme"/&gt;
+									&lt;xsl:apply-templates select="//BOPLineBusiness/PropertyInfo/GlassSignInfo[@SubLocationRef=$subLocRef]" mode="preserveme"/&gt;
+									&lt;xsl:apply-templates select="//Location[@id=$locRef]/SubLocation[@id=$subLocRef]" mode="preserveme"/&gt;
+						&lt;/xsl:copy&gt; 
+			&lt;/xsl:template&gt;
+			&lt;!-- REMOVE CommlPropertyInfo, GlassSignInfo,GeneralLiabilityClassification
+						and Location/SubLocation wherever loc/subloc references match a CommlSubLocation ref--&gt;
+			&lt;xsl:template match="//BOPLineBusiness/PropertyInfo/CommlPropertyInfo[@SubLocationRef = //CommlSubLocation/@SubLocationRef]"/&gt; 
+			&lt;xsl:template match="//BOPLineBusiness/PropertyInfo/GlassSignInfo[@SubLocationRef = //CommlSubLocation/@SubLocationRef]"/&gt; 
+			&lt;xsl:template match="//BOPLineBusiness/LiabilityInfo/GeneralLiabilityClassification[@SubLocationRef =
+//CommlSubLocation/@SubLocationRef]"/&gt;
+			&lt;xsl:template match="//Location/SubLocation[@id = //CommlSubLocation/@SubLocationRef]"/&gt;
+
+			&lt;!-- identity transform --&gt; 
+			&lt;xsl:template match="@*|node()"&gt;
+						&lt;xsl:copy&gt; 
+									&lt;xsl:apply-templates select="@*|node()" /&gt;
+						&lt;/xsl:copy&gt; 
+			&lt;/xsl:template&gt;
+			&lt;!-- identity transform. this one has an alternate 'mode' to avoid PURGE templates interfering with our copies. --&gt;
+			&lt;xsl:template mode="preserveme" match="@*|node()"&gt;
+						&lt;xsl:copy&gt; 
+									&lt;xsl:apply-templates mode="preserveme" select="@*|node()" /&gt;
+						&lt;/xsl:copy&gt; 
+			&lt;/xsl:template&gt;
+			&lt;!-- remove SubLocationRef and LocationRef attributes from any *copied* aggregate
+			norm, I think this should remove the need for the 'stage2' translation. we could expand it
+			to make the match more granular to ensure we're not purging more attributes than we want to,
+			but am guessing this is prolly safe --&gt;
+		&lt;xsl:template mode="preserveme" match="@SubLocationRef" /&gt; 
+		&lt;xsl:template mode="preserveme" match="@LocationRef" /&gt;
+&lt;/xsl:stylesheet&gt;</p></pre>
+        <h2>BOP ACORD&#160;Simplified to ACORD&#160;Standard</h2>
+        <p class="subheading">bop_standard_stage_1.xsl</p><pre class="prettyprint"><p>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+			&lt;!--
+						Remove LocationRefs
+			--&gt;
+			&lt;xsl:template match="//CommlSubLocation/CommlPropertyInfo/@LocationRef"&gt; 
+			  &lt;/xsl:template&gt;
+			&lt;xsl:template match="//CommlSubLocation/GlassSignInfo/@LocationRef"&gt; 
+			  &lt;/xsl:template&gt;
+			&lt;xsl:template match="//CommlSubLocation/GeneralLiabilityClassification/@LocationRef"&gt; 
+			  &lt;/xsl:template&gt;
+			&lt;!-- 
+						Identity transform , and put back IDREFs
+			--&gt;
+			&lt;xsl:template match="node() | @*"&gt;
+						&lt;xsl:copy&gt; 
+						&lt;xsl:if test="name() = 'CommlSubLocation'"&gt;
+									&lt;xsl:attribute name="SubLocationRef"&gt;&lt;xsl:value-of select="./SubLocation/@id"/&gt;&lt;/xsl:attribute&gt; 
+						&lt;/xsl:if&gt; 
+						&lt;xsl:if test="name() = 'CommlPropertyInfo' and name(parent::*) = 'CommlSubLocation' "&gt;
+									&lt;xsl:attribute name="LocationRef"&gt;
+												&lt;xsl:value-of select="../@LocationRef"/&gt; 
+									&lt;/xsl:attribute&gt;
+									&lt;xsl:attribute name="SubLocationRef"&gt;
+												&lt;xsl:value-of select="../SubLocation/@id"/&gt;
+									&lt;/xsl:attribute&gt;
+						&lt;/xsl:if&gt;
+						&lt;xsl:if test="name() = 'GlassSignInfo' and name(parent::*) = 'CommlSubLocation' "&gt; 
+									&lt;xsl:attribute name="LocationRef"&gt;
+												&lt;xsl:value-of select="../@LocationRef"/&gt; 
+									&lt;/xsl:attribute&gt;
+									&lt;xsl:attribute name="SubLocationRef"&gt;
+												&lt;xsl:value-of select="../SubLocation/@id"/&gt;
+									&lt;/xsl:attribute&gt;
+						&lt;/xsl:if&gt; 
+						&lt;xsl:if test="name() = 'GeneralLiabilityClassification' and name(parent::*) = 'CommlSubLocation'"&gt;
+									&lt;xsl:attribute name="SubLocationRef"&gt;&lt;xsl:value-of select="../SubLocation/@id"/&gt;&lt;/xsl:attribute&gt; 
+			&lt;!-- 
+			--&gt;
+						&lt;xsl:apply-templates select="node() | @*"/&gt;
+			&lt;/xsl:copy&gt;
+			&lt;/xsl:template&gt; 
+&lt;/xsl:stylesheet&gt;</p></pre>
+        <p class="subheading">bop_standard_stage_2.xsl</p><pre class="prettyprint"><p>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+			&lt;!-- identity transform --&gt;
+			&lt;xsl:template match="@*|node()"&gt;
+						&lt;xsl:copy&gt; 
+									&lt;xsl:apply-templates select="@*|node()"/&gt;
+						&lt;/xsl:copy&gt; 
+			&lt;/xsl:template&gt;
+			&lt;!-- Copy CommlPropertyInfo from CommlSublocation to PropertyInfo--&gt;
+			&lt;xsl:template match="PropertyInfo"&gt;
+						&lt;xsl:copy&gt; 
+									&lt;xsl:for-each select="//CommlSubLocation"&gt;
+												&lt;xsl:copy-of select="CommlPropertyInfo[@SubLocationRef=./@SubLocationRef]"/&gt;
+												&lt;xsl:copy-of select="GlassSignInfo[@SubLocationRef=./@SubLocationRef]"/&gt; 
+									&lt;/xsl:for-each&gt;
+									&lt;xsl:apply-templates select="@*|node()"/&gt;
+						&lt;/xsl:copy&gt; 
+			&lt;/xsl:template&gt;
+			&lt;!-- Copy GeneralLiabilityClassification from CommlSublocation to LiabilityInfo--&gt; &lt;xsl:template match="LiabilityInfo"&gt;
+			&lt;xsl:template match="LiabilityInfo"&gt;
+						&lt;xsl:copy&gt; 
+									&lt;xsl:apply-templates select="@*|node()"/&gt; 
+									&lt;xsl:for-each select="//CommlSubLocation"&gt;
+												&lt;xsl:copy-of select="GeneralLiabilityClassification[@SubLocationRef=./@SubLocationRef]"/&gt; 
+									&lt;/xsl:for-each&gt;
+						&lt;/xsl:copy&gt; 
+			&lt;/xsl:template&gt;
+			&lt;!-- Copy SubLocation from CommlSublocation to Location--&gt; 
+			&lt;xsl:template match="//Location"&gt;
+						&lt;xsl:for-each select="."&gt;
+									&lt;xsl:variable name="LOCATION" select="."/&gt;
+									&lt;xsl:copy&gt; 
+												&lt;xsl:apply-templates select="@*|node()"/&gt; 
+												&lt;xsl:for-each select="//CommlSubLocation"&gt;
+															&lt;xsl:variable name="COMMLSUBLOCATION" select="."/&gt; 
+															&lt;xsl:call-template name="subLocationCopy"&gt; 
+																		&lt;xsl:with-param name="locRef"&gt;
+																					&lt;xsl:value-of select="$LOCATION/@id"/&gt; 
+																		&lt;/xsl:with-param&gt;
+																		&lt;xsl:with-param name="subLocRef"&gt;
+																					&lt;xsl:value-of select="$COMMLSUBLOCATION/@SubLocationRef"/&gt;
+																		&lt;/xsl:with-param&gt; 
+															&lt;/xsl:call-template&gt;
+												&lt;/xsl:for-each&gt; 
+									&lt;/xsl:copy&gt; 
+						&lt;/xsl:for-each&gt;
+			&lt;/xsl:template&gt;
+			&lt;!--
+						Remove CommlPropertyInfo, GlassSignInfo,GeneralLiabilityClassification and SubLocation from CommlSubLocation
+			--&gt;
+			&lt;xsl:template match="//CommlSubLocation/CommlPropertyInfo"&gt; 
+			  &lt;/xsl:template&gt;
+			&lt;xsl:template match="//CommlSubLocation/GlassSignInfo"&gt; 
+			  &lt;/xsl:template&gt;
+			&lt;xsl:template match="//CommlSubLocation/GeneralLiabilityClassification"&gt; 
+			  &lt;/xsl:template&gt;
+			&lt;xsl:template match="//CommlSubLocation/SubLocation"&gt;
+			  &lt;/xsl:template&gt;
+			&lt;!-- Custom template to copy CommlSubLocation to Location.SubLocation --&gt;
+			&lt;xsl:template name="subLocationCopy"&gt; 
+						&lt;xsl:param name="locRef"/&gt;
+						&lt;xsl:param name="subLocRef"/&gt;
+						&lt;xsl:copy-of select="//CommlSubLocation[@LocationRef=$locRef]/SubLocation[@id=$subLocRef]"/&gt; 
+			&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</p></pre>
+        <p>
+            <h2>Sample WC Transformation</h2>
+            <p>The following is a sample workers comp transformer. With Java, you can support both transformation directions with the same class, which is the option we took below:</p><pre class="prettyprint"><p>package com.agencyport.workerscomp.transformers; import org.jdom.Element;
+import com.agencyport.domXML.APDOMFactory;
+import com.agencyport.domXML.APDataCollection;
+import com.agencyport.domXML.Aggregate;
+import com.agencyport.domXML.transform.APDataCollectionTransformationException; import com.agencyport.domXML.transform.IAPDataCollectionTransformer;
+import com.agencyport.domXML.transform.TargetFormat;
+import com.agencyport.fieldvalidation.validators.BaseValidator;
+/**
+ * The WorkersCompTransformer class supports the transformations from AP Simplified to/from ACORD * standard formats.
+ */
+public class WorkersCompTransformer implements IAPDataCollectionTransformer { 
+			/**
+			 * The &lt;code&gt;ELEMENTS_UNDER_LOB_AGGREGATE&lt;/code&gt; are the list of element names * which are moved to WorkCompLineBusiness parent for AP simplified.
+			 */
+			private static final String[] ELEMENTS_UNDER_LOB_AGGREGATE = { 
+						"ParticipatingPlanInd",
+						"ParticipatingPlanDescCd", 
+						"RetrospectiveRatingPlanCd", 
+						"AnniversaryRatingDt"
+			};
+
+			/* (non-Javadoc)
+			 * @see com.agencyport.domXML.transform.IAPDataCollectionTransformer#transform(com.agencyport.domXML.APDataCollection,
+com.agencyport.domXML.transform.TargetFormat, org.jdom.Element) 
+			 */
+			public void transform(APDataCollection dataCollection,
+									TargetFormat targetFormat, Element customParameters)
+									throws APDataCollectionTransformationException { 
+						if ( targetFormat.equals(TargetFormat.ACORDSimplified)) 
+									transformToACORDSimplified(dataCollection);
+						else if ( targetFormat.equals(TargetFormat.ACORDStandard)) 
+									transformToACORDStandard(dataCollection);
+			}
+			/**
+			 * Verifies the existence of a controlling state province code and makes an attempt to establish
+			 * it if is it missing.
+			 * @param dataCollection is the data collection in context.
+			 * @return the controlling state province code value.
+			 * @throws APDataCollectionTransformationException is thrown if one could not be established; as show stopper 
+			 * in other words.
+			 */
+			private String verifyControllingStateProvinceCd(APDataCollection dataCollection) throws APDataCollectionTransformationException{ 
+						String controllingStateProvCd = dataCollection.getFieldValue("CommlPolicy.ControllingStateProvCd", null, null);
+						if ( !BaseValidator.checkIsEmpty(controllingStateProvCd) )
+									return controllingStateProvCd;
+						controllingStateProvCd = dataCollection.getFieldValue("WorkCompLineBusiness.WorkCompRateState.StateProvCd", null); 
+						if ( BaseValidator.checkIsEmpty(controllingStateProvCd) ){
+									String locationRef = 
+dataCollection.getFieldValue("WorkCompLineBusiness.WorkCompRateState.WorkCompLocInfo.@LocationRef", null);
+									if ( locationRef != null ){
+												controllingStateProvCd = dataCollection.getFieldValue("Location[@id='" + locationRef +
+"'].Addr.StateProvCd", null);
+												if ( !BaseValidator.checkIsEmpty(controllingStateProvCd) ) 
+															dataCollection.setFieldValue("WorkCompLineBusiness.WorkCompRateState.StateProvCd",
+controllingStateProvCd);
+									}
+						}			
+						if ( BaseValidator.checkIsEmpty(controllingStateProvCd) )
+									throw new APDataCollectionTransformationException("Cannot establish controlling state province code");
+						else
+									dataCollection.setFieldValue("CommlPolicy.ControllingStateProvCd", controllingStateProvCd);
+						return controllingStateProvCd;
+			}
+			/**
+			 * Builds the element path for the WorkCompRateState qualified with the controlling state province code. 
+			 * @param controllingStateProvCd is the controlling state province code value.
+			 * @return the element path for the WorkCompRateState qualified with the controlling state province code. 
+			 */
+			private String buildControllingRateStateElementPath(String controllingStateProvCd){
+						return "WorkCompLineBusiness.WorkCompRateState[StateProvCd='" + controllingStateProvCd + "']";
+			}
+			/**
+			 * Moves a bunch of elements within the source parent path to a target path. If the target 
+			 * parent path does not exist then this method does nothing.
+			 * @param dataCollection is the data collection to update.
+			 * @param sourceParentPath is the source parent element path.
+			 * @param targetParentPath is the target parent element path.
+			 * @param elements contains the list of child elements to move.
+			 */
+			private void move(APDataCollection dataCollection, String sourceParentPath, String targetParentPath, String[] elements){ 
+						if ( !dataCollection.exists(targetParentPath))
+									return;
+						Aggregate agg = new Aggregate();
+						for ( String elementName : elements ){
+									String sourceElementPath = APDOMFactory.constructElementPath(sourceParentPath, elementName); 
+									if ( agg.acquireFrom(dataCollection, sourceElementPath, null)){
+												agg.moveTo(dataCollection, targetParentPath, null);
+									}
+						}
+			}
+			/**
+			 * Supports going from ACORD standard to AP simplified ACORD. 
+			 * @param dataCollection is the data collection to update.
+			 * @throws APDataCollectionTransformationException
+			 */
+			private void transformToACORDSimplified(APDataCollection dataCollection) throws APDataCollectionTransformationException {
+						// Verify / derive controlling state province code
+						String controllingStateProvCd = verifyControllingStateProvinceCd(dataCollection);
+						String workCompRateStatePath = buildControllingRateStateElementPath(controllingStateProvCd); 
+						move(dataCollection, workCompRateStatePath, "WorkCompLineBusiness", ELEMENTS_UNDER_LOB_AGGREGATE);
+			}
+			/**
+			 * Supports going from AP simplified ACORD to ACORD standard. 
+			 * @param dataCollection is the data collection to update.
+			 * @throws APDataCollectionTransformationException
+			 */
+			private void transformToACORDStandard(APDataCollection dataCollection) throws APDataCollectionTransformationException { 
+						// Verify / derive controlling state province code
+						String controllingStateProvCd = verifyControllingStateProvinceCd(dataCollection);
+						String workCompRateStatePath = buildControllingRateStateElementPath(controllingStateProvCd); 
+						move(dataCollection, "WorkCompLineBusiness", workCompRateStatePath, ELEMENTS_UNDER_LOB_AGGREGATE);
+			} 
+}</p></pre>
+        </p>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

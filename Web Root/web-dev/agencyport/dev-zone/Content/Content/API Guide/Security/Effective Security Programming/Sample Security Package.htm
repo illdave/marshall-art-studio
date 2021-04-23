@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="API Guides|Security|Effective Security Programming|ASCI Step-by-Step Guide">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Sample Security Package</title>
+        <link href="../../../../Resources/TableStyles/Note Table.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Security/Effective Security Programming/Sample Security Package.htm">Open topic with navigation</a>
+        </p>
+        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="../../API Guide.htm">API Guides</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../Security.htm">Security</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="Effective Security Programming.htm">Effective Security Programming</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Sample Security Package</span>
+        </div>
+        <h1>Sample Security Package</h1>
+        <p>All of the sample code referred to in this section is available for download from XX. The code illustrations referred to in this guide are packaged as source code and contained in a zip file called <i style="font-weight: bold;">security_samples_src.zip</i>.</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0">
+            <col class="TableStyle-Note_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Note_Table-Body-Body1">
+                    <td class="TableStyle-Note_Table-BodyA-Column1-Body1">
+                        <p class="noteheader">NOTE:</p>
+                        <p class="note">This zip file is not a runtime unit and should not be deployed with your application. The code found in this package replaces any need to refer to the security reference implementation ever again.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>This sample code illustrates concepts and techniques only. Do not take this code as is without first taking the time to understand it and determine which segments can and cannot be used. Besides the obvious use of the text fragment "carrier" in both Java package naming and various Java classes, there are several places in the sample code where assumptions have been made, especially with regards to the particulars of a carrier's SSO authentication handshake, the granularity of their back end security data provider calls and the technical protocol for calling those back end data services.</p>
+        <p>The Java classes contained in the Java package named com.carrier.security.fabrications and the <b style="font-style: italic;">callBackEndService()</b> method on each of the entity providers are blatant pure fabrications. These fabrications are intended to illustrate the <b>where</b>, but not the <b>how</b> or the <b>what</b>. Product development cannot predict the nature or number of back end data services that you will need to interface with in order to inflate security model entities.</p>
+        <p>The sample code implementation is based on the following list of requirements. Every implementation needs a set of requirements, including this fabricated scenario. If some of these requirements coincide with the realities of your application, then this is entirely a coincidence. The importance of you getting your own set of requirements for security, such as the ones listed, cannot be overstated.</p>
+        <p>The following is our set of fabricated security requirements:</p>
+        <ul>
+            <li value="1">The SSO&#160;handshake request passes the login id via an HTTP&#160;cookie named "UID." The application can, in this case, assume that this represents an authenticated user.</li>
+            <li value="2">The carrier back end exposes three interfaces:<ul style="list-style-type: circle;"><li value="1">Interface #1 returns information on the current user, including their name and whether the user is an internal user. Internal users are typically underwriters, administrators and other support personnel.&#160;External users are agents, producers, brokers and other personnel situated out at the agency.</li><li value="2">Interface #2 returns the roles that a user participates in. Most users participate in just one role, but there are some that participate in more than one role.</li><li value="3">Interface #3 returns the work (user) group that an external user is a member of. Internal users are assumed to belong to their own internal user group.</li></ul></li>
+            <li value="3">External users are grouped by agency into the same user group. Users within the same agency can access each other's work items. External users in different user groups cannot access work items from another user group. Internal users are grouped as one entity and have access to all work items through the entire application, regardless of the user group the work item was created in or has current ownership of.</li>
+        </ul>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

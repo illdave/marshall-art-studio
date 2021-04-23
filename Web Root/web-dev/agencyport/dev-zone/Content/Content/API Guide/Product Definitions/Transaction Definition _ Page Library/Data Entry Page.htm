@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Defining/Editing Data Entry Page Properties</title>
+        <link href="../../../../Resources/TableStyles/Note Table.css" rel="stylesheet" />
+        <link href="../../../../Resources/TableStyles/Example Table.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Resources/Stylesheets/NewStylesheet.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.previous-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+}
+
+.button.current-topic-index-button
+{
+	-pie-background: linear-gradient(#ffffff, #ffffff);
+}
+
+.button.next-topic-button
+{
+	-pie-background: #f7f7f8 url('file://vmware-host/Shared Folders/Documents/My Projects/AgencyPortal 5.0/Output/Jami_Delia/Online Output/Website Output/Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+}
+
+.needs-pie
+{
+	behavior: url('../../../../../Resources/Scripts/PIE.htc');
+}
+
+</style>
+        <script src="../../../Resources/prettify/run_prettify.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <p class="MCWebHelpFramesetLink MCWebHelpFramesetLinkTop"><a href="../../../../../Default.htm#Content/API Guide/Product Definitions/Transaction Definition _ Page Library/Data Entry Page.htm">Open topic with navigation</a>
+        </p>
+        <h1>Defining/Editing Data Entry Page Properties</h1>
+        <p>A data entry page is a type of page used to collect basic, non-repeating data. </p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Example Table.css');" class="TableStyle-Example_Table" cellspacing="0">
+            <col class="TableStyle-Example_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Example_Table-Body-Body1">
+                    <td class="TableStyle-Example_Table-BodyA-Column1-Body1">
+                        <p class="exampleheader">EXAMPLE:</p>
+                        <p class="example">General Information is collected on a data entry page.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Perform the following to define/edit data entry page properties via toolkit:</p>
+        <p>Select a new or existing page in the editor. The screen layout displays in the palette.</p>
+        <p>Complete the following required fields for the page under the Options tab:</p>
+        <p>Title - the display name for the page.</p>
+        <p>ID - the unique ID within the page library.</p>
+        <p>Field Validations - Indicates how field validations on the page run. Valid values are:</p>
+        <p>Enabled - always run on both client and server side.</p>
+        <p>Disabled - do not run on either client or server side.</p>
+        <p>Client side disabled - only run on server side.</p>
+        <p>Server side disabled - only run on client side.</p>
+        <p>Click Advanced tab.</p>
+        <table style="width: 100%;mc-table-style: url('../../../../Resources/TableStyles/Note Table.css');" class="TableStyle-Note_Table" cellspacing="0">
+            <col class="TableStyle-Note_Table-Column-Column1" />
+            <tbody>
+                <tr class="TableStyle-Note_Table-Body-Body1">
+                    <td class="TableStyle-Note_Table-BodyA-Column1-Body1">
+                        <p>NOTE:</p>
+                        <p>The Impacted By and Used By tabs are read-only. Click each tab to view information on the following:</p>
+                        <p>Impacted By lists behaviors used by the page. Click on a behavior to view behavior details.</p>
+                        <p>Used By list of transactions using the page. Click on one of the transactions to go directly to the transaction page.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Complete the following fields:</p>
+        <p>Menu Display - Indicates when the page displays in the left navigation of the application. Valid values are:</p>
+        <p>Slow Loader - Indicates whether a "please wait" lightbox displays when the page is processing. This is used on pages that are slow due to connections with rating engines or other third party services. Valid values are:</p>
+        <p>true - a "please wait" lightbox displays when the page is processing.</p>
+        <p>false - a "please wait" lightbox does not display when the page is processing.</p>
+        <p>Ignore Page Visited Check - Indicates whether to ignore the page visited check. Valid values are:</p>
+        <p>true - the page is disabled after it is submitted if the page has been visited in an application.</p>
+        <p>false - the page is enabled in the left navigation menu if the page has been visited in an application.</p>
+        <p>Prevalidate - determines whether fields are validated before an initial page displays in the application. Valid values are:</p>
+        <p>true - pages are validated before an initial page displays in the application.</p>
+        <p>false - pages are not validated before an initial page displays in the application. </p>
+        <p>Style Class - Enter a style class if you want to change the default style of the page.</p>
+        <p>Validate Transaction On Display - Indicates whether to validate the transaction up to this page. All pages and connectors with the Prevalidate field set to true will run. Valid values are:</p>
+        <p>true - </p>
+        <p>false - </p>
+        <div class="buttons inline-buttons clearfix topicToolbarProxy" style="mc-topic-toolbar-items: ;">
+            <div class="button-group-container-left">
+                <button class="button needs-pie previous-topic-button" type="button" title="Navigate previous">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="previous topic" />
+                </button>
+                <div class="button current-topic-index-button disabled"><span class="sequence-index"></span> of <span class="sequence-total"></span></div>
+                <button class="button needs-pie next-topic-button" type="button" title="Navigate next">
+                    <img src="../../../../../Skins/Default/Stylesheets/Images/transparent.gif" alt="next topic" />
+                </button>
+            </div>
+        </div>
+    </body>
+</html>
