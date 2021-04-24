@@ -1,16 +1,16 @@
-ErrorDocument 404 http://www.illdave.com/404/index.htm
+ErrorDocument 404 https://www.illdave.com/404/index.htm
 
-Redirect 301 /comicbooks/ http://illdave.com/comics/
-Redirect 301 /comicbooks http://illdave.com/comics/
-Redirect 301 /comicbooks/ http://illdave.com/comics/index.htm
-Redirect 301 /comicbooks/index.htm http://illdave.com/comics/index.htm
+Redirect 301 /comicbooks/ https://illdave.com/comics/
+Redirect 301 /comicbooks https://illdave.com/comics/
+Redirect 301 /comicbooks/ https://illdave.com/comics/index.htm
+Redirect 301 /comicbooks/index.htm https://illdave.com/comics/index.htm
 
-Redirect 301 /web http://illdave.com/web-dev/
+Redirect 301 /web https://illdave.com/web-dev/
 Redirect 301 /web/index.htm http://illdave.com/web-dev/
 
-Redirect 301 /print http://illdave.com/graphic-design/
-Redirect 301 /graphics http://illdave.com/graphic-design/
-Redirect 301 /print/index.htm http://illdave.com/graphic-design/
+Redirect 301 /print https://illdave.com/graphic-design/
+Redirect 301 /graphics https://illdave.com/graphic-design/
+Redirect 301 /print/index.htm https://illdave.com/graphic-design/
 
 
 
