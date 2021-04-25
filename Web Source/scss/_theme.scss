@@ -16,6 +16,9 @@ $theme-color-6:								$illdave-teal;
 $theme-color-7:								darken($theme-color-3, 5%); // dark blue 
 $theme-color-8: 							#00b1cb; // pastel foam
 
+$selection-color: 							$white;
+$selection-bg-color: 						darken($theme-color-3, 20%);
+
 $code-color-magenta: 						#e9008c;
 $code-color-green: 							#3c0;
 $code-color-blue-deep: 						#06c;
@@ -136,6 +139,11 @@ $contact-link-active-color:					$link-active-color;
 	/* fonts ------------------------- */
 	
 	/* html elements ----------------- */
+	
+	::selection {
+		color: $selection-color;
+		background-color: $selection-bg-color;
+	}
 	
 	h1, h2, h3, h4, dl dt, strong {
 		color: $headings-color;

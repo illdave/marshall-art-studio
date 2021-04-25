@@ -27725,6 +27725,10 @@ img.social-media-preview {
   /* blog -------------------------- */
   /* responsive -------------------- */
 }
+.dark-mode ::selection {
+  color: #fff;
+  background-color: #00587d;
+}
 .dark-mode h1, .dark-mode .h1, .dark-mode h2, .dark-mode .h2, .dark-mode h3, .dark-mode .h3, .dark-mode h4, .dark-mode .h4, .dark-mode dl dt, .dark-mode strong {
   color: #fff;
 }
