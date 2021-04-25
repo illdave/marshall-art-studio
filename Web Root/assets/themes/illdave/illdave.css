@@ -26520,9 +26520,6 @@ img.social-media-preview {
 .gallery .frame a:hover {
   background: rgba(255, 255, 255, 0.5);
 }
-.gallery .frame .caption {
-  text-align: center;
-}
 .gallery .frame .caption .title {
   font-family: "Proxima Nova Bold";
 }
@@ -26750,7 +26747,7 @@ img.social-media-preview {
   right: 0;
   background: rgba(0, 0, 0, 0.9);
   color: rgba(179, 179, 179, 0.9);
-  padding: 1rem;
+  padding: 0.5rem;
   line-height: 1rem;
 }
 .caption h3, .caption .h3 {
