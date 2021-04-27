@@ -12,5 +12,7 @@ Redirect 301 /print https://illdave.com/graphic-design/
 Redirect 301 /graphics https://illdave.com/graphic-design/
 Redirect 301 /print/index.htm https://illdave.com/graphic-design/
 
+Redirect 301 /agencyport https://illdave.com/web-dev/agencyport
+
 
 
