@@ -269,6 +269,7 @@ $contact-link-active-color:					$link-active-color;
 					color: $contact-text-color;
 					&:not(:last-child) {
 						margin-right: .5rem;
+						padding-left: 1.5rem;
 					}			
 				}
 				a {

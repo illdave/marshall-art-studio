@@ -26509,7 +26509,7 @@ img.social-media-preview {
 .gallery .frame a {
   display: block;
   position: relative;
-  min-height: 30rem;
+  min-height: 20rem;
 }
 .gallery .frame a .caption {
   display: none;
@@ -26701,8 +26701,8 @@ img.social-media-preview {
 
 .social li, .social dd {
   background: transparent no-repeat 0 0;
-  padding-left: 1.5rem;
-  padding-right: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 0;
   position: relative;
 }
 .social li a:before, .social dd a:before {
@@ -27834,6 +27834,7 @@ img.social-media-preview {
 }
 .dark-mode .sidebar .item.contact li:not(:last-child) {
   margin-right: 0.5rem;
+  padding-left: 1.5rem;
 }
 .dark-mode .sidebar .item.contact a {
   color: #00b1cb;

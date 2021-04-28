@@ -199,7 +199,7 @@
 		a {
 			display: block;
 			position: relative;
-			min-height: 30rem;
+			min-height: 20rem;
 			.caption {
 				display: none;
 			}			
@@ -424,8 +424,8 @@
 .social {
 	li, dd {
 		background: transparent no-repeat 0 0;
-		padding-left: 1.5rem;
-		padding-right: .5rem;
+		padding-left: 1.25rem;
+		padding-right: 0;
 		position: relative;
 		a {
 			&:before {
