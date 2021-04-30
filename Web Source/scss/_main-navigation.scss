@@ -16,15 +16,31 @@
 		font-size: $navbar-brand-font-size;
 		padding: $navbar-brand-padding;
 		color: $navbar-brand;
-		display: block;
+		display: flex;
 		width: $main-nav-brand-width;
 		text-indent: $text-indent-for-image;
-		background: url("#{$layout-image-path}/main-nav-logo.png") no-repeat 0 center;
-		background-size: contain;
 		margin: $main-nav-brand-margin;
-
+		.mas-logo {
+			background: no-repeat 0 center;
+			background-size: contain;
+			height: 3rem;			
+			&.gliff {
+				background-image: url("#{$layout-image-path}/navbar-brand-gliff.png");
+				width: 4rem;
+				margin-right: 1rem;
+			}
+			&.type {
+				background-image: url("#{$layout-image-path}/navbar-brand-type.png");
+				width: 20rem;
+			}
+		}
 		&:hover {
-			text-shadow: $navbar-brand-hover;
+			.mas-logo {
+				filter: $navbar-brand-logo-filter-hover;
+				&.type {
+					filter: $navbar-brand-type-filter-hover;
+				}
+			}
 		}
 		&:active {
 			color: $navbar-brand-active;

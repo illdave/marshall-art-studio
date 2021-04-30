@@ -26049,15 +26049,30 @@ pre strong {
   font-size: 1.25rem;
   padding: 0.5rem;
   color: #fff;
-  display: block;
+  display: flex;
   width: 350px;
   text-indent: -9999px;
-  background: url("../../img/layout/main-nav-logo.png") no-repeat 0 center;
-  background-size: contain;
   margin: 0;
 }
-.main-navigation .navbar-brand:hover {
-  text-shadow: 0 0 10px #fff;
+.main-navigation .navbar-brand .mas-logo {
+  background: no-repeat 0 center;
+  background-size: contain;
+  height: 3rem;
+}
+.main-navigation .navbar-brand .mas-logo.gliff {
+  background-image: url("../../img/layout/navbar-brand-gliff.png");
+  width: 4rem;
+  margin-right: 1rem;
+}
+.main-navigation .navbar-brand .mas-logo.type {
+  background-image: url("../../img/layout/navbar-brand-type.png");
+  width: 20rem;
+}
+.main-navigation .navbar-brand:hover .mas-logo {
+  filter: brightness(130%);
+}
+.main-navigation .navbar-brand:hover .mas-logo.type {
+  filter: drop-shadow(#fff 0 0 7px);
 }
 .main-navigation .navbar-brand:active {
   color: #000;
@@ -26924,8 +26939,8 @@ img.social-media-preview {
 }
 
 .signature {
-  background: url("../../img/brand/mas-signature.png") no-repeat 0 0;
-  background-size: 4rem;
+  background: url("../../img/brand/mas-signature.png") no-repeat 0 2px;
+  background-size: 3rem;
   padding: 1rem 0 1.5rem 4.5rem;
   font-family: "Proxima Nova Italic";
 }
@@ -27613,6 +27628,17 @@ img.social-media-preview {
     content: normal;
   }
 
+  .main-navigation .show .navbar-nav,
+.main-navigation .collapsing .navbar-nav {
+    margin-left: 0;
+  }
+  .main-navigation .navbar-brand {
+    width: auto;
+  }
+  .main-navigation .navbar-brand .mas-logo.type {
+    display: none;
+  }
+
   .first-paragraph, .first-sentence {
     font-size: 1.2rem;
     line-height: 1.5rem;
@@ -27633,9 +27659,13 @@ img.social-media-preview {
 
   .web .clients.mas-client.clients {
     padding: 1rem;
+    padding-bottom: 0;
   }
   .web .clients.mas-client.clients .client-details {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+  .web .client-details {
+    margin-bottom: 2rem;
   }
 
   .diagram {
@@ -27658,7 +27688,7 @@ img.social-media-preview {
 
   .home section.skills .item,
 .web section.capabilities .item {
-    padding: 1rem;
+    padding: 1rem 0;
     min-height: auto;
     border-bottom: 0.0625rem solid #bfbfbf;
   }
@@ -27666,6 +27696,10 @@ img.social-media-preview {
 .web section.capabilities .item.last-child {
     border: 0;
   }
+  .home .intro .btn-row {
+    text-align: center;
+  }
+
   .blog.index .older article figure {
     float: none;
     width: 100%;
@@ -27782,6 +27816,12 @@ img.social-media-preview {
 .dark-mode .main-navigation .collapsing .navbar-nav .nav-link {
   padding: 0 0.5rem;
   margin-bottom: 0;
+}
+.dark-mode .main-navigation .navbar-brand:hover .mas-logo {
+  filter: brightness(130%);
+}
+.dark-mode .main-navigation .navbar-brand:hover .mas-logo.type {
+  filter: drop-shadow(#fff 0 0 7px);
 }
 .dark-mode .main-navigation .navbar {
   border-bottom: 0.0625rem solid #4d4d4d;
@@ -28144,14 +28184,31 @@ img.social-media-preview {
   border-bottom: 0.0625rem solid #4d4d4d;
 }
 @media (max-width: 576px) {
-  .dark-mode .home section.skills .item,
-.dark-mode .web section.capabilities .item {
+  .dark-mode .main-navigation .show .navbar-nav,
+.dark-mode .main-navigation .collapsing .navbar-nav {
+    margin-left: 0;
+  }
+  .dark-mode .section {
+    padding: 1rem;
+  }
+  .dark-mode .home section.skills .item {
     border-bottom: 0.0625rem solid #4d4d4d;
     border-right: 0;
   }
-  .dark-mode .home section.skills .item.last-child,
-.dark-mode .web section.capabilities .item.last-child {
+  .dark-mode .home section.skills .item.last-child {
     border-bottom: 0;
+  }
+  .dark-mode .home section.skills .item .text {
+    margin: 0 2rem;
+  }
+  .dark-mode .web section.capabilities {
+    padding: 0 1rem;
+  }
+  .dark-mode .web section.capabilities .item {
+    border-bottom: 0.0625rem solid #4d4d4d;
+  }
+  .dark-mode .web section.capabilities .item.last-child {
+    border: 0;
   }
   .dark-mode table th, .dark-mode .table th {
     background-color: transparent;

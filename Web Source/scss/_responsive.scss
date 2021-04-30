@@ -45,6 +45,20 @@
 				}
 			}
 		}	
+	}
+	.main-navigation {
+		.show .navbar-nav, 
+		.collapsing .navbar-nav {
+			margin-left: 0;
+		}	
+		.navbar-brand {
+			width: auto;
+			.mas-logo {
+				&.type {
+					display: none;
+				}
+			}
+		}
 	}	
 	
 	.first-paragraph, .first-sentence {
@@ -73,10 +87,14 @@
 			}
 			&.mas-client.clients {
 				padding: 1rem;
+				padding-bottom: 0;
 				.client-details {
-					margin-bottom: 1rem;
+					margin-bottom: 2rem;
 				}
 			}
+		}
+		.client-details {
+			margin-bottom: 2rem;
 		}
 	}
 	.diagram {
@@ -105,7 +123,7 @@
 	.home section.skills,
 	.web section.capabilities {
 		.item {
-			padding: 1rem;
+			padding: 1rem 0;
 			min-height: auto;
 			border-bottom: $border-default;
 			&.last-child {
@@ -115,7 +133,13 @@
 			}
 		}	
 	}
-	
+	.home {
+		.intro {
+			.btn-row {
+				text-align: center;
+			}
+		}
+	}
 	.blog {
 		&.index {
 			.older {

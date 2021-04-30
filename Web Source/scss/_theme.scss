@@ -26,6 +26,8 @@ $code-color-blue-bright: 					#9cf;
 $code-color-orange: 						#f90;
 $code-color-gray: 							#ccc;
 
+$white-glow: 								0 0 10px $white;
+
 $code-soup-color: 							$code-color-green;
 
 $body-bg:									$theme-color-bg;
@@ -89,6 +91,9 @@ $nav-link-curr-border-color:				$nav-link-curr-bg;
 $navbar-icon:								$white;
 $navbar-icon-hover:							$white-glow;
 $navbar-icon-active:						$black;
+
+$navbar-brand-logo-filter-hover:			brightness(130%);
+$navbar-brand-type-filter-hover:			drop-shadow($white 0 0 7px);
 
 $footer-bg: 								$body-bg;
 $footer-color: 								lighten($footer-bg, 50%);
@@ -206,6 +211,21 @@ $contact-link-active-color:					$link-active-color;
 				.nav-link {
 					padding: 0 .5rem;
 					margin-bottom: 0;
+				}
+			}
+		}
+		.navbar-brand  {
+			&:hover {
+				.mas-logo {
+					filter: $navbar-brand-logo-filter-hover;
+					&.type {
+						filter: $navbar-brand-type-filter-hover;
+					}
+				}
+			}
+			&:active {
+				.mas-logo {
+					&.type {}
 				}
 			}
 		}
@@ -753,16 +773,36 @@ $contact-link-active-color:					$link-active-color;
 	/* responsive -------------------- */
 
 	@media (max-width: 576px) {
-		.home section.skills,
-		.web section.capabilities {
-			 .item {
+		.main-navigation {
+			.show .navbar-nav, 
+			.collapsing .navbar-nav {
+				margin-left: 0;
+			}	
+		}
+		.section {
+			padding: 1rem;
+		}
+		.home section.skills {
+			.item {
 				border-bottom: $border-default;
 				border-right: 0;
 				&.last-child {
 					border-bottom: 0;
 				}
+				.text {
+					margin: 0 2rem;
+				}
 			}	
-		}	
+		}
+		.web section.capabilities {
+			padding: 0 1rem;
+			.item {
+				border-bottom: $border-default;
+				&.last-child {
+					border: 0;
+				}
+			}
+		}
 		table, .table {
 			th, td {
 			}
@@ -784,9 +824,6 @@ $contact-link-active-color:					$link-active-color;
 				}	
 			}
 		}	
-	}
-	
-	@media (max-width: 991px) {
 	}
 }
 

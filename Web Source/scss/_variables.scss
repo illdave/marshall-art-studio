@@ -318,6 +318,11 @@ $navbar-brand-active:						$black;
 $navbar-brand-font-size:					1.25rem;
 $navbar-brand-padding: 						.5rem;
 
+$navbar-brand-logo-filter-hover:			brightness(130%);
+$navbar-brand-type-filter-hover:			drop-shadow($white 0 0 7px);
+
+$link-img-filter: 							brightness(110%) saturate(110%);
+
 $main-nav-link: 							#b4becc;
 $main-nav-link-hover: 						$white;
 $main-nav-link-active:						$black;
