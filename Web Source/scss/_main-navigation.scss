@@ -19,7 +19,7 @@
 		display: block;
 		width: $main-nav-brand-width;
 		text-indent: $text-indent-for-image;
-		background: url("#{$layout-image-path}/main-nav-logo.png") no-repeat 0 0;
+		background: url("#{$layout-image-path}/main-nav-logo.png") no-repeat 0 center;
 		background-size: contain;
 		margin: $main-nav-brand-margin;
 

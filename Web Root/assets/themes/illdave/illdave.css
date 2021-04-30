@@ -26050,11 +26050,11 @@ pre strong {
   padding: 0.5rem;
   color: #fff;
   display: block;
-  width: 300px;
+  width: 350px;
   text-indent: -9999px;
-  background: url("../../img/layout/main-nav-logo.png") no-repeat 0 0;
+  background: url("../../img/layout/main-nav-logo.png") no-repeat 0 center;
   background-size: contain;
-  margin: 0 auto;
+  margin: 0;
 }
 .main-navigation .navbar-brand:hover {
   text-shadow: 0 0 10px #fff;
@@ -27773,6 +27773,16 @@ img.social-media-preview {
 .dark-mode table > :not(:last-child) > :last-child > *, .dark-mode .table > :not(:last-child) > :last-child > * {
   border-bottom-color: #4d4d4d;
 }
+.dark-mode .main-navigation .show .navbar-nav,
+.dark-mode .main-navigation .collapsing .navbar-nav {
+  flex-flow: row wrap;
+  margin-left: 3rem;
+}
+.dark-mode .main-navigation .show .navbar-nav .nav-link,
+.dark-mode .main-navigation .collapsing .navbar-nav .nav-link {
+  padding: 0 0.5rem;
+  margin-bottom: 0;
+}
 .dark-mode .main-navigation .navbar {
   border-bottom: 0.0625rem solid #4d4d4d;
   background: #000;
@@ -27807,6 +27817,16 @@ img.social-media-preview {
 }
 .dark-mode .main-navigation .navbar .navbar-toggler .navbar-toggler-icon {
   color: #fff;
+}
+.dark-mode .main-navigation .navbar .navbar-toggler:hover {
+  background-color: #333333;
+  border-color: #fff;
+}
+.dark-mode .main-navigation .navbar .navbar-toggler.collapse {
+  background-color: #fff;
+}
+.dark-mode .main-navigation .navbar .navbar-toggler.collapse .navbar-toggler-icon {
+  color: #cccccc;
 }
 .dark-mode footer {
   background: #000;
