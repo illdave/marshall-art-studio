@@ -26941,8 +26941,21 @@ img.social-media-preview {
 .signature {
   background: url("../../img/brand/mas-signature.png") no-repeat 0 2px;
   background-size: 3rem;
-  padding: 1rem 0 1.5rem 4.5rem;
+  padding: 1rem 0 1.5rem 3.25rem;
   font-family: "Proxima Nova Italic";
+}
+
+.form {
+  background: #eeeeee;
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
+.form label {
+  margin-bottom: 0.25rem;
+  line-height: 1.2rem;
+}
+.form fieldset {
+  margin-bottom: 1rem;
 }
 
 .jumbotron {
@@ -27327,6 +27340,9 @@ img.social-media-preview {
 }
 .about section.picture-header .image {
   background-image: url("../../img/pictures/dave-chin-pose-2.jpg");
+}
+.about section.picture-header.contact .image {
+  background-image: url("../../img/pictures/contact-doctor-who.jpg");
 }
 .about .sidebar .item {
   background-color: #dcf7ff;
@@ -27955,7 +27971,7 @@ img.social-media-preview {
   padding: 0;
 }
 .dark-mode .item.even {
-  background-color: #1a1a1a;
+  background-color: #121212;
 }
 .dark-mode .item h2, .dark-mode .item .h2, .dark-mode .item h3, .dark-mode .item .h3, .dark-mode .item h4, .dark-mode .item .h4 {
   color: #fff;
@@ -28059,7 +28075,7 @@ img.social-media-preview {
 }
 .dark-mode .disclaimer {
   border: 0.0625rem solid #4d4d4d;
-  background: #1a1a1a;
+  background: #121212;
 }
 .dark-mode .date-range {
   color: #fff;
@@ -28088,14 +28104,14 @@ img.social-media-preview {
   background-image: url("../../img/layout/section-bg-target-dark.png");
 }
 .dark-mode .home section.skills .item.graphic-design {
-  background-color: #1a1a1a;
+  background-color: #121212;
   background-image: url("../../img/layout/section-bg-target-light.png");
 }
 .dark-mode .home section.skills .item.illustration {
   background-image: url("../../img/layout/section-bg-target-dark.png");
 }
 .dark-mode .home section.skills .item.comic-books {
-  background-color: #1a1a1a;
+  background-color: #121212;
   background-image: url("../../img/layout/section-bg-target-light.png");
 }
 .dark-mode .web .capabilities .item.boxed {
@@ -28121,7 +28137,7 @@ img.social-media-preview {
   padding: 2rem;
 }
 .dark-mode .web .boxed.even .client-details {
-  background: #1a1a1a;
+  background: #121212;
 }
 .dark-mode .comics .skills .item {
   padding: 2rem 2rem;

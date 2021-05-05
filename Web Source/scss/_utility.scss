@@ -697,8 +697,21 @@
 .signature {
 	background: url("#{$brand-image-path}/mas-signature.png") no-repeat 0 2px;
 	background-size: 3rem;
-	padding: 1rem 0 1.5rem 4.5rem;
+	padding: 1rem 0 1.5rem 3.25rem;
 	font-family: $font-family-italic;
+}
+
+.form {
+	background: $item-bg;
+	padding: 2rem;
+	margin-bottom: 1rem;
+	label {
+		margin-bottom: .25rem;
+		line-height: 1.2rem;
+	}
+	fieldset {
+		margin-bottom: 1rem;
+	}
 }
 
 .jumbotron {
