@@ -316,7 +316,7 @@ $navbar-brand:								$white;
 $navbar-brand-hover:						$white-glow;
 $navbar-brand-active:						$black;
 $navbar-brand-font-size:					1.25rem;
-$navbar-brand-padding: 						.5rem;
+$navbar-brand-padding: 						0;
 
 $navbar-brand-logo-filter-hover:			brightness(130%);
 $navbar-brand-type-filter-hover:			drop-shadow($white 0 0 7px);
@@ -356,13 +356,13 @@ $navbar-brand-padding-vertical: 			0;
 
 $main-nav-brand-width: 						350px;
 $main-nav-brand-width-mobile: 				260px;
-$main-nav-brand-height: 					1.9rem;
+$main-nav-brand-height: 					3rem;
 $main-nav-brand-padding: 					$navbar-brand-padding;
 $main-nav-brand-margin: 					0;
 $main-nav-brand-logo-margin: 				$main-nav-brand-margin 0;
 $main-nav-x-padding: 						.5rem;
-$main-navbar-padding: 						.5rem;
-$main-nav-height: 							$main-nav-brand-height + 2 * $main-nav-brand-padding + 2 * $main-navbar-padding;		
+$main-navbar-padding: 						1rem;
+$main-nav-height: 							$main-nav-brand-height + 2 * $main-navbar-padding;		
 $main-nav-height-mobile: 					$main-nav-height - .5rem;		
 
 

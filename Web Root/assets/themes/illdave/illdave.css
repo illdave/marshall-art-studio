@@ -25865,12 +25865,12 @@ https://github.com/lokesh/lightbox2 */
 html {
   position: relative;
   min-height: 100%;
-  scroll-padding-top: 3.9rem;
+  scroll-padding-top: 5rem;
 }
 
 body {
   background: #fff;
-  padding-top: 3.9rem;
+  padding-top: 5rem;
   font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
   font-size: 1rem;
   color: #212529;
@@ -26047,7 +26047,7 @@ pre strong {
 }
 .main-navigation .navbar-brand {
   font-size: 1.25rem;
-  padding: 0.5rem;
+  padding: 0;
   color: #fff;
   display: flex;
   width: 350px;
@@ -26078,7 +26078,7 @@ pre strong {
   color: #000;
 }
 .main-navigation .navbar {
-  padding: 0.5rem;
+  padding: 1rem;
   border-bottom: 0.0625rem solid #bfbfbf;
   background: #142f56;
 }
@@ -27542,7 +27542,7 @@ img.social-media-preview {
   display: none;
 }
 .blog .sticky-top {
-  top: 4.9rem;
+  top: 6rem;
 }
 .blog.index article {
   clear: both;

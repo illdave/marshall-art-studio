@@ -23,7 +23,7 @@
 		.mas-logo {
 			background: no-repeat 0 center;
 			background-size: contain;
-			height: 3rem;			
+			height: $main-nav-brand-height;			
 			&.gliff {
 				background-image: url("#{$layout-image-path}/navbar-brand-gliff.png");
 				width: 4rem;
@@ -47,7 +47,7 @@
 		}
 	}
 	.navbar {
-		padding: .5rem;
+		padding: $main-navbar-padding;
 		border-bottom: $main-nav-border;
 		background: $main-nav-bg;
 		.navbar-nav {

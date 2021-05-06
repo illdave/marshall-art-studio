@@ -17,14 +17,17 @@ Redirect 301 /agencyport https://illdave.com/web-dev/agencyport
 Redirect 301 /ltsave https://illdave.com/web-dev/ltsave
 Redirect 301 /web/ltsave.htm https://illdave.com/web-dev/ltsave
 
-Redirect 301 /mlitg htm http://illdave.com/web-dev/mirril-lynch
-Redirect 301 /merrill-lynch htm http://illdave.com/web-dev/mirril-lynch
-Redirect 301 /merrill-lynch-itg htm http://illdave.com/web-dev/mirril-lynch
-Redirect 301 /web/mlitg.htm htm http://illdave.com/web-dev/mirril-lynch
+Redirect 301 /merrill-lynch-itg http://illdave.com/web-dev/merril-lynch
+Redirect 301 /merrill-lynch http://illdave.com/web-dev/merril-lynch
+Redirect 301 /mlitg http://illdave.com/web-dev/merril-lynch
+Redirect 301 /ml-itg http://illdave.com/web-dev/merril-lynch
+Redirect 301 /mlitg.htm http://illdave.com/web-dev/merril-lynch
+Redirect 301 /web/ml.htm http://illdave.com/web-dev/merril-lynch
+Redirect 301 /web/mlitg.htm http://illdave.com/web-dev/merril-lynch
 
+Redirect 301 /carbonite https://illdave.com/web-dev/carbonite/index.htm
 Redirect 301 /carbonite.htm https://illdave.com/web-dev/carbonite/index.htm
 Redirect 301 /web/carbonite.htm https://illdave.com/web-dev/carbonite/index.htm
-
 
 Redirect 301 /head-for-home https://illdave.com/web-dev/head-for-home/index.htm
 Redirect 301 /h4h https://illdave.com/web-dev/head-for-home/index.htm
