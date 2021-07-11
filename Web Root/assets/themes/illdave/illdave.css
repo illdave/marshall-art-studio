@@ -27648,6 +27648,10 @@ img.social-media-preview {
   background-image: url("../../img/illustration/please-wait.gif");
 }
 
+.gallery .ask-kodiak-campaign .frame {
+  background-image: url("../../img/illustration/ask-kodiak-campaign.jpg");
+}
+
 .gallery .ask-kodiak-cover-1 .frame {
   background-image: url("../../img/illustration/ask-kodiak-cover-1.jpg");
 }
