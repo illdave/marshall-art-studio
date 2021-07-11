@@ -27648,8 +27648,44 @@ img.social-media-preview {
   background-image: url("../../img/illustration/please-wait.gif");
 }
 
-.gallery .FOO .frame {
-  background-image: url("../../img/illustration/FOO.jpg");
+.gallery .ask-kodiak-cover-1 .frame {
+  background-image: url("../../img/illustration/ask-kodiak-cover-1.jpg");
+}
+
+.gallery .ask-kodiak-cover-2 .frame {
+  background-image: url("../../img/illustration/ask-kodiak-cover-2.jpg");
+}
+
+.gallery .ask-kodiak-model-sheet-1 .frame {
+  background-image: url("../../img/illustration/ask-kodiak-model-sheet-1.jpg");
+}
+
+.gallery .ask-kodiak-model-sheet-2 .frame {
+  background-image: url("../../img/illustration/ask-kodiak-model-sheet-2.jpg");
+}
+
+.gallery .ask-kodiak-model-sheet-3 .frame {
+  background-image: url("../../img/illustration/ask-kodiak-model-sheet-3.jpg");
+}
+
+.gallery .ask-kodiak-model-sheet-4 .frame {
+  background-image: url("../../img/illustration/ask-kodiak-model-sheet-4.jpg");
+}
+
+.gallery .ask-kodiak-model-sheet-5 .frame {
+  background-image: url("../../img/illustration/ask-kodiak-model-sheet-5.jpg");
+}
+
+.gallery .ask-kodiak-model-sheet-6 .frame {
+  background-image: url("../../img/illustration/ask-kodiak-model-sheet-6.jpg");
+}
+
+.gallery .ask-kodiak-whitepaper-1 .frame {
+  background-image: url("../../img/illustration/ask-kodiak-whitepaper-1.jpg");
+}
+
+.gallery .ask-kodiak-whitepaper-2 .frame {
+  background-image: url("../../img/illustration/ask-kodiak-whitepaper-2.jpg");
 }
 
 .gallery .FOO .frame {
