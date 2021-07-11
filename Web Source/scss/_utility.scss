@@ -286,9 +286,25 @@
 	}
 }
 
+.vl {
+	border-left: $border-light;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	height: 100%;
+	width: 1px;
+	max-width: 1px;
+	padding: 0;
+}
 .newspaper {
 	position: relative;
 	margin-bottom: 2rem;
+}
+
+.together {
+	-webkit-column-break-inside: avoid;
+	page-break-inside: avoid;
+	break-inside: avoid;		
 }
 .newspaper-intro {
 	margin-bottom: 2rem;
@@ -298,6 +314,13 @@
 	.first-sentence {
 		margin-bottom: 1rem;
 	}
+}
+
+.newspaper-columns {
+	column-count: 2;
+	column-gap: 5%;
+	column-rule: $border-light;
+	margin-bottom: 2rem;
 }
 
 .mas-website-history {
@@ -570,11 +593,14 @@
 .rip-jobs {
 	.rip-job {
 		margin-bottom: $spacer-base-vertical;
-		border-top: $border-default;
-		padding-top: 1rem;
-		&:first-child {
-			border-top: 0;
-			padding-top: 0;
+		border-bottom: $border-default;
+		-webkit-column-break-inside: avoid;
+		page-break-inside: avoid;
+		break-inside: avoid;		
+		padding-bottom: 1rem;
+		&:last-child {
+			border-bottom: 0;
+			padding-bottom: 0;
 		}	
 		h3 {
 			margin-bottom: 0;
@@ -628,17 +654,6 @@
 	margin-bottom: $spacer-large;
 	line-height: 2.5rem;
 	color: $white;
-}
-
-.vl {
-	border-left: $border-light;
-	position: absolute;
-	left: 50%;
-	top: 0;
-	height: 100%;
-	width: 1px;
-	max-width: 1px;
-	padding: 0;
 }
 
 .code-soup {

@@ -44,6 +44,10 @@
 			border: 0;
 			padding: 0;
 			position: relative;
+			-webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+			page-break-inside: avoid; /* Firefox */
+			break-inside: avoid; /* IE 10+ */			
+			
 			a {
 				img {
 					border: $border-default;

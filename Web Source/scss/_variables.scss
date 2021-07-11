@@ -3,11 +3,14 @@
 
 /* spacing --------------------------- */
 
+@use "sass:list";
+@use "sass:math";
+
 $spacer: 									1rem;
 $spacer-base:								$spacer;
 $spacer-large:								$spacer-base * 2;
-$spacer-small:								$spacer-base/2;
-$spacer-xs:									$spacer-base/4;
+$spacer-small:								$spacer-base*0.5;
+$spacer-xs:									$spacer-base*0.25;
 
 $spacer-base-vertical:						$spacer-base;
 $spacer-base-horizontal:					$spacer-base-vertical * 2;
@@ -39,7 +42,7 @@ $padding-small-horizontal:  				$padding-small-vertical * 2;
 
 $border-radius-base:        				$spacer-small;
 $border-radius-large:       				$border-radius-base * 2;
-$border-radius-small:       				$border-radius-base/2;
+$border-radius-small:       				$border-radius-base*0.5;
 
 $section-padding:		 					$spacer-base 0;
 $section-padding-large: 					$spacer-large 0 $spacer-base;
@@ -368,7 +371,7 @@ $main-nav-height-mobile: 					$main-nav-height - .5rem;
 
 /* utility --------------------------- */
 
-$hr-margin: 								$spacer/2;
+$hr-margin: 								$spacer*0.5;
 
 $jumbotron-padding: 						$spacer-large $spacer-base;
 $jumbotron-bg: 								$gray-lighter;

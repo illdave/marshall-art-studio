@@ -13,7 +13,6 @@
 			}
 		}		
 	}
-	
 	table, .table {
 		th, td {
 			display: block;
@@ -60,25 +59,21 @@
 			}
 		}
 	}	
-	
 	.first-paragraph, .first-sentence {
 		font-size: $h4-font-size;
 		line-height: 1.5rem;
 		margin-bottom: $spacer-small;
 	}
-	
 	.newspaper-intro {
 		margin-bottom: $spacer-base;
 		.first-paragraph, .first-sentence {
 			margin-bottom: $spacer-small;
 		}
 	}
-	
 	.gallery, 
 	.tiles {
 		padding: 1rem 0;
 	}
-	
 	.web {
 		.clients {
 			&.jobs {
@@ -108,7 +103,6 @@
 			}
 		}
 	} 
-	
 	section.picture-header .image {
 		min-height: 10rem;
 	}
@@ -119,7 +113,6 @@
 			}
 		}
 	}
-	
 	.home section.skills,
 	.web section.capabilities {
 		.item {
@@ -128,8 +121,6 @@
 			border-bottom: $border-default;
 			&.last-child {
 			  border: 0;
-			}
-			h2, p {
 			}
 		}	
 	}
@@ -161,8 +152,6 @@
 	}
 }
 
-
-
 @media (max-width: 768.98px) { 
 	.container {
 		max-width: 768px !important;
@@ -188,8 +177,12 @@
 	.container {
 		max-width: 950px !important;
 	}
+	.newspaper-columns {
+		column-count: 1;
+		column-gap: 0;
+		column-rule: 0;
+	}	
 	.diagram {
-		
 		&.pie-chart {
 			.image {
 				.label {

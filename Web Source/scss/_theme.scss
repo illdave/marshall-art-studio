@@ -400,6 +400,9 @@ $contact-link-active-color:					$link-active-color;
 			background: $item-bg;
 		}
 	}
+	.newspaper-columns {
+		column-rule: $border-light;
+	}
 	.boxed {
 		.client-details {
 			background: $boxed-client-details-bg;
@@ -418,17 +421,14 @@ $contact-link-active-color:					$link-active-color;
 			border-bottom: $border-default;
 		}
 	}
-	
 	.rip-jobs {
 		.rip-job {
-			border-top: $border-default;
-			&:first-child {
-				border-top: 0;
+			border-bottom: $border-default;
+			&:last-child {
+				border-bottom: 0;
 			}	
 		}
 	}	
-	
-	
 	.tiled {
 		 a {
 			&.tile {
@@ -442,7 +442,6 @@ $contact-link-active-color:					$link-active-color;
 			}
 		}
 	}	
-	
 	.labeled {
 		img {
 			margin-bottom: $spacer-small;
@@ -818,9 +817,9 @@ $contact-link-active-color:					$link-active-color;
 		}	
 		.rip-jobs {
 			.rip-job {
-				&:first-child {
-					border-top: $border-default;
-					padding-top: 1rem;
+				&:last-child {
+					border-bottom: $border-default;
+					padding-bottom: 1rem;
 				}	
 			}
 		}	
