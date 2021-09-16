@@ -50,6 +50,8 @@ Redirect 301 /illustration.htm https://illdave.com/illustration/index.htm
 Redirect 301 /print.htm https://illdave.com/graphic-design/index.htm
 Redirect 301 /web.htm https://illdave.com/web-dev/index.htm
 
+Redirect 301 /ctds-dashboard https://illdave.com/clients/ctds/my-dashboard/
+
 
 
 

@@ -1,0 +1,211 @@
+@import "../../bootstrap-4.3.1/css/bootstrap.css";
+@import "../../bootstrap-4.3.1/css/docs.min.css";
+
+/* 
+	DSM at CVS 1.0
+	Static HTML mockup 
+*/
+
+/* html ------------------------------- */
+
+body {
+	background: #efefef;
+}
+
+h1, h2, h3, h4 {
+	font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+hr {
+	background: #ccc;
+	display: block;
+	position: relative;
+	padding: 0;
+	margin: .5rem auto;
+	height: 0;
+	width: 100%;
+	max-height: 0;
+	font-size: 1px;
+	line-height: 0;
+	clear: both;
+}
+
+header {
+	padding: 1rem;
+	background: black;
+	color: white;
+	margin-bottom: 2rem;
+}
+
+header h1, header p {
+	margin: 0;
+}
+
+section {
+	border: 1px solid #ccc;
+	border-top-width: 6px;
+	padding: 2rem 3em;
+	margin-bottom: 2rem;
+	background: white;
+}
+
+footer {
+	padding-bottom: 2rem;
+}
+
+.table {}
+.table caption {
+	caption-side: top;
+    color: inherit;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* cvs health global ------------------ */
+
+.bd-navbar {
+	background-color: #000;
+}
+
+.section-header {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 1rem;
+}
+
+.cvs-header {
+	padding: 1rem .5rem;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 1rem;
+}
+.cvs-header .logo-wrapper img {
+    height: 25px;
+    width: auto;
+}
+
+#cvs-header-logo:focus {
+}
+
+.intro {
+	margin-bottom: 1rem;
+}
+
+.dummy-header {
+    font-size: 90%;
+    color: #999;
+    font-weight: normal;
+    margin-bottom: .5rem;
+}
+
+.cvs-form {
+	margin-bottom: 2rem;
+}
+
+.text-wrap-left {
+	float: left;
+	padding: 0;
+	margin: 0 1rem .5rem 0;
+}
+.text-wrap-right {
+	float: right;
+	padding: 0;
+	margin: 0 0 .5rem 0 .5rem;
+}
+
+.tiles {
+}
+.tile {
+	position: relative;
+	background: center center no-repeat;
+	background-size: cover;
+	padding-top: 400px;
+	margin-bottom: 1rem;
+}
+.tile .info {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 1rem;
+	background: black;
+	color: white;
+}
+.tile .info h4 {
+	margin-bottom: .25rem;
+}
+.tile .info p {}
+.tile .info .btn {
+	text-align: center;
+}
+.tile.columbo {
+	background-image: url('../../img/dsm/columbo.jpg');
+}
+.tile.doctor-who-sonics {
+	background-image: url('../../img/dsm/doctor-who-can-of-sonics.jpg');
+}
+.tile.jack-kirby-collage {
+	background-image: url('../../img/dsm/kirby-collage-1.jpg');
+}
+.tile.bike-helmet-psa {
+	background-image: url('../../img/dsm/bike-helmet-woman.jpg');
+}
+
+.picture-link {
+	float: left; 
+	width: 200px;
+	height: 200px;
+	background: top center no-repeat;
+	background-size: cover;
+	margin: 0 1rem .5rem 0;
+}
+.picture-link.inky-stories {
+	background-image: url('../../img/dsm/inkystories-batgirl.jpg');
+	height: 300px;
+}
+
+.circle-photo {
+	border-radius: 50%;
+	height: 3rem;
+	width: 3rem;
+	background: #efefef;
+}
+
+
+/* cvs data tables -------------------- */
+
+@media (max-width: 570px) {
+	.table th, 
+	.table td {
+		display: block;
+		padding: 5px;
+	}
+	.table td::before {
+		content: attr(data-header);
+		font-weight: bold;
+		display: inline-block;
+		width: 50%;
+		text-align: right;
+		padding-right: 1rem;
+	}
+	.table th {
+		text-align: left;
+		background-color: #eee;
+		padding: 5px;
+	}
+	.table th[scope="col"] {
+		display: none;
+	}
+}
+
+
+
+
+
+
+
+
