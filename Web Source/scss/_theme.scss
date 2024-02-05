@@ -198,6 +198,9 @@ $contact-link-active-color:					$link-active-color;
 		> :not(:last-child) > :last-child > * {
 			border-bottom-color: $table-border-color;
 		}	
+	}
+	.dateline {
+		color: $gray-light-med;
 	}	
 
 	
@@ -757,12 +760,32 @@ $contact-link-active-color:					$link-active-color;
 			dl {
 				border-top: $border-default;
 			}
+			dd {
+				&.active {
+					a {
+						color: $gray-light-med;
+					}
+				}
+			}
+		}
+		.content-feedback {
+			border-color: $border-default-color;
+			.comments {
+				.comment {
+					border-bottom: $border-default;
+				}
+			}
 		}
 		article {
 			figure {
 				p {
 					padding-bottom: .5rem;
 					border-bottom: $border-default;
+				}
+			}
+			header {
+				.byline {
+					color: $gray-light-med;
 				}
 			}
 		}

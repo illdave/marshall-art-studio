@@ -11,6 +11,15 @@
 			}
 		}		
 	}
+	&.friday {
+		section {
+			&.picture-header {
+				.image {
+					background-image: url("#{$pictures-image-path}/inky-studio-8.jpg");
+				}
+			}
+		}
+	}
 }
 
 
@@ -137,6 +146,58 @@
 .gallery .ask-kodiak-whitepaper-2 .frame {
 	background-image: url("#{$illustration-image-path}/ask-kodiak-whitepaper-2.jpg")
 }
+
+
+/* illustration friday ---------------- */
+
+.gallery .wind-central-squared .frame {
+	background-image: url("#{$illustration-friday-image-path}/wind.jpg")
+}
+.gallery .smoke-crackhouse .frame {
+	background-image: url("#{$illustration-friday-image-path}/smoke.jpg")
+}
+.gallery .invention-metropolis .frame {
+	background-image: url("#{$illustration-friday-image-path}/invention-metropolis.jpg")
+}
+.gallery .might-punch .frame {
+	background-image: url("#{$illustration-friday-image-path}/might.jpg")
+}
+.gallery .mask-whiteface .frame {
+	background-image: url("#{$illustration-friday-image-path}/mask-whiteface.jpg")
+}
+.gallery .mask-klan .frame {
+	background-image: url("#{$illustration-friday-image-path}/mask-klan.jpg")
+}
+.gallery .buzz-coffee .frame {
+	background-image: url("#{$illustration-friday-image-path}/buzz-coffee.jpg")
+}
+.gallery .buzz-coffee-stain .frame {
+	background-image: url("#{$illustration-friday-image-path}/buzz-coffee-stain.jpg")
+}
+.gallery .buzz-bugaloo .frame {
+	background-image: url("#{$illustration-friday-image-path}/buzz-bugaloo.jpg")
+}
+.gallery .peace-shagged .frame {
+	background-image: url("#{$illustration-friday-image-path}/peace-shagged.jpg")
+}
+.gallery .eighties-yearbook-cover .frame {
+	background-image: url("#{$illustration-friday-image-path}/eighties.jpg")
+}
+.gallery .red-killer .frame {
+	background-image: url("#{$illustration-friday-image-path}/red-killer.jpg")
+}
+.gallery .red-killer-edits .frame {
+	background-image: url("#{$illustration-friday-image-path}/red-killer-edits.jpg")
+}
+.gallery .rejection-love-song .frame {
+	background-image: url("#{$illustration-friday-image-path}/rejection.jpg")
+}
+.gallery .geek-trick .frame {
+	background-image: url("#{$illustration-friday-image-path}/geek-trick.jpg")
+}
+
+
+/* illustration template -------------- */
 
 .gallery .FOO .frame {
 	background-image: url("#{$illustration-image-path}/FOO.jpg")

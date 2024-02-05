@@ -21,7 +21,6 @@
 			margin-bottom: 0;
 			padding-bottom: 0;
 		}
-    
 		a {
 			&.overlay {
 				width: 100%;
@@ -32,13 +31,11 @@
 				left: 0;
 			}
 		}
-		
 		.picture-wrapper {
 			&.left {
 				margin-right: 1.5rem;
 			}
 		}
-		
 		figure {
 			margin-bottom: .75rem;
 			border: 0;
@@ -62,6 +59,7 @@
 				position: static;
 				padding: 0;
 				margin-bottom: 0;
+				text-align: left;
 				color: $picture-caption-color;
 				a {
 					color: $picture-caption-link;
@@ -101,7 +99,6 @@
 				}
 			}
 		}
-		
 		header {
 			margin-bottom: $spacer-small;
 			border-bottom: none;
@@ -124,6 +121,7 @@
 				font-size: $font-size-small;
 				text-align: left;
 				margin-bottom: 0;
+				color: $gray-light;
 				.author {
 					font-family: $font-family-headers;
 					margin-right: $spacer-small;
@@ -148,6 +146,40 @@
 			}
 		}
 		
+		.content-feedback {
+			border-top: rem(4px solid $border-default-color);			
+			margin-top: 2rem;
+			padding-top: 1rem;
+			h2 {
+				margin-bottom: 1rem;
+			}
+			.comments {
+				.comment {
+					border-bottom: $border-default;
+					margin-bottom: 1rem;
+					padding-bottom: 1rem;
+					&:last-child {
+						border: 0;
+					}
+					.person {
+						font-family: $font-family-bold;
+						margin-bottom: .25rem;
+					}
+					.reply {
+						margin-left: 2rem;
+						p {
+							font-family: $font-family-italic;
+							&.person {
+								font-family: $font-family-bold-italic;
+							}
+						}
+						.dateline {
+							font-family: $font-family-base;
+						}
+					}
+				}
+			}
+		}
 		.content-summary {
 			font-size: $h2-font-size;
 		}
@@ -159,7 +191,6 @@
 	.top-image {
 		margin-top: 1rem;
 	}
-	
 	.blog-nav {
 		line-height: 1.25rem;
 		padding-bottom: $spacer-large;
@@ -177,7 +208,6 @@
 			dd {
 				&.active {
 					a {
-						font-family: $font-family-italic;
 						color: $gray-light;
 						cursor: default;
 					}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>CTSD Accessibility 2024: Selection Option Dropdowns</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="title" content="Marshall Art Studio - Welcome" />
+		<meta property="og:title"        content="Marshall Art Studio">
+		<meta property="og:type"         content="website">
+		<meta property="og:description"  content="Marshall Art Studio, contractor identity of Boston-based commercial artist David Marshall. Core skills are creative front-end web development, visual design, corporate brand, illustration, and comic book art">
+		<meta property="og:url"          content="http://www.illdave.com">
+		<meta property="og:image"        content="http://www.illdave.com/assets/img/open-graph/og-mas.png">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<style>
+			/* CTDS styles ---------------- */
+			@import url("https://portal.ct.gov/assets/agencyscaffolding/images/favIcon.ico"rel="shortcut icon" type="image/x-icon");
+			@import url("https://portal.ct.gov/assets/agencyscaffolding/css/fonts.min.css" rel="preload" as="font");
+			@import url("https://portal.ct.gov/assets/agencyscaffolding/css/components.min.css");
+			@import url("https://portal.ct.gov/assets/agencyscaffolding/css/print.min.css");
+			@import url("https://portal.ct.gov/fractal-design-system/css/global.css");
+
+		
+			/* dave styles ---------------- */
+			.page-info {
+				border-bottom: 1px solid #ccc;
+				margin-bottom: 2rem;
+				padding: 1rem 0;
+			}
+			.page-info h1,
+			.page-info p {
+				margin: 0;
+				padding: 0;
+			}
+			.page-info h1 {
+				font-family: bitter-medium !important;
+				font-weight: normal;
+				font-size: 2.25rem;
+				color: #053756;
+				margin-bottom: .5rem;
+			}
+			.page-info .footnote {
+				margin-top: .5rem;
+			}
+	
+			.fyi, .footnote {
+				font-style: italic;
+				color: #666;
+			}
+			.fyi {
+				display: none;
+			}
+
+			/* html overrides ------------- */
+			
+			h1, h2, h3, h4, h5, h6 {
+				margin-bottom: .5rem;
+			}
+			p {
+				margin-bottom: 1rem;
+			}			
+		
+			sup, sub {
+				vertical-align: baseline;
+				position: relative;
+				top: -0.4em;
+			}
+			sub { 
+				top: 0.4em; 
+			}
+			sup a {
+				text-decoration: none;
+				color: #db2426;
+			}
+	
+			.footnote-asterisk {
+				color: #db2426;
+			}			
+			a {
+				font-family: inherit;
+			}
+			img {
+				max-width: 100%;
+			}
+
+			/* accessibility colors ------- */
+
+			.tile-background {
+				background-color: #efefef;
+				padding: 2rem;
+				margin-bottom: 1rem;
+			}
+		</style>			
+	</head>
+	<body>
+		<header role="banner">
+			<div class="page-info">
+				<div class="container">
+					<h1>CTSD Accessibility 2024: Selection Option Dropdowns</h1>
+					<p>Worksheet for Design System 2</p>
+					<p class="footnote">Rev: February 1, 2024</p>
+				</div>
+			</div>
+		</header>
+		<main role="main">
+			<section role="region">
+				<div class="container">					
+					<h2>Select element must have an accessible name</h2>
+					<p>The recommended methods are FOR and ID attributes for select elements with visible headers, aria-label for those without. See examples below. Check out the <a href="https://dequeuniversity.com/rules/axe/4.7/select-name" rel="noopener noreferrer" target="_blank">Deque University article</a> and <a href="https://a11ysupport.io/tests/html/html/select.html" rel="noopener noreferrer" target="_blank">Digital A11y example</a> for more detail (both open new windows).</p>
+					<div class="row">
+						<div class="col-md-6">
+							<h3>Example with visual label or header</h3>
+							<p>Use for="NAME" in the header/label, match the SELECT id="NAME"</p>
+							<div class="tile-background first">
+								<h4 for="usa-states-and-cities">USA States and Cities</h4>
+								<select id="usa-states-and-cities">
+									<optgroup label="USA States">
+										<option value="connecticut">Connecticut</option>
+										<option value="massachusetts">Massachusetts</option>
+										<option value="confusion">Confusion</option>
+									</optgroup>
+									<optgroup label="USA Cities">
+										<option value="hartfort-ct">Hartford</option>
+										<option value="boston-ma">Boston</option>
+										<option value="funkytown-usa">Funkytown</option>
+									</optgroup>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<h3>Example without a visual label or header</h3>
+							<p>Use aria-label="NAME" in the SELECT</p>
+							<div class="tile-background second">
+								<select aria-label="usa-states-and-cities">
+									<optgroup label="USA States">
+										<option value="connecticut">Connecticut</option>
+										<option value="massachusetts">Massachusetts</option>
+										<option value="confusion">Confusion</option>
+									</optgroup>
+									<optgroup label="USA Cities">
+										<option value="hartfort-ct">Hartford</option>
+										<option value="boston-ma">Boston</option>
+										<option value="funkytown-usa">Funkytown</option>
+									</optgroup>
+								</select>
+							</div>
+						</div>
+					</div>	
+					
+					
+<h2>Related Topics</h2>	
+
+<h3>The Option Value attribute</h3>	
+<p>VALUE attribute only has to be filled in to be submitted within a form. Without it, the value is taken from the text within the option. It's not needed for accessibility. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option" rel="noopener noreferrer" target="_blank" aria-label="learn more about the 0ption value attribute">Learn more</a>.</p>
+
+<h3>The Option Group element</h3>
+<p>Way of nesting options within a selection list. It's been adopted by most desktop and mobile browsers for almost a decade. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup" rel="noopener noreferrer" target="_blank" aria-label="learn more about the option group element">Learn more</a>.</p>
+
+
+
+
+									
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

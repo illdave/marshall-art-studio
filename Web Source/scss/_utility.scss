@@ -592,12 +592,12 @@
 
 .rip-jobs {
 	.rip-job {
-		margin-bottom: $spacer-base-vertical;
+		margin-bottom: $spacer-base;
 		border-bottom: $border-default;
 		-webkit-column-break-inside: avoid;
 		page-break-inside: avoid;
 		break-inside: avoid;		
-		padding-bottom: 1rem;
+		padding-bottom: $spacer-base;
 		&:last-child {
 			border-bottom: 0;
 			padding-bottom: 0;
@@ -683,6 +683,11 @@
 	background: $item-bg;
 	margin-bottom: 1rem;
 }
+.dateline {
+	color: $gray-light;
+	margin-right: .5rem;
+}	
+
 .date-range {
 	font-family: $font-family-bold;
 	margin-right: .25rem;

@@ -20,6 +20,7 @@
 		"ekko-lightbox": "^5.3.0",
 		"es5-shim": "^4.5.15",
 		"fontawesome": "^5.6.3",
+		"grunt-contrib-watch": "^1.1.0",
 		"grunt-css": "^0.4.1",
 		"jquery": "^3.6.0",
 		"node-sass": "^5.0.0",
