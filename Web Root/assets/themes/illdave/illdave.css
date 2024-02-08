@@ -29304,6 +29304,23 @@ img.social-media-preview {
   content: "\f0da";
 }
 
+.back-to-landing-page a {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+.back-to-landing-page a .fas {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+.back-to-landing-page a .fas:before {
+  content: "\f0d9";
+}
+.back-to-landing-page:hover .fas {
+  color: #007bff;
+}
+
 .back-to-top {
   padding: 0.5rem 0;
   text-align: right;

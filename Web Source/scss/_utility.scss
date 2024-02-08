@@ -398,6 +398,25 @@
 	}
 }
 
+.back-to-landing-page {
+	a {
+		display: flex;
+		align-items: center;
+		text-transform: uppercase;
+		color: $white;		
+		.fas {
+			font-size: 2rem;
+			margin-right: .5rem;
+			&:before {
+				content: $icon-back-to-landing-page;
+			}
+		}
+	}
+	&:hover .fas {
+		color: $link-color;
+	}
+}
+
 .back-to-top {
 	padding: .5rem 0;
 	text-align: right;
