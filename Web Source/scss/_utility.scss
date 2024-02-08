@@ -403,17 +403,26 @@
 		display: flex;
 		align-items: center;
 		text-transform: uppercase;
-		color: $white;		
+		margin-top: 1rem;
+		color: $text-color;		
 		.fas {
 			font-size: 2rem;
 			margin-right: .5rem;
 			&:before {
 				content: $icon-back-to-landing-page;
+				color: $link-color;		
 			}
 		}
 	}
-	&:hover .fas {
-		color: $link-color;
+	&:hover {
+		a {
+			color: $link-color;
+			.fas {
+				&:before {
+					color: $link-hover-color;
+				}
+			}
+		}
 	}
 }
 

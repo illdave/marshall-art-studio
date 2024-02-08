@@ -29308,7 +29308,8 @@ img.social-media-preview {
   display: flex;
   align-items: center;
   text-transform: uppercase;
-  color: #fff;
+  margin-top: 1rem;
+  color: #212529;
 }
 .back-to-landing-page a .fas {
   font-size: 2rem;
@@ -29316,9 +29317,13 @@ img.social-media-preview {
 }
 .back-to-landing-page a .fas:before {
   content: "\f0d9";
-}
-.back-to-landing-page:hover .fas {
   color: #007bff;
+}
+.back-to-landing-page:hover a {
+  color: #007bff;
+}
+.back-to-landing-page:hover a .fas:before {
+  color: #66b0ff;
 }
 
 .back-to-top {
@@ -30319,7 +30324,7 @@ img.social-media-preview {
   margin-bottom: 2rem;
 }
 .blog .blog-nav dl dt {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
   font-size: 1.2rem;
 }
 .blog .blog-nav dl dd.active a {
@@ -30895,6 +30900,18 @@ img.social-media-preview {
 }
 .dark-mode .mas-website-history .version dl dt {
   margin-bottom: 0;
+}
+.dark-mode .back-to-landing-page a {
+  color: #cccccc;
+}
+.dark-mode .back-to-landing-page a .fas:before {
+  color: #00b1cb;
+}
+.dark-mode .back-to-landing-page:hover a {
+  color: #fff;
+}
+.dark-mode .back-to-landing-page:hover a .fas:before {
+  color: #fff;
 }
 .dark-mode .home section.skills .item {
   border-right: 0.0625rem solid #4d4d4d;

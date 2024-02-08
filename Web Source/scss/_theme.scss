@@ -582,6 +582,27 @@ $contact-link-active-color:					$link-active-color;
 		}
 	}
 	
+	.back-to-landing-page {
+		a {
+			color: $text-color;		
+			.fas {
+				&:before {
+					color: $link-color;
+				}
+			}
+		}
+		&:hover {
+			a {
+				color: $white;
+				.fas {
+					&:before {
+						color: $white;
+					}
+				}
+			}
+		}
+	}	
+	
 	
 	/* home -------------------------- */
 	
