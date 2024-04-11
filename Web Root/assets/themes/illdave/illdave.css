@@ -28622,6 +28622,13 @@ blockquote h4, blockquote .h4 {
 figure img {
   margin-bottom: 0.5rem;
 }
+figure.no-caption {
+  padding-bottom: 0;
+}
+figure.no-caption img {
+  margin-bottom: 0;
+}
+
 italic, em {
   font-family: "Proxima Nova Italic";
   font-style: normal;
@@ -28759,9 +28766,6 @@ section.even .item, section.even .client-details {
 section.no-padding {
   padding: 0;
 }
-section.picture-header {
-  padding: 0;
-}
 section.picture-header .image {
   background: 0 0 no-repeat;
   background-size: cover;
@@ -28770,7 +28774,7 @@ section.picture-header .image {
 }
 section.picture-header .text {
   font-size: 1.2rem;
-  padding: 2rem 4rem;
+  padding: 0;
   margin-bottom: 0;
 }
 
@@ -28956,7 +28960,10 @@ figure .figure-caption {
   text-align: center;
 }
 .centered img {
-  margin: 0 1rem 1rem 0;
+  margin: 0 0 1rem 0;
+}
+.centered .text {
+  text-align: left;
 }
 
 /* safe image (social media img) ------ */
@@ -29208,6 +29215,13 @@ img.social-media-preview {
   margin-top: -0.25rem;
 }
 
+.feature-content-card {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+.feature-content-card img {
+  margin-bottom: 1rem;
+}
 .vl {
   border-left: 0.0625rem solid #cccccc;
   position: absolute;
@@ -29623,10 +29637,6 @@ img.social-media-preview {
 }
 .home section.picture-header .image {
   background-image: url("../../img/pictures/dave-at-cvs-innovation-7.jpg");
-}
-.home section.skills {
-  padding: 0;
-  min-height: 0;
 }
 .home section.skills .item {
   background: transparent center center;
@@ -30405,14 +30415,6 @@ img.social-media-preview {
     flex: auto;
   }
 
-  section {
-    padding: 1rem;
-  }
-  section.picture-header .text {
-    font-size: 1rem;
-    padding: 1rem 2rem 0;
-  }
-
   table th, table td, .table th, .table td {
     display: block;
     padding: 0.5rem;
@@ -30543,6 +30545,14 @@ img.social-media-preview {
 @media (max-width: 991px) {
   .container {
     max-width: 950px !important;
+  }
+
+  section {
+    padding: 1rem;
+  }
+  section.picture-header .text {
+    font-size: 1rem;
+    padding: 0;
   }
 
   .newspaper-columns {
@@ -30744,6 +30754,9 @@ img.social-media-preview {
 .dark-mode figure {
   border-bottom: 0.0625rem solid #4d4d4d;
 }
+.dark-mode figure.no-border {
+  border-bottom: none;
+}
 .dark-mode .lightbox .lb-image {
   border-radius: 0;
   border: 0.125rem solid #fff;
@@ -30915,6 +30928,7 @@ img.social-media-preview {
 }
 .dark-mode .home section.skills .item {
   border-right: 0.0625rem solid #4d4d4d;
+  border-bottom: 0.0625rem solid #4d4d4d;
   background: #050505 center center;
   background-size: cover;
 }

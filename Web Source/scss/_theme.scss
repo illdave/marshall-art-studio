@@ -350,6 +350,9 @@ $contact-link-active-color:					$link-active-color;
 		}
 	}
 	figure {
+		&.no-border {
+			border-bottom: none;
+		}
 		border-bottom: $border-default;
 	}
 
@@ -611,6 +614,7 @@ $contact-link-active-color:					$link-active-color;
 			&.skills {
 				.item {
 					border-right: $border-default;
+					border-bottom: $border-default;
 					&.last-child {
 						border-right: 0;
 					}

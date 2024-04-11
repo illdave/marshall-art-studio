@@ -4,15 +4,6 @@
 	.mas-client .row > div {
 		flex: auto;
 	}
-	section {
-		padding: $spacer-base;
-		&.picture-header {
-			.text {
-				font-size: $font-size-base;
-				padding: $spacer-base $spacer-large 0;
-			}
-		}		
-	}
 	table, .table {
 		th, td {
 			display: block;
@@ -176,6 +167,15 @@
 @media (max-width: 991px) { 
 	.container {
 		max-width: 950px !important;
+	}
+	section {
+		padding: $spacer-base;
+		&.picture-header {
+			.text {
+				font-size: $font-size-base;
+				padding: 0;
+			}
+		}		
 	}
 	.newspaper-columns {
 		column-count: 1;
