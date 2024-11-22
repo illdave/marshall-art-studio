@@ -191,6 +191,8 @@ $contact-link-active-color:					$link-active-color;
 		color: $text-color;
 		th, td {
 			border-color: $table-border-color;
+			background: transparent;
+			color: $text-color;
 		}
 		th {
 			color: $headings-color;
@@ -504,7 +506,7 @@ $contact-link-active-color:					$link-active-color;
 	.profile {
 		&.inky-stories {
 			.image {
-				background-image: url("#{$pictures-image-path}/dave-drawing-as-kid-1.jpg");
+				background-image: url("#{$pictures-image-path}/dave/drawing-as-kid-1.jpg");
 				background-size: 160%;
 			}
 			.text {
@@ -515,7 +517,7 @@ $contact-link-active-color:					$link-active-color;
 		}
 		&.art-of-comic-book {
 			.image {
-				background-image: url("#{$pictures-image-path}/comics-wip-1.jpg");
+				background-image: url("#{$pictures-image-path}/comics/wip-agent-k-cupid-1.jpg");
 				background-size: cover;
 			}
 			.text {

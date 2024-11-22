@@ -123,6 +123,10 @@ $btn-hover-bg:								lighten($btn-bg, 10%);
 $btn-active-color:							lighten($link-color, 10%);
 $btn-active-bg:								$white;
 
+$svg-icon-link-filter: 						invert(50%) sepia(100%) saturate(2%) hue-rotate(90deg) brightness(103%) contrast(100%);
+$svg-icon-hover-filter: 					invert(80%) sepia(100%) saturate(2%) hue-rotate(90deg) brightness(103%) contrast(100%);
+$svg-icon-active-filter: 					invert(20%) sepia(100%) saturate(2%) hue-rotate(90deg) brightness(103%) contrast(100%);
+
 $white-glow: 								0 0 10px $white;
 
 
@@ -270,6 +274,7 @@ $graphics-image-path:						$image-path/graphics;
 $blog-image-path:							$image-path/blog;
 $brand-image-path:							$image-path/brand;
 $open-graph-image-path:						$image-path/open-graph;
+$icons:										$image-path/icons;
 
 
 /* Font Awesome icons ---------------- */
@@ -281,11 +286,11 @@ $icon-link-color-active: 					$black;
 $icon-back-to-top:   						quote($fa-var-chevron-up);
 $icon-learn-more:   						quote($fa-var-caret-right);
 $icon-back-to-landing-page:   				quote($fa-var-caret-left);
-$icon-facebook:   							quote($fa-var-facebook);
+$icon-facebook-fa:   						quote($fa-var-facebook);
 $icon-twitter:   							quote($fa-var-twitter);
-$icon-github:   							quote($fa-var-code-branch);
-$icon-linkedin:   							quote($fa-var-linkedin);
-$icon-email:   								quote($fa-var-at);
+$icon-github-fa:   							quote($fa-var-code-branch);
+$icon-linkedin-fa:   						quote($fa-var-linkedin);
+$icon-email-fa:   							quote($fa-var-at);
 
 $icon-comic-nav-prev:   					quote($fa-var-chevron-circle-left);
 $icon-comic-nav-next:   					quote($fa-var-chevron-circle-right);
@@ -294,6 +299,15 @@ $navbar-toggler-icon:   					quote($fa-var-bars);
 
 $icon-prev: 								quote($fa-var-arrow-circle-left);
 $icon-next: 								quote($fa-var-arrow-circle-right);
+
+/* social media SVG icons ------------ */
+
+$icon-facebook:   							url("#{$icons}/facebook.svg");
+$icon-bluesky:   							url("#{$icons}/bluesky.svg");
+$icon-email:   								url("#{$icons}/envelope.svg");
+$icon-github:   							url("#{$icons}/github.svg");
+$icon-linkedin:   							url("#{$icons}/linkedin.svg");
+$icon-email:   								url("#{$icons}/envelope.svg");
 
 
 /* footer ---------------------------- */

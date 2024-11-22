@@ -108,6 +108,7 @@ strong, bold {
 table, .table {
 	width: 100%;
 	color: $text-color;
+	background: none;
 	th, td {
 		border-color: $table-border-color;
 		&:first-child {

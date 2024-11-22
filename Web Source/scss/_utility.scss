@@ -19,6 +19,16 @@
 	}
 }
 
+.video {
+	width: 100%;
+	&.embed-16x9 {
+		aspect-ratio: 16 / 9;
+	}
+	&.embed-4x3 {
+		aspect-ratio: 4 / 3;
+	}
+}
+
 .item {
 	padding: 2rem;
 	margin-bottom: 1.5rem;
@@ -491,28 +501,38 @@
 }
 
 .social {
+	ul {
+		display: flex;
+		flex-direction: row;
+		margin-bottom: 0;
+		align-items: center;
+		flex-basis: auto;
+		flex-grow: 1;
+	}
+
 	li, dd {
 		background: transparent no-repeat 0 0;
-		padding-left: 1.25rem;
-		padding-right: 0;
-		position: relative;
+		margin-left: 1rem;
+		&:not(:last-child) {margin-right: 0;}
+		&:not(:last-child) {margin-right: 0;}
 		a {
 			&:before {
-				position: absolute;
-				top: 0;
-				left: 0;
-				font-family: 'Font Awesome Brands';
-				color: $icon-link-color;
+				display: inline-block;
+				filter: $svg-icon-link-filter;
+				width: .75rem;
+				height: .75rem;
+				line-height: .75rem;
+				margin-right: .5rem;
 			}
 		}
 		&:hover a {
 			&:before {
-				color: $icon-link-color-hover;
+				filter: $svg-icon-hover-filter;
 			}
 		}
 		&:active a {
 			&:before {
-				color: $icon-link-color-active;
+				filter: $svg-icon-active-filter;
 			}
 		}
 	}
@@ -526,6 +546,11 @@
 	.facebook a {
 		&:before {
 			content: $icon-facebook;
+		}
+	}
+	.bluesky a {
+		&:before {
+			content: $icon-bluesky;
 		}
 	}
 	.twitter a {
@@ -586,7 +611,7 @@
 	align-items: center;
 	&.inky-stories {
 		.image {
-			background-image: url("#{$pictures-image-path}/dave-drawing-as-kid-1.jpg");
+			background-image: url("#{$pictures-image-path}/dave/dave-drawing-as-kid-1.jpg");
 			background-size: 160%;
 			border-color: $profile-bg-inky-stories;
 		}
@@ -600,7 +625,7 @@
 	}
 	&.art-of-comic-book {
 		.image {
-			background-image: url("#{$pictures-image-path}/comics-wip-1.jpg");
+			background-image: url("#{$pictures-image-path}/comics/wip-agent-k-cupid-1.jpg");
 			background-size: cover;
 			border-color: $profile-bg-art-of-comicbook;
 		}

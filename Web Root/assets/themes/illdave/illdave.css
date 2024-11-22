@@ -28296,6 +28296,7 @@ https://github.com/lokesh/lightbox2 */
 /* z-index --------------------------- */
 /* paths ----------------------------- */
 /* Font Awesome icons ---------------- */
+/* social media SVG icons ------------ */
 /* footer ---------------------------- */
 /* main navigation ------------------- */
 /* utility --------------------------- */
@@ -28580,6 +28581,7 @@ strong, bold {
 table, .table {
   width: 100%;
   color: #212529;
+  background: none;
 }
 table th, table td, .table th, .table td {
   border-color: #bfbfbf;
@@ -28987,6 +28989,16 @@ img.social-media-preview {
   text-align: center;
 }
 
+.video {
+  width: 100%;
+}
+.video.embed-16x9 {
+  aspect-ratio: 16/9;
+}
+.video.embed-4x3 {
+  aspect-ratio: 4/3;
+}
+
 .item {
   padding: 2rem;
   margin-bottom: 1.5rem;
@@ -29383,41 +29395,57 @@ img.social-media-preview {
   border-radius: 50%;
 }
 
+.social ul {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0;
+  align-items: center;
+  flex-basis: auto;
+  flex-grow: 1;
+}
 .social li, .social dd {
   background: transparent no-repeat 0 0;
-  padding-left: 1.25rem;
-  padding-right: 0;
-  position: relative;
+  margin-left: 1rem;
+}
+.social li:not(:last-child), .social dd:not(:last-child) {
+  margin-right: 0;
+}
+.social li:not(:last-child), .social dd:not(:last-child) {
+  margin-right: 0;
 }
 .social li a:before, .social dd a:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-family: "Font Awesome Brands";
-  color: #bfbfbf;
+  display: inline-block;
+  filter: invert(50%) sepia(100%) saturate(2%) hue-rotate(90deg) brightness(103%) contrast(100%);
+  width: 0.75rem;
+  height: 0.75rem;
+  line-height: 0.75rem;
+  margin-right: 0.5rem;
 }
 .social li:hover a:before, .social dd:hover a:before {
-  color: #007bff;
+  filter: invert(80%) sepia(100%) saturate(2%) hue-rotate(90deg) brightness(103%) contrast(100%);
 }
 .social li:active a:before, .social dd:active a:before {
-  color: #000;
+  filter: invert(20%) sepia(100%) saturate(2%) hue-rotate(90deg) brightness(103%) contrast(100%);
 }
 .social .email a:before {
   font-family: "Font Awesome Solid";
-  content: "\f1fa";
+  content: url("../../img/icons/envelope.svg");
 }
 .social .facebook a:before {
-  content: "\f09a";
+  content: url("../../img/icons/facebook.svg");
+}
+.social .bluesky a:before {
+  content: url("../../img/icons/bluesky.svg");
 }
 .social .twitter a:before {
   content: "\f099";
 }
 .social .linkedin a:before {
-  content: "\f08c";
+  content: url("../../img/icons/linkedin.svg");
 }
 .social .github a:before {
   font-family: "Font Awesome Solid";
-  content: "\f126";
+  content: url("../../img/icons/github.svg");
 }
 .social .follow-me {
   padding-left: 0;
@@ -29458,7 +29486,7 @@ img.social-media-preview {
   align-items: center;
 }
 .profile.inky-stories .image {
-  background-image: url("../../img/pictures/dave-drawing-as-kid-1.jpg");
+  background-image: url("../../img/pictures/dave/dave-drawing-as-kid-1.jpg");
   background-size: 160%;
   border-color: #ff4e00;
 }
@@ -29470,7 +29498,7 @@ img.social-media-preview {
   color: #fff;
 }
 .profile.art-of-comic-book .image {
-  background-image: url("../../img/pictures/comics-wip-1.jpg");
+  background-image: url("../../img/pictures/comics/wip-agent-k-cupid-1.jpg");
   background-size: cover;
   border-color: #00a0e3;
 }
@@ -30629,6 +30657,8 @@ img.social-media-preview {
 }
 .dark-mode table th, .dark-mode table td, .dark-mode .table th, .dark-mode .table td {
   border-color: #4d4d4d;
+  background: transparent;
+  color: #cccccc;
 }
 .dark-mode table th, .dark-mode .table th {
   color: #fff;
@@ -30857,14 +30887,14 @@ img.social-media-preview {
   color: gray;
 }
 .dark-mode .profile.inky-stories .image {
-  background-image: url("../../img/pictures/dave-drawing-as-kid-1.jpg");
+  background-image: url("../../img/pictures/dave/drawing-as-kid-1.jpg");
   background-size: 160%;
 }
 .dark-mode .profile.inky-stories .text a {
   color: #00b1cb;
 }
 .dark-mode .profile.art-of-comic-book .image {
-  background-image: url("../../img/pictures/comics-wip-1.jpg");
+  background-image: url("../../img/pictures/comics/wip-agent-k-cupid-1.jpg");
   background-size: cover;
 }
 .dark-mode .profile.art-of-comic-book .text a {
