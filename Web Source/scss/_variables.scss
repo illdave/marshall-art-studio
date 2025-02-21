@@ -3,9 +3,6 @@
 
 /* spacing --------------------------- */
 
-@use "sass:list";
-@use "sass:math";
-
 $spacer: 									1rem;
 $spacer-base:								$spacer;
 $spacer-large:								$spacer-base * 2;
@@ -150,6 +147,7 @@ $item-link-color-active: 					$link-active-color;
 $item-border-color: 						transparentize($item-text-color, 0.2);
 
 $client-details-bg:							$item-bg;
+$client-details-details-bg:					$section-bg;
 $client-details-padding: 					2rem;
 
 $boxed-client-details-bg: 					darken($section-bg, 10%);
@@ -291,14 +289,14 @@ $icon-twitter:   							quote($fa-var-twitter);
 $icon-github-fa:   							quote($fa-var-code-branch);
 $icon-linkedin-fa:   						quote($fa-var-linkedin);
 $icon-email-fa:   							quote($fa-var-at);
-
-$icon-comic-nav-prev:   					quote($fa-var-chevron-circle-left);
-$icon-comic-nav-next:   					quote($fa-var-chevron-circle-right);
+$icon-learn-cta:   							quote($fa-var-chevron-right);
 
 $navbar-toggler-icon:   					quote($fa-var-bars);
+$icon-list-link: 							quote($fa-var-chevron-right);
 
 $icon-prev: 								quote($fa-var-arrow-circle-left);
 $icon-next: 								quote($fa-var-arrow-circle-right);
+
 
 /* social media SVG icons ------------ */
 
@@ -387,7 +385,7 @@ $main-nav-height-mobile: 					$main-nav-height - .5rem;
 
 /* utility --------------------------- */
 
-$hr-margin: 								$spacer*0.5;
+$hr-margin: 								$spacer-base;
 
 $jumbotron-padding: 						$spacer-large $spacer-base;
 $jumbotron-bg: 								$gray-lighter;
@@ -428,6 +426,25 @@ $contact-card-link-color: 					$contact-card-text-color;
 $contact-card-link-hover-color: 			$white;
 $contact-card-link-active-color: 			darken($contact-card-bg, 13.5%);
 $contact-card-padding: 						1rem 1.5rem;
+
+$tile-card-bg: 								$gray-lighter;
+$tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
+
+
+/* multi link ----------------------- */
+
+$multilink-circle: 							5rem;
+$multilink-icon: 							3rem;
+
+$multilink-bg-yellow: 						lighten($illdave-yellow, 10%);
+$multilink-bg-orange: 						lighten($illdave-orange, 10%);
+
+$multilink-bg-blue: 						lighten($illdave-blue, 40%);
+$multilink-bg-blue-dark: 					lighten($illdave-blue-dark, 10%);
+$multilink-bg-cyan: 						lighten($illdave-cyan, 10%);
+$multilink-bg-green: 						lighten($illdave-green, 10%);
+
+$multilink-bg: 								$multilink-bg-blue;
 
 
 /* profiles -------------------------- */

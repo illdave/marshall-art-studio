@@ -3,13 +3,8 @@
 .blog {
 	section {
 		&.picture-header {
-			padding: 0;
 			border: 0;
 			background-color: $section-bg-blog;
-			background-image: url("#{$layout-image-path}/section-bg-blog.png");
-			.image {
-				background-image: url("#{$pictures-image-path}/dave-at-agencyport-11.jpg");
-			}
 		}
 	}
 	

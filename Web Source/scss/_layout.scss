@@ -157,7 +157,43 @@ figure {
 	padding-bottom: .5rem;
 	.figure-caption {
 		text-align: left;
+		color: $text-color;
 	}
+	&.no-border {
+		border: 0;
+		&.images-have-border {
+			img {
+				border: $border-default;
+			}
+		}
+	}
+	&.image-has-border {
+		img {
+			border: $border-default;
+		}
+	}
+	&.centered {
+		text-align: center;
+		img {
+			margin: 0 auto .5rem;
+		}
+		&.full-width {
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.images-have-border {
+	img {
+		border: $border-default;
+	}
+}
+
+.has-bottom-border {
+	margin-bottom: 1rem;
+	border-bottom: $border-default;
 }
 
 .modal {
@@ -178,7 +214,7 @@ figure {
 		margin-bottom: $spacer-base;
 	}
 	@media (min-width: 1200px) and (max-width: 991px), (min-width: 992px) {
-		.container, .author-notes {
+		.author-notes {
 			max-width: 60rem;
 		}
 		.author-notes {

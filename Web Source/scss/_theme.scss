@@ -54,6 +54,8 @@ $border-default: 							rem(1px solid $border-default-color);
 $border-top:								$border-default;
 $border-light-color: 						lighten($border-default-color, 10%);
 $border-light: 								rem(1px solid $border-light-color);
+$border-white: 								rem(1px solid $white);
+
 $table-border-color:						$border-default-color;
 
 $lightbox-image-border: 					rem(2px solid $white);
@@ -126,6 +128,7 @@ $client-details-bg:							transparent;
 $client-details-padding: 					0;
 
 $boxed-client-details-bg: 					darken($section-bg, 10%);
+$client-details-details-bg:					$section-bg;
 $boxed-client-details-even-bg: 				lighten($section-bg-even, 10%);
 $boxed-client-details-padding: 				$spacer-large;
 
@@ -136,6 +139,10 @@ $text-divider-color:						transparentize($text-color, 0.5);
 $contact-link-color:						$link-color;
 $contact-link-hover-color:					$link-hover-color;
 $contact-link-active-color:					$link-active-color;
+
+$tile-card-bg: 								lighten($item-bg, 10%);
+$tile-card-bg-light: 						lighten($tile-card-bg, 10%);
+$tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 
 
 .dark-mode {
@@ -203,8 +210,32 @@ $contact-link-active-color:					$link-active-color;
 	}
 	.dateline {
 		color: $gray-light-med;
-	}	
-
+	}
+	
+	dl {
+		dt {
+			color: $headings-color;
+			border-bottom: $border-default;
+			span {
+				display: inline-block;
+				color: $text-color;
+			}
+		}
+		&.pullquote {
+			margin-top: .5rem;
+			dt {
+				color: $headings-color;
+			}
+			dd {
+				color: $text-color;
+			}
+		}
+	}
+	
+	hr {
+		border-top: $border-default;
+	}
+	
 	
 	/* main navigation --------------- */
 	.main-navigation {
@@ -302,6 +333,9 @@ $contact-link-active-color:					$link-active-color;
 		}
 		&.even {
 			background-color: $section-bg-even;
+			.item, .client-details {
+				background: transparent;
+			}
 		}
 	}	
 	.sidebar {
@@ -352,9 +386,31 @@ $contact-link-active-color:					$link-active-color;
 		}
 	}
 	figure {
-		&.no-border {
-			border-bottom: none;
+		border-bottom: $border-default;
+		.figure-caption {
+			color: $text-color;
 		}
+		&.no-border {
+			border: 0;
+			&.images-have-border {
+				img {
+					border: $border-white;
+				}
+			}
+		}
+		&.image-has-border {
+			img {
+				border: $border-white;
+			}
+		}
+	}
+	.images-have-border {
+		img {
+			border: $border-white;
+		}
+	}
+
+	.has-bottom-border {
 		border-bottom: $border-default;
 	}
 
@@ -387,6 +443,127 @@ $contact-link-active-color:					$link-active-color;
 	
 	
 	/* utility ----------------------- */
+	
+	.feature-story-card {
+		&.has-bottom-border {
+		}
+		.image {
+			img {
+				border: $border-default;
+			}
+		}
+		.text {
+			.header {
+				color: $headings-color;
+				&.header-3 {
+					line-height: math.div($h2-font-size, 1);
+					color: $headings-color;
+				}
+			}
+			.cta a {
+				text-decoration: none;
+				&:after {
+					content: $icon-list-link;			
+					color: $link-color;
+				}
+			}
+		}
+	}
+	
+	.multi-link {
+		.icon {
+			background: $multilink-bg;
+			border-radius: $circle-border-radius;
+			img {
+				width: $multilink-icon;
+			}
+		}
+		.text {
+			ul {
+				li {
+					&::after {
+					  color: $gray-lightest;
+					}
+				}
+			}
+		}
+	}
+	
+	.tile-cards {
+		.tile-card {
+			background: $tile-card-bg;	
+			.header {
+				&:after {
+					content: $icon-list-link;			
+					color: $link-color;
+				}
+			}
+			.description {
+				color: $text-color;
+			}
+			&:hover {
+				background-color: $tile-card-hover-bg;
+			}
+		}
+	}
+	.story-group-blade {
+		.story-group-row.tile-cards {
+			background: $tile-card-bg;
+			.item {
+				&:not(:first-child):before {
+					background: $border-default-color;
+				}
+			}
+		}
+	}
+	
+	.feature-cards {
+		.feature-card {
+			.text {
+				.header {
+					color: $headings-color;
+					&:after {
+						content: $icon-list-link;			
+						color: $link-color;
+					}
+				}
+				.description {
+					color: $text-color;
+				}
+			}
+			.cta {
+				&:after {
+					content: $icon-list-link;			
+					color: $link-color;
+				}
+			}
+		}
+		&.with-background {
+			.feature-card {
+				background: $tile-card-bg;	
+			}
+		}
+	}
+	
+	.link-list {
+		a {
+			color: $text-color;
+			&:hover {
+				color: $link-color;
+			}
+			&:after {
+				content: $icon-list-link;			
+				color: $link-color;
+			}
+		}
+		.cta a {
+			color: $link-color !important;
+			&:hover {
+				color: $text-color !important;
+			}
+		}
+	}
+	
 	
 	.first-paragraph, 
 	.first-sentence {
@@ -670,6 +847,9 @@ $contact-link-active-color:					$link-active-color;
 				color: $headings-color;
 			}
 			p {
+			}
+			.client-details {
+				background: $client-details-details-bg !important;
 			}
 		}
 		.boxed {

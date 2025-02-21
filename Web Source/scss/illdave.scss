@@ -5,6 +5,11 @@
 
 // Dependencies -------------------------------------------------- //
 
+/* Dart Sass: methods for using "/" for division, which will be deprecated
+https://sass-lang.com/documentation/breaking-changes/slash-div */
+@use "sass:list";
+@use "sass:math";
+
 /* Bootstrap: visual design framework
 https://github.com/twbs/bootstrap */
 @import "../node_modules/bootstrap/scss/bootstrap.scss";

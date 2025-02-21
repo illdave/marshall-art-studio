@@ -74,17 +74,9 @@ img {
 }
 
 hr {
-	background: $gray-light-medium;
-	display: block;
-	position: relative;
-	padding: 0;
+	border-top: $border-default;
 	margin: $hr-margin auto;
-	height: 0;
-	width: 100%;
-	max-height: 0;
-	font-size: 1px;
-	line-height: 0;
-	clear: both;
+	opacity: 1;
 }
 
 ul {
@@ -96,7 +88,42 @@ dl {
 	dt {
 		font-family: $font-family-headers;
 		font-weight: normal;
-		margin-bottom: $spacer-small;
+		text-transform: uppercase;
+		color: $headings-color;
+		padding-bottom: $spacer-small;
+		margin-bottom: $spacer-base;				
+		border-bottom: $border-default;
+		line-height: 1.1rem;
+		span {
+			display: inline-block;
+			font-family: $font-family-base;
+			text-transform: none;
+			color: $text-color;
+			margin-top: .5rem;
+		}
+	}
+	&.pullquote {
+		margin-top: .5rem;
+		dt {
+			font-family: $font-family-bold-italic;
+			font-size: $h1-font-size;
+			color: $headings-color;
+			line-height: 1.6rem;
+			border: 0;
+			padding: 0;
+			margin-bottom: 1rem;
+		}
+		dd {
+			font-family: $font-family-italic;
+			font-size: $h4-font-size;
+			line-height: 1.5rem;
+			color: $gray-lightest;
+		}
+	}
+	&.compact {
+		dd {
+			margin-bottom: 0;
+		}
 	}
 }
 
