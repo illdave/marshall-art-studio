@@ -347,10 +347,7 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 				}
 				li {
 					color: $contact-text-color;
-					&:not(:last-child) {
-						margin-right: .5rem;
-						padding-left: 1.5rem;
-					}			
+					&:not(:last-child) {}			
 				}
 				a {
 					color: $contact-link-color;

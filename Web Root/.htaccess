@@ -1,9 +1,10 @@
-ErrorDocument 404 https://www.illdave.com/404/index.htm
+ErrorDocument 404 https://www.illdave.com/404/index.html
 
 Redirect 301 /comicbooks/ https://illdave.com/comics/
 Redirect 301 /comicbooks https://illdave.com/comics/
-Redirect 301 /comicbooks/ https://illdave.com/comics/index.htm
-Redirect 301 /comicbooks/index.htm https://illdave.com/comics/index.htm
+Redirect 301 /comicbooks/ https://illdave.com/comics/index.html
+Redirect 301 /comicbooks/index.htm https://illdave.com/comics/index.html
+Redirect 301 /comicbooks/history/toth-critiques-rude.htm https://illdave.com/blog/toth-critiques-rude.html
 
 Redirect 301 /web https://illdave.com/web-dev/
 Redirect 301 /web/index.htm http://illdave.com/web-dev/
@@ -25,30 +26,30 @@ Redirect 301 /mlitg.htm http://illdave.com/web-dev/merril-lynch
 Redirect 301 /web/ml.htm http://illdave.com/web-dev/merril-lynch
 Redirect 301 /web/mlitg.htm http://illdave.com/web-dev/merril-lynch
 
-Redirect 301 /carbonite https://illdave.com/web-dev/carbonite/index.htm
-Redirect 301 /carbonite.htm https://illdave.com/web-dev/carbonite/index.htm
-Redirect 301 /web/carbonite.htm https://illdave.com/web-dev/carbonite/index.htm
+Redirect 301 /carbonite https://illdave.com/web-dev/carbonite/index.html
+Redirect 301 /carbonite.htm https://illdave.com/web-dev/carbonite/index.html
+Redirect 301 /web/carbonite.htm https://illdave.com/web-dev/carbonite/index.html
 
 Redirect 301 /head-for-home https://illdave.com/web-dev/head-for-home/web
 Redirect 301 /h4h https://illdave.com/web-dev/head-for-home/web
 Redirect 301 /web/h4h.htm https://illdave.com/web-dev/head-for-home/web
 Redirect 301 /wbz-head-for-home https://illdave.com/web-dev/head-for-home/web
 
-Redirect 301 /CCF https://illdave.com/web-dev/cambridge-comix-festival/index.htm
-Redirect 301 /cambridge-comix-festival https://illdave.com/web-dev/cambridge-comix-festival/index.htm
-Redirect 301 /clients/CCF/index.htm https://illdave.com/web-dev/cambridge-comix-festival/index.htm
+Redirect 301 /CCF https://illdave.com/web-dev/cambridge-comix-festival/index.html
+Redirect 301 /cambridge-comix-festival https://illdave.com/web-dev/cambridge-comix-festival/index.html
+Redirect 301 /clients/CCF/index.htm https://illdave.com/web-dev/cambridge-comix-festival/index.html
 Redirect 301 /eddie-marshall https://illdave.com/web-dev/eddie-marshall/web/
 
 Redirect 301 /comicbooks/events/daves-inky-stories.htm https://www.inkystories.com/blog/exhibit-2002-inman-square.html
 
-Redirect 301 /blog/24hour-comic-2008.htm https://illdave.com/blog/24-hour-comic-2008.htm
-Redirect 301 /blog/mas-webdev.htm https://illdave.com/blog/history-of-this-website.htm
-Redirect 301 /blog/watchmen.htm https://illdave.com/blog/watchmen-trailer.htm
+Redirect 301 /blog/24hour-comic-2008.htm https://illdave.com/blog/24-hour-comic-2008.html
+Redirect 301 /blog/mas-webdev.htm https://illdave.com/blog/history-of-this-website.html
+Redirect 301 /blog/watchmen.htm https://illdave.com/blog/watchmen-trailer.html
 
-Redirect 301 /comicbooks.htm https://illdave.com/comics/index.htm
-Redirect 301 /illustration.htm https://illdave.com/illustration/index.htm
-Redirect 301 /print.htm https://illdave.com/graphic-design/index.htm
-Redirect 301 /web.htm https://illdave.com/web-dev/index.htm
+Redirect 301 /comicbooks.htm https://illdave.com/comics/index.html
+Redirect 301 /illustration.htm https://illdave.com/illustration/index.html
+Redirect 301 /print.htm https://illdave.com/graphic-design/index.html
+Redirect 301 /web.htm https://illdave.com/web-dev/index.html
 
 Redirect 301 /ctds-dashboard https://illdave.com/clients/ctds/my-dashboard/
 
