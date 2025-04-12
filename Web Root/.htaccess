@@ -1,13 +1,12 @@
 ErrorDocument 404 https://www.illdave.com/404/index.html
-
+Redirect 301 /comicbooks/history/toth-critiques-rude.htm https://illdave.com/blog/toth-critiques-rude.html
+Redirect 301 /comicbooks/events/daves-inky-stories.htm https://www.inkystories.com/blog/exhibit-2002-inman-square.html
 Redirect 301 /comicbooks/ https://illdave.com/comics/
 Redirect 301 /comicbooks https://illdave.com/comics/
-Redirect 301 /comicbooks/ https://illdave.com/comics/index.html
-Redirect 301 /comicbooks/index.htm https://illdave.com/comics/index.html
-Redirect 301 /comicbooks/history/toth-critiques-rude.htm https://illdave.com/blog/toth-critiques-rude.html
+Redirect 301 /comicbooks.htm https://illdave.com/comics/index.html
 
 Redirect 301 /web https://illdave.com/web-dev/
-Redirect 301 /web/index.htm http://illdave.com/web-dev/
+Redirect 301 /web/index.htm https://illdave.com/web-dev/
 
 Redirect 301 /print https://illdave.com/graphic-design/
 Redirect 301 /graphics https://illdave.com/graphic-design/
@@ -18,13 +17,13 @@ Redirect 301 /agencyport https://illdave.com/web-dev/agencyport
 Redirect 301 /ltsave https://illdave.com/web-dev/ltsave
 Redirect 301 /web/ltsave.htm https://illdave.com/web-dev/ltsave
 
-Redirect 301 /merrill-lynch-itg http://illdave.com/web-dev/merril-lynch
-Redirect 301 /merrill-lynch http://illdave.com/web-dev/merril-lynch
-Redirect 301 /mlitg http://illdave.com/web-dev/merril-lynch
-Redirect 301 /ml-itg http://illdave.com/web-dev/merril-lynch
-Redirect 301 /mlitg.htm http://illdave.com/web-dev/merril-lynch
-Redirect 301 /web/ml.htm http://illdave.com/web-dev/merril-lynch
-Redirect 301 /web/mlitg.htm http://illdave.com/web-dev/merril-lynch
+Redirect 301 /merrill-lynch-itg https://illdave.com/web-dev/merril-lynch
+Redirect 301 /merrill-lynch https://illdave.com/web-dev/merril-lynch
+Redirect 301 /mlitg https://illdave.com/web-dev/merril-lynch
+Redirect 301 /ml-itg https://illdave.com/web-dev/merril-lynch
+Redirect 301 /mlitg.htm https://illdave.com/web-dev/merril-lynch
+Redirect 301 /web/ml.htm https://illdave.com/web-dev/merril-lynch
+Redirect 301 /web/mlitg.htm https://illdave.com/web-dev/merril-lynch
 
 Redirect 301 /carbonite https://illdave.com/web-dev/carbonite/index.html
 Redirect 301 /carbonite.htm https://illdave.com/web-dev/carbonite/index.html
@@ -40,18 +39,16 @@ Redirect 301 /cambridge-comix-festival https://illdave.com/web-dev/cambridge-com
 Redirect 301 /clients/CCF/index.htm https://illdave.com/web-dev/cambridge-comix-festival/index.html
 Redirect 301 /eddie-marshall https://illdave.com/web-dev/eddie-marshall/web/
 
-Redirect 301 /comicbooks/events/daves-inky-stories.htm https://www.inkystories.com/blog/exhibit-2002-inman-square.html
-
 Redirect 301 /blog/24hour-comic-2008.htm https://illdave.com/blog/24-hour-comic-2008.html
 Redirect 301 /blog/mas-webdev.htm https://illdave.com/blog/history-of-this-website.html
 Redirect 301 /blog/watchmen.htm https://illdave.com/blog/watchmen-trailer.html
 
-Redirect 301 /comicbooks.htm https://illdave.com/comics/index.html
 Redirect 301 /illustration.htm https://illdave.com/illustration/index.html
 Redirect 301 /print.htm https://illdave.com/graphic-design/index.html
 Redirect 301 /web.htm https://illdave.com/web-dev/index.html
 
 Redirect 301 /ctds-dashboard https://illdave.com/clients/ctds/my-dashboard/
+
 
 
 
