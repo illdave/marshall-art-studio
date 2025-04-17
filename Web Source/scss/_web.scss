@@ -88,6 +88,15 @@
 			}
 		}
 	}
+	&.ctds {
+		.multi-link {
+			.icon {
+				background: $multilink-ctds-icon-bg;
+				width: 5rem;
+				height: 5rem;
+			}
+		}
+	}
 }
 
 

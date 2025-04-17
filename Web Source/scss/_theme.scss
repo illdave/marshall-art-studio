@@ -16,6 +16,10 @@ $theme-color-6:								$illdave-teal;
 $theme-color-7:								darken($theme-color-3, 5%); // dark blue 
 $theme-color-8: 							#00b1cb; // pastel foam
 
+$multilink-icon-color: 						$illdave-orange;
+$multilink-bg: 								transparent;
+$multilink-ctds-icon-bg: 					transparentize($white, 0.1);
+
 $selection-color: 							$white;
 $selection-bg-color: 						darken($theme-color-3, 20%);
 
@@ -469,10 +473,9 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 	
 	.multi-link {
 		.icon {
-			background: $multilink-bg;
-			border-radius: $circle-border-radius;
-			img {
-				width: $multilink-icon;
+			img, svg, object {
+				fill:  $multilink-icon-color;
+				color: $multilink-icon-color;
 			}
 		}
 		.text {
@@ -520,8 +523,7 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 				.header {
 					color: $headings-color;
 					&:after {
-						content: $icon-list-link;			
-						color: $link-color;
+						display: none;
 					}
 				}
 				.description {
@@ -860,7 +862,13 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 				}
 			}
 		}
-		
+		&.ctds {
+			.multi-link {
+				.icon {
+					background: $multilink-ctds-icon-bg;
+				}
+			}
+		}
 			
 	}
 
