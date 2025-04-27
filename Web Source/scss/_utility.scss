@@ -85,6 +85,10 @@
 .cta {
     text-decoration: none;
     font-family: $font-family-bold;
+    font-size: $h4-font-size;
+    &:after {
+		@include cta-arrow;   
+    }
 }
 
 .item {

@@ -5,6 +5,8 @@ Redirect 301 /comicbooks/ https://illdave.com/comics/
 Redirect 301 /comicbooks https://illdave.com/comics/
 Redirect 301 /comicbooks.htm https://illdave.com/comics/index.html
 
+Redirect 301 /illustration-friday/index.htm https://illdave.com/illustration-friday/index.html
+
 Redirect 301 /web https://illdave.com/web-dev/
 Redirect 301 /web/index.htm https://illdave.com/web-dev/
 
@@ -13,7 +15,6 @@ Redirect 301 /graphics https://illdave.com/graphic-design/
 Redirect 301 /print/index.htm https://illdave.com/graphic-design/
 
 Redirect 301 /agencyport https://illdave.com/web-dev/agencyport
-
 Redirect 301 /ltsave https://illdave.com/web-dev/ltsave
 Redirect 301 /web/ltsave.htm https://illdave.com/web-dev/ltsave
 

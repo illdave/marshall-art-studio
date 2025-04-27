@@ -28293,6 +28293,20 @@ img.social-media-preview {
 .cta {
   text-decoration: none;
   font-family: "Proxima Nova Bold";
+  font-size: 1.2rem;
+}
+.cta:after {
+  font-family: "Font Awesome Solid";
+  font-size: 1rem;
+  content: "\f054";
+  color: #007bff;
+  margin-left: 0.5rem;
+}
+.cta:after:hover {
+  color: #212529;
+}
+.cta:after:active {
+  color: black;
 }
 
 .item {
@@ -30232,6 +30246,9 @@ img.social-media-preview {
 .dark-mode .lightbox .lb-dataContainer .lb-data .lb-details .lb-caption a:active {
   color: rgb(0, 88.0640394089, 101);
 }
+.dark-mode .cta:after {
+  color: #00b1cb;
+}
 .dark-mode .feature-story-card .image img {
   border: 0.0625rem solid rgb(76.5, 76.5, 76.5);
 }
@@ -30246,7 +30263,6 @@ img.social-media-preview {
   text-decoration: none;
 }
 .dark-mode .feature-story-card .text .cta a:after {
-  content: "\f054";
   color: #00b1cb;
 }
 .dark-mode .multi-link .icon img, .dark-mode .multi-link .icon svg, .dark-mode .multi-link .icon object {

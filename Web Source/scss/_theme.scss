@@ -445,6 +445,12 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 	
 	/* utility ----------------------- */
 	
+	.cta {
+		&:after {
+			color: $link-color;  
+		}
+	}
+	
 	.feature-story-card {
 		&.has-bottom-border {
 		}
@@ -464,7 +470,6 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 			.cta a {
 				text-decoration: none;
 				&:after {
-					content: $icon-list-link;			
 					color: $link-color;
 				}
 			}
