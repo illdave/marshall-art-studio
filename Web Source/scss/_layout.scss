@@ -5,7 +5,7 @@ section {
 	background: $section-bg no-repeat 110% center;
 	
 	&.intro {
-		background-color: $section-intro-bg;
+		background: $section-intro-bg url("#{$layout-image-path}/section-bg-pinstripes.png") 0 0 repeat;
 	}
 	&.even {
 		background-color: $section-bg-even;

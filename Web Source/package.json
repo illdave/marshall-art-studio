@@ -25,7 +25,7 @@
 		"grunt-contrib-watch": "^1.1.0",
 		"grunt-css": "^0.4.1",
 		"jquery": "^3.6.0",
-		"node-sass": "^5.0.0",
+		"node-sass": "^9.0.0",
 		"sass": "~1.35.2",
 		"sass-rem": "^2.0.1",
 		"simplelightbox": "^2.7.0"

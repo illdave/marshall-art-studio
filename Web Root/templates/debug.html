@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<!-- Copyright 1986-2021 Marshall Art Studio -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Marshall Art Studio 8.0: Debug</title>
+		<link href="/assets/themes/illdave/illdave.css" type="text/css" rel="stylesheet">	
+		<script src="/assets/themes/illdave/illdave.js" type="text/javascript"></script>
+		<link href="/assets/img/brand/mas.ico" type="image/x-icon" rel="icon">
+	</head>
+	<body class="dark-mode"><!-- Marshall Art Studio 8.0 -->
+		<header class="main-navigation fixed-top" role="banner">
+			<a href="#main-content" class="skip-link sr-only sr-only-focusable">Skip Content</a>
+			<div class="navbar navbar-expand-lg">
+				<a class="navbar-brand" href="../index.html" target="_top" aria-label="marshall-art-studio">
+					Marshall Art Studio
+					<span class="mas-logo gliff"></span>
+					<span class="mas-logo type"></span>
+				</a>
+				<button class="navbar-toggler" 
+					type="button" 
+					data-bs-toggle="collapse" 
+					data-bs-target="#main-menu" 
+					aria-controls="main-menu" 
+					aria-expanded="false" 
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon">
+						<span class="sr-only">Toggle menu navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>				
+					</span>
+				</button>			
+				<div class="collapse navbar-collapse justify-content-end" id="main-menu">
+					<ul class="navbar-nav bd-navbar-nav d-flex ">
+						<li class="nav-item home sr-only">
+							<a class="nav-link" href="../index.html">Home</a>
+						</li>
+						<li class="nav-item template">
+							<a class="nav-link active"  href="../template/template.html">Template</a>
+						</li>
+						<li class="nav-item web">
+							<a class="nav-link" href="../web-dev/index.html">Web Dev &amp; Design</a>
+						</li>
+						<li class="nav-item graphic-design">
+							<a class="nav-link" href="../graphic-design/index.htm" >Graphic Design</a>
+						</li>
+						<li class="nav-item illustration">
+							<a class="nav-link" href="../illustration/index.html">Illustration</a>
+						</li>
+						<li class="nav-item comics">
+							<a class="nav-link" href="../comics/index.html">Comics</a>
+						</li>
+						<li class="nav-item current" hidden>
+							<a class="nav-link" href="../projects/index.html">Current Projects</a>
+						</li>
+						<li class="nav-item about">
+							<a class="nav-link" href="../about/index.html">About</a>
+						</li>
+						<li class="nav-item sketchbook">
+							<a class="nav-link" href="../sketchbook/index.html">Sketchbook</a>
+						</li>
+						<li class="nav-item blog">
+							<a class="nav-link" href="../blog/index.html">Blog</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>	
+		<main class="mas-content bd-content illustration" role="main">
+			<section class="intro">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 col-lg-4">
+							<figure class="no-border centered no-caption">
+								<img src="../assets/img/placeholders/photo-mas.jpg" alt="photo placeholder">
+							</figure>
+						</div>
+						<div class="col-md-12 col-lg-8">
+							<div class="text">
+								<h1>Marshall Art Studio 8.0: Debug</h1>
+								<p>Either responsive or accessibility.</p>
+							</div>
+						</div>
+					</div>				
+				</div>
+			</section>
+			<section class="debug gallery no-margin">
+				<div class="container">
+					<h2>Lightbox Debug</h2>
+					<p>Can't get VoiceOver to read the proper info. It's reading the fucking file name!</p>
+					<p>Solution: putting role="image" and an aria-label in the anchor tag.</p>
+					<div class="gallery">
+						<div class="mcgraw-hill-guias">
+							<div class="frame">
+								<a href="/assets/img/illustration/mcgraw-hill-guias.jpg" role="image" aria-label="McGraw-Hill, Guias illustration" data-lightbox="mcgraw-hill-guias" data-title="McGraw-Hill, Guias (2004): Feature art for a web-based interactive Spanish project. Art was used for internet and print environments.">
+									<div class="caption">
+										<h3>Educational</h3>
+										<p><span class="title">McGraw-Hill: Guias</span> <span class="details">(2004) Feature art for a web-based interactive Spanish project. Art was used for internet and print environments.</span></p>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="debug">
+				<div class="container">
+					<h2>H2 HEADER</h2>
+					<p>FOO.</p>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="text">
+				<p>
+					Copyright &copy; 1986-<script>document.write(new Date().getFullYear())</script> Marshall Art Studio. All rights reserved. The material may not, under any circumstances, be resold or redistributed for compensation of any kind without prior written permission from Marshall Art Studio nor may the information be used in any commercial venue without such prior written permission. For more information, please <a href="mailto:dmarshall@illdave.com?subject=Tell me about Marshall Art Studio!" aria-label="Marshall Art Studio email">contact us here</a>. Version 8.0.1
+				</p>
+				<div class="social">
+					<ul class="list-inline">
+						<li class="follow-me d-none d-sm-inline-block">Follow me on </li>
+						<li class="email"><a href="mailto:dmarshall@illdave.com?subject=Tell me about Marshall Art Studio!" aria-label="Marshall Art Studio email"><span>Email</span></a></li>
+						<li class="linkedin"><a href="https://www.linkedin.com/in/illdave" target="_blank" rel="noopener noreferrer" aria-label="David Marshall on Linkedin"><span>Linkedin</span></a></li>
+						<li class="twitter"><a href="http://twitter.com/MarshallArtDave" target="_blank" rel="noopener noreferrer" aria-label="the Twitter account I use the most"><span>Twitter</span></a></li>
+						<li class="github"><a href="https://github.com/illdave" target="_blank" rel="noopener noreferrer" aria-label="Marshall Art Studio on Github">Github</a></li>
+					</ul>
+				</div>
+				<p class="back-to-top sr-only sr-only-focusable">
+					<a href="#main-content">Back to top<i class="fas"></i></a>
+				</p>
+			</div>
+		</footer>
+		<script src="/assets/themes/bootstrap-5/js/bootstrap.min.js"></script>
+		<script src="/assets/lib/jquery/jquery-3.3.1.min.js"></script>
+		<script src="/assets/lib/lightbox-2.11.1/js/lightbox.js"></script>		
+	</body>
+</html>
+

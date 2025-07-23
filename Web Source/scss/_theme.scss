@@ -42,6 +42,9 @@ $link-color:								$theme-color-8;
 $link-hover-color:							$white;
 $link-active-color:							darken($link-color, 20%);
 
+$pullquote-quote-color: 					$text-color;
+$pullquote-speaker-color: 					$pullquote-quote-color;
+
 $link-img-border:							rem(1px solid $white);
 $link-img-border-hover-color:				$link-color;
 $link-img-border-active-color:				$link-active-color;
@@ -228,16 +231,30 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 		&.pullquote {
 			margin-top: .5rem;
 			dt {
-				color: $headings-color;
+				border: 0;
+				color: $pullquote-quote-color;
+				strong {
+					color: $pullquote-quote-color;
+				}
 			}
 			dd {
-				color: $text-color;
+				color: $pullquote-speaker-color;
 			}
 		}
 	}
 	
 	hr {
 		border-top: $border-default;
+	}
+	
+	.list-header {
+		border-bottom: $border-default;
+		.list-name {
+			color: $text-color;
+		}
+		.list-description {
+			color: $text-color;
+		}
 	}
 	
 	
@@ -550,6 +567,10 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 	}
 	
 	.link-list {
+		.header {
+			border-bottom: $border-default;
+			color: $text-color;
+		}
 		a {
 			color: $text-color;
 			&:hover {
@@ -567,8 +588,7 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 			}
 		}
 	}
-	
-	
+ 	
 	.first-paragraph, 
 	.first-sentence {
 		color: $headings-color;
@@ -661,7 +681,6 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 			&.figure {
 				.figure-caption {
 					p {
-						border-bottom: $border-default;
 					}
 				}
 			}		

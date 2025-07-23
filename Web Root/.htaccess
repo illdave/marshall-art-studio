@@ -1,11 +1,28 @@
 ErrorDocument 404 https://www.illdave.com/404/index.html
+
 Redirect 301 /comicbooks/history/toth-critiques-rude.htm https://illdave.com/blog/toth-critiques-rude.html
 Redirect 301 /comicbooks/events/daves-inky-stories.htm https://www.inkystories.com/blog/exhibit-2002-inman-square.html
 Redirect 301 /comicbooks/ https://illdave.com/comics/
 Redirect 301 /comicbooks https://illdave.com/comics/
-Redirect 301 /comicbooks.htm https://illdave.com/comics/index.html
+Redirect 301 /comicbooks.htm https://illdave.com/comics/
 
-Redirect 301 /illustration-friday/index.htm https://illdave.com/illustration-friday/index.html
+Redirect 301 /illustration/friday.htm https://illdave.com/illustration-friday
+Redirect 301 /illustration/2010/01/confined.html https://illdave.com/blog/illustration-friday/confined.html
+Redirect 301 /illustration/2007/07/geek-trick-harry-hat.html https://illdave.com/blog/illustration-friday/geek-trick-harry-hat.html
+Redirect 301 /illustration/2007/06/rejection-this-is-not-love-song.html https://illdave.com/blog/illustration-friday/rejection-this-is-not-love-song.html
+Redirect 301 /illustration/2007/02/red-killer-edits.html https://illdave.com/blog/illustration-friday/red-killer-edits.html
+Redirect 301 /illustration/2007/02/red-killer.html https://illdave.com/blog/illustration-friday/red-killer.html
+Redirect 301 /illustration/2007/01/eighties-my-yearbook-cover.html https://illdave.com/blog/illustration-friday/eighties-my-yearbook-cover.html
+Redirect 301 /illustration/2007/01/peace-shagged.html https://illdave.com/blog/illustration-friday/peace-shagged.html
+Redirect 301 /illustration/2007/01/buzz-joy-bugaloo.html https://illdave.com/blog/illustration-friday/buzz-joy-bugaloo.html
+Redirect 301 /illustration/2007/01/coffee-stained.html https://illdave.com/blog/illustration-friday/buzz-coffee-stained.html
+Redirect 301 /illustration/2007/01/buzz-coffee-house.html https://illdave.com/blog/illustration-friday/buzz-coffee-house.html
+Redirect 301 /illustration/2006/12/mask-klanman.html https://illdave.com/blog/illustration-friday/mask-klanman.html
+Redirect 301 /illustration/2006/12/mask-whiteface.html https://illdave.com/blog/illustration-friday/mask-whiteface.html
+Redirect 301 /illustration/2006/12/might-punch.html https://illdave.com/blog/illustration-friday/might-punch.html
+Redirect 301 /illustration/2006/11/invention-metropolis.html https://illdave.com/blog/illustration-friday/invention-metropolis.html
+Redirect 301 /illustration/2006/11/smoke.html https://illdave.com/blog/illustration-friday/smoke.html
+Redirect 301 /illustration/2006/10/wind.html https://illdave.com/blog/illustration-friday/wind.html	
 
 Redirect 301 /web https://illdave.com/web-dev/
 Redirect 301 /web/index.htm https://illdave.com/web-dev/

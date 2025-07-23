@@ -91,6 +91,22 @@
     }
 }
 
+.list-header {
+	@include list-header-border;
+	@include list-header-name;
+	.list-name {
+		color: $text-color;
+	}
+	.list-description {
+		font-family: $font-family-base;
+		text-transform: none;
+		color: $text-color;
+			margin-top: $spacer-small;
+			margin-bottom: $spacer-xs;
+			font-size: $font-size-base;
+	}
+}
+
 .item {
 	padding: 2rem;
 	margin-bottom: 1.5rem;
@@ -355,9 +371,6 @@
 			}		
 			.figure-caption {
 				p {
-					border-bottom: $border-default;
-					padding-bottom: .5rem;
-					margin-top: -.25rem;
 				}
 			}
 		}		

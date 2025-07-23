@@ -346,6 +346,11 @@
 
 	dd {
 		line-height: 1.1rem;
+		&.cta {
+			&:after {
+				display: none;
+			}
+		}
 	}
 	a {
 		text-decoration: none;

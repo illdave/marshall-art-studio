@@ -514,3 +514,17 @@ $response-border-color: 					darken($response-bg-color, 20%);
 $response-bg: 								$response-bg-color;
 $response-border: 							rem(1px solid $response-border-color);
 
+$pullquote-padding: 						$spacer-large;
+$pullquote-margin: 							$spacer-base;
+
+$pullquote-quote-font-family: 				$font-family-base;
+$pullquote-quote-font-family-bold: 			$font-family-bold-italic;
+$pullquote-quote-font-size: 				$h2-font-size;
+$pullquote-quote-line-height: 				$pullquote-quote-font-size * 1.1;
+$pullquote-quote-color: 					$text-color;
+$pullquote-speaker-font-family: 			$font-family-italic;
+$pullquote-speaker-font-size: 				$h3-font-size;
+$pullquote-speaker-line-height: 			$pullquote-speaker-font-size * 1.2;
+$pullquote-speaker-color: 					$pullquote-quote-color;
+
+

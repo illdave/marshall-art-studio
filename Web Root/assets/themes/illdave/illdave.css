@@ -27638,6 +27638,9 @@ https://github.com/lokesh/lightbox2 */
 .link-list dd {
   line-height: 1.1rem;
 }
+.link-list dd.cta:after {
+  display: none;
+}
 .link-list a {
   text-decoration: none;
   color: #212529;
@@ -27771,25 +27774,47 @@ dl dt span {
   margin-top: 0.5rem;
 }
 dl.pullquote {
-  margin-top: 0.5rem;
+  padding: 2rem;
+  margin-bottom: 1rem;
 }
 dl.pullquote dt {
-  font-family: "Proxima Nova Bold Italic";
-  font-size: 2rem;
-  color: #000;
-  line-height: 1.6rem;
+  font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.76rem;
+  color: #212529;
+  text-transform: none;
   border: 0;
   padding: 0;
   margin-bottom: 1rem;
 }
+dl.pullquote dt strong {
+  font-family: "Proxima Nova Bold Italic";
+  color: #212529;
+}
 dl.pullquote dd {
   font-family: "Proxima Nova Italic";
-  font-size: 1.2rem;
-  line-height: 1.5rem;
-  color: rgb(114.75, 114.75, 114.75);
+  font-size: 1.4rem;
+  color: #212529;
+  line-height: 1.68rem;
 }
 dl.compact dd {
   margin-bottom: 0;
+}
+
+ul, ol {
+  padding-left: 1rem;
+}
+ul.two-column, ol.two-column {
+  column-count: 2;
+  column-gap: 3rem;
+}
+ul.three-column, ol.three-column {
+  column-count: 3;
+  column-gap: 3rem;
+}
+ul.four-column, ol.four-column {
+  column-count: 4;
+  column-gap: 3rem;
 }
 
 strong, bold {
@@ -27840,14 +27865,73 @@ blockquote h4, blockquote .h4 {
   line-height: 2rem;
 }
 
-figure img {
+/* picture-figure text wrapping ------- */
+.picture-wrapper, figure {
+  position: relative !important;
+  margin-bottom: 1rem;
+  border-bottom: 0.0625rem solid rgb(191.25, 191.25, 191.25);
+  color: rgba(178.5, 178.5, 178.5, 0.9);
+}
+.picture-wrapper figcaption, figure figcaption {
   margin-bottom: 0.5rem;
 }
-figure.no-caption {
-  padding-bottom: 0;
+.picture-wrapper.full img, figure.full img {
+  width: 100%;
 }
-figure.no-caption img {
+.picture-wrapper.left, .picture-wrapper.float-start, figure.left, figure.float-start {
+  float: left;
+  margin-right: 2rem;
+}
+.picture-wrapper.right, .picture-wrapper.float-end, figure.right, figure.float-end {
+  float: right;
+  margin-left: 2rem;
+}
+.picture-wrapper.centered, figure.centered {
+  text-align: center;
+}
+.picture-wrapper.centered img, figure.centered img {
+  margin: 0 auto 0.5rem;
+}
+.picture-wrapper.centered p, figure.centered p {
+  text-align: left;
+}
+.picture-wrapper img, figure img {
+  margin-bottom: 0.5rem;
+}
+.picture-wrapper a, figure a {
+  color: #fff;
+}
+.picture-wrapper strong, figure strong {
+  color: #fdda00;
+}
+.picture-wrapper p, figure p {
   margin-bottom: 0;
+  font-family: "Proxima Nova Italic";
+  line-height: 1rem;
+  font-size: 90%;
+}
+.picture-wrapper.has-border img, .picture-wrapper.images-have-border img, figure.has-border img, figure.images-have-border img {
+  border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
+}
+.picture-wrapper.has-frame img, figure.has-frame img {
+  border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
+  background: white;
+  padding: 0.5rem;
+}
+.picture-wrapper.no-border, figure.no-border {
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .picture-wrapper.half, .picture-wrapper.third, .picture-wrapper.quarter, .picture-wrapper img {
+    width: 100%;
+  }
+}
+.img-wrapper {
+  text-align: center;
+}
+.img-wrapper img {
+  margin: 0 auto;
 }
 
 italic, em {
@@ -27976,7 +28060,7 @@ section {
   background: #fff no-repeat 110% center;
 }
 section.intro {
-  background-color: rgb(238.425, 238.425, 238.425);
+  background: rgb(238.425, 238.425, 238.425) url("../../img/layout/section-bg-pinstripes.png") 0 0 repeat;
 }
 section.even {
   background-color: rgb(237.15, 237.15, 237.15);
@@ -28309,6 +28393,29 @@ img.social-media-preview {
   color: black;
 }
 
+.list-header {
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 0.0625rem solid rgb(191.25, 191.25, 191.25);
+  font-family: "Proxima Nova Bold";
+  font-weight: normal;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #000;
+  line-height: 1.1rem;
+}
+.list-header .list-name {
+  color: #212529;
+}
+.list-header .list-description {
+  font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+  text-transform: none;
+  color: #212529;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+
 .item {
   padding: 2rem;
   margin-bottom: 1.5rem;
@@ -28537,12 +28644,6 @@ img.social-media-preview {
 .row.in-content img {
   margin-bottom: 1rem;
 }
-.row.in-content.figure .figure-caption p {
-  border-bottom: 0.0625rem solid rgb(191.25, 191.25, 191.25);
-  padding-bottom: 0.5rem;
-  margin-top: -0.25rem;
-}
-
 .bordered-image img, .thumbnails img, .sidebar img, .story-group-blade img {
   border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
   margin-bottom: 1rem;
@@ -30084,13 +30185,26 @@ img.social-media-preview {
   margin-top: 0.5rem;
 }
 .dark-mode dl.pullquote dt {
-  color: #fff;
+  border: 0;
+  color: #cccccc;
+}
+.dark-mode dl.pullquote dt strong {
+  color: #cccccc;
 }
 .dark-mode dl.pullquote dd {
   color: #cccccc;
 }
 .dark-mode hr {
   border-top: 0.0625rem solid rgb(76.5, 76.5, 76.5);
+}
+.dark-mode .list-header {
+  border-bottom: 0.0625rem solid rgb(76.5, 76.5, 76.5);
+}
+.dark-mode .list-header .list-name {
+  color: #cccccc;
+}
+.dark-mode .list-header .list-description {
+  color: #cccccc;
 }
 .dark-mode .main-navigation .show .navbar-nav,
 .dark-mode .main-navigation .collapsing .navbar-nav {
@@ -30307,6 +30421,10 @@ img.social-media-preview {
 .dark-mode .feature-cards.with-background .feature-card {
   background: rgb(30.6, 30.6, 30.6);
 }
+.dark-mode .link-list .header {
+  border-bottom: 0.0625rem solid rgb(76.5, 76.5, 76.5);
+  color: #cccccc;
+}
 .dark-mode .link-list a {
   color: #cccccc;
 }
@@ -30387,9 +30505,6 @@ img.social-media-preview {
 }
 .dark-mode .row.in-content a:active img {
   border-color: rgb(0, 88.0640394089, 101);
-}
-.dark-mode .row.in-content.figure .figure-caption p {
-  border-bottom: 0.0625rem solid rgb(76.5, 76.5, 76.5);
 }
 .dark-mode .prev-next .prev .fas, .dark-mode .prev-next .next .fas {
   color: #cccccc;

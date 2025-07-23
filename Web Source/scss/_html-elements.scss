@@ -103,21 +103,27 @@ dl {
 		}
 	}
 	&.pullquote {
-		margin-top: .5rem;
+		padding: $pullquote-padding;
+		margin-bottom: $pullquote-margin;
 		dt {
-			font-family: $font-family-bold-italic;
-			font-size: $h1-font-size;
-			color: $headings-color;
-			line-height: 1.6rem;
+			font-family: $pullquote-quote-font-family;
+			font-size: $pullquote-quote-font-size;
+			line-height: $pullquote-quote-line-height;
+			color: $pullquote-quote-color;
+			text-transform: none;
 			border: 0;
 			padding: 0;
-			margin-bottom: 1rem;
+			margin-bottom: $spacer-base;
+			strong {
+				font-family: $pullquote-quote-font-family-bold;
+				color: $pullquote-quote-color;
+			}
 		}
 		dd {
-			font-family: $font-family-italic;
-			font-size: $h4-font-size;
-			line-height: 1.5rem;
-			color: $gray-lightest;
+			font-family: $pullquote-speaker-font-family;
+			font-size: $pullquote-speaker-font-size;
+			color: $pullquote-speaker-color;
+			line-height:$pullquote-speaker-line-height;
 		}
 	}
 	&.compact {
@@ -126,6 +132,23 @@ dl {
 		}
 	}
 }
+
+ul, ol {
+	padding-left: 1rem;
+	&.two-column {
+		column-count: 2;
+		column-gap: 3rem;
+	}	
+	&.three-column {
+		column-count: 3;
+		column-gap: 3rem;
+	}	
+	&.four-column {
+		column-count: 4;
+		column-gap: 3rem;
+	}	
+}
+
 
 strong, bold {
 	font-family: $font-family-headers;
@@ -183,19 +206,85 @@ blockquote {
 	}
 }
 
-figure {
-	img {
+/* picture-figure text wrapping ------- */
+
+.picture-wrapper, figure {
+	position: relative !important;
+	margin-bottom: $spacer-base-vertical;
+	border-bottom: $border-default;
+	
+	picture {}
+	figcaption {
 		margin-bottom: $spacer-small;
 	}
-	p {
-	
+
+	&.full {
+		img {
+			width: 100%;
+		}
+	}
+	&.left, &.float-start {
+		float: left;
+		margin-right: 2rem;
+	}
+	&.right, &.float-end {
+		float: right;
+		margin-left: 2rem;
 	}
 	
-	&.no-caption {
-		padding-bottom: 0;
+	&.centered {
+		text-align: center;
 		img {
-			margin-bottom: 0;
+			margin: 0 auto .5rem;
 		}
+		p {
+			text-align: left;
+		}
+	}
+	img {
+		margin-bottom: .5rem;
+	}
+	color: $picture-caption-color;
+	a {
+		color: $picture-caption-link;
+	}
+	strong {
+		color: $picture-caption-strong;
+	}
+	p {
+		margin-bottom: 0;
+		font-family: $font-family-italic;
+		line-height: 1rem;
+		font-size: $font-size-small;
+	}
+	&.has-border, &.images-have-border {
+		img {
+			border: $border-default;
+		}
+	}
+	&.has-frame {
+		img {
+			border: $border-default;
+			background: white;
+			padding: .5rem;
+		}
+	}
+	&.no-border {
+		border: 0;
+	}	
+}
+@media (max-width: 640px) { 
+	.picture-wrapper {
+		&.half, &.third, &.quarter, img {
+			width: 100%;
+		}
+	}
+}
+
+.img-wrapper {
+	text-align: center;
+	img {
+		margin: 0 auto;
 	}
 }
 

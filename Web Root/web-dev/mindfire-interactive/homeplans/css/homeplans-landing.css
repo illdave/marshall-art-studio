@@ -1,0 +1,93 @@
+table, td, tr, p, input, option, select 	{font-family: arial, helvetica, sans-serif; font-size: 12px;}
+body				{background: #fff; border: 0; margin: 0; padding: 0; font-size: 12px; font-family: arial, helvetica, sans-serif;}
+
+/* Mini Defaults */
+.alt, .preload, .hide	{display: none;}
+.debug			{border: 1px dotted red; background-color: yellow;}
+.center			{text-align: center;}
+.item			{margin-bottom: 2em;}
+
+/* Default Font Styles */
+h1			{font-size: 200%;}
+h2			{font-size: 150%;}
+h3			{font-size: 116%;}
+h4			{font-size: 100%;}
+h1, h2, h3, h4 {margin: 0; padding: 0;}
+
+p			{margin: 0; padding: 0; margin-bottom: 1em; color: #666;}
+ul			{list-style: none; margin: 0; padding: 0;}
+li			{margin: 0; padding: 0;}
+img			{display: block; padding: 0; margin: 0; border: 0;}
+form		{margin: 0; padding: 0; border: 0;}
+fieldset	{margin: 0; padding: 0; border: 0;}
+
+a:link, a:visited	{color: #33c;}
+a:hover				{color: #039; text-decoration: none;}
+
+/* Main Page Container */
+.outerdiv 		{position: relative; width: 100%; margin: 0; padding-bottom: 10px; border: 0; text-align: center;}
+.bodyframe		{position: relative; width: 785px; border: 0; margin: 0 auto; padding: 0; text-align: left; background: #fff;}
+
+/* Masthead */
+#masthead				{position: width: 100%; height: 110px; background: #fff url('../images/masthead/logo.gif') no-repeat 10px 23px; margin: 0; margin-bottom: 1em; padding: 0; border: 0; border-bottom: 8px solid #c00;}
+#masthead h3			{position: absolute; right: 0; bottom: 15px;}
+#masthead .phone		{color: #c00; font-size: 130%;}
+#masthead .slogan		{position: absolute; right: 0; top: 47px; width: 454px; height: 33px; background: #fff url('../images/masthead/slogan.gif') no-repeat;}
+#masthead .homelink	img {position: absolute; left: 12px; top: 17px; width: 216px; height: 64px; border: 0;}
+
+/* Main Layout, Multiple Columns */
+.main		{float: left; width: 100%; margin: 0; margin-bottom: 2em; padding: 0; border: 0; clear: both; position: relative; display: inline;}
+.main h3	{font-size: 116%; color: #fff; background: #c00; line-height: 2em; padding-left: 15px;}
+.main .wide	{width: 500px;}
+.main .thin	{width: 270px;}
+.clear		{content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+.L			{float: left; margin: 0; padding: 0; border: 0; display: inline;}
+.R			{float: right; margin: 0; padding: 0; border: 0; display: inline;}
+
+/* Main Thin Styles */
+/* Search Box */
+.searchbox				{position: relative; width: 100%; height: 180px; margin: 0; margin-bottom: 1em; padding: 0; border: 1px solid #c00; background: #fff url('../images/backgrounds/searchbox.gif') repeat-x bottom;}
+.searchbox h3			{background: none; color: #c00;}
+.searchbox fieldset		{margin: 0 10px 10px 10px;}
+.searchbox label		{float: left; margin-right: 1em; text-align: right; clear: both; width: 130px; border: 0; font-weight: bold;}
+.formR					{display: block; padding: 0; margin: 0; margin-bottom: .5em; margin-left: 140px;}
+.fieldwidth				{width: 110px;}
+
+/* Navigation */
+.nav			{margin-top: 1px;}
+.nav li			{}
+.nav a			{display: block; background: #eb7435 url('../images/icons/nav.gif') no-repeat 7px 7px; line-height: 2em; margin-bottom: 1px; color: #fff; font-weight: bold; text-decoration: none; padding-left: 20px}
+.nav a:hover	{text-decoration: underline; background-color: #fc0; color: #c00;}
+
+/* Main Wide Styles */
+/* Banner */
+.banner		{position: relative; width: 100%; height: 181px; margin: 0; margin-bottom: 1em; padding: 0; border: 0; background: #7198ce url('../images/backgrounds/banner.jpg') no-repeat 0 0;}
+.banner ul	{position: absolute; left: 30px; bottom: 10px; width: 180px; list-style: disc;}
+.banner li	{color: #fff; margin-bottom: 1em;}
+
+/* Items */
+.items			{position: relative; width: 100%; margin: 0; padding: 0; border: 0;}
+.items h3		{border-bottom: 1px solid #fff;}
+.items .item	{width: 49%; background: #fff;}
+.item.sig		{background: url('../images/backgrounds/item-sig.gif') repeat-x 0 0;}
+.item.sig h3	{background: #399;}
+.item.sig img	{border: 1px solid #fff; margin: 1em auto;}
+.item.sig p		{margin: 0 15px;}
+
+.item.quote		{background: url('../images/backgrounds/item-quote.gif') repeat-x 0 0;}
+.item.quote h3	{background: #99c;}
+.item.quote img	{border: 1px solid #fff; margin: 1em auto;}
+
+/* Drop Quotes */
+.dropquote 					{float: left; display: inline; padding: 0; margin: .5em 15px; margin-bottom: 3em; font-style: italic;}
+.dropquote img				{border: 0;}
+.dropquote img.quoteStart 	{float: left; padding: 0 3px 0 0; margin: 0; border: 0;}
+.dropquote img.quoteEnd		{display: inline; padding: 0; margin: -15px 0 0 0; position: relative; top: 10px;}
+.dropquote h4 				{margin: 0; padding: 10px 0 15px 0; line-height: 1.3em; color: #336; border: 0;}
+.dropquote p 				{margin: 0; padding: 0; text-align: right;}
+
+/* Footer */
+.footer				{float: left; width: 100%; height: 50px; margin: 0; padding: 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; color: #666; clear: both;}
+.footer .security	{float: left; margin-top: 9px;}
+.footer p			{font-weight: bold; text-align: right; line-height: 50px;}
+.footer .phone		{color: #c00; margin-left: 1em;}
