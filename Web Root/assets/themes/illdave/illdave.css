@@ -27316,6 +27316,9 @@ https://github.com/lokesh/lightbox2 */
 .feature-story-card.small-bottom-margin {
   margin-bottom: 1rem !important;
 }
+.feature-story-card.has-no-bottom-margin {
+  margin-bottom: 0 !important;
+}
 .feature-story-card .image img {
   margin-bottom: 1rem;
   border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
@@ -27334,6 +27337,9 @@ https://github.com/lokesh/lightbox2 */
   font-size: 1.6rem;
   line-height: 1.6rem;
   color: #000;
+}
+.feature-story-card .text .btn-row {
+  margin-top: 2rem;
 }
 .feature-story-card .text .cta a {
   text-decoration: none;
@@ -27618,6 +27624,18 @@ https://github.com/lokesh/lightbox2 */
   color: #212529;
   font-size: 1rem;
 }
+.link-list dd.cta a {
+  color: #007bff !important;
+}
+.link-list dd.cta a:hover {
+  color: #212529 !important;
+}
+.link-list dd.cta a:after {
+  color: #007bff;
+}
+.link-list dd.cta:after {
+  display: none;
+}
 .link-list ul {
   list-style-type: none;
   padding-left: 0;
@@ -27634,12 +27652,6 @@ https://github.com/lokesh/lightbox2 */
 }
 .link-list.four-column ul {
   column-count: 4;
-}
-.link-list dd {
-  line-height: 1.1rem;
-}
-.link-list dd.cta:after {
-  display: none;
 }
 .link-list a {
   text-decoration: none;
@@ -27660,12 +27672,6 @@ https://github.com/lokesh/lightbox2 */
 }
 .link-list a:after:active {
   color: black;
-}
-.link-list .cta a {
-  color: #007bff !important;
-}
-.link-list .cta a:hover {
-  color: #212529 !important;
 }
 
 /* html elements ---------------------- */
@@ -30408,6 +30414,9 @@ img.social-media-preview {
 .dark-mode .feature-cards .feature-card .text .header {
   color: #fff;
 }
+.dark-mode .feature-cards .feature-card .text .header a:after {
+  color: #fff;
+}
 .dark-mode .feature-cards .feature-card .text .header:after {
   display: none;
 }
@@ -30416,7 +30425,7 @@ img.social-media-preview {
 }
 .dark-mode .feature-cards .feature-card .cta:after {
   content: "\f054";
-  color: #00b1cb;
+  color: #fff;
 }
 .dark-mode .feature-cards.with-background .feature-card {
   background: rgb(30.6, 30.6, 30.6);
@@ -30440,6 +30449,9 @@ img.social-media-preview {
 }
 .dark-mode .link-list .cta a:hover {
   color: #cccccc !important;
+}
+.dark-mode .link-list dd.cta a:after {
+  color: #fff;
 }
 .dark-mode .first-paragraph,
 .dark-mode .first-sentence {

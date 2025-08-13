@@ -9,6 +9,9 @@
 	&.small-bottom-margin {
 		margin-bottom: $spacer-base !important; 
 	}
+	&.has-no-bottom-margin {
+		margin-bottom: 0 !important; 
+	}
 	.image {
 		img {
 			margin-bottom: $spacer-base;
@@ -30,6 +33,9 @@
 				line-height: math.div($h2-font-size, 1);
 				color: $headings-color;
 			}
+		}
+		.btn-row {
+			margin-top: $spacer-large;
 		}
 		.cta a {
 			text-decoration: none;
@@ -318,8 +324,22 @@
 			text-transform: none;
 			color: $text-color;
 			font-size: $font-size-base;
-		}		
-	}
+		}	
+		&.cta {
+			a {
+				color: $link-color !important;
+				&:hover {
+					color: $text-color !important;
+				}
+				&:after {
+					color: $link-color;
+				}
+			}
+			&:after {
+				display: none;
+			}
+		}
+	}	
 	ul {
 		list-style-type: none;
 		padding-left: 0;
@@ -343,15 +363,6 @@
 		  column-count: 4;
 		}
 	}	
-
-	dd {
-		line-height: 1.1rem;
-		&.cta {
-			&:after {
-				display: none;
-			}
-		}
-	}
 	a {
 		text-decoration: none;
 		color: $text-color;
@@ -360,12 +371,6 @@
 		}
 		&:after {
 			@include cta-arrow;
-		}
-	}
-	.cta a {
-		color: $link-color !important;
-		&:hover {
-			color: $text-color !important;
 		}
 	}
 }

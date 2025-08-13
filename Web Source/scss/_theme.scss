@@ -544,6 +544,11 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 			.text {
 				.header {
 					color: $headings-color;
+					a {
+						&:after {
+							color: $white;
+						}
+					}
 					&:after {
 						display: none;
 					}
@@ -555,7 +560,7 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 			.cta {
 				&:after {
 					content: $icon-list-link;			
-					color: $link-color;
+					color: $white;
 				}
 			}
 		}
@@ -585,6 +590,15 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 			color: $link-color !important;
 			&:hover {
 				color: $text-color !important;
+			}
+		}
+		dd {
+			&.cta {
+				a {
+					&:after {
+						color: $white;
+					}
+				}
 			}
 		}
 	}
