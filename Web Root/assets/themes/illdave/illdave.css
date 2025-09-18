@@ -28507,7 +28507,7 @@ img.social-media-preview {
   background-size: cover;
   display: block;
   position: relative;
-  min-height: 10rem;
+  aspect-ratio: 3/2;
   border: 0.0625rem solid #007bff;
 }
 .tiled a.tile:hover {

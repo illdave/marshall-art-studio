@@ -209,10 +209,9 @@
 		&.tile {
 			background: transparent url("#{$graphic-design-image-path}/fpo-gears.jpg") center center no-repeat;
 			background-size: cover;
-	 
 			display: block;
 			position: relative;
-			min-height: 10rem;
+			aspect-ratio: 3 / 2;
 			border: $link-img-border;
 			&:hover {
 				border-color: $link-img-border-hover-color;
