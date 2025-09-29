@@ -28036,6 +28036,9 @@ pre strong {
   border-color: transparent;
   font-family: "Proxima Nova Bold";
 }
+.main-navigation .navbar .navbar-nav .nav-item.comics {
+  display: none;
+}
 .main-navigation .navbar .navbar-toggler {
   border: 0.0625rem solid;
   border-color: rgba(255, 255, 255, 0.3);
@@ -28251,6 +28254,9 @@ figure.no-border {
 figure.no-border.images-have-border img {
   border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
 }
+figure.no-border.images-have-border a img {
+  border: 0.0625rem solid rgb(191.25, 191.25, 191.25) !important;
+}
 figure.image-has-border img {
   border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
 }
@@ -28261,6 +28267,9 @@ figure.centered img {
   margin: 0 auto 0.5rem;
 }
 figure.centered.full-width img {
+  width: 100%;
+}
+figure.full-width img {
   width: 100%;
 }
 

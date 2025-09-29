@@ -78,6 +78,9 @@
 				border-color: $nav-link-curr-border-color;
 				font-family: $font-family-headers;
 			}
+			.nav-item.comics {
+				display: none;
+			}
 		}
 		.navbar-toggler {
 			border: rem(1px solid);
