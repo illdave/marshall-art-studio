@@ -36,7 +36,6 @@
 	}
 }
 
-
 /* blink tag */
 @keyframes blink {
 	0% {
@@ -80,6 +79,11 @@
 			content: $icon-learn-cta;
 		}
 	}
+}
+
+.genre, .category {
+	text-transform: uppercase;
+	color: $category-color;
 }
 
 .cta {

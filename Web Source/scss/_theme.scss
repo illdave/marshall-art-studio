@@ -151,6 +151,8 @@ $tile-card-bg: 								lighten($item-bg, 10%);
 $tile-card-bg-light: 						lighten($tile-card-bg, 10%);
 $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 
+$category-color: 							$white;
+
 
 .dark-mode {
 	background: $body-bg;
@@ -462,12 +464,16 @@ $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 	
 	/* utility ----------------------- */
 	
+	.genre, .category {
+		color: $category-color;
+	}
+	
 	.cta {
 		&:after {
 			color: $link-color;  
 		}
 	}
-	
+			
 	.feature-story-card {
 		&.has-bottom-border {
 		}

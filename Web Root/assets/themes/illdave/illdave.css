@@ -28389,6 +28389,11 @@ img.social-media-preview {
   content: "\f054";
 }
 
+.genre, .category {
+  text-transform: uppercase;
+  color: #ff4e00;
+}
+
 .cta {
   text-decoration: none;
   font-family: "Proxima Nova Bold";
@@ -30374,6 +30379,9 @@ img.social-media-preview {
 }
 .dark-mode .lightbox .lb-dataContainer .lb-data .lb-details .lb-caption a:active {
   color: rgb(0, 88.0640394089, 101);
+}
+.dark-mode .genre, .dark-mode .category {
+  color: #fff;
 }
 .dark-mode .cta:after {
   color: #00b1cb;

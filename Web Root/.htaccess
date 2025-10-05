@@ -24,7 +24,7 @@ Redirect 301 /illustration/2006/11/invention-metropolis.html https://illdave.com
 Redirect 301 /illustration/2006/11/smoke.html https://illdave.com/blog/illustration-friday/smoke.html
 Redirect 301 /illustration/2006/10/wind.html https://illdave.com/blog/illustration-friday/wind.html	
 
-Redirect 301 /web https://illdave.com/web-dev/
+Redirect 301 /web https://illdave.com/web-dev
 Redirect 301 /web/index.htm https://illdave.com/web-dev/
 
 Redirect 301 /print https://illdave.com/graphic-design/
