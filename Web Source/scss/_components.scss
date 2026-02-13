@@ -19,14 +19,32 @@
 		}
 	}
 	.text {
+		h1, h2, h3 {
+			margin-bottom: $spacer-base;
+			margin-block-start: -.25rem;
+		}
+		h1 {
+			line-height: math.div($h1-font-size, 1);
+		}
+		h2 {
+			line-height: $h2-line-height * 1.1;
+		}
+		h3 {
+			line-height: math.div($h2-font-size, 1);
+		}
 		.header {
 			font-family: $font-family-headers;
 			font-size: $h2-font-size;
 			line-height: $h2-line-height * 1.1;
 			color: $headings-color;
-			margin-bottom: $spacer-small;
+			margin-bottom: $spacer-base;
 			&:after {
 				display: none;
+			}
+			&.header-1 {
+				font-size: $h1-font-size;
+				line-height: math.div($h1-font-size, 1);
+				color: $headings-color;
 			}
 			&.header-3 {
 				font-size: $h2-font-size;

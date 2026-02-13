@@ -3,20 +3,47 @@
 	<head>
 		<!-- Copyright 1986-2025 Marshall Art Studio -->
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Marshall Art Studio: Illustration</title>
-		<meta name="author" content="Dave Marshall" />
-		<meta name="description" content="Marshall Art Studio is Dave Marshall's contractor identity for creative illustration, graphics, information, and user experience design solutions." />
-		<meta name="keywords" content="Dave Marshall, Marshall Art Studio, illdave, commercial art, creative services, illustration, graphic design, comic book art, infographics, information design, freelance illustration, freelance design, logo design, corporate identity, brand, print media, web design, web development, front end web development, ux/ui designer, ux/ui developer" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Illustration Portfolio | David Marshall</title>
+		<meta name="author" content="David Marshall" />
+		<meta name="description" content="Editorial and educational illustration for McGraw-Hill, Computerworld, Houghton Mifflin, and other publishing clients. Traditional and digital media.">
+		<link href="../assets/img/brand/mas.ico" type="image/x-icon" rel="icon">
+		<link rel="canonical" href="https://illdave.com/illustration/">
+
+		<meta property="og:type" 				content="website">
+		<meta property="og:url" 				content="https://illdave.com/illustration/">
+		<meta property="og:title" 				content="Illustration Portfolio | David Marshall">
+		<meta property="og:description" 		content="Editorial and educational illustration for major publishers. Work spanning traditional and digital media.">
+		<meta property="og:image" 				content="https://illdave.com/assets/img/illustration/theme.jpg">
+		
+		<meta property="twitter:card" 			content="summary_large_image">
+		<meta property="twitter:url" 			content="https://illdave.com/illustration/">
+		<meta property="twitter:title" 			content="Illustration Portfolio | David Marshall">
+		<meta property="twitter:description"	content="Editorial and educational illustration for major publishers.">
+		<meta property="twitter:image" 			content="https://illdave.com/assets/img/illustration/theme.jpg">
+		
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "CreativeWork",
+			"name": "Illustration Portfolio",
+			"author": {
+				"@type": "Person",
+				"name": "David Marshall"
+			},
+			"description": "Editorial and educational illustration portfolio featuring work for McGraw-Hill, Computerworld, and other major publishers",
+			"url": "https://illdave.com/illustration/",
+			"about": [
+				"Editorial Illustration",
+				"Educational Illustration",
+				"Digital Illustration",
+				"Traditional Media"
+			]
+		}
+		</script>
+		
 		<link href="../assets/themes/illdave/illdave.css" type="text/css" rel="stylesheet">	
 		<script src="../assets/themes/illdave/illdave.js" type="text/javascript"></script>
-		<link href="../assets/img/brand/mas.ico" type="image/x-icon" rel="icon">
-		
-		<meta property="og:title"        content="Marshall Art Studio: Illustration">
-		<meta property="og:type"         content="article">
-		<meta property="og:description"  content="Illustrations for corporate, editorial, and educational clients by me, Dave Marshall">
-		<meta property="og:url"          content="http://www.illdave.com/illustration">
-		<meta property="og:image"        content="http://www.illdave.com/assets/img/open-graph/og-dave-drawing.png">
 	</head>
 		<body class="dark-mode"><!-- Marshall Art Studio 8.0 -->
 		<header class="main-navigation fixed-top" role="banner">
@@ -35,12 +62,12 @@
 					aria-expanded="false" 
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
-						<span class="sr-only">Toggle menu navigation</span>
+						<span class="visually-hidden">Toggle menu navigation</span>
 					</span>
 				</button>			
 				<div class="collapse navbar-collapse justify-content-end" id="main-menu">
 					<ul class="navbar-nav bd-navbar-nav d-flex ">
-						<li class="nav-item home sr-only">
+						<li class="nav-item home visually-hidden">
 							<a class="nav-link" href="../index.html">Home</a>
 						</li>
 						<li class="nav-item web">
@@ -74,19 +101,21 @@
 		<main class="mas-content illustration" role="main" id="main-content">
 			<section class="intro">
 				<div class="container">
-					<div class="row">
-						<div class="col-md-12 col-lg-4">
-							<figure class="no-border centered no-caption">
+					<div class="feature-story-card">
+						<div class="row">
+							<div class="col-lg-4 image">
 								<img src="../assets/img/pictures/art-studio/art-board.jpg" alt="the portable drafting board I've had since 1984">
-							</figure>
-						</div>
-						<div class="col-md-12 col-lg-8">
-							<div class="text">
-								<h1>Illustration</h1>
-								<p>Most of my work was for educational or editorial publishers, with a small percentage of advertsing and corporate. Changing industry demands shifted my tools from traditional media (wet or dry stuff on paper, napkins, motor oil, driftwood, etc.) in the mid-80s to 100% digital by Y2K (even then I used Corel Painter to make my work look less digital). I followed the money to graphic design, which ultimately led to a focused career in web design and development (though I gave it a last gasp with <a href="../illustration-friday/index.html" rel="noopener noreferrer">Illustration Friday</a>). Please enjoy this gallery of my old work.</p>
+							</div>
+							<div class="col-lg-8 text">
+								<div class="header">Illustration</div>
+								<p>20+ years creating editorial, educational, and commercial illustration for major publishers and corporate clients. My work spans traditional media—pen and ink, watercolor, mixed media—and digital techniques using Corel Painter and Adobe Creative Suite.</p>
+								<p>I specialized in editorial spot illustrations and educational content, working with clients including McGraw-Hill, Computerworld, Houghton Mifflin, and Major League Baseball Properties. While my career focus shifted to web development and design, illustration remains core to how I approach visual problem-solving.</p>
+								<p class="cta">
+									<a href="../illustration-friday/" aria-label="">View Illustration Friday gallery</a>
+								</p>
 							</div>
 						</div>
-					</div>				
+					</div>
 				</div>
 			</section>
 			<section class="gallery">
@@ -371,7 +400,7 @@
 						<li class="github"><a href="https://github.com/illdave" target="_blank" rel="noopener noreferrer" aria-label="Marshall Art Studio on Github">Github</a></li>
 					</ul>
 				</div>
-				<p class="back-to-top sr-only sr-only-focusable">
+				<p class="back-to-top visually-hidden visually-hidden-focusable">
 					<a href="#main-content">Back to top<i class="fas"></i></a>
 				</p>
 			</div>
@@ -391,7 +420,7 @@
 		</div>
 		
 		<script src="../assets/themes/bootstrap-5/js/bootstrap.min.js"></script>
-		<script src="../assets/lib/jquery/jquery-3.3.1.min.js"></script>
+		<script src="../assets/lib/jquery/jquery-3.7.1.min.js"></script>
 		<script src="../assets/lib/lightbox-2.11.1/js/lightbox.js"></script>		
 	</body>
 </html>

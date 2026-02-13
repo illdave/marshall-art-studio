@@ -3,14 +3,54 @@
 	<head>
 		<!-- Copyright 1986-2025 Marshall Art Studio -->
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Marshall Art Studio Blog: HTML Retro Build</title>
-		<meta name="author" content="Dave Marshall" />
-		<meta name="description" content="Dave Marshall turned a 1998 hand-written HTML training exercise into an actual web page with the web development standards of the time" />
-		<meta name="keywords" content="1990s web developement, html 4, table layout, embedded font styles, netscape navigator, internet explorer 4.0, mozilla, pre-CSS, bbedit, pagemill, simpletext, os9, bronze keyboard powerbook g3" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>HTML Retro Build | David Marshall</title>
+		<meta name="author" content="David Marshall" />
+		<meta name="description" content="Building actual HTML from a 20-year-old hand-drawn sketch using 1998 web standards: table layouts, embedded styles, and Netscape Navigator optimization.">
+		<link href="../assets/img/brand/mas.ico" type="image/x-icon" rel="icon">
+		<link rel="canonical" href="https://illdave.com/blog/html-retro-build.html">
+		
+		<meta property="og:type" content="article">
+		<meta property="og:url" content="https://illdave.com/blog/html-retro-build.html">
+		<meta property="og:title" content="HTML Retro Build">
+		<meta property="og:description" content="Building actual HTML from a 20-year-old hand-drawn sketch using 1998 web standards.">
+		<meta property="og:image" content="https://illdave.com/assets/img/blog/html-retro-build/screenshot-sketch.jpg">
+		
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="https://illdave.com/blog/html-retro-build.html">
+		<meta property="twitter:title" content="HTML Retro Build">
+		<meta property="twitter:description" content="Building HTML from a 1998 hand-drawn sketch using period-accurate web standards.">
+		<meta property="twitter:image" content="https://illdave.com/assets/img/blog/html-retro-build/screenshot-sketch.jpg">
+		
+		<!-- Article-specific meta -->
+		<meta property="article:published_time" content="2021-04-03">
+		<meta property="article:modified_time" content="2021-04-18">
+		<meta property="article:author" content="David Marshall">
+		<meta property="article:section" content="Web Development">
+		<meta property="article:tag" content="HTML">
+		<meta property="article:tag" content="Web History">
+		<meta property="article:tag" content="Retro Computing">
+		
+		<!-- Structured Data (JSON-LD) -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": "HTML Retro Build",
+			"author": {
+				"@type": "Person",
+				"name": "David Marshall"
+			},
+			"datePublished": "2021-04-03",
+			"dateModified": "2021-04-18",
+			"description": "Building actual HTML from a 20-year-old hand-drawn sketch using 1998 web standards including table layouts, embedded styles, and browser compatibility for Netscape Navigator and IE 4.0",
+			"url": "https://illdave.com/blog/html-retro-build.html",
+			"image": "https://illdave.com/assets/img/blog/html-retro-build/screenshot-sketch.jpg"
+		}
+		</script>
+		
 		<link href="../assets/themes/illdave/illdave.css" type="text/css" rel="stylesheet">	
 		<script src="../assets/themes/illdave/illdave.js" type="text/javascript"></script>
-		<link href="../assets/img/brand/mas.ico" type="image/x-icon" rel="icon">
 	</head>
 	<body class="dark-mode"><!-- Marshall Art Studio 8.0 -->
 		<header class="main-navigation fixed-top" role="banner">
@@ -29,12 +69,12 @@
 					aria-expanded="false" 
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
-						<span class="sr-only">Toggle menu navigation</span>
+						<span class="visually-hidden">Toggle menu navigation</span>
 					</span>
 				</button>			
 				<div class="collapse navbar-collapse justify-content-end" id="main-menu">
 					<ul class="navbar-nav bd-navbar-nav d-flex ">
-						<li class="nav-item home sr-only">
+						<li class="nav-item home visually-hidden">
 							<a class="nav-link" href="../index.html">Home</a>
 						</li>
 						<li class="nav-item web">
@@ -88,14 +128,107 @@
 											<img src="../assets/img/blog/html-retro-build/screenshot-sketch.jpg" alt="thematic image of my HTML retro build">
 										</div>
 										<div class="col-lg-6 text">
-											<div class="header">Ink to HTML</div>
-											<p>I recently discovered a 1998 pen-and-ink HTML worksheet I must've drawn as a learning exercise. It's a table layout with embedded font styles, coding for Netscape Navigator and IE 4.0, and other artifacts from the pre-CSS era. Like a one-man Wayback Machine, I scraped that old sketch into an actual web page.</p>
-											
-											<p class="cta">
-												<a href="/web-dev/html-retro-build" aria-label="HTML retro rebuild process">Get the full details here</a>
+											<div class="header">Transforming 20-year-old ink into HTML</div>
+												<p>This 1998 hand-drawn HTML worksheet from my <a href="/sketchbook">sketchbook</a> was created with ink and nib, no pencil phase. It seemed silly at the time, but showing this training exercise at interviews got me a three-year web designer job at <a href="/web-dev/merril-lynch">Merrill Lynch</a>. Years later, I decided to build an actual web page using period-accurate standards: table layouts, embedded font styles, and optimizations for Netscape Navigator and IE 4.0.</p>											<p class="cta">
+												<a href="web/index.html" rel="noopener noreferrer" target="_blank" aria-label="finished web page built from hand-drawn HTML sketch">See the actual web page</a>
 											</p>
 										</div>
 									</div>
+									
+									<h2>Process</h2>
+									<p>Building actual code as I would have in 1998 took longer than expected, mostly from not remembering pre-CSS syntax (example: background color attribute is "bgcolor" instead of "background-color"). More wasted time was spent looking on Zip drives for images that turned out to be corrupted. <em>What lunatic would even consider that much detail for a goof?</em> Pure development time was probably 45 minutes. Declaring an HTML 4.01 doctype minimized validation errors, but BBEdit still didn't like styles in the <a href="../assets/img/blog/html-retro-build/syntax-error-body.png" data-lightbox="syntax-error" data-title="Syntax error: BBEdit didn't like styles in the body tag">body tag</a> or <a href="../assets/img/blog/html-retro-build/syntax-error-font-styles.png" data-lightbox="syntax-error" data-title="Syntax error: BBEdit didn't like embedded font styles"> embedded font styles</a>.</p>
+									<p class="back-to-top visually-hidden visually-hidden-focusable">
+										<a href="#main-content">Back to top<i class="fas"></i></a>
+									</p>
+									
+									<h2>OS 9 screenshots</h2>
+									<p>I couldn't resist a second revision with OS 9 screenshots from my trusty old <a href="https://everymac.com/systems/apple/powerbook_g3/specs/powerbook_g3_333.html" target="_blank" rel="noopener noreferrer" aria-label="Apple PowerBook G3 specs on EveryMac">bronze keyboard PowerBook G3</a>. Running anything with 8 MB of RAM on a 333 MHz processor makes the minutes fly like hours.</p>
+									<div class="row in-content figure">
+										<h3>Editing</h3>
+										<div class="col-12 col-sm-4 captioned">
+											<a href="../assets/img/blog/html-retro-build/os9-bbedit-lite.png" data-lightbox="os9-screenshots" data-title="Completely forgot BBEdit Lite 6.1.2 didn't have color-coded syntax.">
+												<img src="../assets/img/blog/html-retro-build/os9-bbedit-lite.png" alt="Mac OS 9 screenshot of BBEdit Lite 6.1.2" />
+											</a>
+											<div class="caption">
+												<p>BBEdit Lite 6.1.2</p>
+											</div>
+										</div>
+										<div class="col-12 col-sm-4 captioned">
+											<a href="../assets/img/blog/html-retro-build/os9-pagemill.png" data-lightbox="os9-screenshots" data-title="This is how Adobe PageMill mangled my HTM file. See the fix below.">
+												<img src="../assets/img/blog/html-retro-build/os9-pagemill.png" alt="Mac OS 9 screenshot of Adobe PageMill 3.0" />
+											</a>
+											<div class="caption">
+												<p>Adobe PageMill 3.0</p>
+											</div>
+										</div>
+										<div class="col-12 col-sm-4 captioned">
+											<a href="../assets/img/blog/html-retro-build/os9-simpletext.png" data-lightbox="os9-screenshots" data-title="I later edited in Simpletext until Dreamweaver came out, which I only used for its color-coded syntax code view.">
+												<img src="../assets/img/blog/html-retro-build/os9-simpletext.png" alt="Mac OS 9 screenshot of Simpletext 1.4" />
+											</a>
+											<div class="caption">
+												<p>Simpletext 1.4</p>
+											</div>
+										</div>
+									</div>
+									<div class="row in-content figure">
+										<h3>Display</h3>
+										<div class="col-12 col-sm-4 captioned">
+											<a href="../assets/img/blog/html-retro-build/os9-browser-ie-1.png" data-lightbox="os9-screenshots" data-title="Once upon a time, Internet Explorer 5 for Mac was the most CSS compliant browser on Earth. I forgot how the internet looked before font-smoothing.">
+												<img src="../assets/img/blog/html-retro-build/os9-browser-ie-1.png" alt="Mac OS 9 screenshot of Internet Explorer 5.1.7 for Mac" />
+											</a>
+											<div class="caption">
+												<p>Internet Explorer 5.1.7 for Mac</p>
+											</div>
+										</div>
+										<div class="col-12 col-sm-4 captioned">
+											<a href="../assets/img/blog/html-retro-build/os9-browser-netscape.png" data-lightbox="os9-screenshots" data-title="Netscape Communicator 4.7 was the most strict old timey browser. Had to get rid of three-character color names, meta tags, and other markup.">
+												<img src="../assets/img/blog/html-retro-build/os9-browser-netscape.png" alt="Mac OS 9 screenshot of Netscape Communicator 4.79" />
+											</a>
+											<div class="caption">
+												<p>Netscape Communicator 4.79</p>
+											</div>
+										</div>
+										<div class="col-12 col-sm-4 captioned">
+											<a href="../assets/img/blog/html-retro-build/os9-browser-mozilla-1.png" class="" data-lightbox="os9-screenshots" data-title="Mozilla and Netscape got better at rendering pure CSS on DHTML. Of course Microsoft had to crush them.">
+												<img src="../assets/img/blog/html-retro-build/os9-browser-mozilla-1.png" alt="Mac OS 9 screenshot of Mozilla 1.2.1" />
+											</a>
+											<div class="caption">
+												<p>Mozilla 1.2.1</p>
+											</div>
+										</div>
+									</div>
+									<div class="row in-content figure">
+										<h3>PageMill and Netscape</h3>
+										<p>This only worked once I got rid of modern syntax it didn't understand, like <a href="../assets/img/blog/html-retro-build/os9-browser-netscape-htm-invisible.png" data-lightbox="pagemill-netscape" data-title="PageMill and Netscape can't see three-letter file extensions.">three-letter file extensions</a> and <a href="../assets/img/blog/html-retro-build/os9-bbedit-no-three-letter-colors.png" data-lightbox="pagemill-netscape" data-title="PageMill and Netscape don't understand abbreviated hex colors.">abbreviated hex colors</a>. I still think <a href="https://en.wikipedia.org/wiki/Adobe_PageMill" target="_blank" rel="noopener noreferrer" aria-label="HTML editor Adobe PageMill">PageMill</a> was the best WYSIWYG web editor for home users and small businesses before CMS options like Wordpress and blogging technology. It was the HTML version of desktop publishing. </p>
+										<div class="col-12 col-sm-4 captioned">
+											<a href="../assets/img/blog/html-retro-build/os9-page-milled-source-mode.png" data-lightbox="os9-adobe-pagemill" data-title="Adobe PageMill source mode.">
+												<img src="../assets/img/blog/html-retro-build/os9-page-milled-source-mode.png" alt="Adobe PageMill source mode" />
+											</a>
+											<div class="caption">
+												<p>Adobe PageMill source mode</p>
+											</div>
+										</div>
+										<div class="col-12 col-sm-4 captioned">
+											<a href="../assets/img/blog/html-retro-build/os9-page-milled-wysiwig.png" data-lightbox="os9-adobe-pagemill" data-title="Adobe PageMill WYSIWYG mode.">
+												<img src="../assets/img/blog/html-retro-build/os9-page-milled-wysiwig.png" alt="Adobe PageMill WYSIWYG mode" />
+											</a>
+											<div class="caption">
+												<p>Adobe PageMill WYSIWYG mode</p>
+											</div>
+										</div>
+										<div class="col-12 col-sm-4 captioned">
+											<a href="../assets/img/blog/html-retro-build/os9-page-milled-preview.png" data-lightbox="os9-adobe-pagemill" data-title="Adobe PageMill preview mode.">
+												<img src="../assets/img/blog/html-retro-build/os9-page-milled-preview.png" alt="Adobe PageMill preview mode" />
+											</a>
+											<div class="caption">
+												<p>Adobe PageMill preview mode</p>
+											</div>
+										</div>
+									</div>	
+									
+									<h2>What did we learn today?</h2>
+									<p>Looking back, the process might be like building raw HTML wireframes from a designer's Photoshopped mockup. Thinking about HTML without a computer might not be crazy after all. What is crazy is embedded styles still being used for <a href="/web-dev/carbonite/html-email/01/index.html" target="_blank" rel="noopener noreferrer" aria-label="one of my old HTML emails for Carbonite">HTML emails</a>.</p>
+									<p class="signature">Your HTML historian buddy Dave</p>									
 								</div>
 							</article>
 						</div>
@@ -113,10 +246,10 @@
 									</dl>
 									<dl class="non-work">
 										<dt>Non-Work</dt>
-										<dd><a href="24-hour-comic-2008.html">24-Hour Comics Day 2008</a></dd>
+										<dd><a href="dead-smurf.html">Dead Smurf Illustration</a></dd>
+										<dd><a href="illustration-friday">Illustration Friday</a></dd>
 										<dd><a href="watchmen-trailer.html">Watchmen Movie Trailer Review</a></dd>
 										<dd><a href="amway-tales.html">Amway Tales</a></dd>
-										<dd><a href="toth-critiques-rude.html">Alex Toth critiques Steve Rude</a></dd>
 									</dl>
 								</div>										
 							</div>
@@ -124,7 +257,6 @@
 					</div>			
 				</div>
 			</section>
-			
 		</main>
 		<footer>
 			<div class="text">
@@ -140,13 +272,13 @@
 						<li class="github"><a href="https://github.com/illdave" target="_blank" rel="noopener noreferrer" aria-label="Marshall Art Studio on Github">Github</a></li>
 					</ul>
 				</div>
-				<p class="back-to-top sr-only sr-only-focusable">
+				<p class="back-to-top visually-hidden visually-hidden-focusable">
 					<a href="#main-content">Back to top<i class="fas"></i></a>
 				</p>
 			</div>
 		</footer>
 		<script src="../assets/themes/bootstrap-5/js/bootstrap.min.js"></script>
-		<script src="../assets/lib/jquery/jquery-3.3.1.min.js"></script>
+		<script src="../assets/lib/jquery/jquery-3.7.1.min.js"></script>
 		<script src="../assets/lib/lightbox-2.11.1/js/lightbox.js"></script>		
 	</body>
 </html>

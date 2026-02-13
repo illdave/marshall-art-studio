@@ -27323,15 +27323,33 @@ https://github.com/lokesh/lightbox2 */
   margin-bottom: 1rem;
   border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
 }
+.feature-story-card .text h1, .feature-story-card .text .h1, .feature-story-card .text h2, .feature-story-card .text .h2, .feature-story-card .text h3, .feature-story-card .text .h3 {
+  margin-bottom: 1rem;
+  margin-block-start: -0.25rem;
+}
+.feature-story-card .text h1, .feature-story-card .text .h1 {
+  line-height: 2rem;
+}
+.feature-story-card .text h2, .feature-story-card .text .h2 {
+  line-height: 1.6rem;
+}
+.feature-story-card .text h3, .feature-story-card .text .h3 {
+  line-height: 1.6rem;
+}
 .feature-story-card .text .header {
   font-family: "Proxima Nova Bold";
   font-size: 1.6rem;
   line-height: 1.6rem;
   color: #000;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 .feature-story-card .text .header:after {
   display: none;
+}
+.feature-story-card .text .header.header-1 {
+  font-size: 2rem;
+  line-height: 2rem;
+  color: #000;
 }
 .feature-story-card .text .header.header-3 {
   font-size: 1.6rem;
@@ -27694,6 +27712,13 @@ h1,
   font-weight: normal;
   color: #000;
   font-family: "Proxima Nova Bold";
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+h2,
+.h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  margin-bottom: 1rem;
 }
 
 h1, .h1 {
@@ -27702,6 +27727,7 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: 1.6rem;
+  margin-bottom: 1rem;
 }
 
 h3, .h3 {
@@ -27805,6 +27831,11 @@ dl.pullquote dd {
 }
 dl.compact dd {
   margin-bottom: 0;
+}
+dl.label dt {
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
 
 ul, ol {
@@ -28260,6 +28291,10 @@ figure.no-border.images-have-border a img {
 figure.image-has-border img {
   border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
 }
+figure.no-bottom-spacing {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
 figure.centered {
   text-align: center;
 }
@@ -28457,16 +28492,17 @@ img.social-media-preview {
   padding: 2rem;
   background: rgb(238.425, 238.425, 238.425);
 }
+.item.has-bottom-border {
+  border-bottom: 0.0625rem solid #cccccc;
+  margin-bottom: 1rem;
+}
 
 .boxed .client-details {
   background: rgb(229.5, 229.5, 229.5);
   padding: 2rem;
 }
-.boxed .client-details .feature-cards, .boxed .client-details .multi-link .text ul {
+.boxed .client-details .feature-cards, .boxed .client-details .multi-link .text ul, .boxed .client-details .feature-story-card, .boxed .client-details figure {
   margin-bottom: 0;
-}
-.boxed .client-details .feature-story-card {
-  margin-bottom: 1rem;
 }
 .boxed.even .client-details {
   background: white;
@@ -28619,14 +28655,11 @@ img.social-media-preview {
 .diagram {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   margin: 1rem 0;
 }
 .diagram.pie-chart {
   text-align: center;
-}
-.diagram.pie-chart dt {
-  font-size: 1.4rem;
 }
 .diagram.pie-chart .data {
   text-align: left;
@@ -28776,8 +28809,30 @@ img.social-media-preview {
 .newspaper-columns {
   column-count: 2;
   column-gap: 5%;
+  column-fill: auto;
   column-rule: 0.0625rem solid #cccccc;
   margin-bottom: 2rem;
+}
+.newspaper-columns .item, .newspaper-columns .rip-job {
+  margin-bottom: 1rem;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.newspaper-columns .item:last-child, .newspaper-columns .rip-job:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.newspaper-columns .item.has-bottom-border, .newspaper-columns .rip-job.has-bottom-border {
+  border-bottom: 0.0625rem solid #cccccc;
+  margin-bottom: 1rem;
+}
+
+.rip-job {
+  border-bottom: 0.0625rem solid #cccccc;
+}
+.rip-job h3, .rip-job .h3 {
+  margin-bottom: 0;
 }
 
 .mas-website-history .version {
@@ -28789,6 +28844,7 @@ img.social-media-preview {
 .mas-website-history .version dl dt {
   font-size: 1.2rem;
   margin-bottom: 0;
+  border: 0;
 }
 .mas-website-history .version .picture-wrapper {
   margin-bottom: 0.75rem;
@@ -28934,6 +28990,9 @@ img.social-media-preview {
 .social li:active a:before, .social dd:active a:before {
   filter: invert(20%) sepia(100%) saturate(2%) hue-rotate(90deg) brightness(103%) contrast(100%);
 }
+.social .follow-me {
+  margin-left: 0;
+}
 .social .email a:before {
   font-family: "Font Awesome Solid";
   content: url("../../img/icons/envelope.svg");
@@ -29078,10 +29137,10 @@ img.social-media-preview {
 }
 
 .first-paragraph, .first-sentence {
-  font-size: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.32rem;
   font-family: "Proxima Nova Italic";
   margin-bottom: 2rem;
-  line-height: 2.5rem;
   color: #fff;
 }
 
@@ -29704,13 +29763,74 @@ img.social-media-preview {
   background-color: rgb(16, 201.2603550296, 255);
 }
 .blog article {
-  margin-bottom: 1rem;
   position: relative;
 }
 .blog article:last-child {
   border-bottom: 0;
   margin-bottom: 0;
   padding-bottom: 0;
+}
+.blog article.blog-preview a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+.blog article.blog-preview a .header, .blog article.blog-preview a .description, .blog article.blog-preview a img {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+.blog article.blog-preview a img {
+  margin-bottom: 1rem;
+}
+.blog article.blog-preview a .header {
+  font-family: "Proxima Nova Bold";
+  font-size: 1.4rem;
+  line-height: 1.54rem;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+.blog article.blog-preview a .header.h1 {
+  font-size: 2rem;
+}
+.blog article.blog-preview a .header.h2 {
+  font-size: 1.6rem;
+}
+.blog article.blog-preview a .header.h3 {
+  font-size: 1.4rem;
+}
+.blog article.blog-preview a .header.h3 .book-title {
+  font-family: inherit;
+}
+.blog article.blog-preview a .description {
+  color: #212529;
+  line-height: 1.2rem;
+}
+.blog article.blog-preview a .meta {
+  font-size: 90%;
+  text-align: left;
+  margin-bottom: 0;
+  color: rgb(191.25, 191.25, 191.25);
+}
+.blog article.blog-preview a .meta .author {
+  font-family: "Proxima Nova Bold";
+  margin-right: 0.5rem;
+}
+.blog article.blog-preview a .meta .date {
+  font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+}
+.blog article.blog-preview a .meta .date .published {
+  margin-right: 0.5rem;
+}
+.blog article.blog-preview a .meta .date .updated {
+  display: none;
+}
+.blog article.blog-preview a .meta .date .updated::before {
+  border-left: 0.0625rem solid #cccccc;
+  padding-left: 0.5rem;
+  content: "Updated: ";
 }
 .blog article a.overlay {
   width: 100%;
@@ -29813,6 +29933,13 @@ img.social-media-preview {
 .blog article header .byline .date time.updated {
   display: none;
 }
+.blog article header .byline + .cta {
+  margin-top: 2rem;
+}
+.blog article header h2 + .byline, .blog article header .h2 + .byline {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
 .blog article footer.blog-footer {
   display: none;
   border: 0;
@@ -29866,13 +29993,11 @@ img.social-media-preview {
   font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
 }
 .blog .blog-nav dl {
-  border-top: 0.0625rem solid rgb(191.25, 191.25, 191.25);
   padding-top: 1rem;
   margin-bottom: 2rem;
 }
 .blog .blog-nav dl dt {
   margin-bottom: 0.5rem;
-  font-size: 1.2rem;
 }
 .blog .blog-nav dl dd.active a {
   color: rgb(191.25, 191.25, 191.25);
@@ -29934,6 +30059,9 @@ img.social-media-preview {
 }
 .blog.index .older article {
   display: inline-block;
+}
+.blog.index .older article.blog-preview {
+  margin-bottom: 2rem;
 }
 .blog.index .older article figure {
   float: left;
@@ -30214,6 +30342,9 @@ img.social-media-preview {
 .dark-mode dl.pullquote dd {
   color: #cccccc;
 }
+.dark-mode dl.label dt {
+  border: 0;
+}
 .dark-mode hr {
   border-top: 0.0625rem solid rgb(76.5, 76.5, 76.5);
 }
@@ -30306,7 +30437,8 @@ img.social-media-preview {
   background: transparent;
 }
 .dark-mode .sidebar .item.contact {
-  background: rgb(5.1, 5.1, 5.1);
+  background: transparent;
+  padding: 0;
 }
 .dark-mode .sidebar .item.contact h2, .dark-mode .sidebar .item.contact .h2, .dark-mode .sidebar .item.contact dt {
   color: #fff;
@@ -30428,6 +30560,9 @@ img.social-media-preview {
 .dark-mode .story-group-blade .story-group-row.tile-cards .item:not(:first-child):before {
   background: rgb(76.5, 76.5, 76.5);
 }
+.dark-mode .story-group-blade .story-group-row.tile-cards .item .tile-card:hover {
+  background-color: rgb(35.7, 35.7, 35.7);
+}
 .dark-mode .feature-cards .feature-card .text .header {
   color: #fff;
 }
@@ -30490,8 +30625,14 @@ img.social-media-preview {
   padding: 1rem 2rem;
   background: rgb(5.1, 5.1, 5.1);
 }
+.dark-mode .item.has-bottom-border {
+  border-bottom: 0.0625rem solid #666666;
+}
 .dark-mode .newspaper-columns {
   column-rule: 0.0625rem solid #666666;
+}
+.dark-mode .newspaper-columns .item.has-bottom-border, .dark-mode .newspaper-columns .rip-job.has-bottom-border {
+  border-bottom: 0.0625rem solid #666666;
 }
 .dark-mode .boxed .client-details {
   background: black;
@@ -30504,12 +30645,6 @@ img.social-media-preview {
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 0.0625rem solid rgb(76.5, 76.5, 76.5);
-}
-.dark-mode .rip-jobs .rip-job {
-  border-bottom: 0.0625rem solid rgb(76.5, 76.5, 76.5);
-}
-.dark-mode .rip-jobs .rip-job:last-child {
-  border-bottom: 0;
 }
 .dark-mode .tiled a.tile {
   border: 0.0625rem solid #fff;
@@ -30614,6 +30749,9 @@ img.social-media-preview {
 .dark-mode .back-to-landing-page:hover a .fas:before {
   color: #fff;
 }
+.dark-mode .rip-job {
+  border-bottom: 0.0625rem solid #666666;
+}
 .dark-mode .home section.skills .item {
   border-right: 0.0625rem solid rgb(76.5, 76.5, 76.5);
   border-bottom: 0.0625rem solid rgb(76.5, 76.5, 76.5);
@@ -30699,6 +30837,18 @@ img.social-media-preview {
 .dark-mode .about .sidebar .item.mas-logo p {
   margin-bottom: 0;
 }
+.dark-mode .blog.index article.blog-preview a .header {
+  color: #fff;
+}
+.dark-mode .blog.index article.blog-preview a .description {
+  color: #cccccc;
+}
+.dark-mode .blog.index article.blog-preview a .meta {
+  color: rgb(191.25, 191.25, 191.25);
+}
+.dark-mode .blog.index article.blog-preview a .meta .date .updated::before {
+  border-left: 0.0625rem solid #666666;
+}
 .dark-mode .blog.index article:hover img {
   border-color: #00b1cb;
   filter: brightness(110%) saturate(110%);
@@ -30721,9 +30871,6 @@ img.social-media-preview {
 .dark-mode .blog.index .older h2, .dark-mode .blog.index .older .h2 {
   border-bottom: 0.0625rem solid rgb(76.5, 76.5, 76.5);
 }
-.dark-mode .blog .blog-nav dl {
-  border-top: 0.0625rem solid rgb(76.5, 76.5, 76.5);
-}
 .dark-mode .blog .blog-nav dd.active a {
   color: rgb(140.25, 140.25, 140.25);
 }
@@ -30736,6 +30883,12 @@ img.social-media-preview {
 .dark-mode .blog article figure p {
   padding-bottom: 0.5rem;
   border-bottom: 0.0625rem solid rgb(76.5, 76.5, 76.5);
+}
+.dark-mode .blog article figure.no-border p {
+  border: 0;
+}
+.dark-mode .blog article .feature-story-card figure.no-border p {
+  border-bottom: 0;
 }
 .dark-mode .blog article header .byline {
   color: rgb(140.25, 140.25, 140.25);
@@ -30771,10 +30924,6 @@ img.social-media-preview {
     background-color: transparent;
     margin-top: 1rem;
     border-bottom-width: 0.125rem;
-  }
-  .dark-mode .rip-jobs .rip-job:last-child {
-    border-bottom: 0.0625rem solid rgb(76.5, 76.5, 76.5);
-    padding-bottom: 1rem;
   }
 }
 

@@ -9,13 +9,77 @@
 	}
 	
 	article {
-		margin-bottom: $spacer-base;
 		position: relative;
 		&:last-child {
 			border-bottom: 0;
 			margin-bottom: 0;
 			padding-bottom: 0;
 		}
+		&.blog-preview {
+			a {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				margin-bottom: 1rem;
+				text-decoration: none;
+				.header, .description, img {
+					display: block;
+					text-decoration: none;
+					margin-bottom: $spacer-small;
+				}
+				img {
+					margin-bottom: $spacer-base;
+				}
+				.header {
+					font-family: $font-family-headers;
+					font-size: $h3-font-size;
+					line-height: $h3-line-height;
+					color: $headings-color;
+					margin-bottom: .5rem;
+					&.h1 {
+						font-size: $h1-font-size;
+					}
+					&.h2 {
+						font-size: $h2-font-size;
+					}
+					&.h3 {
+						font-size: $h3-font-size;
+						.book-title {
+							font-family: inherit;
+						}				
+					}
+				}
+				.description {
+					color: $text-color;
+					line-height: 1.2rem;
+				}
+				.meta {
+					font-size: $font-size-small;
+					text-align: left;
+					margin-bottom: 0;
+					color: $gray-light;
+					.author {
+						font-family: $font-family-headers;
+						margin-right: $spacer-small;
+					}
+					.date {
+						font-family: $font-family-sans-serif;
+						.published {
+							margin-right: $spacer-small;
+						}
+						.updated {
+							display: none;
+							&::before {
+								border-left: $border-light;
+								padding-left: $spacer-small;
+								content: "Updated: ";
+							}						
+						}
+					}
+				}		
+			}
+		}		
+		
 		a {
 			&.overlay {
 				width: 100%;
@@ -110,8 +174,6 @@
 					font-family: inherit;
 				}
 			}
-			.excerpt {
-			}			
 			.byline {
 				font-size: $font-size-small;
 				text-align: left;
@@ -132,6 +194,14 @@
 						}
 					}
 				}
+			}
+			
+			.byline + .cta {
+				margin-top: $spacer-large;
+			}
+			h2 + .byline {
+				margin-top: -$spacer-small;
+				margin-bottom: $spacer-base;
 			}
 		}
 		footer {
@@ -193,12 +263,10 @@
 			font-family: $font-family-base;
 		}
 		dl {
-			border-top: $border-default;
 			padding-top: $spacer-base;
 			margin-bottom: $spacer-large;
 			dt {
 				margin-bottom: $spacer-small;
-				font-size: $h4-font-size;
 			}
 			dd {
 				&.active {
@@ -274,6 +342,21 @@
 				margin-bottom: $spacer-base;
 			}
 			article {
+				&.blog-preview {
+					margin-bottom: $spacer-large;
+					a {
+						.text {
+						}
+						
+						.header, .description, .date {
+						}
+						img {
+						}
+						.header {
+						}
+					}
+				}					
+			
 				display: inline-block;
 				figure {
 					float: left;

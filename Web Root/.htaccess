@@ -1,10 +1,12 @@
 ErrorDocument 404 https://www.illdave.com/404/index.html
 
-Redirect 301 /comicbooks/history/toth-critiques-rude.htm https://illdave.com/blog/toth-critiques-rude.html
+Redirect 301 /comicbooks/history/toth-critiques-rude.htm https://www.artofthecomicbook.com/blog/alex-toth-critiques-steve-rude.html
+Redirect 301 /blog/toth-critiques-rude.html https://www.artofthecomicbook.com/blog/alex-toth-critiques-steve-rude.html
 Redirect 301 /comicbooks/events/daves-inky-stories.htm https://www.inkystories.com/blog/exhibit-2002-inman-square.html
-Redirect 301 /comicbooks/ https://illdave.com/comics/
-Redirect 301 /comicbooks https://illdave.com/comics/
-Redirect 301 /comicbooks.htm https://illdave.com/comics/
+Redirect 301 /comicbooks/ https://www.inkystories.com/
+Redirect 301 /comicbooks https://www.inkystories.com/
+Redirect 301 /comicbooks.htm https://www.inkystories.com
+Redirect 301 /blog/24-hour-comic-2008.html https://www.inkystories.com/blog/24-hour-comic-2008.html
 
 Redirect 301 /illustration/friday.htm https://illdave.com/illustration-friday
 Redirect 301 /illustration/2010/01/confined.html https://illdave.com/blog/illustration-friday/confined.html
@@ -26,6 +28,7 @@ Redirect 301 /illustration/2006/10/wind.html https://illdave.com/blog/illustrati
 
 Redirect 301 /web https://illdave.com/web-dev
 Redirect 301 /web/index.htm https://illdave.com/web-dev/
+Redirect 301 /web-dev/html-retro-build/ https://illdave.com/blog/html-retro-build.html
 
 Redirect 301 /print https://illdave.com/graphic-design/
 Redirect 301 /graphics https://illdave.com/graphic-design/

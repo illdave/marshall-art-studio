@@ -177,6 +177,10 @@ figure {
 			border: $border-default;
 		}
 	}
+	&.no-bottom-spacing {
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
 	&.centered {
 		text-align: center;
 		img {

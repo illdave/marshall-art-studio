@@ -139,7 +139,7 @@ $client-details-details-bg:					$section-bg;
 $boxed-client-details-even-bg: 				lighten($section-bg-even, 10%);
 $boxed-client-details-padding: 				$spacer-large;
 
-$contact-bg: 								$item-bg;
+$contact-bg: 								transparent;
 $contact-text-color:						$white;
 $contact-headings-color: 					$contact-text-color;
 $text-divider-color:						transparentize($text-color, 0.5);
@@ -243,6 +243,13 @@ $category-color: 							$white;
 				color: $pullquote-speaker-color;
 			}
 		}
+		&.label {
+			dt {
+				border: 0;
+			}
+		}
+		
+		
 	}
 	
 	hr {
@@ -365,6 +372,7 @@ $category-color: 							$white;
 		.item {
 			&.contact {
 				background: $contact-bg;
+				padding: 0;
 				h2, dt {
 					color: $contact-headings-color;
 				}
@@ -541,6 +549,11 @@ $category-color: 							$white;
 				&:not(:first-child):before {
 					background: $border-default-color;
 				}
+				.tile-card {
+					&:hover {
+						background-color: $tile-card-hover-bg;
+					}
+				}
 			}
 		}
 	}
@@ -628,9 +641,17 @@ $category-color: 							$white;
 			padding: 1rem 2rem;
 			background: $item-bg;
 		}
+		&.has-bottom-border {
+			border-bottom: $border-light; 
+		}
 	}
 	.newspaper-columns {
 		column-rule: $border-light;
+		.item, .rip-job {
+			&.has-bottom-border {
+				border-bottom: $border-light;
+			}
+		}
 	}
 	.boxed {
 		.client-details {
@@ -650,14 +671,6 @@ $category-color: 							$white;
 			border-bottom: $border-default;
 		}
 	}
-	.rip-jobs {
-		.rip-job {
-			border-bottom: $border-default;
-			&:last-child {
-				border-bottom: 0;
-			}	
-		}
-	}	
 	.tiled {
 		 a {
 			&.tile {
@@ -828,6 +841,10 @@ $category-color: 							$white;
 		}
 	}	
 	
+	.rip-job {
+		border-bottom: $border-light;
+	}
+	
 	
 	/* home -------------------------- */
 	
@@ -982,6 +999,31 @@ $category-color: 							$white;
 	.blog {
 		&.index {
 			article {
+			
+				&.blog-preview {
+					a {
+						.header, .description, img {
+						}
+						img {}
+						.header {
+							color: $headings-color;
+						}
+						.description {
+							color: $text-color;
+						}
+						.meta {
+							color: $gray-light;
+							.date {
+								.updated {
+									&::before {
+										border-left: $border-light;
+									}						
+								}
+							}
+						}		
+					}
+				}				
+
 				&:hover {
 					img {
 						border-color: $link-img-border-hover-color;
@@ -1014,7 +1056,6 @@ $category-color: 							$white;
 		}
 		.blog-nav {
 			dl {
-				border-top: $border-default;
 			}
 			dd {
 				&.active {
@@ -1037,6 +1078,20 @@ $category-color: 							$white;
 				p {
 					padding-bottom: .5rem;
 					border-bottom: $border-default;
+				}
+				&.no-border {
+					p {
+						border: 0;
+					}
+				}
+			}
+			.feature-story-card {
+				figure {
+					&.no-border {
+						p {
+							border-bottom: 0;
+						}
+					}
 				}
 			}
 			header {
@@ -1094,16 +1149,11 @@ $category-color: 							$white;
 				border-bottom-width: rem(2px);
 			}
 		}	
-		.rip-jobs {
-			.rip-job {
-				&:last-child {
-					border-bottom: $border-default;
-					padding-bottom: 1rem;
-				}	
-			}
-		}	
 	}
 }
+
+
+
 
 
 
