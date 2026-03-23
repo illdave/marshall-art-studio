@@ -27326,7 +27326,7 @@ https://github.com/lokesh/lightbox2 */
   font-family: "Proxima Nova Bold";
   font-size: 1.2rem;
   line-height: 1.2rem;
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: -0.05rem;
@@ -27405,7 +27405,7 @@ https://github.com/lokesh/lightbox2 */
   flex-shrink: 0;
   align-content: center;
   text-align: center;
-  background: rgb(234.6335227273, 244.3607954545, 212.1392045455);
+  background: rgb(239.7, 247.08, 255);
   background-size: 100%;
   width: 4rem;
   height: 4rem;
@@ -27486,7 +27486,7 @@ https://github.com/lokesh/lightbox2 */
   color: #212529;
 }
 .tile-cards.icon-tiles .tile-card.disabled:hover {
-  background-color: rgb(234.6335227273, 244.3607954545, 212.1392045455);
+  background-color: rgb(239.7, 247.08, 255);
 }
 .tile-cards .tile-card {
   display: flex;
@@ -27494,7 +27494,7 @@ https://github.com/lokesh/lightbox2 */
   height: 100%;
   padding: 1rem;
   margin-bottom: 0;
-  background: rgb(234.6335227273, 244.3607954545, 212.1392045455);
+  background: rgb(239.7, 247.08, 255);
   border-radius: 0.5rem;
   text-decoration: none;
 }
@@ -27512,7 +27512,7 @@ https://github.com/lokesh/lightbox2 */
   font-family: "Font Awesome Solid";
   font-size: 0.75rem;
   content: "\f054";
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
   margin-left: 0.25rem;
 }
 .tile-cards .tile-card .description {
@@ -27521,7 +27521,7 @@ https://github.com/lokesh/lightbox2 */
   margin-bottom: 0.5rem;
 }
 .tile-cards .tile-card:hover {
-  background-color: rgb(240.4579545455, 247.4034090909, 224.3965909091);
+  background-color: white;
 }
 .tile-cards.button-tiles {
   display: flex;
@@ -27598,7 +27598,7 @@ https://github.com/lokesh/lightbox2 */
 .feature-cards .feature-card .text .header a:after {
   font-family: "Font Awesome Solid";
   content: "\f054";
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
   margin-left: 0.5rem;
 }
 .feature-cards .feature-card .text .description {
@@ -27607,7 +27607,7 @@ https://github.com/lokesh/lightbox2 */
 }
 .feature-cards .feature-card .text .description.code-soup {
   margin-top: 0.5rem;
-  color: rgb(0, 142.0264317181, 201.5);
+  color: rgb(131, 0, 78.7124463519);
 }
 .feature-cards .feature-card .button-row {
   margin-bottom: 1rem;
@@ -27616,7 +27616,7 @@ https://github.com/lokesh/lightbox2 */
   font-family: "Font Awesome Solid";
   font-size: 1rem;
   content: "\f054";
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
   margin-left: 0.5rem;
 }
 .feature-cards .feature-card .cta:after:hover {
@@ -27644,7 +27644,7 @@ https://github.com/lokesh/lightbox2 */
 }
 .feature-cards.with-background .feature-card {
   padding: 1rem;
-  background: rgb(234.6335227273, 244.3607954545, 212.1392045455);
+  background: rgb(239.7, 247.08, 255);
   background-size: 40rem;
   border-radius: 0.5rem;
 }
@@ -27657,16 +27657,16 @@ https://github.com/lokesh/lightbox2 */
   margin-left: 0;
   margin-right: 0;
   display: flex;
-  background: rgb(234.6335227273, 244.3607954545, 212.1392045455);
+  background: rgb(239.7, 247.08, 255);
 }
 .story-group-tiles.merged .row.tile-cards .item {
   position: relative;
   flex: 1 0 0%;
   margin-bottom: 0;
-  background: rgb(234.6335227273, 244.3607954545, 212.1392045455);
+  background: rgb(239.7, 247.08, 255);
 }
 .story-group-tiles.merged .row.tile-cards .item:hover {
-  background: rgb(240.4579545455, 247.4034090909, 224.3965909091);
+  background: white;
 }
 .story-group-tiles.merged .row.tile-cards .item .tile-card {
   background: none;
@@ -27707,17 +27707,17 @@ https://github.com/lokesh/lightbox2 */
 .story-group-blade .story-group-row.tile-cards {
   position: relative;
   display: flex;
-  background: rgb(234.6335227273, 244.3607954545, 212.1392045455);
+  background: rgb(239.7, 247.08, 255);
   margin-bottom: auto;
 }
 .story-group-blade .story-group-row.tile-cards .item {
   position: relative;
   flex: 1 0 0%;
   margin-bottom: 0;
-  background: rgb(234.6335227273, 244.3607954545, 212.1392045455);
+  background: rgb(239.7, 247.08, 255);
 }
 .story-group-blade .story-group-row.tile-cards .item:hover {
-  background: rgb(240.4579545455, 247.4034090909, 224.3965909091);
+  background: white;
 }
 .story-group-blade .story-group-row.tile-cards .item .tile-card {
   background: none;
@@ -27774,13 +27774,13 @@ https://github.com/lokesh/lightbox2 */
   font-size: 1rem;
 }
 .link-list dd.cta a, .mulit-column-list dd.cta a {
-  color: #007bff !important;
+  color: rgb(0, 76.26, 158.1) !important;
 }
 .link-list dd.cta a:hover, .mulit-column-list dd.cta a:hover {
   color: #212529 !important;
 }
 .link-list dd.cta a:after, .mulit-column-list dd.cta a:after {
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
 }
 .link-list dd.cta:after, .mulit-column-list dd.cta:after {
   display: none;
@@ -27809,13 +27809,13 @@ https://github.com/lokesh/lightbox2 */
   color: #212529;
 }
 .link-list a:hover, .mulit-column-list a:hover {
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
 }
 .link-list a:after, .mulit-column-list a:after {
   font-family: "Font Awesome Solid";
   font-size: 1rem;
   content: "\f054";
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
   margin-left: 0.5rem;
 }
 .link-list a:after:hover, .mulit-column-list a:after:hover {
@@ -27838,8 +27838,8 @@ https://github.com/lokesh/lightbox2 */
   font-family: "Proxima Nova Bold";
   font-size: 1.2rem;
   text-transform: uppercase;
-  color: #007bff;
-  background: rgb(234.6335227273, 244.3607954545, 212.1392045455);
+  color: rgb(0, 76.26, 158.1);
+  background: rgb(239.7, 247.08, 255);
   box-shadow: none;
   flex-flow: row nowrap;
 }
@@ -27942,27 +27942,27 @@ h2 + p, .h2 + p {
 }
 
 a {
-  color: #007bff;
-  text-decoration: none;
+  color: rgb(0, 76.26, 158.1);
+  text-decoration: underline;
   background-color: transparent;
   font-weight: normal;
 }
 a:hover {
-  color: rgb(102, 175.8, 255);
+  color: rgb(5.1, 125.64, 255);
   text-decoration: none;
 }
 a:active {
-  color: rgb(0, 73.8, 153);
+  color: rgb(0, 27.06, 56.1);
 }
 a img {
-  border: 0.0625rem solid #007bff;
+  border: 0.0625rem solid rgb(0, 76.26, 158.1);
 }
 a:hover img {
-  border-color: rgb(102, 175.8, 255);
+  border-color: rgb(5.1, 125.64, 255);
   filter: brightness(110%) saturate(110%);
 }
 a:active img {
-  border-color: rgb(0, 73.8, 153);
+  border-color: rgb(0, 27.06, 56.1);
 }
 
 img {
@@ -28182,7 +28182,7 @@ blockquote h4, blockquote .h4 {
   margin-bottom: 0.5rem;
 }
 .picture-wrapper a, figure a {
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
 }
 .picture-wrapper strong, figure strong {
   color: #212529;
@@ -28227,8 +28227,12 @@ bold, strong {
   font-weight: normal;
 }
 
+code {
+  color: rgb(131, 0, 78.7124463519);
+}
+
 pre {
-  color: #d63384;
+  color: rgb(131, 0, 78.7124463519);
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   background: rgb(238.425, 238.425, 238.425);
   padding: 1rem 2rem;
@@ -28290,7 +28294,7 @@ pre strong {
   column-gap: 1rem;
 }
 .main-navigation .navbar .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.9);
   background: transparent;
   border: 0;
   padding: 0.25rem 0;
@@ -28339,7 +28343,7 @@ pre strong {
 footer {
   border-top: 0.0625rem solid rgb(191.25, 191.25, 191.25);
   background: rgb(229.5, 241.8, 255);
-  color: rgb(85.425, 85.425, 85.425);
+  color: #333333;
   font-size: 90%;
   padding: 1rem 2rem;
 }
@@ -28361,7 +28365,7 @@ section.intro figure {
   margin-bottom: 0;
 }
 section.even {
-  background-color: rgb(234.6335227273, 244.3607954545, 212.1392045455);
+  background-color: rgb(239.7, 247.08, 255);
 }
 section.even .item, section.even .client-details {
   background: transparent;
@@ -28415,13 +28419,13 @@ section.picture-header .text {
   color: #fff;
 }
 .lightbox .lb-dataContainer .lb-data .lb-details .lb-caption a {
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
 }
 .lightbox .lb-dataContainer .lb-data .lb-details .lb-caption a:hover {
-  color: rgb(102, 175.8, 255);
+  color: rgb(5.1, 125.64, 255);
 }
 .lightbox .lb-dataContainer .lb-data .lb-details .lb-caption a:active {
-  color: rgb(0, 73.8, 153);
+  color: rgb(0, 27.06, 56.1);
 }
 .lightbox .lb-dataContainer .lb-data .lb-details .lb-number {
   font-size: 90%;
@@ -28655,13 +28659,13 @@ img.social-media-preview {
   font-size: 1rem;
   text-decoration: none;
   text-transform: uppercase;
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
 }
 .has-right-link a:hover, .has-right-text a:hover {
-  color: rgb(102, 175.8, 255);
+  color: rgb(5.1, 125.64, 255);
 }
 .has-right-link a:active, .has-right-text a:active {
-  color: rgb(0, 73.8, 153);
+  color: rgb(0, 27.06, 56.1);
 }
 .has-right-link span, .has-right-text span {
   margin-left: auto;
@@ -28677,7 +28681,7 @@ img.social-media-preview {
 .has-right-link .fas:before, .has-right-link .fa-solid:before, .has-right-text .fas:before, .has-right-text .fa-solid:before {
   font-family: "Font Awesome Solid";
   content: "\f054";
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
 }
 
 .inline-status {
@@ -28687,7 +28691,8 @@ img.social-media-preview {
 
 .genre, .category {
   text-transform: uppercase;
-  color: rgb(140.25, 140.25, 140.25);
+  color: rgb(153, 46.8, 0);
+  font-family: "Proxima Nova Bold";
 }
 
 .category-header {
@@ -28710,7 +28715,7 @@ img.social-media-preview {
   font-family: "Font Awesome Solid";
   font-size: 1rem;
   content: "\f054";
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
   margin-left: 0.5rem;
 }
 .cta:after:hover {
@@ -28730,7 +28735,7 @@ a.external-site:after {
   line-height: 0.85rem;
   margin-left: 0.1rem;
   content: url("../../img/icons/external-site.svg");
-  fill: #007bff;
+  fill: rgb(0, 76.26, 158.1);
 }
 
 .list-header {
@@ -28780,7 +28785,7 @@ a.external-site:after {
 }
 
 .boxed .client-details {
-  background: rgb(234.6335227273, 244.3607954545, 212.1392045455);
+  background: rgb(239.7, 247.08, 255);
   padding: 2rem;
   border-radius: 1rem;
 }
@@ -28788,7 +28793,7 @@ a.external-site:after {
   margin-bottom: 0;
 }
 .boxed.even .client-details {
-  background: rgb(254.0482954545, 254.5028409091, 252.9971590909);
+  background: white;
 }
 
 .jobs h2, .jobs .h2 {
@@ -28819,13 +28824,13 @@ a.external-site:after {
   display: block;
   position: relative;
   min-height: 25rem;
-  border: 0.0625rem solid #007bff;
+  border: 0.0625rem solid rgb(0, 76.26, 158.1);
 }
 .tiles .tile a:hover {
-  border-color: rgb(102, 175.8, 255);
+  border-color: rgb(5.1, 125.64, 255);
 }
 .tiles .tile a:active {
-  border-color: rgb(0, 73.8, 153);
+  border-color: rgb(0, 27.06, 56.1);
 }
 .tiles.skills .tile a {
   min-height: 20rem;
@@ -28837,13 +28842,13 @@ a.external-site:after {
   display: block;
   position: relative;
   aspect-ratio: 3/2;
-  border: 0.0625rem solid #007bff;
+  border: 0.0625rem solid rgb(0, 76.26, 158.1);
 }
 .tiled a.tile:hover {
-  border-color: rgb(102, 175.8, 255);
+  border-color: rgb(5.1, 125.64, 255);
 }
 .tiled a.tile:active {
-  border-color: rgb(0, 73.8, 153);
+  border-color: rgb(0, 27.06, 56.1);
 }
 .tiled.skills .tile a {
   min-height: 20rem;
@@ -28879,7 +28884,7 @@ a.external-site:after {
   display: block;
 }
 .thumbnails .thumbnail .image:hover {
-  border-color: #007bff;
+  border-color: rgb(0, 76.26, 158.1);
   opacity: 0.5;
 }
 .thumbnails .thumbnail .image:focus {
@@ -29024,14 +29029,14 @@ a.external-site:after {
   color: rgb(114.75, 114.75, 114.75);
 }
 .bordered-image a .text .name, .bordered-image a .text .header, .thumbnails a .text .name, .thumbnails a .text .header, .sidebar a .text .name, .sidebar a .text .header, .story-group-blade a .text .name, .story-group-blade a .text .header {
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
   text-decoration: none;
 }
 .bordered-image a .text .description, .thumbnails a .text .description, .sidebar a .text .description, .story-group-blade a .text .description {
   color: #212529;
 }
 .bordered-image a:hover img, .thumbnails a:hover img, .sidebar a:hover img, .story-group-blade a:hover img {
-  border-color: #007bff;
+  border-color: rgb(0, 76.26, 158.1);
   box-shadow: 0 0 10px #fff;
   opacity: 0.5;
 }
@@ -29039,7 +29044,7 @@ a.external-site:after {
   color: rgb(191.25, 191.25, 191.25);
 }
 .bordered-image a:hover .name, .thumbnails a:hover .name, .sidebar a:hover .name, .story-group-blade a:hover .name {
-  color: rgb(102, 175.8, 255);
+  color: rgb(5.1, 125.64, 255);
 }
 .bordered-image a:hover .description, .thumbnails a:hover .description, .sidebar a:hover .description, .story-group-blade a:hover .description {
   color: none;
@@ -29112,6 +29117,7 @@ a.external-site:after {
 }
 .rip-job h3, .rip-job .h3 {
   margin-bottom: 0;
+  padding-top: 0.5rem;
 }
 
 .mas-website-history .version {
@@ -29156,7 +29162,7 @@ a.external-site:after {
   background: rgb(255, 113.4, 51);
 }
 .btn:active {
-  color: rgb(51, 149.4, 255);
+  color: rgb(0, 100.86, 209.1);
   background: #fff;
 }
 
@@ -29185,13 +29191,13 @@ a.external-site:after {
 }
 .back-to-landing-page a .fas:before {
   content: "\f0d9";
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
 }
 .back-to-landing-page:hover a {
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
 }
 .back-to-landing-page:hover a .fas:before {
-  color: rgb(102, 175.8, 255);
+  color: rgb(5.1, 125.64, 255);
 }
 
 .back-to-top {
@@ -29428,7 +29434,7 @@ a.external-site:after {
 .code-soup {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 90%;
-  color: rgb(0, 142.0264317181, 201.5);
+  color: rgb(131, 0, 78.7124463519);
 }
 .code-soup li {
   border-color: #ccc;
@@ -29487,8 +29493,8 @@ a.external-site:after {
 }
 
 .form-check-input:checked {
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: rgb(0, 76.26, 158.1);
+  border-color: rgb(0, 76.26, 158.1);
 }
 
 .no-border {
@@ -30025,7 +30031,7 @@ a.external-site:after {
 .about .sidebar .item.contact.social .list-inline li a:before {
   margin-right: 0;
   width: 1.5rem;
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
 }
 .about .sidebar .item.contact a {
   color: rgba(102, 102, 102, 0);
@@ -30113,7 +30119,7 @@ a.external-site:after {
   line-height: 108%;
   text-align: left;
   margin-bottom: 0;
-  color: rgb(140.25, 140.25, 140.25);
+  color: rgb(85.425, 85.425, 85.425);
 }
 .blog article.blog-preview a .meta .author {
   font-family: "Proxima Nova Bold";
@@ -30157,7 +30163,7 @@ a.external-site:after {
   border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
 }
 .blog article figure a:hover img {
-  border-color: #007bff;
+  border-color: rgb(0, 76.26, 158.1);
 }
 .blog article figure p {
   position: static;
@@ -30167,7 +30173,7 @@ a.external-site:after {
   color: #212529;
 }
 .blog article figure p a {
-  color: #007bff;
+  color: rgb(0, 76.26, 158.1);
 }
 .blog article figure p strong {
   color: #212529;
@@ -30222,7 +30228,7 @@ a.external-site:after {
   font-size: 90%;
   text-align: left;
   margin-bottom: 0;
-  color: rgb(191.25, 191.25, 191.25);
+  color: rgb(85.425, 85.425, 85.425);
 }
 .blog article header .byline .author {
   font-family: "Proxima Nova Bold";
@@ -30292,6 +30298,7 @@ a.external-site:after {
 }
 .blog .blog-nav a {
   font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+  text-decoration: none;
 }
 .blog .blog-nav dl {
   padding-top: 1rem;
@@ -30301,7 +30308,7 @@ a.external-site:after {
   margin-bottom: 0.5rem;
 }
 .blog .blog-nav dl dd.active a {
-  color: rgb(191.25, 191.25, 191.25);
+  color: rgb(85.425, 85.425, 85.425);
   cursor: default;
 }
 .blog .blog-nav .template,
@@ -30317,11 +30324,11 @@ a.external-site:after {
   clear: both;
 }
 .blog.index article:hover img {
-  border-color: rgb(102, 175.8, 255);
+  border-color: rgb(5.1, 125.64, 255);
   filter: brightness(110%) saturate(110%);
 }
 .blog.index article:active img {
-  border-color: rgb(0, 73.8, 153);
+  border-color: rgb(0, 27.06, 56.1);
 }
 .blog.index article figure.unboxed {
   text-align: center;
@@ -30333,7 +30340,7 @@ a.external-site:after {
 }
 .blog.index article figure img {
   margin-bottom: 0;
-  border: 0.0625rem solid #007bff;
+  border: 0.0625rem solid rgb(0, 76.26, 158.1);
 }
 .blog.index article header {
   border-bottom: 0;

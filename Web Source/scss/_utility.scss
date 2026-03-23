@@ -78,6 +78,7 @@
 .genre, .category {
 	text-transform: uppercase;
 	color: $category-color;
+	font-family: $font-family-bold;
 }
 
 .category-header {
@@ -525,6 +526,7 @@ a.external-site {
 	border-bottom: $border-light;
 	h3 {
 		margin-bottom: 0;
+		padding-top: $spacer-small;
 	}
 }
 

@@ -59,7 +59,7 @@
 					line-height: $font-size-small * 1.2;
 					text-align: left;
 					margin-bottom: 0;
-					color: $gray-light-med;
+					color: $gray;
 					.author {
 						font-family: $font-family-headers;
 						margin-right: $spacer-small;
@@ -180,7 +180,7 @@
 				font-size: $font-size-small;
 				text-align: left;
 				margin-bottom: 0;
-				color: $gray-light;
+				color: $gray;
 				.author {
 					font-family: $font-family-headers;
 					margin-right: $spacer-small;
@@ -263,6 +263,7 @@
 		padding-bottom: $spacer-large;
 		a {
 			font-family: $font-family-base;
+			text-decoration: none;
 		}
 		dl {
 			padding-top: $spacer-base;
@@ -273,7 +274,7 @@
 			dd {
 				&.active {
 					a {
-						color: $gray-light;
+						color: $gray;
 						cursor: default;
 					}
 				}

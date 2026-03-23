@@ -105,7 +105,7 @@ $body-bg:									$white;
 $headings-color: 							darken($illdave-blue, 20%);
 $text-color:								#212529;
 $text-divider-color:						transparentize($text-color, 0.2);
-$link-color:								$theme-color-1;
+$link-color:								darken($theme-color-1, 19%);
 $link-hover-color:							lighten($link-color, 20%);
 $link-active-color:							darken($link-color, 20%);
 
@@ -121,7 +121,7 @@ $btn-hover-bg:								lighten($btn-bg, 10%);
 $btn-active-color:							lighten($link-color, 10%);
 $btn-active-bg:								$white;
 
-$accent-bg-color:							lighten($illdave-green, 55%);
+$accent-bg-color:							lighten($illdave-blue, 47%);
 
 $svg-icon-link-filter: 						invert(50%) sepia(100%) saturate(2%) hue-rotate(90deg) brightness(103%) contrast(100%);
 $svg-icon-hover-filter: 					invert(60%) sepia(100%) saturate(2%) hue-rotate(90deg) brightness(103%) contrast(100%);
@@ -133,7 +133,7 @@ $cta-link-color: 							$link-color;
 $cta-link-hover-color: 						$text-color;
 $cta-link-active-color: 					darken($cta-link-color, 70%);
 
-$category-color: 							$gray-light-med;
+$category-color: 							darken($illdave-orange, 20%);
 $category-header-color: 					$text-color;
 $inline-right-text-color: 					$text-color;
 
@@ -333,7 +333,7 @@ $icon-email:   								url("#{$icons}/envelope.svg");
 
 $footer-border: 							rem(1px solid $gray-light);
 $footer-bg: 								lighten($illdave-blue, 45%);
-$footer-color: 								$gray;
+$footer-color: 								$gray-dark;
 $footer-font-size: 							$font-size-small;
 $footer-padding: 							$spacer-base-vertical $spacer-base-horizontal;
 
@@ -370,7 +370,7 @@ $nav-link-hover:							$white;
 $nav-link-current:							$white;
 $nav-link-active:							$black;
 
-$nav-link-color:							transparentize($white, 0.4);
+$nav-link-color:							transparentize($white, 0.1);
 $nav-link-bg:								transparent;
 $nav-link-border:							0;
 
@@ -437,7 +437,8 @@ $comic-book-thumbnail-image-border: 		$comic-book-img-border;
 $comic-book-thumbnail-image-margin-bottom:	$spacer-small;
 
 $code-font: 								$font-family-monospace;
-$code-soup-color: 							$code-color-cyan;
+$code-color: 								darken($code-color-magenta, 20%);
+$code-soup-color: 							$code-color;
 $code-soup-divider: 						$code-color-gray;
 
 $contact-card-bg: 							transparent;
