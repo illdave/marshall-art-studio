@@ -130,6 +130,9 @@
 	.text {
 		h2 {
 			margin-bottom: .5rem;
+			& + p {
+				margin-top: 0;
+			}
 		}
 		p {
 			margin-bottom: .5rem;
@@ -367,6 +370,11 @@
 				iframe {
 					aspect-ratio: 3 / 2;
 				}
+			}
+		}
+		&.image-has-border {
+			img {
+				border: $border-default;
 			}
 		}
 	}

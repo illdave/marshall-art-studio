@@ -27426,6 +27426,9 @@ https://github.com/lokesh/lightbox2 */
 .multi-link .text h2, .multi-link .text .h2 {
   margin-bottom: 0.5rem;
 }
+.multi-link .text h2 + p, .multi-link .text .h2 + p {
+  margin-top: 0;
+}
 .multi-link .text p {
   margin-bottom: 0.5rem;
 }
@@ -27641,6 +27644,9 @@ https://github.com/lokesh/lightbox2 */
 }
 .feature-cards .feature-card.video.embed-3x2 iframe {
   aspect-ratio: 3/2;
+}
+.feature-cards .feature-card.image-has-border img {
+  border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
 }
 .feature-cards.with-background .feature-card {
   padding: 1rem;
