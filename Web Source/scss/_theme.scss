@@ -152,7 +152,14 @@ $tile-card-bg-light: 						lighten($tile-card-bg, 10%);
 $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 
 $category-color: 							$white;
+$category-header-color: 					$text-color;
+$inline-right-text-color: 					$text-color;
 
+$accordion-button-color: 					$text-color;
+$accordion-button-bg: 						$black;
+$accordion-button-bg-collapsed:				$black;
+$accordion-body-color: 						$text-color;
+$accordion-body-bg: 						$tile-card-bg;
 
 .dark-mode {
 	background: $body-bg;
@@ -360,6 +367,7 @@ $category-color: 							$white;
 		&.intro {
 			background-color: $section-bg-even;
 			border-bottom: $border-default;
+			background: $section-bg-even url("#{$layout-image-path}/section-bg-pinstripes-darkmode.png") 0 0 repeat;
 		}
 		&.even {
 			background-color: $section-bg-even;
@@ -476,13 +484,45 @@ $category-color: 							$white;
 		color: $category-color;
 	}
 	
+	.category-header {
+		color: $category-header-color;
+	}
+	
 	.cta {
 		&:after {
 			color: $link-color;  
 		}
 	}
-			
-	.feature-story-card {
+	.has-right-link, .has-right-text {
+		a {
+			color: $link-color;
+			&:hover {
+				color: $link-hover-color;
+			}
+			&:active {
+				color: $link-active-color;
+			}
+		}
+		span {
+			color: $inline-right-text-color;
+		}
+		.fas, .fa-solid {
+			&:before {
+				color: $link-color;
+			}
+		}
+	}
+	
+	.footnote {
+		border-top: $border-default;
+		.footnote-asterisk {
+			color: $illdave-orange;
+		}
+	}
+
+	/* components -------------------- */
+
+	.feature-story-card, .lead-story {
 		&.has-bottom-border {
 		}
 		.image {
@@ -526,6 +566,22 @@ $category-color: 							$white;
 	}
 	
 	.tile-cards {
+		&.icon-tiles  {
+			.tile-card {
+				&.disabled {
+					.text {
+						.header {
+							color: $text-color;
+						}
+						.description {}
+					}
+					&:hover {
+						background-color: $tile-card-bg;
+					}
+				}
+			}
+		}
+			
 		.tile-card {
 			background: $tile-card-bg;	
 			.header {
@@ -540,8 +596,24 @@ $category-color: 							$white;
 			&:hover {
 				background-color: $tile-card-hover-bg;
 			}
+
+			
 		}
 	}
+	
+	.story-group-tiles {
+		&.merged {
+			.row.tile-cards {
+				background: $tile-card-bg;	
+				.item {
+					&:not(:first-child):before {
+						background: $border-default-color;
+					}
+				}
+			}
+		}
+	}
+	
 	.story-group-blade {
 		.story-group-row.tile-cards {
 			background: $tile-card-bg;
@@ -574,6 +646,9 @@ $category-color: 							$white;
 				}
 				.description {
 					color: $text-color;
+					&.code-soup {
+						color: $code-soup-color;
+					}
 				}
 			}
 			.cta {
@@ -589,11 +664,14 @@ $category-color: 							$white;
 			}
 		}
 	}
-	
-	.link-list {
+
+	.link-list, .mulit-column-list {
 		.header {
 			border-bottom: $border-default;
 			color: $text-color;
+			.list-description {
+				color: $text-color;
+			}
 		}
 		a {
 			color: $text-color;
@@ -843,6 +921,35 @@ $category-color: 							$white;
 	
 	.rip-job {
 		border-bottom: $border-light;
+	}
+	
+	.accordion {
+		.accordion-item {
+			border-color: $border-default-color;
+			.accordion-header {
+				.accordion-button {
+					color: $link-color;
+					background: $accordion-button-bg;
+					&::after {
+						color: $link-color;
+					}
+					&:not(.collapsed) {
+						&::after {
+							color: $accordion-button-icon-open-color;
+						}
+					}		
+				}
+			}
+			.accordion-collapse {
+				.accordion-body {
+					color: $accordion-body-color;
+					background: $accordion-body-bg;
+					strong {
+						color: $text-color;
+					}
+				}
+			}
+		}
 	}
 	
 	

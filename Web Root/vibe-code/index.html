@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Marshall — UX/UI Design & Development</title>
+<meta name="description" content="David Marshall is a UX/UI designer and front-end developer specializing in accessible, human-centered digital experiences. Hartford, CT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #f7f4ef;
+  --bg2:       #efecea;
+  --bg3:       #e7e3de;
+  --surface:   #ffffff;
+  --border:    #d6d1cb;
+  --border-hi: #b8b2ab;
+  --text:      #1a1714;
+  --text-mid:  #4a4540;
+  --text-dim:  #8a837a;
+  --accent:    #1d4ed8;
+  --accent2:   #c2410c;
+  --ink:       #0f0d0b;
+
+  --f-display: 'DM Serif Display', Georgia, serif;
+  --f-body:    'Figtree', system-ui, sans-serif;
+  --f-mono:    'DM Mono', 'Courier New', monospace;
+
+  --max-w:   1180px;
+  --section: clamp(4rem, 9vw, 7rem);
+  --pad-x:   clamp(1.25rem, 5vw, 3rem);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: clamp(1rem, 1.05vw, 1.1rem);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2.5px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 200;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: .8rem;
+  letter-spacing: .06em;
+  padding: .5rem 1rem;
+  border-radius: 0 0 4px 4px;
+  text-decoration: none;
+  transition: top .2s;
+}
+.skip-link:focus { top: 0; }
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+/* ── HEADER ── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(247,244,239,.93);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  gap: 1.5rem;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: var(--f-mono);
+  font-size: .82rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.brand-dot {
+  width: 9px; height: 9px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: breathe 2.8s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(.5); opacity: .45; }
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+}
+.nav-links a {
+  font-family: var(--f-mono);
+  font-size: .76rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-cta a {
+  background: var(--accent);
+  color: #fff !important;
+  padding: .42rem 1rem;
+  border-radius: 2px;
+  transition: background .2s, transform .15s;
+}
+.nav-cta a:hover { background: #1741b8; transform: translateY(-1px); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text);
+  padding: .4rem .65rem;
+  cursor: pointer;
+  font-family: var(--f-mono);
+  font-size: .72rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem var(--pad-x) 2rem;
+    gap: 1.25rem;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: .88rem; }
+}
+
+/* ── HERO ── */
+#hero {
+  padding: var(--section) 0 clamp(3rem, 8vw, 6rem);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: .3;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: center;
+}
+@media (max-width: 780px) {
+  .hero-inner { grid-template-columns: 1fr; }
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  font-family: var(--f-mono);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 2rem; height: 1.5px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+h1 {
+  font-family: var(--f-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -.025em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+h1 em {
+  font-style: italic;
+  color: var(--accent2);
+}
+
+.hero-desc {
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  color: var(--text-mid);
+  line-height: 1.75;
+  max-width: 46ch;
+  margin-bottom: 2.5rem;
+}
+
+.btn-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: .875rem 1.75rem;
+  border-radius: 2px;
+  transition: background .2s, transform .15s;
+}
+.btn-primary:hover { background: #1741b8; transform: translateY(-1px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  color: var(--text-mid);
+  font-family: var(--f-mono);
+  font-size: .78rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: .875rem 1.75rem;
+  border: 1.5px solid var(--border-hi);
+  border-radius: 2px;
+  transition: border-color .2s, color .2s;
+}
+.btn-ghost:hover { border-color: var(--text-mid); color: var(--ink); }
+
+/* Hero panel */
+.hero-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 2px 24px rgba(0,0,0,.07), 0 1px 4px rgba(0,0,0,.04);
+  overflow: hidden;
+}
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .85rem 1.25rem;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+}
+.panel-dots { display: flex; gap: .4rem; }
+.panel-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+}
+.panel-title {
+  font-family: var(--f-mono);
+  font-size: .64rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.panel-body { padding: 1.5rem; }
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-bottom: 1.75rem;
+}
+.tag {
+  font-family: var(--f-mono);
+  font-size: .67rem;
+  letter-spacing: .04em;
+  padding: .28rem .65rem;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  background: var(--bg);
+}
+.tag.hi {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(29,78,216,.05);
+  font-weight: 500;
+}
+.tag.warm {
+  border-color: var(--accent2);
+  color: var(--accent2);
+  background: rgba(194,65,12,.05);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--border);
+  margin: 0 -1.5rem -1.5rem;
+}
+.stat {
+  padding: 1.25rem 1rem;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.stat:last-child { border-right: none; }
+.stat-n {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: .3rem;
+}
+.stat-l {
+  font-family: var(--f-mono);
+  font-size: .6rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* ── SECTIONS ── */
+section { padding: var(--section) 0; border-top: 1px solid var(--border); }
+
+.sh {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+.sh-num {
+  font-family: var(--f-mono);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.sh h2 {
+  font-family: var(--f-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+  letter-spacing: -.02em;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.sh h2 em { font-style: italic; color: var(--accent2); }
+
+/* ── SERVICES ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.svc {
+  background: var(--surface);
+  padding: 2.25rem 1.875rem;
+  transition: background .2s;
+}
+.svc:hover { background: var(--bg2); }
+.svc-icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 1.25rem;
+  line-height: 1;
+}
+.svc h3 {
+  font-family: var(--f-display);
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin-bottom: .6rem;
+  line-height: 1.2;
+}
+.svc p {
+  font-size: .9rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+/* ── WORK ── */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.wc {
+  background: var(--surface);
+  padding: 2.5rem 2.25rem;
+  position: relative;
+  transition: background .2s;
+}
+.wc:hover { background: var(--bg2); }
+.wc:hover .wc-arrow { opacity: 1; transform: translate(0,0); }
+
+.wc-s7  { grid-column: span 7; }
+.wc-s5  { grid-column: span 5; }
+.wc-s6  { grid-column: span 6; }
+.wc-s12 { grid-column: span 12; }
+
+@media (max-width: 900px) {
+  .wc-s7, .wc-s5, .wc-s6 { grid-column: span 12; }
+}
+
+.wc-arrow {
+  position: absolute;
+  top: 2rem; right: 2rem;
+  width: 2.2rem; height: 2.2rem;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .9rem;
+  color: var(--accent);
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: opacity .2s, transform .2s;
+  text-decoration: none;
+}
+.wc-num {
+  font-family: var(--f-mono);
+  font-size: .67rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: .75rem;
+}
+.wc h3 {
+  font-family: var(--f-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: .875rem;
+}
+.wc p {
+  font-size: .9rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+  max-width: 54ch;
+}
+.wc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-top: 1.25rem;
+}
+.chip {
+  font-family: var(--f-mono);
+  font-size: .63rem;
+  letter-spacing: .05em;
+  padding: .2rem .55rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text-dim);
+}
+
+/* ── CALLOUT STRIP ── */
+.callout-strip {
+  background: var(--accent);
+  color: #fff;
+  padding: clamp(3rem,7vw,5rem) var(--pad-x);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.callout-strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.callout-inner {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.callout-strip h2 {
+  font-family: var(--f-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: 1rem;
+}
+.callout-strip p {
+  font-size: 1rem;
+  opacity: .85;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 56ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: #fff;
+  color: var(--accent);
+  font-family: var(--f-mono);
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: .875rem 2rem;
+  border-radius: 2px;
+  transition: background .2s, transform .15s;
+}
+.btn-white:hover { background: #f0f4ff; transform: translateY(-1px); }
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+@media (max-width: 720px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+.about-photo-wrap { position: relative; }
+.about-photo-wrap img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 3px;
+  display: block;
+  filter: saturate(.88);
+}
+.photo-badge {
+  position: absolute;
+  bottom: 1rem; right: 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: .4rem .75rem;
+  font-family: var(--f-mono);
+  font-size: .62rem;
+  letter-spacing: .08em;
+  color: var(--text-dim);
+  border-radius: 2px;
+}
+
+.about-text .sh { margin-bottom: 1.5rem; }
+.about-lead {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+.about-body {
+  font-size: .95rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.about-pull {
+  border-left: 2.5px solid var(--accent);
+  padding: 1rem 1.5rem;
+  background: rgba(29,78,216,.04);
+  border-radius: 0 3px 3px 0;
+  margin-bottom: 1.75rem;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+.about-skills {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .4rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.about-skills li {
+  font-family: var(--f-mono);
+  font-size: .75rem;
+  color: var(--text-mid);
+  letter-spacing: .03em;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.about-skills li::before {
+  content: '▸';
+  color: var(--accent);
+  font-size: .65rem;
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .about-skills { grid-template-columns: 1fr; }
+}
+
+/* ── CONTACT ── */
+#contact {
+  text-align: center;
+}
+.contact-eyebrow {
+  font-family: var(--f-mono);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+#contact h2 {
+  font-family: var(--f-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: -.025em;
+  color: var(--ink);
+  line-height: 1.08;
+  margin-bottom: 1.25rem;
+}
+#contact h2 em { font-style: italic; color: var(--accent2); }
+.contact-desc {
+  font-size: 1.05rem;
+  color: var(--text-mid);
+  max-width: 50ch;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-family: var(--f-mono);
+  font-size: .74rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: .5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  transition: border-color .2s, color .2s;
+}
+.social-link:hover { border-color: var(--accent); color: var(--accent); }
+.social-link svg { flex-shrink: 0; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.footer-copy {
+  font-family: var(--f-mono);
+  font-size: .67rem;
+  letter-spacing: .06em;
+  color: var(--text-dim);
+}
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+.footer-links a {
+  font-family: var(--f-mono);
+  font-size: .67rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color .2s;
+}
+.footer-links a:hover { color: var(--accent); }
+
+/* ── ANIMATIONS ── */
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up:nth-child(2) { transition-delay: .08s; }
+  .fade-up:nth-child(3) { transition-delay: .16s; }
+  .fade-up:nth-child(4) { transition-delay: .24s; }
+  .fade-up:nth-child(5) { transition-delay: .32s; }
+  .fade-up:nth-child(6) { transition-delay: .40s; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<header>
+  <div class="container">
+    <nav aria-label="Primary navigation">
+      <a href="/" class="nav-brand" aria-label="Marshall Art Studio home">
+        <span class="brand-dot" aria-hidden="true"></span>
+        Marshall Art Studio
+      </a>
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="nav-links"
+        onclick="this.setAttribute('aria-expanded', document.getElementById('nav-links').classList.toggle('open')); this.textContent = document.getElementById('nav-links').classList.contains('open') ? 'Close' : 'Menu';"
+      >Menu</button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li class="nav-cta"><a href="#contact">Get in touch</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="container">
+      <div class="hero-inner">
+
+        <div>
+          <p class="hero-eyebrow" aria-hidden="true">UX/UI Design &amp; Development</p>
+          <h1 id="hero-heading">
+            Design that<br>
+            makes <em>AI</em><br>
+            look good.
+          </h1>
+          <p class="hero-desc">
+            I'm David Marshall — a Boston-based UX/UI designer and front-end developer with 20+ years of craft. I build accessible, human-centered digital products and help teams get real quality out of AI-assisted development.
+          </p>
+          <div class="btn-row">
+            <a href="#work" class="btn-primary">View my work →</a>
+            <a href="#contact" class="btn-ghost">Let's talk</a>
+          </div>
+        </div>
+
+        <div aria-label="Skills and highlights">
+          <div class="hero-panel">
+            <div class="panel-header" aria-hidden="true">
+              <div class="panel-dots">
+                <div class="panel-dot"></div>
+                <div class="panel-dot"></div>
+                <div class="panel-dot"></div>
+              </div>
+              <span class="panel-title">skills.md</span>
+              <div style="width:3.5rem"></div>
+            </div>
+            <div class="panel-body">
+              <div class="skill-tags" role="list" aria-label="Core skills">
+                <span class="tag hi" role="listitem">Accessibility · WCAG AA</span>
+                <span class="tag hi" role="listitem">UX/UI Design</span>
+                <span class="tag hi" role="listitem">HTML &amp; CSS</span>
+                <span class="tag hi" role="listitem">Front-End Dev</span>
+                <span class="tag warm" role="listitem">Visual Design</span>
+                <span class="tag warm" role="listitem">Brand Identity</span>
+                <span class="tag warm" role="listitem">Print Design</span>
+                <span class="tag" role="listitem">Design Systems</span>
+                <span class="tag" role="listitem">Responsive Design</span>
+                <span class="tag" role="listitem">Figma</span>
+                <span class="tag" role="listitem">AI Collaboration</span>
+                <span class="tag" role="listitem">Vibe Coding</span>
+              </div>
+              <div class="stats" role="list" aria-label="Career highlights">
+                <div class="stat" role="listitem">
+                  <span class="stat-n" aria-label="20 plus years">20+</span>
+                  <span class="stat-l">Years exp.</span>
+                </div>
+                <div class="stat" role="listitem">
+                  <span class="stat-n">AA</span>
+                  <span class="stat-l">WCAG level</span>
+                </div>
+                <div class="stat" role="listitem">
+                  <span class="stat-n">MA</span>
+                  <span class="stat-l">Boston-based</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="sh">
+        <span class="sh-num" aria-hidden="true">01</span>
+        <h2 id="services-heading">What I bring<br><em>to your team</em></h2>
+      </div>
+      <div class="services-grid">
+        <div class="svc fade-up">
+          <span class="svc-icon" aria-hidden="true">🎯</span>
+          <h3>UX/UI Design</h3>
+          <p>User-centered interfaces built on research, accessibility, and real usability — not just aesthetics. Systems that scale and feel right to use.</p>
+        </div>
+        <div class="svc fade-up">
+          <span class="svc-icon" aria-hidden="true">⚡</span>
+          <h3>Front-End Development</h3>
+          <p>Semantic HTML, precise CSS, clean markup that actually ships. I bridge design intent and production reality — with or without AI in the loop.</p>
+        </div>
+        <div class="svc fade-up">
+          <span class="svc-icon" aria-hidden="true">♿</span>
+          <h3>Accessibility</h3>
+          <p>WCAG AA compliance built in from the start. Extensive government and enterprise experience means I know the edge cases that trip up AI-generated code.</p>
+        </div>
+        <div class="svc fade-up">
+          <span class="svc-icon" aria-hidden="true">🤖</span>
+          <h3>AI-Assisted Workflow</h3>
+          <p>I guide AI tools with the craft judgment they lack — validating output, fixing errors, maintaining quality. The human eye that vibe coding still needs.</p>
+        </div>
+        <div class="svc fade-up">
+          <span class="svc-icon" aria-hidden="true">🎨</span>
+          <h3>Visual &amp; Brand Design</h3>
+          <p>Print heritage meets digital precision. Brand identity, typography, color systems — visual craft that elevates everything built around it.</p>
+        </div>
+        <div class="svc fade-up">
+          <span class="svc-icon" aria-hidden="true">📐</span>
+          <h3>Design Systems</h3>
+          <p>Component libraries and documentation that keep teams consistent and fast — whether writing code themselves or prompting their way through it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" aria-labelledby="work-heading">
+    <div class="container">
+      <div class="sh">
+        <span class="sh-num" aria-hidden="true">02</span>
+        <h2 id="work-heading">Selected<br><em>work</em></h2>
+      </div>
+      <div class="work-grid" role="list">
+
+        <article class="wc wc-s7 fade-up" role="listitem" aria-labelledby="wc1-title">
+          <span class="wc-arrow" aria-hidden="true">↗</span>
+          <p class="wc-num">State of Connecticut · 2021–2024</p>
+          <h3 id="wc1-title">Accessible Digital Services for State Government</h3>
+          <p>Led UX/UI development for Connecticut Digital Services — building accessible websites and design systems for agencies serving millions of residents. WCAG AA compliance throughout.</p>
+          <div class="wc-chips" aria-label="Disciplines involved">
+            <span class="chip">UX/UI Design</span>
+            <span class="chip">WCAG AA</span>
+            <span class="chip">HTML/CSS</span>
+            <span class="chip">Design System</span>
+            <span class="chip">Government</span>
+          </div>
+        </article>
+
+        <article class="wc wc-s5 fade-up" role="listitem" aria-labelledby="wc2-title">
+          <span class="wc-arrow" aria-hidden="true">↗</span>
+          <p class="wc-num">Brand Identity · Agencyport</p>
+          <h3 id="wc2-title">Prestige Worldwide Complete Brand System</h3>
+          <p>Full brand identity for a flagship demo insurance application — logo, visual language, and component design across digital and print.</p>
+          <div class="wc-chips" aria-label="Disciplines involved">
+            <span class="chip">Brand Identity</span>
+            <span class="chip">Visual Design</span>
+            <span class="chip">Print</span>
+          </div>
+        </article>
+
+        <article class="wc wc-s6 fade-up" role="listitem" aria-labelledby="wc3-title">
+          <span class="wc-arrow" aria-hidden="true">↗</span>
+          <p class="wc-num">Interactive Media · McGraw-Hill</p>
+          <h3 id="wc3-title">Spanish Language Learning Illustration Suite</h3>
+          <p>Custom illustration and visual design for an interactive language-learning platform — balancing cultural accuracy, accessibility, and editorial style at scale.</p>
+          <div class="wc-chips" aria-label="Disciplines involved">
+            <span class="chip">Illustration</span>
+            <span class="chip">Visual Design</span>
+            <span class="chip">Interactive Media</span>
+          </div>
+        </article>
+
+        <article class="wc wc-s6 fade-up" role="listitem" aria-labelledby="wc4-title">
+          <span class="wc-arrow" aria-hidden="true">↗</span>
+          <p class="wc-num">Print Campaign · Merrill Lynch</p>
+          <h3 id="wc4-title">Two-Color Developer Recruitment Ad</h3>
+          <p>Constraints-driven print design targeting early-career programmers. Proof that strong typography and a clear concept outperform budget every time.</p>
+          <div class="wc-chips" aria-label="Disciplines involved">
+            <span class="chip">Print Design</span>
+            <span class="chip">Typography</span>
+            <span class="chip">Art Direction</span>
+          </div>
+        </article>
+
+        <div class="wc wc-s12" style="background: var(--bg2);">
+          <p class="wc-num" style="margin-bottom: 1rem;">Full portfolio available on request</p>
+          <p style="font-size:.95rem; color: var(--text-mid); max-width: 62ch; line-height: 1.7; margin-bottom: 1.75rem;">Additional work includes enterprise UI systems, accessibility audits, design-to-code handoffs, and brand and print projects spanning financial services, publishing, and healthcare.</p>
+          <a href="#contact" class="btn-primary" style="font-size:.76rem; padding: .7rem 1.4rem;">Request portfolio →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CALLOUT -->
+  <div class="callout-strip" role="complementary" aria-labelledby="callout-heading">
+    <div class="callout-inner">
+      <h2 id="callout-heading">The industry is vibe coding.<br>I make sure it doesn't show.</h2>
+      <p>AI tools write code fast. They also miss the nuance — semantic structure, accessible patterns, visual hierarchy, responsive edge cases. That's where 20 years of craft becomes your competitive advantage.</p>
+      <a href="#contact" class="btn-white">Let's work together →</a>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-photo-wrap">
+          <img
+            src="https://illdave.com/assets/img/pictures/dave/2023-10-boston.jpg"
+            alt="David Marshall, UX/UI designer and front-end developer, Boston 2023"
+            width="600"
+            height="800"
+            loading="lazy"
+          >
+          <span class="photo-badge" aria-hidden="true">Boston, 2023</span>
+        </div>
+
+        <div class="about-text">
+          <div class="sh">
+            <span class="sh-num" aria-hidden="true">03</span>
+            <h2 id="about-heading">The designer<br>who <em>ships</em></h2>
+          </div>
+
+          <p class="about-lead">
+            I'm a Boston-based UX/UI designer and front-end developer with a deep background in visual design, accessibility, and print media. I've been building for the web since before "responsive" was a word.
+          </p>
+          <p class="about-body">
+            My career spans enterprise software, government digital services, publishing, financial services, and brand design. That range isn't a liability — it's what lets me see problems other specialists miss and communicate across teams that don't always speak the same language.
+          </p>
+
+          <blockquote class="about-pull">
+            "Details matter. Good design is invisible. Accessible design is respectful."
+          </blockquote>
+
+          <p class="about-body">
+            As the industry moves toward AI-assisted development, I find my skills matter more, not less. AI needs direction, correction, and taste. That's exactly what I provide.
+          </p>
+
+          <ul class="about-skills" aria-label="Core competencies">
+            <li>Semantic HTML &amp; CSS architecture</li>
+            <li>WCAG AA accessibility compliance</li>
+            <li>UX research &amp; wireframing</li>
+            <li>Responsive, mobile-first design</li>
+            <li>Design system creation</li>
+            <li>Brand &amp; visual identity</li>
+            <li>Print design &amp; typography</li>
+            <li>Cross-team collaboration</li>
+            <li>AI output review &amp; quality control</li>
+            <li>Figma &amp; design-to-code handoff</li>
+          </ul>
+
+          <a href="#contact" class="btn-primary">Get in touch →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <p class="contact-eyebrow" aria-hidden="true">Let's work together</p>
+      <h2 id="contact-heading">Ready when<br><em>you are.</em></h2>
+      <p class="contact-desc">
+        Open to UX/UI design, front-end development, accessibility consulting, and design system work. Contract and full-time roles welcome.
+      </p>
+      <a href="mailto:dmarshall@illdave.com?subject=Let%27s%20work%20together" class="btn-primary" style="font-size:.82rem;">
+        dmarshall@illdave.com →
+      </a>
+      <nav class="social-links" aria-label="Social and professional profiles">
+        <a href="https://www.linkedin.com/in/illdave" class="social-link" rel="noopener noreferrer" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/illdave" class="social-link" rel="noopener noreferrer" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="https://bsky.app/profile/illdave.bsky.social" class="social-link" rel="noopener noreferrer" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.547 1.99 1.03 3.702c-.896 3.428-.547 7.422.11 10.896.459 2.035.78 3.942.38 5.402-4.383l.212-.186-.197.18c1.16-.98 2.97-2.485 3.44-2.633.987-.305 2.023 1.425 2.023 2.634v.193c0 1.01-.017 2.024-.054 3.034l-.01.304.008-.307c.044-1.025.068-2.051.068-3.031v-.193c0-1.21 1.036-2.939 2.023-2.634.47.148 2.28 1.652 3.44 2.633l-.198-.18.212.186c1.46 4.765 3.367 5.165 5.402 4.383.657-2.578 1.006-6.572.11-10-.517-1.711-1.536-2.758-4.172-.997-2.752 1.942-5.711 5.881-6.798 7.995z"/></svg>
+          <span>Bluesky</span>
+        </a>
+      </nav>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <p class="footer-copy">© 2025 Marshall Art Studio · Boston, MA</p>
+      <ul class="footer-links" role="list">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="mailto:dmarshall@illdave.com">Email</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Close mobile nav on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    const nav = document.getElementById('nav-links');
+    const btn = document.querySelector('.nav-toggle');
+    nav.classList.remove('open');
+    if (btn) { btn.setAttribute('aria-expanded', 'false'); btn.textContent = 'Menu'; }
+  });
+});
+
+// Fade-up on scroll
+if (window.IntersectionObserver) {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+}
+</script>
+
+</body>
+</html>

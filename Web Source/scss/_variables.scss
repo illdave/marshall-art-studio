@@ -88,6 +88,7 @@ $theme-color-6:								$illdave-teal;
 $theme-color-7:								darken($theme-color-3, 5%); // dark blue 
 
 $code-color-magenta: 						#e9008c;
+$code-color-cyan: 							darken($illdave-cyan, 5%);
 $code-color-green: 							#099;
 $code-color-blue-deep: 						#06c;
 $code-color-blue-bright: 					#9cf;
@@ -101,7 +102,7 @@ $border-light: 								rem(1px solid $gray-light-medium);
 $table-border-color:						$border-default-color;
 
 $body-bg:									$white;
-$headings-color: 							$black;
+$headings-color: 							darken($illdave-blue, 20%);
 $text-color:								#212529;
 $text-divider-color:						transparentize($text-color, 0.2);
 $link-color:								$theme-color-1;
@@ -120,8 +121,10 @@ $btn-hover-bg:								lighten($btn-bg, 10%);
 $btn-active-color:							lighten($link-color, 10%);
 $btn-active-bg:								$white;
 
+$accent-bg-color:							lighten($illdave-green, 55%);
+
 $svg-icon-link-filter: 						invert(50%) sepia(100%) saturate(2%) hue-rotate(90deg) brightness(103%) contrast(100%);
-$svg-icon-hover-filter: 					invert(80%) sepia(100%) saturate(2%) hue-rotate(90deg) brightness(103%) contrast(100%);
+$svg-icon-hover-filter: 					invert(60%) sepia(100%) saturate(2%) hue-rotate(90deg) brightness(103%) contrast(100%);
 $svg-icon-active-filter: 					invert(20%) sepia(100%) saturate(2%) hue-rotate(90deg) brightness(103%) contrast(100%);
 
 $white-glow: 								0 0 10px $white;
@@ -130,8 +133,9 @@ $cta-link-color: 							$link-color;
 $cta-link-hover-color: 						$text-color;
 $cta-link-active-color: 					darken($cta-link-color, 70%);
 
-$category-color: 							$illdave-orange;
-
+$category-color: 							$gray-light-med;
+$category-header-color: 					$text-color;
+$inline-right-text-color: 					$text-color;
 
 
 /* section and items ----------------- */
@@ -141,8 +145,8 @@ $section-intro-comics: 						$theme-color-5;
 $section-intro-about: 						lighten($theme-color-6, 60%);
 $section-intro-store: 						$theme-color-7;
 $section-bg:  								$white;
-$section-bg-even:  							darken($section-bg, 7%);
-$section-intro-bg:  						$gray-lighter;
+$section-bg-even:  							$accent-bg-color;
+$section-intro-bg:  						lighten($illdave-blue, 45%);
 
 $item-bg: 									$gray-lighter;
 $item-even-bg:								$white;
@@ -157,7 +161,7 @@ $client-details-bg:							$item-bg;
 $client-details-details-bg:					$section-bg;
 $client-details-padding: 					2rem;
 
-$boxed-client-details-bg: 					darken($section-bg, 10%);
+$boxed-client-details-bg: 					$accent-bg-color;
 $boxed-client-details-even-bg: 				lighten($section-bg-even, 10%);
 $boxed-client-details-padding: 				$spacer-large;
 
@@ -211,6 +215,7 @@ $font-family-serif:       					georgia, "times new roman", times, serif;
 $font-family-monospace:      				SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $font-family-base:        					$font-family-sans-serif;
 $font-family-headers:						$proxima-nova-bold;
+$font-family-h1:							$proxima-nova;
 
 $font-family-italic:						$proxima-nova-italic;
 $font-family-bold:							$proxima-nova-bold;
@@ -221,14 +226,14 @@ $font-size-large:         					ceil(($font-size-base * 1.25));	// ~18px
 $font-size-medium:        					ceil(($font-size-base * 1.12)); // ~16px
 $font-size-small:         					90%; 
 
-$h1-font-size:                				$font-size-base * 2.0;
+$h1-font-size:                				$font-size-base * 4.0;
 $h2-font-size:                				$font-size-base * 1.6;
 $h3-font-size:                				$font-size-base * 1.4;
 $h4-font-size:                				$font-size-base * 1.2;
 $h5-font-size:                				$font-size-base;
 $h6-font-size:                				$font-size-base;
 
-$h1-line-height:                			$h1-font-size * 1.0;
+$h1-line-height:                			$h1-font-size * .9;
 $h2-line-height:                			$h2-font-size / 1.1;
 $h3-line-height:                			$h3-font-size * 1.1;
 $h4-line-height:                			$h4-font-size * 1.1;
@@ -284,6 +289,7 @@ $graphics-image-path:						$image-path/graphics;
 $blog-image-path:							$image-path/blog;
 $brand-image-path:							$image-path/brand;
 $open-graph-image-path:						$image-path/open-graph;
+$icons-image-path:							$image-path/icons;
 $icons:										$image-path/icons;
 
 
@@ -306,6 +312,9 @@ $icon-learn-cta:   							quote($fa-var-chevron-right);
 $navbar-toggler-icon:   					quote($fa-var-bars);
 $icon-list-link: 							quote($fa-var-chevron-right);
 
+$icon-chevron-up: 							quote($fa-var-chevron-up);
+$icon-chevron-down: 						quote($fa-var-chevron-down);
+
 $icon-prev: 								quote($fa-var-arrow-circle-left);
 $icon-next: 								quote($fa-var-arrow-circle-right);
 
@@ -323,7 +332,7 @@ $icon-email:   								url("#{$icons}/envelope.svg");
 /* footer ---------------------------- */
 
 $footer-border: 							rem(1px solid $gray-light);
-$footer-bg: 								$gray-lighter;
+$footer-bg: 								lighten($illdave-blue, 45%);
 $footer-color: 								$gray;
 $footer-font-size: 							$font-size-small;
 $footer-padding: 							$spacer-base-vertical $spacer-base-horizontal;
@@ -415,10 +424,10 @@ $caption-headings-color: 					$white;
 $caption-padding: 							$spacer-small;
 $caption-line-height: 						$font-size-base;
 
-$picture-caption-bg: 						$caption-bg;
-$picture-caption-color: 					$caption-color;
-$picture-caption-link: 						$white;
-$picture-caption-strong:					$theme-color-5;
+$picture-caption-bg: 						transparent;
+$picture-caption-color: 					$text-color;
+$picture-caption-link: 						$link-color;
+$picture-caption-strong:					$text-color;
 
 $comic-book-img-border: 					rem(1px solid $gray);
 $comic-book-thumbnail-bg: 					transparent;
@@ -428,37 +437,16 @@ $comic-book-thumbnail-image-border: 		$comic-book-img-border;
 $comic-book-thumbnail-image-margin-bottom:	$spacer-small;
 
 $code-font: 								$font-family-monospace;
-$code-soup-color: 							$code-color-magenta;
+$code-soup-color: 							$code-color-cyan;
 $code-soup-divider: 						$code-color-gray;
 
-$contact-card-bg: 							$theme-color-2;
+$contact-card-bg: 							transparent;
 $contact-card-text-color: 					lighten($contact-card-bg, 40%);
 $contact-card-headings-color: 				$text-color;
 $contact-card-link-color: 					$contact-card-text-color;
-$contact-card-link-hover-color: 			$white;
+$contact-card-link-hover-color: 			lighten($contact-card-link-color, 1%);
 $contact-card-link-active-color: 			darken($contact-card-bg, 13.5%);
 $contact-card-padding: 						1rem 1.5rem;
-
-$tile-card-bg: 								$gray-lighter;
-$tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
-
-
-/* multi link ----------------------- */
-
-$multilink-icon-spacer: 					4rem;
-$multilink-icon: 							3rem;
-$multilink-icon-color: 						$illdave-cyan;
-$multilink-icon-bg: 						transparent;
-
-$multilink-bg-yellow: 						lighten($illdave-yellow, 10%);
-$multilink-bg-orange: 						lighten($illdave-orange, 10%);
-
-$multilink-bg-blue: 						lighten($illdave-blue, 40%);
-$multilink-bg-blue-dark: 					lighten($illdave-blue-dark, 10%);
-$multilink-bg-cyan: 						lighten($illdave-cyan, 10%);
-$multilink-bg-green: 						lighten($illdave-green, 10%);
-
-$multilink-ctds-icon-bg: 					lighten($illdave-blue, 40%);
 
 
 /* profiles -------------------------- */
@@ -484,26 +472,17 @@ $profile-bg-art-of-comicbook-link-color: 	$profile-headers-color;
 
 /* components ----------------------- */
 
-$tile-card-bg-color:						lighten($gray-lighter, 15%);
+$tile-card-bg-color:						$accent-bg-color;
 $tile-card-border-color: 					darken($tile-card-bg-color, 20%);
 $tile-card-bg: 								$tile-card-bg-color;
 $tile-card-border: 							rem(1px solid $tile-card-border-color);
-$tile-card-hover-bg: 						lighten($tile-card-bg-color, 50%);
+$tile-card-hover-bg: 						lighten($tile-card-bg-color, 3%);
 $tile-card-hover-border: 					rem(1px solid $link-color);
 $tile-card-blade-hover-bg: 					lighten($tile-card-bg-color, 10%);
 $tile-card-blade-hover-border: 				rem(1px solid $link-color);
-$tile-card-icon: 							5rem;
-
-$multilink-circle: 							5rem;
-$multilink-icon: 							3rem;
-
-$multilink-bg-yellow: 						lighten($illdave-yellow, 10%);
-$multilink-bg-orange: 						lighten($illdave-orange, 10%);
-
-$multilink-bg-blue: 						lighten($illdave-blue, 40%);
-$multilink-bg-blue-dark: 					lighten($illdave-blue-dark, 10%);
-$multilink-bg-green: 						lighten($illdave-green, 10%);
-$multilink-bg: 								$multilink-bg-blue;
+$tile-card-icon: 							2rem;
+$tile-card-icon-small:						2rem;
+$tile-card-border-radius:					$border-radius-base;
 
 $component-header-font-size: 				$h3-font-size;
 $component-header-line-height: 				$h3-line-height;
@@ -517,16 +496,39 @@ $response-bg: 								$response-bg-color;
 $response-border: 							rem(1px solid $response-border-color);
 
 $pullquote-padding: 						$spacer-large;
-$pullquote-margin: 							$spacer-base;
+$pullquote-margin: 							0;
 
 $pullquote-quote-font-family: 				$font-family-base;
 $pullquote-quote-font-family-bold: 			$font-family-bold-italic;
-$pullquote-quote-font-size: 				$h2-font-size;
+$pullquote-quote-font-size: 				$h3-font-size;
 $pullquote-quote-line-height: 				$pullquote-quote-font-size * 1.1;
 $pullquote-quote-color: 					$text-color;
 $pullquote-speaker-font-family: 			$font-family-italic;
-$pullquote-speaker-font-size: 				$h3-font-size;
+$pullquote-speaker-font-size: 				$h4-font-size;
 $pullquote-speaker-line-height: 			$pullquote-speaker-font-size * 1.2;
 $pullquote-speaker-color: 					$pullquote-quote-color;
 
+$multilink-icon-spacer: 					4rem;
+$multilink-circle: 							4rem;
+$multilink-icon: 							2.5rem;
+$multilink-icon-color: 						$illdave-cyan;
+$multilink-icon-bg: 						$accent-bg-color;
 
+$multilink-bg-yellow: 						lighten($illdave-yellow, 10%);
+$multilink-bg-orange: 						lighten($illdave-orange, 10%);
+$multilink-bg-blue: 						lighten($illdave-blue, 40%);
+$multilink-bg-blue-dark: 					lighten($illdave-blue-dark, 10%);
+$multilink-bg-cyan: 						lighten($illdave-cyan, 10%);
+$multilink-bg-green: 						lighten($illdave-green, 10%);
+$multilink-ctds-icon-bg: 					lighten($illdave-blue, 40%);
+$multilink-bg: 								$multilink-bg-blue;
+
+$icon-external-site:   						url("#{$icons-image-path}/external-site.svg");
+$icon-external-site-size: 					.85rem;
+
+$accordion-button-color: 					$white;
+$accordion-button-bg: 						$tile-card-bg;
+$accordion-button-bg-collapsed:				$accordion-button-bg;
+$accordion-body-color: 						$text-color;
+$accordion-body-bg: 						$white;
+$accordion-button-icon-open-color:			$gray-lightest;

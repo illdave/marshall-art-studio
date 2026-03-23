@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<!-- Copyright 1986-2026 Marshall Art Studio -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Using AI as a UX and Content Partner | David Marshall</title>
+		<meta name="author" content="David Marshall">
+		<meta name="description" content="How I used Claude as a content editor and information architecture sounding board to rebuild a 2010 comics workshop site from the inside out.">
+		<link href="../assets/img/brand/mas.ico" type="image/x-icon" rel="icon">
+		<link rel="canonical" href="http://illdave.com/blog/art-of-comic-book-website.html">
+		<meta property="og:type"				content="website">
+		<meta property="og:url"					content="http://illdave.com/blog/art-of-comic-book-website.html">
+		<meta property="og:title"				content="Using AI as a UX and Content Partner | David Marshall">
+		<meta property="og:description"			content="How I used Claude as a content editor and information architecture sounding board to rebuild a 2010 comics workshop site from the inside out.">
+		<meta property="og:image"				content="https://illdave.com/assets/img/blog/art-of-comic-book-website/theme.jpg">
+
+		<meta property="twitter:card"			content="summary_large_image">
+		<meta property="twitter:url"			content="http://illdave.com/blog/art-of-comic-book-website.html">
+		<meta property="twitter:title"			content="Using AI as a UX and Content Partner | David Marshall">
+		<meta property="twitter:description"	content="How I used Claude as a content editor and IA sounding board to rebuild a 2010 comics workshop site.">
+		<meta property="twitter:image"			content="https://illdave.com/assets/img/blog/art-of-comic-book-website/theme.jpg">
+
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": "Using AI as a UX and Content Partner",
+			"author": {
+				"@type": "Person",
+				"name": "David Marshall"
+			},
+			"description": "How I used Claude as a content editor and information architecture sounding board to rebuild a 2010 comics workshop site from the inside out.",
+			"url": "http://illdave.com/blog/art-of-comic-book-website.html/",
+			"datePublished": "2026-03",
+			"about": [
+				"UX Design",
+				"Content Strategy",
+				"Information Architecture",
+				"AI Tools",
+				"Web Development"
+			]
+		}
+		</script>
+
+		<link href="../assets/themes/illdave/illdave.css" type="text/css" rel="stylesheet">
+		<script src="../assets/themes/illdave/illdave.js" type="text/javascript"></script>
+	</head>
+	<body class=""><!-- Marshall Art Studio 8.0 -->
+		<header class="main-navigation fixed-top" role="banner">
+			<div class="navbar navbar-expand-lg">
+				<a class="navbar-brand" href="../index.html" target="_top" aria-label="marshall-art-studio">
+					Marshall Art Studio
+					<span class="mas-logo gliff"></span>
+					<span class="mas-logo type"></span>
+				</a>
+				<button class="navbar-toggler" 
+					type="button" 
+					data-bs-toggle="collapse" 
+					data-bs-target="#main-menu" 
+					aria-controls="main-menu" 
+					aria-expanded="false" 
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon">
+						<span class="visually-hidden">Toggle menu navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>				
+					</span>
+				</button>			
+				<div class="collapse navbar-collapse justify-content-end" id="main-menu">
+					<ul class="navbar-nav bd-navbar-nav d-flex ">
+						<li class="nav-item home visually-hidden">
+							<a class="nav-link" href="../index.html">Home</a>
+						</li>
+						<li class="nav-item web">
+							<a class="nav-link" href="../web-dev/index.html">UX/UI Dev &amp; Design</a>
+						</li>
+						<li class="nav-item graphic-design">
+							<a class="nav-link" href="../graphic-design/index.htm" >Graphic Design</a>
+						</li>
+						<li class="nav-item illustration">
+							<a class="nav-link" href="../illustration/index.html">Illustration</a>
+						</li>
+						<li class="nav-item comics">
+							<a class="nav-link" href="../comics/index.html">Comics</a>
+						</li>
+						<li class="nav-item" hidden>
+							<a class="nav-link" href="../projects/index.html">Current Projects</a>
+						</li>
+						<li class="nav-item about">
+							<a class="nav-link" href="../about/index.html">About</a>
+						</li>
+						<li class="nav-item sketchbook">
+							<a class="nav-link" href="../sketchbook/index.html">Sketchbook</a>
+						</li>
+						<li class="nav-item blog active">
+							<a class="nav-link" href="../blog/index.html">Blog</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<main class="mas-content blog" role="main">
+			<section class="entry">
+				<div class="container">
+					<div class="row gx-5">
+						<div class="col-12 col-sm-9">	
+							<article id="art-of-comic-book-website">
+							
+								<!-- Feature story card header -->
+								<header class="feature-story-card">
+									<div class="row gx-5">
+										<div class="col-lg-6 image">
+											<img src="/assets/img/blog/art-of-comic-book-website/theme.jpg" alt="" />
+										</div>
+										<div class="col-lg-6 text">
+											<h1>Using AI as UX and content partner</h1>
+											<h2>Rebuilding a 2010 course site from the inside out</h2>
+											<p class="byline">
+												<span class="author">David Marshall</span>	
+												<span class="date">
+													<time class="published" datetime="2026-03-22">March 22, 2026</time>
+													<time class="updated" datetime="2026-03-24">March 23, 2026</time>
+												</span>
+											</p>										
+											<p class="cta">
+												<a href="https://www.artofthecomicbook.com" rel="noopener noreferrer" class="external-site" target="_blank" aria-label="Art of the Comic Book">Visit improved course site</a>
+											</p>
+										</div>
+									</div>
+								</header>
+							
+								<div class="entry-content">
+<p><strong>Art of the Comic Book</strong> started in 2010 as a course site I built on the fly while running the class. At the time it worked well as a single source for students to get syllabi, assignment descriptions, and other resources. Content and expectations grew as the information architecture got increasingly stale. The custom HTML and CSS structure proved difficult to maintain. The site's secondary purpose as a web design portfolio piece became a liability.</p>
+<div class="process">
+	<div class="header">
+		<h3>Version 1 development</h3>
+		<p>The artboard style (white rectangle with markings designed to resemble a comic book original art board) was an elaborate grid of absolute-positioned background image divs with pixel-defined sizes. Post-its were stacks of same-width rows, with only the middle vertically expanding with content.</p>
+	</div>
+	<div class="row"> 
+		<div class="col-md-3">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/v1-artboard-grid.jpg" data-lightbox="v1" data-title="<strong>Artboard grid:</strong> Elaborate grid of background image divs">
+					<img src="/assets/img/blog/art-of-comic-book-website/v1-artboard-grid.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Artboard grid</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-3">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/v1-artboard-html.jpg" data-lightbox="v1" data-title="<strong>Artboard HTML:</strong> Developers had to account for IE7 back then">
+					<img src="/assets/img/blog/art-of-comic-book-website/v1-artboard-html.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Artboard HTML</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-3">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/v1-artboard-css.jpg" data-lightbox="v1" data-title="<strong>Artboard CSS:</strong> Absolute positioning and sizes">
+					<img src="/assets/img/blog/art-of-comic-book-website/v1-artboard-css.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Artboard CSS</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-3">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/v1-artboard-images.jpg" data-lightbox="v1" data-title="<strong>Artboard support images:</strong> Background images include drop shadows to backgrounds">
+					<img src="/assets/img/blog/art-of-comic-book-website/v1-artboard-images.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Artboard support images</figcaption>
+			</figure>
+		</div>
+		
+		<div class="col-md-3">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/v1-postit-css-1.jpg" data-lightbox="v1" data-title="<strong>Post-it CSS:</strong> Divs and background images sized by pixels">
+					<img src="/assets/img/blog/art-of-comic-book-website/v1-postit-css-1.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Post-it CSS</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-3">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/v1-postit-css-2.jpg" data-lightbox="v1" data-title="<strong>Post-it CSS (con't):</strong> All were the same width (blending to background), tops and bottoms had fixed heights, middles stretched vertically with content">
+					<img src="/assets/img/blog/art-of-comic-book-website/v1-postit-css-2.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Post-it CSS (con't)</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-3">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/v1-postit-css-raw.jpg" data-lightbox="v1" data-title="<strong>My old CSS:</strong> I wrote in long strings back then.">
+					<img src="/assets/img/blog/art-of-comic-book-website/v1-postit-css-raw.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">I wrote CSS in long strings like this</figcaption>
+			</figure>
+		</div>
+	</div>
+</div>
+
+<p>I updated the responsive performance with Bootstrap in the summer of 2021, making preservation of the original visual design a top priority. A lot of development time went into hammering the Art of the Comic Book visual brand into Bootstrap — today's CSS made some tasks considerably easier. The artboard style, previously an elaborate grid of absolute-positioned background image divs with pixel-defined sizes, is now entirely in CSS. Same for the post-it style. A UI component library followed in 2025: lead story, tile and feature cards, link lists, and more.</p>
+<div class="process">
+	<div class="header">
+		<h3>Version 2 development</h3>
+		<p>The new Artboard and Post-it styles are entirely in CSS3, with very few support images.</p>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/v2-artboard-devtools.jpg" data-lightbox="v2" data-title="<strong>Artboard in devtools:</strong> Paper edge gradient defined with CSS3 inset box-shadow; no need for background images">
+					<img src="/assets/img/blog/art-of-comic-book-website/v2-artboard-devtools.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Artboard in devtools</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-3">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/v2-artboard-html.jpg" data-lightbox="v2" data-title="<strong>Artboard HTML:</strong> All the artboard stuff is on top of the markup, layering controlled by z-index">
+					<img src="/assets/img/blog/art-of-comic-book-website/v2-artboard-html.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Artboard HTML</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-3">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/v2-artboard-css.jpg" data-lightbox="v2" data-title="<strong>Artboard CSS:</strong> Stamp, tick marks, and other details positioned by percentages">
+					<img src="/assets/img/blog/art-of-comic-book-website/v2-artboard-css.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Artboard CSS</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-3">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/v2-artboard-images.jpg" data-lightbox="v2" data-title="<strong>Artboard images:</strong> Only five">
+					<img src="/assets/img/blog/art-of-comic-book-website/v2-artboard-images.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Artboard images</figcaption>
+			</figure>
+		</div>
+		
+		<div class="col-md-3">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/v2-postit-html.jpg" data-lightbox="v2" data-title="<strong>Post-it HTML:</strong> Paper edge gradient defined with CSS3 inset box-shadow; no need for background images or top-middle-bottom div stacking">
+					<img src="/assets/img/blog/art-of-comic-book-website/v2-postit-html.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Post-it HTML</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-3">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/v2-postit-css.jpg" data-lightbox="v2" data-title="<strong>Post-it CSS:</strong> Variants easily defined in SASS">
+					<img src="/assets/img/blog/art-of-comic-book-website/v2-postit-css.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Post-it CSS</figcaption>
+			</figure>
+		</div>
+	</div>
+</div>
+
+<p>With the visual and accessibility work done, the next phase was content and information architecture. Newer comics workshop sites made Art of the Comic Book look disorganized and confusing by comparison. Being too close to the material to see it clearly, I needed objective user experience guidance. I used Claude across two extended working sessions as a content editor and information architecture sounding board.</p>
+
+<h2>What Claude showed me</h2>
+<p>Content didn't have research-driven hierarchy. The site was littered with self-deprecating humor that unintentionally eroded visitor confidence. Most of the copy wasn't written for prospective students — it was written for people who were already enrolled. The About page had evolved into something between a faculty bio and a personal essay. The Schedule page included the line: <em>"There's probably no value in posting the ancient data, but I'm too swamped to properly design the user experience."</em> That sentence had been live long enough that I'd stopped seeing it. An outside reader sees it immediately.</p>
+
+<h2>Finding the real audience</h2>
+<p>My first task was identifying who actually takes this course. The answer was two distinct groups:</p>
+<ul>
+	<li><strong>Career changers and hobbyists</strong> — working adults who've wanted to make comics since they were twelve and finally have the time and disposable income. They're intimidated by skill gaps and need to hear that no prior experience is required. Time commitment matters to them.</li>
+	<li><strong>Aspiring professionals</strong> — young artists building portfolio pieces for art school applications or a first industry submission. They're comparison-shopping against programs at Rhode Island School of Design, Savannah College of Art and Design, and School of Visual Arts. They want instructor credentials, real assignments, and outcomes they can point to.</li>
+</ul>
+<p>This dual-audience framing became the editorial standard for every page on the site — hero copy, assignment descriptions, instructor bio, schedule status, all of it.</p>
+
+<h2>What the collaboration looked like</h2>
+<p>The workflow was surgical. Prompting Claude to act as my dual audience, I outlined my goals and told it to study the existing website. It came back with copy rewrites, page layout suggestions, and overall information architecture refinements — all driven by how it interpreted the needs of that audience.</p>
+
+<div class="process">
+	<div class="header">
+		<h3>Working with Claude</h3>
+		<p>Prompts and respaonses</p>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/claude-1.jpg" data-lightbox="claude" data-title="<strong>Targeted prompt:</strong> Started by comparing Art of the Comic Book to leaner workshop sites">
+					<img src="/assets/img/blog/art-of-comic-book-website/claude-1.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Targeted prompt</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-4">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/claude-2.jpg" data-lightbox="claude" data-title="<strong>Site-wide recommendations:</strong> Claude explained its logic before offering suggestions">
+					<img src="/assets/img/blog/art-of-comic-book-website/claude-2.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Site-wide recommendations</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-4">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/claude-3.jpg" data-lightbox="claude" data-title="<strong>Audience analysis:</strong> Claude made the distinction between older hobbyists and young aspiring professionals">
+					<img src="/assets/img/blog/art-of-comic-book-website/claude-3.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Audience analysis</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-4">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/claude-4.jpg" data-lightbox="claude" data-title="<strong>Dual audience rewrite:</strong> Analysis of what each audience needs to hear before acting">
+					<img src="/assets/img/blog/art-of-comic-book-website/claude-4.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Dual audience rewrite</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-4">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/claude-5.jpg" data-lightbox="claude" data-title="<strong>Right rail content control:</strong> Claude suggested editorial logic of the right rail">
+					<img src="/assets/img/blog/art-of-comic-book-website/claude-5.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Right rail content control</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-4">
+			<figure class="no-border image-has-border">
+				<a href="/assets/img/blog/art-of-comic-book-website/claude-7.jpg" data-lightbox="claude" data-title="<strong>Converting legacy page to new design:</strong> Claude successfully converted the <a href='https://www.artofthecomicbook.com/about/graduates.html' target='_blank' rel='noopener noreferrer' class='external-site'>testimonials page</a> into the new format, complete with page layout and <a href='/design-system/components.html' target='_blank'>component usage</a>">
+					<img src="/assets/img/blog/art-of-comic-book-website/claude-7.jpg" alt="" />
+				</a>
+				<figcaption class="figure-caption">Converting legacy page to new design</figcaption>
+			</figure>
+		</div>
+	</div>
+</div>
+
+<p>What surprised me was how quickly it internalized the messaging and design conventions. After a couple of pages it understood the right-rail post-it patterns, the distinction between assignment pages and reference pages, the sentence case header style. Two specific examples worth mentioning:</p>
+<ul>
+	<li><strong>The assignment pages.</strong> Nine pages converted from single-column syllabus format to a standardized two-column template: overview, dual-audience rationale, phased workflow with task lists, requirements and common challenges split into two columns, right-rail resources. A requirements summary line was added to each page intro — something like "3 pages • Assigned story prompts • 10-15 hours" — giving a prospective student an immediate at-a-glance sense of commitment before reading a word.</li>
+	<li><strong>The art supplies page.</strong> Was a single-column link list. Converted to two columns with a four-tile right rail: before you buy, jump navigation, required vs. optional, and local Boston-area shops. The right rail decisions came out of a conversation about what someone actually needs when they land on a supply page — and the answer split neatly between someone arriving for the first time and someone standing in a store mid-supply-run trying to remember what they need.</li>
+</ul>
+
+<h2>Where it broke down</h2>
+<p>The collaboration wasn't frictionless. Stale cached content returned outdated page versions on at least two fetches — I had to supply screenshots to get accurate source material. I got the wrong component once, Post-it where I'd asked for Multi-link. There were moments where the suggested copy drifted toward generic before I pulled it back toward the site's actual voice.</p>
+<p>None of those were significant problems. They were the normal friction of working with a tool that has real capabilities and real limits. The corrections were fast. But every output needed a human eye before it touched the codebase — that part never changed.</p>
+
+<h2>What it's actually good for</h2>
+<p>Using AI sped up the editorial process considerably. Done on my own, this would have taken months, and almost certainly wouldn't have been as systematically well-realized. Bouncing ideas and concerns with Claude was like having an on-demand content strategist — not a replacement for peer review from people who know the field, but a present one at whatever hour I was working.</p>
+<p>The site is cleaner, better organized, and written for an audience that actually exists. Whether it converts prospective students more effectively is a question the next registration cycle will answer — but the UX problems it was solving were real, and for a hiring manager evaluating this work, the process is as relevant as the outcome.</p>
+<p><em>Art of the Comic Book: <a href="https://www.artofthecomicbook.com">artofthecomicbook.com</a></em></p>
+
+<p class="signature">David Marshall</p>
+								</div>								
+								<footer class="blog-footer">
+									<span class="comment-counter">27</span>
+								</footer>
+							</article>				
+						</div>
+						<div class="col-12 col-md-3 blog-nav" role="navigation" aria-labelledby="blog-nav">
+							<div class="sticky-top">
+								<h2 id="blog-nav">Categories</h2>
+								<dl class="web-development">
+									<dt>Web Development</dt>
+									<dd class="active"><a href="art-of-comic-book-website.html">Using AI as a UX and content partner</a></dd>
+									<dd><a href="html-retro-build.html">HTML Retro Build</a></dd>
+									<dd><a href="history-of-this-website.html">Web Development History of This Site</a></dd>
+									<dd><a href="autobiography-of-malcolm-xhtml.html">Autobiography of Malcolm XHTML</a></dd>
+									<dd><a href="rip-employers.html">RIP Clients &amp; Employers</a></dd>
+								</dl>
+								<dl class="non-work">
+									<dt>Non-Work</dt>
+									<dd><a href="dead-smurf.html">Dead Smurf Illustration</a></dd>
+									<dd><a href="illustration-friday/index.html">Illustration Friday</a></dd>
+									<dd><a href="watchmen-trailer.html">Watchmen Movie Trailer Review></a></dd>
+									<dd><a href="amway-tales.html">Amway Tales</a></dd>
+								</dl>
+							</div>
+						</div>						
+					</div>			
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="text">
+				<p>
+					Copyright &copy; 1986-<script>document.write(new Date().getFullYear())</script> Marshall Art Studio. All rights reserved. The material may not, under any circumstances, be resold or redistributed for compensation of any kind without prior written permission from Marshall Art Studio nor may the information be used in any commercial venue without such prior written permission. For more information, please <a href="mailto:dmarshall@illdave.com?subject=Tell me about Marshall Art Studio!" aria-label="Marshall Art Studio email">contact us here</a>. Version 8.0.1
+				</p>
+				<div class="social">
+					<ul class="list-inline">
+						<li class="follow-me d-none d-sm-inline-block">Follow me on </li>
+						<li class="email"><a href="mailto:dmarshall@illdave.com?subject=Tell me about Marshall Art Studio!" aria-label="Marshall Art Studio email"><span>Email</span></a></li>
+						<li class="linkedin"><a href="https://www.linkedin.com/in/illdave" target="_blank" rel="noopener noreferrer" aria-label="David Marshall on Linkedin"><span>Linkedin</span></a></li>
+						<li class="bluesky"><a href="https://bsky.app/profile/illdave.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="David Marshall on Bluesky"><span>Bluesky</span></a></li>
+						<li class="github"><a href="https://github.com/illdave" target="_blank" rel="noopener noreferrer" aria-label="Marshall Art Studio on Github">Github</a></li>
+					</ul>
+				</div>
+				<p class="back-to-top visually-hidden visually-hidden-focusable">
+					<a href="#main-content">Back to top<i class="fas"></i></a>
+				</p>
+			</div>
+		</footer>
+		<script src="/assets/themes/bootstrap-5/js/bootstrap.min.js"></script>
+		<script src="/assets/lib/jquery/jquery-3.7.1.min.js"></script>
+		<script src="/assets/lib/lightbox-2.11.1/js/lightbox.js"></script>		
+	</body>
+</html>

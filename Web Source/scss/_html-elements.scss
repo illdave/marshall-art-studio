@@ -29,10 +29,13 @@ h2, h3, h4, h5, h6,
 
 h1, .h1 {
 	font-size: $h1-font-size;
+	line-height: $h1-line-height;
+	font-family: $font-family-h1;
+	margin-bottom: $spacer-base;
 }
 h2, .h2 {
 	font-size: $h2-font-size;
-	margin-bottom: 1rem;
+	margin-bottom: $spacer-base;
 }
 h3, .h3 {
 	font-size: $h3-font-size;
@@ -45,6 +48,10 @@ h5, .h5 {
 }
 h6, .h6 {
 	font-size: $h6-font-size;
+}
+
+h2 + p {
+	margin-top: -$spacer-base;
 }
 
 a {
@@ -87,10 +94,63 @@ hr {
 	opacity: 1;
 }
 
-ul {
-	padding-left: 1rem;
+ol, ul, dl {
+    margin-bottom: 1rem;
+    column-gap: $spacer-large;
+	&.two-column {
+		column-count: 2;
+	}	
+	&.three-column {
+		column-count: 3;
+	}	
+	&.four-column {
+		column-count: 4;
+	}	
+}
+ul, ol {
+	padding-left: 3rem;
 }
 
+ul, ol {
+	li {
+		margin-bottom: $spacer-small;
+	}
+	&.list-unstyled {
+		&.compact {
+			li {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+ol {
+    list-style: none;
+    counter-reset: item;
+    li {
+    	counter-increment: item;
+    	position: relative;
+		&:before {
+			content: counter(item);
+			display: inline-block;
+			position: absolute;
+			left: -1rem;
+			margin-right: 0;
+			width: 1.5rem;
+		}
+    }	
+	> li > ul {
+		padding-left: 1rem;
+		margin: 1rem 0;
+		list-style-type: disc;
+		counter-reset: item;
+		> li {
+			&:before {
+				display: none;
+			}
+		}
+	}
+}
 dl {
 	margin-bottom: $spacer-base;
 	dt {
@@ -99,7 +159,7 @@ dl {
 		text-transform: uppercase;
 		color: $headings-color;
 		padding-bottom: $spacer-small;
-		margin-bottom: $spacer-base;				
+		margin-bottom: $spacer-small;				
 		border-bottom: $border-default;
 		line-height: 1.1rem;
 		span {
@@ -147,6 +207,11 @@ dl {
 		}
 	}
 }
+
+p + .pullquote {
+	margin-top: -$font-size-base;
+}
+
 
 ul, ol {
 	padding-left: 1rem;

@@ -54,10 +54,12 @@
 					line-height: 1.2rem;
 				}
 				.meta {
+					display: block;
 					font-size: $font-size-small;
+					line-height: $font-size-small * 1.2;
 					text-align: left;
 					margin-bottom: 0;
-					color: $gray-light;
+					color: $gray-light-med;
 					.author {
 						font-family: $font-family-headers;
 						margin-right: $spacer-small;
@@ -332,10 +334,6 @@
 			}		
 		}
 		.older {
-			background: $section-bg-blog-even;
-			padding: 1rem 2rem;
-			margin-bottom: 2rem;
-			clear: both;
 			h2 {
 				border-bottom: $border-default;
 				padding-bottom: $spacer-small;

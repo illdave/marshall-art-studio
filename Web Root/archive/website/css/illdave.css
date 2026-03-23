@@ -1,0 +1,1320 @@
+@charset "utf-8";
+
+/* 
+	Theme Name: Wide Format - Gray White (www.illdave.com)
+	Theme URI: http://www.illdave.com/
+	Description: CSS designed specifically for the Marshall Art Studio website (www.illdave.com).
+	Version: 7.3
+	Author: Marshall Art Studio
+	Author URI: http://www.illdave.com/
+	(c)2006 - 2009 Marshall Art Studio
+*/
+
+/* CSS Reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td 
+				{margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+body			{line-height: 1.3em;}
+ol, ul			{list-style: none;}
+blockquote, q	{quotes: none;}
+:focus 			{outline: 0;}
+ins 			{text-decoration: none;}
+del 			{text-decoration: line-through;}
+table 			{border-collapse: collapse; border-spacing: 0;}
+
+/* Global */
+table, td, tr, p 	{font-family: verdana, arial, helvetica, sans-serif; font-size: 11px;}
+body				{background: #fff url() repeat-x fixed; font-size: 11px; font-family: verdana, helvetica, sans-serif;}
+
+/* HTML Element Defaults */
+table		{width: 100%; margin-bottom: 1em;}
+h1			{font-size: 250%; font-family: georgia, 'times new roman', serif; font-weight: normal;}
+h2			{font-size: 230%; font-family: georgia, 'times new roman', serif; font-weight: normal;}
+h3			{font-size: 116%;}
+h4			{font-size: 100%;}
+p			{margin-bottom: 1em;}
+ul			{padding-left: 0; margin-left: 10px;}
+ul li		{list-style: none;}
+img			{display: block; border: 1px solid #ccc; margin-bottom: 1em;}
+caption, hr	{display: none; margin: 0; padding: 0;}
+pre			{margin: 0; margin-bottom: 1em; padding: 10px; border: 1px dashed #f5e4a8; background: #fefede; color: #33c;}
+pre strong	{color: #c30;}
+
+a:link, a:visited	{color: #33c;}
+a:hover				{color: #039; text-decoration: none;}
+a:active			{color: #003;}
+
+/* Mini Defaults */
+.alt, .preload, .hide, .wai, .e-comic	{display: none;}
+.debug									{border: 1px dotted red; background-color: yellow;}
+.center		{text-align: center;}
+.blank		{border: 0;}
+.block		{display: block; position: relative; float: left; border: 0;}
+.item		{margin-bottom: .5em; border: 0;}
+.clear		{content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+.code		{color: #900; white-space: nowrap;}
+.last		{border-bottom: 0;}
+.strong		{font-weight: bold;}
+.strongem	{font-weight: bold; font-style: italic;}
+.new		{font-weight: bold; color: #900;}
+.label		{font-weight: bold;}
+.marginbot	{margin-bottom: 1em;}
+
+/* Buttons */
+.button a:link,
+.button a:visited	{color: #fff; background: url(../images/icons/arrow-whiteright.gif) no-repeat center right #369; list-style: none; padding: 6px; padding-right: 15px; text-decoration: none;}
+.button a:hover		{background-color: #69c;}
+.button a:active	{background-color: #039;}
+
+/* Quote */
+.quote						{position: relative; border: 1px solid #fc3; background: #ff9 url(../images/global/quote.gif) repeat-x top left; padding: 15px; padding-bottom: 0; margin: 0; margin-bottom: 1em;}
+.portfolioDiv .quote 		{padding: 10px; padding-bottom: 10px;}
+.portfolioDiv .quote h4		{margin: 0; padding-top: 0;}
+.portfolioDiv .quote p		{margin: 0; padding-bottom: .5em;}
+
+#navL2 .quote		{border: 0; background: none; margin: 0; padding: 0;}
+#navL2 .quote h4	{color: #306; background: none; padding: 0;}
+#navL2 .quote p		{margin-bottom: 2em; font-style: italic; border-bottom: 1px dotted #ccc; padding-bottom: .5em; margin-bottom: .5em;}
+
+/* Email Address */
+#content ul.address, ul.email_address 		{list-style: none; padding-left: 0; margin-left: 0;}
+#content ul.address li, ul.email_address li	{list-style: none; margin: 0;}
+
+/* Stickies */
+.stickies			{position: relative; background: #efefef url(../images/global/stickies-gray.gif) no-repeat 0 0; border: 1px solid #ccc; text-align: center; padding-top: 5px;}
+.stickies.yellow	{background-color: #ff9; background-image: url(../images/global/stickies-yellow.gif); border: 1px solid #fc0; border-left: 1px solid #fff; border-top: 1px solid #fff;}
+.stickies.green		{background-color: #cfc; background-image: url(../images/global/stickies-green.gif); border: 1px solid #6f6; border-left: 1px solid #fff; border-top: 1px solid #fff;}
+.stickies.blue		{background-color: #ccf; background-image: url(../images/global/stickies-blue.gif); border: 1px solid #99f; border-left: 1px solid #fff; border-top: 1px solid #fff;}
+.stickies.pink		{background-color: #fcc; background-image: url(../images/global/stickies-pink.gif); border: 1px solid #f99; border-left: 1px solid #fff; border-top: 1px solid #fff;}
+.stickies.red		{background-color: #ffc3b2; background-image: url(../images/global/stickies-red.gif); border: 1px solid #ff7c55; border-left: 1px solid #fff; border-top: 1px solid #fff;}
+.stickies			{border-left: 1px solid #fff; border-top: 1px solid #fff;}
+.stickies .txt		{margin: 15px; text-align: left;}
+
+/* Stickies: Hero for Hire */
+.stickies.red.hero					{margin-bottom: 1em; min-height: 150px; height:auto !important; height:150px; text-align: left;}
+.stickies.red.hero .txt				{margin-bottom: 20px;}
+.stickies.red.hero .bot				{position: absolute; bottom: 0; right: 0; width: 98px; height: 100px;  background: url(../images/global/stickies-hero.gif) right bottom no-repeat;}
+.stickies.red.hero ul				{margin: 0;}
+.stickies.red.hero ul li			{list-style: none; margin-left: 0; padding-left: 12px; margin-bottom: .5em; background: url(../images/global/liBullet.gif) 0 4px no-repeat;}
+
+.adcol .stickies.red.hero .txt		{margin-bottom: 30px;}
+
+#current .stickies.red.hero h3		{border: 0; padding: 0;}
+#current .stickies.red.hero .txt	{margin-bottom: 10px; width: 146px;}
+#about .stickies.red.hero .txt		{margin-bottom: 20px; width: 146px;}
+
+
+/* Links with icons */
+.pdf		{background: url(../images/icons/pdf.gif) 0 0 no-repeat; padding-left: 20px;}
+.doc		{background: url(../images/icons/doc.gif) 0 0 no-repeat; padding-left: 20px;}
+.ppt		{background: url(../images/icons/ppt.gif) 0 0 no-repeat; padding-left: 20px;}
+.psd		{background: url(../images/icons/psd.gif) 0 0 no-repeat; padding-left: 20px;}
+
+.slideshow	{background: url(../images/icons/slideshow.gif) 0 0 no-repeat; padding-left: 20px;}
+.colummData.comicbook a.pdf	{white-space: nowrap;}
+
+ol li		{padding-bottom: 1em;}
+.hr			{border-bottom: 1px solid #ccc; padding: 0 0 1em 0; margin: 0; height: 1px; margin-bottom: 1em;}
+.nb			{border: 0;}
+
+#pagetop		{padding-bottom: 0; margin-bottom: 0;}
+
+/* Text-Wrapping images */
+.textwrap		{clear: both; margin-bottom: 2em; text-align: center;}
+.textwrap.left	{float: left; margin: 0 10px 0 0;}
+.textwrap.right	{float: right; margin: 0 0 1em 10px;}
+.textwrap img	{border: 1px solid #ccc; margin: 0; padding: 0;}
+.textwrap p		{margin: 0; margin-top: .5em; font-style: italic;}
+.textwrap.nb img	{border: 0; display: block;}
+.textwrap.left.nb	{margin: 0 26px 16px 0;}
+.textwrap.left.nb.botm		{margin-bottom: 0; margin-right: 10px;}
+.textwrap.center			{width: 100%;}
+.textwrap.center img		{margin: 0 auto;}
+
+.picframed		{border: 1px solid #ccc; background-color: #efefef;}
+.picframed p	{padding: 5px;}
+.picframed.L	{float: left;  margin: 0 20px 1em 0;}
+.picframed.R	{float: right; margin: 0 0 1em 20px;}
+#content .picframed .txt	{margin: 10px;}
+#content .picframed img		{margin: 0; margin-bottom: 1em;}
+
+.caption	{position: relative; margin: 0; margin-bottom: 1em; padding-bottom: .5em; border-bottom: 1px dotted #ccc;}
+.caption p	{font-style: italic; margin-bottom: .5em; text-align: left;}
+
+.minheight		{min-height: 500px;}
+
+/* Please Waits */
+.pleaseWait		{position: absolute; left: 0; top: 120px; width: 720px; height: 320px; background: transparent url(../images/global/pleasewait.gif) no-repeat center 0;}
+
+/* Main Page Container */
+#outerdiv 			{position: relative; width: 100%; border: 0; text-align: center;}
+#bodyframe			{position: relative; margin: 0 auto; padding-bottom: 1em; border: solid #ddd; border-width: 0 0px; background: #fff; width: 1140px;}
+#home #bodyframe	{width: 1000px;}
+.noL2 #bodyframe	{width: 1000px;}
+
+/* Header */
+#masthead				{position: relative; width: 1100px; height: 64px; z-index: 3000; margin: 0 auto; padding: 0; background: url() no-repeat 0 0;}
+#home #masthead			{width: 960px;}
+.noL2 #masthead			{width: 960px;}
+
+#masthead .slogan		{position: absolute; right: 0; top: 42px; width: 400px; text-align: right;}
+#masthead .icon			{position: absolute; left: 50px; top: 7px; width: 50px; height: 50px; background: transparent 0 0 no-repeat; display: none;}
+#masthead h2, #masthead p 			{display: none;}
+
+/* Masthead */
+#masthead h1 a:link,
+#masthead h1 a:visited		{background: url(../images/masthead/logo-index.gif) no-repeat 0 0; position: absolute; left: 0px; top: 10px; width: 420px; height: 45px; text-indent: -9999px; overflow: hidden;}
+#masthead h1 a:hover		{background-position: 0 -45px;}
+#masthead h1 a:active		{background-position: 0 -90px;}
+
+#masthead #whatsNew				{position: absolute; text-align: left; width: 260px; height: 64px; right: 0; bottom: 0; border: 0;}
+#masthead #whatsNew h3			{padding-top: 20px;}
+#masthead #whatsNew a:link, 
+#masthead #whatsNew a:visited	{color: #039;}
+#masthead #whatsNew a:hover		{text-decoration: none;}
+#masthead #whatsNew p 			{display: block;}
+
+body#web #masthead .icon						{background-image: url(../images/masthead/web.gif);}
+body#print #masthead .icon						{background-image: url(../images/masthead/print.gif);}
+body#illustration #masthead .icon				{background-image: url(../images/masthead/illust.gif);}
+body#illustration.friday #masthead .icon		{background-image: url(../images/masthead/illust.gif);}
+body#illustration.fridaynight #masthead .icon	{background-image: url(../images/masthead/ifridaynight.gif);}
+body#comicbooks #masthead .icon					{background-image: url(../images/masthead/comics.gif);}
+body#current #masthead .icon					{background-image: url(../images/masthead/projects.gif);}
+body#about #masthead .icon						{background-image: url(../images/masthead/about.gif);}
+body#sketchbook #masthead .icon					{background-image: url(../images/masthead/sketch.gif);}
+body#blog #masthead .icon						{background-image: url(../images/masthead/blog.gif);}
+body#teaching #masthead .icon					{background-image: url(../images/masthead/teaching.gif);}
+
+/* Columns */
+#contentLayout			{position: relative; width: 1100px; margin: 0 auto; margin-bottom: 1em;}
+#home #contentLayout		{width: 960px;}
+.noL2 #contentLayout		{width: 960px;}
+
+/* Navigation (Level One) */
+/* Centered v1 */
+#nav			{width: 1100px; height: 30px; background: #006 url(../images/nav/L1-bg.gif) repeat-x 0 0; margin: 0 auto; margin-bottom: 17px; text-align: center;}
+#home #nav		{width: 960px;}
+.noL2 #nav		{width: 960px;}
+
+#nav ul			{margin: 0 auto; width: 870px; border: 0;}
+#nav a			{float: left; padding: 0 20px; background: #009 url(../images/nav/L1-button.gif) repeat-x 0 0; color: #cddaec; border-left: 1px solid #79889d; border-right: 1px solid #2f3742; text-decoration: none; line-height: 30px;}
+#nav a:hover	{background: #000 url(../images/nav/L1-hover.gif) repeat-x;}
+#nav a:active	{background: #000 url(../images/nav/L1-active.gif) repeat-x;}
+#nav li			{display: inline; line-height: 30px;}
+body#about li.about a, body#about li.about:visited, body#comicbooks li.comicbooks a, body#comicbooks li.comicbooks:visited, body#illustration li.illustration a, body#illustration li.illustration:visited, body#print li.print a, body#print li.print:visited, body#web li.web a, body#web li.web:visited, body#sketchbook li.sketchbook a, body#sketchbook li.sketchbook:visited, body#current li.current a, body#current li.current:visited, body#blog li.blog a, body#blog li.blog:visited	
+	{background: url(../images/nav/L1-selected.gif) center 0 no-repeat; font-weight: bold; color: #fff;}
+
+#nav .web a		{border-left: 0;}
+#nav .blog a	{border-right: 0;}
+#nav .wai a		{border-right: 0; display: none;}
+
+/* Navigation (Level Two) */
+#navL2			{float: left; clear: both; text-align: left; width: 153px; height: 100%; min-height: 500px; margin: 0; margin-right: 20px; padding: 0 0 1em 0;}
+#navL2 h4		{padding: .5em 0 .5em 10px; margin-bottom: .5em; background: #006 url(../images/nav/L2-h4.gif) repeat-x 0 0; color: #fff;}
+#navL2 h4.plain	{margin-bottom: .5em; background: none; color: #2f3742;}
+#navL2 ul		{padding: 0; margin: 0; margin-bottom: 1em;}
+#navL2 ul li	{padding-bottom: .5em;}
+#navL2 ul li.selected a:link, #navL2 ul li.selected a:visited	{font-weight: bold;}
+#navL2 ul li.selected a:hover	{text-decoration: underline;}
+#navL2 img			{margin-left: 10px; margin-bottom: .5em; border: 1px solid #ccc;}
+#navL2 img.nb		{border: 0;}
+#navL2 img.bleed	{margin: 0; border: 0; width: auto;}
+#navL2 img.bleed.bottom	{margin-bottom: 1em;}
+#navL2 .list li, #navL2 .list h4	{padding-bottom: 0;}
+#navL2 li ul	{background: none; border: 0; margin: 0; margin-top: .5em; padding: 0;}
+#navL2 li li	{margin-left: 0; padding-left: 12px; padding-bottom: .5em; background: url(../images/global/liBullet.gif) 0 4px no-repeat;}
+#navL2 h3		{font-size: 200%; line-height: 1em; font-family: georgia, 'times new roman', serif; font-weight: normal; margin-bottom: .25em; padding-bottom: .25em; border-bottom: 1px dotted #ccc;}
+#navL2 h2		{line-height: 1em; margin-bottom: .5em;}
+#navL2 a.wai	{border-right: 0; display: none;}
+
+/* Nav Column: 2-Level Embedded ULs */
+#navL2.twolevel ul li		{font-weight: bold;} 
+#navL2.twolevel li li		{font-weight: normal;} 
+
+/* Nav Column: Latest Entries */
+#navL2 .new	h4	{background-image: url(../images/nav/L2-new-h4.gif); margin: 0;}
+#navL2 .new	ul	{background: #ffeabe url(../images/nav/L2-new.gif) no-repeat 65px center; border: 1px solid #d8c69e; padding: 10px;}
+#navL2 .new	li	{font-weight: normal;  margin-left: 0; padding-left: 12px; background: url(../images/global/liBullet.gif) 0 4px no-repeat;}
+#navL2 .new	ul ul	{background: transparent; border: 0;}
+
+/* Nav Column: Latest UL/LI */
+#navL2 ul.new	ul	{}
+#navL2 ul.new	li	{font-weight: normal;  margin-left: 0; padding-left: 12px; background: url(../images/global/liBullet.gif) 0 4px no-repeat;}
+
+/* Column One: Twitter */
+#navL2 .twitter								{padding: 10px 0; width: 153px; }
+#navL2 .twitter .twtr-hd					{padding-bottom: 0px;}
+#navL2 .twitter .twtr-hd h3					{font-size: 11px !important; font-family: verdana, arial, helvetica, sans-serif !important; margin-bottom: 5px; border: 0;}
+#navL2 .twitter .twtr-hd h4					{background-image: none; font-size: 14px !important; margin-bottom: 6px !important;}
+#navL2 .twitter .twtr-bd img 				{margin: 0; }
+#navL2 .twitter .twtr-bd					{padding: 0 4px;}
+#navL2 .twitter .twtr-ft div				{padding-bottom: 0;}
+#navL2 .twitter .twtr-widget .twtr-tweet	{border-color: #ccc}
+
+.twtr-tweet-text 	{margin-left: 0 !important;}
+.twtr-avatar 		{width: 40px !important; height: 25px !important;}
+.twtr-img 			{width: 25px; height: 25px;}
+.twtr-ft a 			{float: none !important; text-align: left !important;}
+.twtr-widget a img	{margin-left: 0 !important}
+.twtr-ft span 		{float: none !important; text-align: left !important; display: block; margin-bottom: 10px;}
+
+
+/* Nav Column: Unordered Lists */
+#navL2 ul.ul li	{padding-left: 12px; background: url(../images/global/liBullet.gif) 0 4px no-repeat; margin-bottom: .5em;}
+
+
+/* navL2 Expander (swipe from Mozilla Firefox) */
+
+/* open */
+.expander-open .expander-header {margin: 0;}
+.expander-open .expander-content {display: block;}
+
+/* closed */
+.expander-closed .expander-header {margin: 0;  margin-bottom: 1em;}
+.expander-closed .expander-content {display: none;}
+
+/* open or closed */
+.expander-open .expander-header .expander-anchor,
+.expander-closed .expander-header .expander-anchor {
+	display: block;
+	outline: none;
+	background: transparent url(../images/icons/expander-plus.gif;) 0 center no-repeat;
+	background-image: url(../images/icons/expander-plus.gif);
+	padding-left: 15px;
+	color: #fff; text-decoration: none;
+	zoom: 1; /* Fix for full-clickable area in IE6 */
+}
+.expander-open .expander-header .expander-anchor {background-image: url(../images/icons/expander-minus.gif);}
+.expander-open .expander-header a.expander-anchor:hover,
+.expander-closed .expander-header a.expander-anchor:hover 
+	{text-decoration: underline;}
+.expander-open,.expander-closed {position: relative;} /* IE6 hack */
+
+
+/* Content */
+#contentDiv					{float: left; width: 720px; border: 0; margin-bottom: 2em; position: relative;}
+#home #contentDiv			{width: 760px}
+
+/* Content DIV */
+#content			{float: left; width: 100%; text-align: left; border: 0; background: transparent;}
+#contentDiv.wide	{width: 900px;}
+
+#content h1			{line-height: 1.3em; margin-bottom: .25em; padding-bottom: .25em; border-bottom: 1px dotted #ccc; font-size: 150%; color: #336; font-size: 280%; font-family: georgia, 'times new roman' serif; font-weight: normal;}
+#content h1 a:link, h1 a:visited	{color: #333; text-decoration: none; background: url(../images/global/h2linked.gif) no-repeat 0 center; padding-left: 18px;}
+#content h1 a:hover					{color: #666;}
+#content h2					{color: #336; margin: 0; margin-bottom: .5em;  padding-bottom: .25em; margin-bottom: .25em; border-bottom: 1px dotted #ccc; line-height: 1.3em;}
+#content h3					{color: #333; margin-bottom: .5em;}
+#content h4					{color: #000; margin-bottom: .5em;}
+#content p, #content li		{line-height: 1.5em;}
+#content label				{color: #666; font-weight: bold; margin-bottom: .25em; text-transform: uppercase; display: block;}
+#content p.backtotop		{margin-bottom: 2em;}
+
+#content ul					{padding-right: 20px; margin-bottom: 1.5em;}
+#content ul li				{list-style: none; margin-left: 0; padding-left: 12px; margin-bottom: .5em; background: url(../images/global/liBullet.gif) 0 4px no-repeat;}
+#content ul li.listName		{font-weight: bold; list-style: none; margin-left: -20px;}
+#content ul li ul			{color: #333; margin-top: .25em;}
+#content ul li ul li 		{margin-bottom: 0; padding-bottom: 0; background: url(../images/global/liBulletInner.gif) 0 4px no-repeat;}
+
+#content ol					{list-style: decimal; margin-left: 30px; margin-bottom: 1.5em;}
+#content ol	li				{margin: 0; padding: 0; margin-bottom: .5em; line-height: 1.5em;}
+
+#content ul.oneline			{margin-bottom: 1.5em;}
+#content ul.oneline li,
+#content ol.oneline li		{margin-bottom: 0;}
+
+#content ul.padded	li, 			
+#content ol.padded	li		{margin-bottom: .75em;}
+
+#content p.firstP			{line-height: 1.3em; margin-bottom: .5em; color: #336; font-size: 200%; font-family: georgia, 'times new roman' serif; font-weight: normal;}
+
+/* Header and Links on a single line ----------------- */
+#content .h4bar				{background-color: #ccc; padding: 0px; margin: 0; margin-bottom: 5px; border: 0; height: 22px; display: inline-block;}
+#content .h4bar h4			{line-height: 22px; border: 0; background-image: none;}
+#content .h4bar p			{line-height: 22px;  right: 2px; color: #000;}
+#content .headerLink		{color: #ccc; font-weight: normal; font-size: 90%;}
+#content .headerLink.right  {position: absolute; top: 0; right: 0;}
+
+#content h1 .headerLink				{font-weight: normal; font-size: 60%;}
+#content h1 .headerLink a:link, 
+#content h1 .headerLink a:visited	{padding-left: 0; background: none; color: #33c; text-decoration: underline;}
+#content h1 .headerLink a:hover		{color: #039; text-decoration: none;}
+#content h1 .headerLink a:active	{color: #003;}
+
+
+/* Inline LI + Buttons */
+#content ul.inline li		{display: inline;}
+#content ul.buttons			{margin: 0; margin-bottom: 1em; padding: 0;}
+#content ul.buttons li a	{display: inline; border: 0; margin: 0; margin-right: .25em; padding: 6px; color: #fff; background: url(../images/icons/arrow-whitedown.gif) no-repeat center right #369; padding-right: 15px; text-decoration: none;}
+#content ul.buttons li		{background-image: none; text-align: center; border: 0; line-height: 20px}
+
+#bodyframe.index #content		{border-left: 0;}
+#bodyframe.index #content h3, #bodyframe.index #content h4, #bodyframe.index #content p {margin-left: 0;}
+#content.arted		{padding-top: 0;}
+
+/* Popup */
+body#popup			{background-image: none;}
+#popup #bodyframe	{position: relative; width: 530px; padding-bottom: 1em; border: 0;}
+#popup #masthead	{position: relative; top: 0; left: 20px; width: 500px; height: 64px; border: 0; background: url(../images/masthead/popup.gif);}
+#popup #content		{position: relative; top: 0; left: 20px; width: 500px; background-color: #fff; border: 1px solid #999; margin: 0 0 2em 0; float: none;}
+
+/* News Popup */
+#content.newsPopup		{position: relative; margin: 0; padding-top: 10px;}
+#content.newsPopup h1	{border: 0; margin-bottom: 0;}
+#content.newsPopup h2	{}
+#content.newsPopup h3	{margin-bottom: 0.25em;}
+#content.newsPopup p	{margin-bottom: 1em;}
+#content.newsPopup ul	{margin-bottom: 1em;}
+#oldNews h2, #oldNews h3, #oldNews h4, #oldNews p, #oldNews h3, #oldNews li	{color: #666;}
+#oldNews ul li	{background-image: url(../images/global/liBulletOldnews.gif);}
+
+/* Featured, Index page */
+#content .featured				{position: relative; width: 100%; height: 350px; background: #efefef left bottom no-repeat; border: 1px solid #ccc;}
+#content .featured a			{display: block;}
+#content .featured h3			{margin-bottom: .25em;}
+#content .featured h3 a			{text-decoration: none;}
+#content .featured h3 a:hover	{text-decoration: underline;}
+
+.featured .text					{position: absolute; width: 300px; height: auto; color: #000;}
+.featured .button				{margin-top: 1.5em; text-align: center;}
+.featured .text .col_third		{margin: 0; padding: 0;}
+.featured .text .col_third p	{margin: 0; padding: 0;}
+
+.featured#missing				{background-image: url(../images/feature/404.gif); border: 0; height: 410px;}
+.featured#missing .text			{right: 0; top: 100px; width: 210px;}
+.featured#missing a				{display: inline;}
+
+.featured#streetPaint						{background-image: url(../images/feature/streetPaint.jpg); border: 1px solid #dcf4f3;}
+.featured#streetPaint .text					{left: 20px; top: 20px; width: 300px; border: 0; color: #999;}
+.featured#streetPaint .text h4				{margin-bottom: 0;  color: #fc0;  font-size: 110%;}
+.featured#streetPaint .text h2				{margin-top: 0; padding-top: 0; border-color: #ccc; color: #ccc;}
+.featured#streetPaint .new					{color: #f6c;}
+.featured#streetPaint a:link, 
+.featured#streetPaint a:visited				{color: #fff; font-weight: bold;}
+.featured#streetPaint .text .col_third		{width: 100%; float: none; margin-bottom: 1em;}
+.featured#streetPaint .text .col_third.m	{margin-left: 0;}
+
+.featured#inmanSign						{background-image: url(../images/feature/inmanSign.jpg); background-position: left top; border: 0;}
+.featured#inmanSign .text				{right: 20px; top: 20px; width: 300px; border: 0; color: #333;}
+.featured#inmanSign .text h4			{margin-bottom: .25em;  color: #427cb1;  font-size: 110%;}
+.featured#inmanSign .text h2			{margin-top: 0; padding-top: 0; border-color: #666; color: #fff;}
+.featured#inmanSign .text p				{line-height: 1.5em;}
+.featured#inmanSign .new				{color: #f6c;}
+.featured#inmanSign a:link, 
+.featured#inmanSign a:visited			{color: #cf6107; font-weight: bold; display: inline;}
+.featured#inmanSign .text .col_third	{width: 100%; float: none; margin-bottom: 2em;}
+.featured#inmanSign .text .col_third.m	{margin-left: 0;}
+
+.featured#jellyfish						{background-image: url(../images/feature/jellyfish.jpg); background-position: left top; border: 0;}
+.featured#jellyfish .text				{right: 40px; top: 20px; width: 300px; border: 0; color: #ccf;}
+.featured#jellyfish .text h4			{margin-bottom: .25em;  color: #fc6; font-size: 110%;}
+.featured#jellyfish .text h2			{margin-top: 0; padding-top: 0; border-color: #ccc; color: #9cf;}
+.featured#jellyfish .text p				{line-height: 1.5em;}
+.featured#jellyfish .new				{color: #f6c;}
+.featured#jellyfish a:link, 
+.featured#jellyfish a:visited			{color: #fff; font-weight: bold; display: inline;}
+.featured#jellyfish .text .col_third	{width: 100%; float: none; margin-bottom: 2em;}
+.featured#jellyfish .text .col_third.m	{margin-left: 0;}
+
+.featured#simons					{background-image: url(../images/feature/simons.jpg); background-position: left top;}
+.featured#simons .text				{right: 30px; top: 20px; width: 310px; border: 0; color: #333;}
+.featured#simons .text h4			{margin-bottom: .25em; font-size: 110%;}
+.featured#simons .text h2			{margin-top: 0; padding-top: 0; border-color: #666; color: #d38a43;}
+.featured#simons .text p			{line-height: 1.5em;}
+.featured#simons .new				{color: #f6c;}
+.featured#simons a:link, 
+.featured#simons a:visited			{color: #336; font-weight: bold; display: inline;}
+.featured#simons .text .col_third	{width: 100%; float: none; margin-bottom: 2em;}
+.featured#simons .text .col_third.m	{margin-left: 0;}
+
+.featured#artsign					{background-image: url(../images/feature/artsign.jpg); background-position: left top; border: 0;}
+.featured#artsign .text				{right: 20px; top: 20px; width: 450px; border: 0; color: #333;}
+.featured#artsign .text h4			{margin-bottom: .25em;  color: #000;  font-size: 110%;}
+.featured#artsign .text h2			{margin-top: 0; padding-top: 0; border-color: #666; color: #ff9;}
+.featured#artsign .text p			{line-height: 1.5em;}
+.featured#artsign .new				{color: #f6c;}
+.featured#artsign a:link, 
+.featured#artsign a:visited			{color: #fff; font-weight: bold; display: inline;}
+.featured#artsign .text .col_third	{width: 100%; float: none; margin-bottom: 1em;}
+.featured#artsign .text .col_third.m	{margin-left: 0;}
+.featured#artsign .announce.stickies 		{right: 20px; bottom: 20px; width: 450px;}
+.featured#artsign .announce.stickies .txt	{width: 430px;}
+
+.featured#artofcomicbook					{background-image: url(../images/feature/artofcomicbook.jpg); background-position: left top; border: 1px solid #000;}
+.featured#artofcomicbook .text				{right: 20px; top: 20px; width: 400px; border: 0; color: #333;}
+.featured#artofcomicbook .text h4			{margin-bottom: .25em;  color: #000;  font-size: 110%;}
+.featured#artofcomicbook .text h2			{margin-top: 0; padding-top: 0; border-color: #666; color: #C30;}
+.featured#artofcomicbook .text p			{line-height: 1.5em;}
+.featured#artofcomicbook .new				{color: #f6c;}
+.featured#artofcomicbook a:link, 
+.featured#artofcomicbook a:visited			{color: #C30; font-weight: bold; display: inline;}
+.featured#artofcomicbook .text .col_third	{width: 100%; float: none; margin-bottom: 1em;}
+.featured#artofcomicbook .text .col_third.m	{margin-left: 0;}
+.featured#artofcomicbook .announce.stickies 		{width: auto;}
+.featured#artofcomicbook .announce.stickies .txt	{width: 94%;}
+
+.featured#bottle-of-red									{background-image: url(../images/feature/bottle-of-red.jpg); background-position: left top; border: 1px solid #000;}
+.featured#bottle-of-red .text							{right: 20px; top: 20px; width: 400px; border: 0; color: #ccc;}
+.featured#bottle-of-red .text h4						{margin-bottom: .25em; color: #000; font-size: 110%;}
+.featured#bottle-of-red .text h3,
+.featured#bottle-of-red .text h3 a						{color: #fc0;}
+.featured#bottle-of-red .text h2						{margin-top: 0; padding-top: 0; border-color: #336; color: #ccc;}
+.featured#bottle-of-red .text p							{line-height: 1.5em; }
+
+.featured#bottle-of-red .new							{color: #f6c;}
+.featured#bottle-of-red a:link, 
+.featured#bottle-of-red a:visited						{color: #fff; font-weight: bold; display: inline;}
+
+.featured#bottle-of-red .text .col_third				{width: 100%; float: none; margin-bottom: 1em;}
+.featured#bottle-of-red .text .col_third.m				{margin-left: 0;}
+
+.featured#bottle-of-red .text .announce.stickies 		{width: auto;}
+.featured#bottle-of-red .text .announce.stickies .txt	{width: 94%; color: #000;}
+
+.featured#draftingtable									{background-image: url(../images/feature/draftingtable.jpg); background-position: left top; border: 1px solid #000;}
+.featured#draftingtable .text							{right: 20px; top: 0; width: 410px; height: 350px; border: 0; color: #cf9; background: transparent url(../images/feature/txt.png) no-repeat left bottom; padding: 0;}
+.featured#draftingtable .text .txt						{position: absolute; left: 40px; top: 56px; width: 350px; height: 350px;}
+.featured#draftingtable .text h2						{padding-left: 40px; line-height: 40px; border: 0; background: transparent url(../images/feature/txt-hdr.png) repeat-x 0 0; color: #ccc; font-family: verdana, arial, helvetica, sans-serif; font-size: 130%; font-weight: bold;}
+.featured#draftingtable .text h2 span					{color: #fff;}
+.featured#draftingtable .text h4						{margin-bottom: .25em; color: #000; font-size: 110%;}
+.featured#draftingtable .text h3,
+.featured#draftingtable .text h3 a						{color: #fc0;}
+.featured#draftingtable .text h3 a:hover				{color: #fff; text-decoration: none;}
+.featured#draftingtable .text p							{line-height: 1.5em; }
+
+.featured#draftingtable .new							{color: #f6c;}
+.featured#draftingtable a:link, 
+.featured#draftingtable a:visited						{color: #fff; font-weight: bold; display: inline;}
+
+.featured#draftingtable .text .announce.stickies 		{width: auto;}
+.featured#draftingtable .text .announce.stickies .txt	{width: 94%; color: #000;}
+
+
+
+/* Announce for Featured Home */
+.featured .announce							{}
+#content .featured .announce p a:link,
+#content .featured .announce p a:visited	{display: inline; color: #33c; font-weight: normal; font-style: italic;}
+.featured .announce .txt					{margin: 0 auto 1em; text-align: left; width: 350px;}
+#content .featured .announce h3				{border: 0;}
+#content .featured .announce h3 a:link,
+#content .featured .announce h3 a:visited	{color: #336; text-decoration: none;}
+#content .featured .announce h3 a:hover		{text-decoration: underline;}
+#content .featured .announce h3 a:active	{color: #000;}
+#content .featured .announce h4				{margin-bottom: .25em;}
+#content .featured .announce p				{line-height: 1.3em;}
+
+#content .featured .announce.stickies.green.ink			{background: #cfc url(../images/feature/ink-sticky-green.gif) 10px 5px no-repeat;}
+#content .featured .announce.stickies.green.ink .txt	{width: 210px; margin: 0 10px 0 0; float: right;}
+#content .featured .announce.stickies					{padding-top: 25px;}
+
+
+/* Bottom Row, Index page */
+#botrow					{float: none; width: 100%; height: 186px; border: 0;}
+#botrow .headers h3		{margin-top: 1em; margin-bottom: .25em; border: 0; color: #336;}
+#botrow #tabbedIndex	{float: left; width: 495px; height: 100%; border: 0; clear: left;}
+#botrow .blognitive		{float: right; position: relative; width: 248px; height: 186px; background-color: #fff; clear: none; border: 0; text-align: left;}
+#botrow .blognitive .txt		{position: absolute; border: 0px solid blue; top: 0; left: 0;}
+#botrow .blognitive .txt h3		{color: #c63; margin-top: 0; border: 0;}
+
+#botrow .blognitive#pirates						{background: url(../images/blognitive/pirates.gif) 0 0 no-repeat;}
+#botrow .blognitive#pirates h3					{color: #000; margin-bottom: .25em; line-height: 1.3em; padding: 0;}
+#botrow .blognitive#pirates p					{color: #000; line-height: 1.3em;}
+#botrow .blognitive#pirates .txt				{left: 90px; top: 45px; width: 140px;}
+#botrow .blognitive#pirates .button				{margin-top: 1.5em; margin-bottom: 15px;}
+#botrow .blognitive#pirates .button a:active	{background-color: #000;}
+#botrow .blognitive#pirates h3 a:link, 
+#botrow .blognitive#pirates h3 a:visited	{color: #000; text-decoration: none;}
+#botrow .blognitive#pirates h3 a:hover		{color: #630;}
+
+
+#botrow .blognitive#masHero						{background: url(../images/blognitive/masHero.gif) 0 0 no-repeat;}
+#botrow .blognitive#masHero p					{color: #000; line-height: 1.3em;}
+#botrow .blognitive#masHero .txt				{display: none;}
+
+#botrow .blognitive#masHero .console		{position: absolute; left: 0; bottom: 0; width: 100%; height: 30px;}
+#botrow .blognitive#masHero .console ul		{width: 100%;  margin: 0; padding: 0; text-align: center;}
+#botrow .blognitive#masHero .console li		{display: inline; line-height: 30px; background-image: none; padding: 0; color: #cf5e43;}
+#botrow .blognitive#masHero .console a:link,
+#botrow .blognitive#masHero .console a:visited	{color: #fff; margin: 0 10px;}
+
+
+/* Tabbed Content aka "NYTimes Tab Swipe" (dsm, 2006-07) */	
+#Tabbed_Container				{border-left: 1px solid #999; font-size: 80%; top: 0; background: #fff;}
+#Tabbed_Container ul			{float: left; padding-left: 0; margin: 0; margin-left: -1px; border-left: 1px solid #ccc;}
+ul.Tabbed_Nav					{border: 0; white-space: nowrap; text-transform: uppercase;  vertical-align: middle;}		
+
+#content ul.Tabbed_Nav li				{margin: 0; display: block; float: left; position: relative; top: 0; background: #efefef url(../images/tabbed/tabbedNav.gif) repeat-x 0 0; border: 1px solid #ccc; border-width: 1px 1px 1px 0; white-space: nowrap; padding: 6px 6px 6px 6px; line-height: 1;}
+#content ul.Tabbed_Nav li.selected		{background-color: white; background-image: none; border-bottom: none; z-index: 9999; padding: 6px 6px 7px 6px;}
+#content ul.Tabbed_Nav li.selected a:link, #content ul.Tabbed_Nav li.selected a:visited	{color: #333;}
+#content ul.Tabbed_Nav li a:link, #content ul.Tabbed_Nav li a:visited 		{color: #fff; text-decoration: none;}
+#content ul.Tabbed_Nav li a:hover											{text-decoration: underline;}
+
+#content .Tabbed_Content						{border: 1px solid #ccc; background: url(../images/tabbed/tabbedActive.gif) repeat-x bottom; height: 162px; padding: 0px; margin: 0; display: none; clear: both; border-top: 1px solid #999; position: relative; top: -1px;}
+#content .Tabbed_Content.Tabbed_ContentActive	{display: block;}
+#content .Tabbed_Content .text					{position: relative; top: 10px; left: 185px; width: 295px; border: 0;}
+#content .Tabbed_Content h3						{margin-top: 0;}
+#content .Tabbed_Content p						{padding-bottom: .25em;}
+#content .Tabbed_Content img					{display: block; border: 1px solid #ccc; float: left; position: absolute; top: 12px; left: 12px;}
+
+/* Sidebar, inside of Content DIV */
+#sidebar		{float: right; width: 200px; border: 1px solid #c5d0e6; background-color: #e6edfb; margin: 0 0 1em 20px; padding: 1em 0 0 0;}
+#sidebar h3, #sidebar h4, #sidebar p, #sidebar ul	{margin-left: 10px; margin-right: 10px;}
+#sidebar img		{border: 0; margin-left: auto; margin-right: auto;}
+
+/* Boxed Data (for Project pages) ----------------- */
+#content .boxed					{border: 1px solid #889eb7; width: 700px; margin: 0 20px 1em 20px;}
+#content .boxed h4				{border-bottom: 1px dotted #999; background: #dfecf6 url(../images/global/boxed-h4.gif) repeat-x; padding: 5px; margin: 0; margin-bottom: 1em;}
+#content .boxed ul.innerlist	{margin-left: 0px; margin-top: 10px;}
+#content .boxed ul.innerlist li	{padding-top: 0; padding-bottom: 0; margin-bottom: 10px; color: #333; background: url(../images/global/liBulletInner.gif) 0 4px no-repeat;}
+#content .boxed .total			{border-top: 1px dotted #999; background: #dfecf6; line-height: 2.5em; list-style: none; margin-left: 0; padding-left: 20px;}
+
+.project .older			{background: #efefef; text-align: center; padding-bottom: 10px;}
+.project .older label	{background: #999; color: #fff; display: block; padding: 5px; padding-left: 20px; text-align: left; font-weight: bold;}
+.project .older .txt	{width: 680px; margin-left: 20px; text-align: left;}
+.project #content .older h3			{color: #333; margin-top: 1em; border-bottom: 0; border-top: 1px dotted #ccc; padding-top: .5em;}
+.project #content .older h3.first	{margin-top: 1em; border: 0;}
+
+
+/* Footer */
+#current .dayjob h3.hdr		{border-color: #9cc269;}
+#current .active h3.hdr		{border-color: #b6776b;}
+#current .ongoing h3.hdr	{border-color: #d7a34c;}
+#current .recent h3.hdr		{border-color: #82a8c2;}
+#current .ancient h3.hdr	{border-color: #94a5b0;}
+
+#footer			{float: none; clear: both; width: 100%; border-top: 6px solid #dae2e4; font-size: 90%; color: #718489; text-align: left;}
+#footer a		{color: #999; font-weight: normal;}
+#footer .txt	{margin: 2em 0em; line-height: 2em; background: transparent no-repeat 0 0; padding-left: 70px;}
+#footer ul		{margin: 0; margin-bottom: .3em; width: 100%;}
+#footer li		{display: inline; margin-right: 2em;}
+body#home #footer li.home a, body#home #footer li.home:visited, body#about #footer li.about a, body#about #footer li.about:visited, body#comicbooks #footer li.comicbooks a, body#comicbooks #footer li.comicbooks:visited, body#illustration #footer li.illustration a, body#illustration #footer li.illustration:visited, body#print #footer li.print a, body#print #footer li.print:visited, body#web #footer li.web a, body#web #footer li.web:visited, body#teaching #footer li.teaching a, body#teaching #footer li.teaching:visited, body#sketchbook #footer li.sketchbook a, body#sketchbook #footer li.sketchbook:visited, body#current #footer li.current a, body#current #footer li.current:visited, body#blog #footer li.blog a, body#blog #footer li.blog:visited
+	{background: transparent; font-weight: bold; color: #339; text-decoration: none;}
+
+body#home #footer .txt			{background-image: url(../images/footer/home.gif);}
+body#web #footer .txt			{background-image: url(../images/footer/web.gif);}
+body#print #footer .txt			{background-image: url(../images/footer/print.gif);}
+body#illustration #footer .txt	{background-image: url(../images/footer/illust.gif);}
+body#comicbooks #footer .txt	{background-image: url(../images/footer/comics.gif);}
+body#current #footer .txt		{background-image: url(../images/footer/projects.gif);}
+body#about #footer .txt			{background-image: url(../images/footer/about.gif);}
+body#sketchbook #footer .txt	{background-image: url(../images/footer/sketch.gif);}
+body#blog #footer .txt			{background-image: url(../images/footer/home.gif);}
+body#teaching #footer .txt		{background-image: url(../images/footer/teaching.gif);}
+body#filmfest #footer .txt		{background-image: url(../images/footer/about.gif);}
+
+/* Advertising Column */
+.adcol				{position: relative; float: right; text-align: left; width: 180px; border: 0; margin-bottom: 2em; clear: right;}
+.adcol h2			{margin-bottom: .5em; margin-top: .5em;}
+.adcol h3			{color: #339; margin-bottom: .5em; padding-bottom: .5em; border-bottom: 1px dotted #ccc;}
+
+.noL2 .adcol		{width: 220px;}
+.adcol #ads			{position: relative; padding: 0;}
+.adcol h4.hdr		{padding: .5em 0 .5em 10px; background: #006 url(../images/nav/L2-h4.gif) repeat-x 0 0; color: #fff;}
+.adcol #ads h4.hdr	{background: #363 url(../images/global/h4-ads.gif) 0 0 repeat-x; margin: 0; margin-bottom: .5em;}
+
+.adcol .ad		{position: relative; margin: 0; margin-bottom: 1em; padding: .25em 0 1em 0; background: #fff; border-bottom: 1px dotted #ccc;}
+.adcol .ad.last	{border: 0; padding-bottom: 0;}
+.adcol .ad p	{margin-bottom: 0; font-size: 100%;}
+.adcol .ad h4	{padding-bottom: .5em;}
+
+.adcol .ad h4, .adcol .ad p	{}
+.adcol .ad.first			{border-top: 0;}
+
+.adcol .banner				{width: 100%; text-align: center; border: 0; margin-top: 1em;}
+.adcol .banner img			{text-align: center; margin: 0 auto; border: 0;}
+
+.adcol .vCard				{position: relative; text-align: left; background: #fff url(../images/global/vCard-bg.gif) -6px 0 no-repeat; border: 0;}
+.adcol .vCard h4.hdr		{background: #600 url(../images/global/h4-vCard.gif) 0 0 repeat-x;}
+.adcol .vCard ul			{margin: 0 10px 0 10px; padding: .5em 0 1.5em 0;}
+.adcol .vCard li			{line-height: 1.8; font-size: 90%;}
+.adcol .vCard li.wrap		{margin-left: 40px;}
+.adcol .vCard li.chat		{height: 14px}
+.adcol .vCard li.chat img	{display: inline; margin: 0; padding-right: .5em; border: 0;}
+
+.adcol .adsense		{position: relative;  text-align: center;}
+.adcol .adsense img	{margin: 0 auto;}
+
+.adcol #ads.blurb				{}
+.adcol #ads.blurb h2			{margin-bottom: .25em; padding-bottom: .25em; border-bottom: 1px dotted #ccc; margin-top: 1em; line-height: 1.2em;}
+.adcol #ads.blurb p				{line-height: 2.1em;}
+#home .adcol #ads.blurb h2		{margin-top: 0;}
+
+
+/* Advertising Column: Home Page */
+body#home .adcol				{position: relative; float: right; text-align: left; width: 180px; border: 0; margin-bottom: 2em; clear: right;}
+body#home .adcol #ads			{position: relative; padding: 0;}
+body#home .adcol h4.hdr			{padding: .5em 0 .5em 10px; background: #006 url(../images/nav/L2-h4.gif) repeat-x 0 0; color: #fff;}
+body#home .adcol #ads h4.hdr	{background: #363 url(../images/global/h4-ads.gif) 0 0 repeat-x; margin: 0; margin-bottom: 1em;}
+
+body#home .adcol .ad			{position: relative; border: 1px solid #e1d086; margin: 0; margin-bottom: 1em; padding: .5em 0 1em 0; background: #fff url(../images/global/indexcard-yellow.gif) repeat-y 0 0; text-align: left;}
+body#home .adcol .ad p			{margin-bottom: 0; font-size: 100%;}
+body#home .adcol .ad h4			{padding-bottom: .5em;}
+body#home .adcol .ad h3			{padding-bottom: .5em;}
+
+body#home .adcol .ad h3, 
+body#home .adcol .ad h4, 
+body#home .adcol .ad p			{margin-left: 10px; margin-right: 10px;}
+body#home .adcol .ad.first		{border-top: 0;}
+
+/* Stickies: Home Page */
+body#home .adcol .stickies		{padding: 10px 0 0;}
+body#home .adcol .stickies h4, 
+body#home .adcol .stickies h3	{padding-bottom: .5em;}
+body#home .adcol .stickies ul	{margin-bottom: 1.5em; margin-left: 0;}
+body#home .adcol .stickies li	{padding-left: 12px; margin-bottom: .5em; background: url(../images/global/liBullet.gif) 0 4px no-repeat;}
+
+
+/* Portrait (used for biography panels of web project pages)  ----------------- */
+.portrait					{position: relative; width: 100%; height: 200px; background-color: #33c; background-position: 0 0; background-repeat: no-repeat; margin: 0; margin-bottom: 1em; margin-top: -9px; border: 0;}
+.portrait a:link, 
+.portrait a:visited			{color: #fff; font-size: 9px; font-weight: bold; padding: 3px; text-decoration: none; border: 0px solid #fff; text-transform: uppercase; white-space: nowrap;}
+.portrait a:hover			{color: #99f; text-decoration: underline;}
+.portrait .text				{position: absolute; line-height: 1.5; color: #fff;}
+
+.portrait#webCraig			{background-image: url(../images/portraits/craig.gif);}
+.portrait#webCraig .text	{top: 125px; right: 20px; width: 475px;}
+
+.portrait#webEddie			{background-image: url(../images/portraits/eddie.gif);}
+.portrait#webEddie .text	{top: 120px; right: 20px; width: 430px;}
+
+.portrait#webFMFM			{background-image: url(../images/portraits/fmfm.gif);}
+.portrait#webFMFM .text		{top: 65px; left: 25px; width: 490px; color: #9f9;}
+
+.portrait#webML				{background-image: url(../images/portraits/ml.gif);}
+.portrait#webML .text		{top: 85px; left: 250px; width: 320px; color: #111;}
+
+.portrait#webLTSave			{background-image: url(../images/portraits/ltsave.gif);}
+.portrait#webLTSave .text	{top: 85px; left: 15px; width: 500px; color: #cff;}
+
+.portrait#webH4H			{background-image: url(../images/portraits/h4h.gif);}
+.portrait#webH4H .text		{top: 100px; right: 90px; width: 470px;}
+
+.portrait#webEzra			{background-image: url(../images/portraits/ezra.gif); margin-bottom: 2em;}
+.portrait#webEzra .text		{top: 90px; left: 20px; width: 530px; color: #06f;}
+.portrait#webEzra a:link, .portrait#webEzra a:visited	{color: #f60;}
+
+.portrait#webPeabody		{background-image: url(../images/portraits/peabody.gif);}
+.portrait#webPeabody .text	{top: 50px; left: 20px; width: 380px; color: #111;}
+#webPeabody a:link, #webPeabody a:visited	{color: #930;}
+
+.portrait#webMindfire		{background-image: url(../images/portraits/mindfire.jpg);}
+.portrait#webMindfire .text	{top: 20px; left: 380px; width: 200px; color: #111; text-align: center;}
+#webMindfire a:link, #webMindfire a:visited	{color: #930;}
+
+.portrait#webACCC			{background-image: url(../images/portraits/accc.jpg); border: 1px solid #C96;}
+.portrait#webACCC .text		{top: 35px; left: 170px; width: 410px; color: #000;}
+#webACCC a:link, #webACCC a:visited	{color: #600; padding-left: 0;}
+
+#content .gallery			{margin: 0; margin-bottom: 2em; border: 0; position: relative;}
+#content .gallery img 		{border: 1px solid #ccc;}
+#content .gallery .text		{position: absolute; top: 0; left: 420px; width: 300px; border: 0;}
+
+.portrait#webStorystreet		{background-image: url(../images/portraits/storystreet.jpg); border: 1px solid #ccc;}
+.portrait#webStorystreet .text	{top: 100px; left: 20px; width: 400px; color: #111;}
+.portrait#webStorystreet a:link, .portrait#webStorystreet a:visited	{color: #339;}
+
+.portrait#webPoweringup			{background-image: url(../images/portraits/poweringup.jpg); border: 1px solid #9fae7f;}
+.portrait#webPoweringup .text	{top: 30px; left: 210px; width: 370px; color: #ffc;}
+#webPoweringup a:link, 
+#webPoweringup a:visited		{color: #fff; padding-left: 0;}
+
+.portrait#webCarbonite			{background-image: url(../images/portraits/carbonite.jpg);}
+.portrait#webCarbonite .text	{top: 75px; left: 65px; width: 320px; color: #c9f;}
+
+.portrait#webMAS		{background-image: url(../images/portraits/mas.jpg);}
+.portrait#webMAS .text	{top: 90px; right: 30px; width: 410px;}
+
+.portrait#sketchCrawl				{background-image: url(../images/portraits/sketchcrawl.jpg); height: 300px;}
+.portrait#sketchCrawl .text			{top: 20px; left: 20px; width: 210px; text-align: left;}
+.portrait#sketchCrawl h2			{border: 0; margin: 0; padding: 0;}
+.portrait#sketchCrawl h3			{color: #c03; border-bottom: 1px dotted #ccc;}
+.portrait#sketchCrawl ul			{margin: 0; padding: 0;}
+.portrait#sketchCrawl ul.marginbot	{margin-bottom: 1em;}
+.portrait#sketchCrawl li			{background-image: none; color: #333; padding: 0; margin-bottom: .25em;}
+.portrait#sketchCrawl a:link, 
+.portrait#sketchCrawl a:visited		{color: #339; padding: 0; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#sketchCrawl a:hover		{text-decoration: none;}
+.portrait#sketchCrawl li a:link,
+.portrait#sketchCrawl li a:visited	{list-style: none; margin-left: 0; padding-left: 12px; margin-bottom: .5em; background: url(../images/global/liBullet.gif) 0 4px no-repeat;}
+
+.portrait#comic24			{background-image: url(../images/portraits/24hourcomics.jpg); height: 300px; border: 0px solid #ccc;}
+.portrait#comic24 .text		{top: 20px; left: 495px; width: 190px;}
+.portrait#comic24 h3		{color: #c03; border-bottom: 1px dotted #ccc;}
+.portrait#comic24 ul		{margin: 0; margin-bottom: 1em; padding: 0;}
+.portrait#comic24 li		{background-image: none; color: #333; padding: 0; margin: 0;}
+.portrait#comic24 a			{color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline; padding: 0;}
+.portrait#comic24 a:hover	{text-decoration: none;}
+
+.portrait#webCreativeSource			{background-image: url(../images/portraits/creativesource.gif);}
+.portrait#webCreativeSource .text	{top: 47px; left: 300px; width: 370px; color: #ccc; line-height: 2em;}
+#webCreativeSource a:link, 
+#webCreativeSource a:visited		{color: #6C0; padding-left: 0;}
+
+.portrait#webCrunch			{background-image: url(../images/portraits/crunch.jpg); border: 1px solid #f60;}
+.portrait#webCrunch .text	{top: 22px; left: 233px; width: 460px; color: #333;}
+#webCrunch a:link, 
+#webCrunch a:visited		{color: #f60; padding-left: 0;}
+
+.portrait#comicsDemo			{background-image: url(../images/portraits/comics-demo.jpg); height: 300px;}
+.portrait#comicsDemo .text		{top: 15px; right: 15px; width: 350px;}
+.portrait#comicsDemo h3			{color: #c03; border-bottom: 1px dotted #ccc;}
+.portrait#comicsDemo ul			{margin: 0; padding: 0;}
+.portrait#comicsDemo li			{background-image: none; color: #333; padding: 0; margin-bottom: .25em;}
+.portrait#comicsDemo a:link, 
+.portrait#comicsDemo a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#comicsDemo a:hover	{text-decoration: none;}
+
+.portrait#comicsArt				{background-image: url(../images/portraits/comics-demo.jpg); height: 300px;}
+.portrait#comicsArt .text		{top: 50px; left: 390px; width: 265px;}
+.portrait#comicsArt h3			{color: #c03; border-bottom: 1px dotted #ccc; margin-top: 0;}
+.portrait#comicsArt ul			{margin: 0; padding: 0;}
+.portrait#comicsArt li			{background-image: none; color: #333; padding: 0; margin-bottom: .25em;}
+.portrait#comicsArt a:link, 
+.portrait#comicsArt a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#comicsArt a:hover		{text-decoration: none;}
+
+.portrait#comicsAtomicbean				{background-image: url(../images/portraits/comics-atomicbean.jpg); height: 300px;}
+.portrait#comicsAtomicbean .text		{top: 30px; left: 490px; width: 170px;}
+.portrait#comicsAtomicbean h3			{color: #c03; border-bottom: 1px dotted #ccc; margin-top: 0;}
+.portrait#comicsAtomicbean ul			{margin: 0; padding: 0;}
+.portrait#comicsAtomicbean li			{background-image: none; color: #333; padding: 0; margin-bottom: .25em;}
+.portrait#comicsAtomicbean a:link, 
+.portrait#comicsAtomicbean a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#comicsAtomicbean a:hover		{text-decoration: none;}
+
+.portrait#comicsBostoncomiccon				{background-image: url(../images/portraits/comics-bostoncomiccon.jpg); height: 300px;}
+.portrait#comicsBostoncomiccon .text		{top: 40px; right: 40px; width: 200px;}
+.portrait#comicsBostoncomiccon h3			{color: #c03; border-bottom: 1px dotted #ccc; margin-top: 0;}
+.portrait#comicsBostoncomiccon ul			{margin: 0; padding: 0;}
+.portrait#comicsBostoncomiccon li			{background-image: none; color: #333; padding: 0; margin-bottom: .25em;}
+.portrait#comicsBostoncomiccon a:link, 
+.portrait#comicsBostoncomiccon a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#comicsBostoncomiccon a:hover		{text-decoration: none;}
+
+.portrait#comicsDSM				{background-image: url(../images/portraits/comics-dsm.jpg); height: 400px;}
+.portrait#comicsDSM .stickies	{position: absolute; left: 20px; top: 20px; width: 380px;}
+.portrait#comicsDSM h3			{border-bottom: 1px dotted #ccc; margin-top: 0; padding-bottom: .5em; border-color: #fff;}
+.portrait#comicsDSM p			{color: #000;}
+.portrait#comicsDSM a:link, 
+.portrait#comicsDSM a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#comicsDSM a:hover		{text-decoration: none;}
+
+.portrait#teaching-massartDE308				{background-image: url(../images/portraits/teaching-massartDE308.jpg); height: 300px;}
+.portrait#teaching-massartDE308 .text		{top: 20px; right: 40px; width: 200px;}
+.portrait#teaching-massartDE308 h3			{color: #fff; border-bottom: 1px dotted #ccc; margin-top: 0;}
+.portrait#teaching-massartDE308 ul			{margin: 0; padding: 0;}
+.portrait#teaching-massartDE308 li			{background-image: none; color: #333; padding: 0; margin-bottom: .25em;}
+.portrait#teaching-massartDE308 a:link, 
+.portrait#teaching-massartDE308 a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#teaching-massartDE308 a:hover		{text-decoration: none;}
+
+.portrait#teachingComics			{background-image: url(../images/portraits/artofcomic.jpg); height: 300px; border-bottom: 1px solid #C90;}
+.portrait#teachingComics .text		{top: 20px; right: 20px; width: 260px;}
+.portrait#teachingComics h3			{color: #c03; border-bottom: 1px dotted #ccc;}
+.portrait#teachingComics ul			{margin: 0; padding: 0;}
+.portrait#teachingComics li			{background-image: none; color: #333; padding: 0; margin-bottom: .25em;}
+.portrait#teachingComics a:link, 
+.portrait#teachingComics a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#teachingComics a:hover	{text-decoration: none;}
+
+.portrait#teachingComics a:link.strong, 
+.portrait#teachingComics a:visited.strong {font-weight: bold; color: #c03;}
+
+.portrait#comicsPublished			{background-image: url(../images/portraits/comics-published.jpg); height: 300px;}
+.portrait#comicsPublished .stickies	{position: absolute; right: 80px; top: 50px; width: 200px;}
+.portrait#comicsPublished h3		{border-bottom: 1px dotted #ccc; margin-top: 0; padding-bottom: .5em; border-color: #fff;}
+.portrait#comicsPublished p			{color: #000;}
+.portrait#comicsPublished a:link, 
+.portrait#comicsPublished a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#comicsPublished a:hover	{text-decoration: none;}
+
+.portrait#comicsDSM-AgentK				{background-image: url(../images/portraits/comics-dsmAgentK.jpg); height: 400px;}
+.portrait#comicsDSM-AgentK .stickies	{position: absolute; left: 20px; top: 20px; width: 380px;}
+.portrait#comicsDSM-AgentK h3			{border-bottom: 1px dotted #ccc; margin-top: 0; padding-bottom: .5em; border-color: #fff;}
+.portrait#comicsDSM-AgentK p			{color: #000;}
+.portrait#comicsDSM-AgentK a:link, 
+.portrait#comicsDSM-AgentK a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#comicsDSM-AgentK a:hover		{text-decoration: none;}
+
+.portrait#comicsDSM-AgentKgun			{background-image: url(../images/portraits/comics-dsmAgentKgun.jpg); height: 400px;}
+.portrait#comicsDSM-AgentKgun .stickies	{position: absolute; right: 20px; top: 20px; width: 200px;}
+.portrait#comicsDSM-AgentKgun h3		{border-bottom: 1px dotted #ccc; margin-top: 0; padding-bottom: .5em; border-color: #fff;}
+.portrait#comicsDSM-AgentKgun p			{color: #000;}
+.portrait#comicsDSM-AgentKgun a:link, 
+.portrait#comicsDSM-AgentKgun a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline; white-space: normal;}
+.portrait#comicsDSM-AgentKgun a:hover	{text-decoration: none;}
+
+.portrait#comicsDSM-SpacePage			{background-image: url(../images/portraits/comics-dsmSpacepage.jpg); height: 350px;}
+.portrait#comicsDSM-SpacePage .stickies	{position: absolute; right: 20px; top: 20px; width: 200px;}
+.portrait#comicsDSM-SpacePage h3		{border-bottom: 1px dotted #ccc; margin-top: 0; padding-bottom: .5em; border-color: #fff;}
+.portrait#comicsDSM-SpacePage p			{color: #000;}
+.portrait#comicsDSM-SpacePage a:link, 
+.portrait#comicsDSM-SpacePage a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline; white-space: normal;}
+.portrait#comicsDSM-SpacePage a:hover	{text-decoration: none;}
+
+.portrait#comicsDSM-AgentD				{background-image: url(../images/portraits/comics-dsmAgentD.jpg); height: 400px;}
+.portrait#comicsDSM-AgentD .stickies	{position: absolute; left: 20px; top: 20px; width: 230px;}
+.portrait#comicsDSM-AgentD h3			{border-bottom: 1px dotted #ccc; margin-top: 0; padding-bottom: .5em; border-color: #fff;}
+.portrait#comicsDSM-AgentD p			{color: #000;}
+.portrait#comicsDSM-AgentD a:link, 
+.portrait#comicsDSM-AgentD a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#comicsDSM-AgentD a:hover		{text-decoration: none;}
+
+.portrait#comicsDSM-Luckyseven				{background-image: url(../images/portraits/comics-dsmLuckyseven.jpg); height: 400px; border: 1px solid #000;}
+.portrait#comicsDSM-Luckyseven .stickies	{position: absolute; left: 20px; bottom: 20px; width: 680px;}
+.portrait#comicsDSM-Luckyseven h3			{border-bottom: 1px dotted #ccc; margin-top: 0; padding-bottom: .5em; border-color: #fff;}
+.portrait#comicsDSM-Luckyseven p			{color: #000;}
+.portrait#comicsDSM-Luckyseven a:link, 
+.portrait#comicsDSM-Luckyseven a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#comicsDSM-Luckyseven a:hover		{text-decoration: none;}
+
+.portrait#comicsDSM-Schoolfight				{background-image: url(../images/portraits/comics-dsmSchoolfight.jpg); height: 340px; border: 1px solid #000;}
+.portrait#comicsDSM-Schoolfight .stickies	{position: absolute; left: 20px; top: 20px; width: 230px;}
+.portrait#comicsDSM-Schoolfight h3			{border-bottom: 1px dotted #ccc; margin-top: 0; padding-bottom: .5em; border-color: #fff;}
+.portrait#comicsDSM-Schoolfight p			{color: #000;}
+.portrait#comicsDSM-Schoolfight a:link, 
+.portrait#comicsDSM-Schoolfight a:visited	{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#comicsDSM-Schoolfight a:hover		{text-decoration: none;}
+
+.portrait#comicsDSM-BottleRed				{background-image: url(../images/portraits/comics-dsmBottle-of-Red.jpg); height: 340px; border: 1px solid #000;}
+.portrait#comicsDSM-BottleRed .stickies		{position: absolute; left: 20px; bottom: 20px; width: 210px;}
+.portrait#comicsDSM-BottleRed h3			{border-bottom: 1px dotted #ccc; margin-top: 0; padding-bottom: .5em; border-color: #fff;}
+.portrait#comicsDSM-BottleRed p				{color: #000;}
+.portrait#comicsDSM-BottleRed a:link, 
+.portrait#comicsDSM-BottleRed a:visited		{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#comicsDSM-BottleRed a:hover		{text-decoration: none;}
+
+.portrait#comicsDSM-GoSnow					{background-image: url(../images/portraits/comics-dsmGosnow.jpg); height: 340px; border: 0; background-position: 0 bottom;}
+.portrait#comicsDSM-GoSnow .stickies		{position: absolute; left: 20px; top: 20px; width: 210px;}
+.portrait#comicsDSM-GoSnow h3				{border-bottom: 1px dotted #ccc; margin-top: 0; padding-bottom: .5em; border-color: #fff;}
+.portrait#comicsDSM-GoSnow p				{color: #000;}
+.portrait#comicsDSM-GoSnow a:link, 
+.portrait#comicsDSM-GoSnow a:visited		{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#comicsDSM-GoSnow a:hover			{text-decoration: none;}
+
+.portrait#comicsDSM-GrubHub					{background-image: url(../images/portraits/comics-dsmGrubhub.jpg); height: 340px; border: 0;}
+.portrait#comicsDSM-GrubHub .stickies		{position: absolute; left: 20px; top: 20px; width: 210px;}
+.portrait#comicsDSM-GrubHub h3				{border-bottom: 1px dotted #ccc; margin-top: 0; padding-bottom: .5em; border-color: #fff;}
+.portrait#comicsDSM-GrubHub p				{color: #000;}
+.portrait#comicsDSM-GrubHub a:link, 
+.portrait#comicsDSM-GrubHub a:visited		{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#comicsDSM-GrubHub a:hover			{text-decoration: none;}
+
+
+.portrait#teaching					{background-image: url(../images/portraits/teaching.jpg); height: 300px;}
+.portrait#teaching .text			{top: 20px; left: 20px; width: 230px;}
+.portrait#teaching h3				{color: #c03; border-bottom: 1px dotted #ccc;}
+.portrait#teaching ul				{margin: 0; padding: 0;}
+.portrait#teaching li				{background-image: none; color: #333; padding: 0; margin-bottom: .25em;}
+.portrait#teaching a:link, 
+.portrait#teaching a:visited		{margin: 0; padding: 0; color: #339; font-size: 100%; text-transform: none; font-weight: normal; text-decoration: underline;}
+.portrait#teaching a:hover			{text-decoration: none;}
+.portrait#teaching a:link.strong, 
+.portrait#teaching a:visited.strong {font-weight: bold;}
+
+
+
+/* Portfolio (works with Div toggler)  ----------------- */
+#portfolio					{position: relative; border: 0; background: #fff;}
+#portfolio .name			{position: relative; border: 0;  margin: 0;}
+#portfolio .name h4			{padding-bottom: 0; margin-bottom: 0;}
+#portfolio .name p			{padding-bottom: 0;}
+
+.image				{position: relative; padding-bottom: 50px; border: 0; text-align: center;}
+.image img			{border: 0;}
+.image.ruled	img	{border: 1px solid #ccc;}
+.image.text	 		{padding-bottom: 0;}
+.image .caption		{margin-top: .5em;}
+
+.portfolioDiv						{border: 0; display: none;}
+.portfolioDiv.portfolioDivActive	{display: block;}
+.txt .image.cropped	img				{margin-left: 0; margin-bottom: 0;}
+
+.name			{position: relative; border: 0;}
+.name h4		{padding-bottom: 0;}
+.name p			{padding-bottom: 0;}
+
+#content_dsmCatcherRye .txt		{border: 0; position: absolute; top: 40px; right: 0; width: 190px;}
+#content_dsmNormalJean .image	{padding-bottom: 0em;}
+#content_dsmNormalJean .txt		{padding-bottom: 2em;}
+
+/* Works, Web Index page */
+#works			{position: relative; border: 0; background: url(../images/web/ladyWait.gif) no-repeat -2px 1px; height: 625px;}
+#worksInfo		{position: absolute; width: 280px; top: 135px; left: 7px; border: 0; margin: 0;}
+#worksInfo .portfolioDiv				{position: relative; left: 0; top: 0;}
+#worksInfo .portfolioDiv .screen img 	{position: absolute; left: 0px; top: 3px; width: 400px; height: 250px; border: 1px solid #ccc; margin: 0; padding: 0;}
+#worksInfo .portfolioDiv .screen a:hover img 	{border: 1px solid #66f;}
+
+#worksInfo .portfolioDiv .txt		{position: absolute; left: 420px; top: 0; width: 290px;}
+#worksInfo .portfolioDiv .txt h3 	{padding: 0; margin: 0; margin-bottom: .5em; padding-bottom: .5em;}
+#worksInfo .portfolioDiv .txt p		{padding: 0; margin: 0; margin-bottom: .5em;}
+
+#worksInfo .portfolioDiv ul				{margin: 0; padding: 0; margin-top: 1em;}
+#worksInfo .portfolioDiv li				{list-style: none; padding-left: 0; line-height: 20px; padding-bottom: 1em;}
+#worksInfo .portfolioDiv li a:link, #worksInfo .portfolioDiv li a:visited			{color: #fff; background: url(../images/icons/arrow-whiteright.gif) no-repeat center right #369; list-style: none; padding: 6px; padding-right: 15px; text-decoration: none;}
+#worksInfo .portfolioDiv li.webSite a:link, #worksInfo .portfolioDiv li.webSite a:visited	{background-color: #c60;}
+
+#works .hand-left	{position: absolute; top: 219px; left: 0px; background: transparent url(../images/web/ladyWaitHand-left.gif) no-repeat 0 0; width: 17px; height: 40px;}
+#works .hand-top	{position: absolute; top: 130px; left: 185px; background: transparent url(../images/web/ladyWaitHand-top.gif) no-repeat 0 0; width: 43px; height: 15px;}
+
+/* Carbonite Banner Ads ----------------- */
+body#web.carbonite #content h4		{margin-bottom: .25em;}
+body#web.carbonite .bannerads		{position: relative;}
+body#web.carbonite .bannerads img	{display: inline; margin-right: 18px; border: 0;}
+
+/* Two-column DIV (Class, with WIDE LEFT/THIN RIGHT columns) ----------------- */
+.colummData		{float: left; width: 100%; margin: 0; margin-bottom: 1em; position: relative;}
+.col			{border: 0;}
+.col.wide		{float: left; width: 500px; border: 0;}
+.col.thin		{float: right; width: 28%; border: 0;}
+.col_half		{width: 49%; border: 0; margin: 0; padding: 0;}
+.col_half.l		{float: left;}
+.col_half.r		{float: right;}
+
+.col_third		{width: 31%; margin: 0;}
+.col_third.l	{float: left;}
+.col_third.m	{float: left; margin-left: 3%;}
+.col_third.r	{float: right;}
+
+body#comicbooks .col_half h3			{padding-top: .5em; padding-bottom: 0; border: 0; margin-top: 0;}
+body#comicbooks .col_half p a:link, 
+body#comicbooks .col_half p a:visited	{margin-right: .5em; font-weight: bold; color: #c30}
+body#comicbooks .col_half h3 a:link, 
+body#comicbooks .col_half h3 a:visited 	{color: #039;}
+body#comicbooks .col_half h3 a:hover	{text-decoration: none;}
+
+.colummData.comicbook .col_half			{width: 48%;}
+.colummData.comicbook .col_half p		{line-height: 1.5; border-bottom: 1px dotted #ccc; padding-bottom: 1em; margin-bottom: 0;}
+.colummData.comicbook .col_half p.last	{border: 0;}
+
+/* Spotlight  (3-box solution on top of Comic Book page)  ----------------- */
+table#spotlight			{background-color: #f9f6af; border: 0; margin: 0; margin-bottom: 10px; width: 718px;}
+table#spotlight tr		{vertical-align: top;}
+table#spotlight td		{margin: 0; padding: 5px 10px 0 10px; border: 1px solid #fc0; width: 33%; font-size: 100%;}
+table#spotlight td.sp	{background-color: #fff; padding: 5px; width: 10px; border: 0;}
+table#spotlight td h3	{margin-top: 0; border: 0;}
+#spotlight p		{margin: 0; padding: 0 0px 10px 0px; line-height: 1.3}
+#spotlight a, #spotlight a:visited	{text-decoration: underline; color: #039;}
+#spotlight a:hover					{text-decoration: none;}
+#spotlight img		{margin: 0; margin-right: 10px; margin-bottom: 10px; border: 1px solid #000; float: left;}
+#spotlight	a:link img, #spotlight	a:visited img	{border: 1px solid #039;}
+#spotlight	a:hover img								{border-color: #fc0;}
+
+
+/* Spotlight v2  (3-box solution on top of Comic Book page)  ----------------- */
+#newComicsBAK						{float: left; width: 100%; margin-bottom: 1em;}
+#newComicsBAK a.newComic			{float: left; width: 32%; min-height: 70px; background: #efefef; padding: 10px 0; text-decoration: none; color: #000; display: inline; position: relative;}
+#newComicsBAK a.newComic:visited	{color: #000;}
+#newComicsBAK a.newComic:hover		{background: #fce8c1; cursor: pointer; color: #000;}
+#newComicsBAK a.newComic:active	{background: #d17b53;}
+#newComicsBAK .headline			{font-size: 116%; font-weight: bold; margin-bottom: .5em; margin-left: 10px; display: block; color: #039; text-decoration: underline;}
+#newComicsBAK .thumbnail			{float: left; position: absolute; top: 30px; left: 10px; width: 45px; height: 45px;}
+#newComicsBAK .description			{width: 165px; float: right;}
+#newComicsBAK a.newComic.first		{}
+#newComicsBAK a.newComic.second	{margin-left: 15px;}
+#newComicsBAK a.newComic.third		{float: right;}
+#newComicsBAK br					{display: none;}
+
+/* New Corner (Comics Page for now)   ----------------- */
+#newCorner						{float: left; width: 100%; margin-bottom: 1em; border: 1px solid #ccc; background: #fff url(../images/global/newCorner.gif) -2px -2px no-repeat;}
+#newCorner a.newComic			{float: left; width: 200px; min-height: 70px; padding: 10px 0; text-decoration: none; color: #000; display: inline; position: relative;}
+#newCorner a.newComic:visited	{color: #000;}
+#newCorner a.newComic:hover		{background: #fce8c1; cursor: pointer; color: #000;}
+#newCorner a.newComic:active	{background: #d17b53;}
+#newCorner .headline			{font-size: 116%; font-weight: bold; margin-bottom: .5em; margin-left: 10px; display: block; color: #039; text-decoration: underline;}
+#newCorner .thumbnail			{float: left; position: absolute; top: 30px; left: 10px; width: 45px; height: 45px;}
+#newCorner .description			{width: 122px; margin-right: 10px; float: right; }
+#newCorner a.newComic.first		{margin-left:  80px;}
+#newCorner a.newComic.second	{margin-left: 15px;}
+#newCorner a.newComic.third		{float: right;}
+#newCorner br					{display: none;}
+
+/* Comic Book Production Methods  ----------------- */
+body#comicbooks .production p.proicon		{padding-left: 45px; background: no-repeat 0 0; min-height: 45px; height:auto !important; height:45px;}
+body#comicbooks .production p.proicon.ps	{background-image: url(../images/icons/proicon-ps.gif);}
+body#comicbooks .production p.proicon.cp	{background-image: url(../images/icons/proicon-cp.gif);}
+body#comicbooks .production p.proicon.ai	{background-image: url(../images/icons/proicon-ai.gif);}
+body#comicbooks .production p.proicon.id	{background-image: url(../images/icons/proicon-id.gif);}
+body#comicbooks .production p.proicon.ac	{background-image: url(../images/icons/proicon-ac.gif);}
+
+/* Comic Project Page Display  ----------------- */
+#sample							{position: relative; width: 100%;}
+#sample #console				{position: relative; width: 100%; height: 40px; margin-bottom: 10px; border: 1px solid #efd35b; background: url(../images/global/console.gif) repeat-x 0 0;}
+#sample #console ul				{list-style: none;  padding: 0;}
+#sample #console li				{float: left; line-height: 40px; background: no-repeat 0 10px;}
+#sample #console li a:link,
+#sample #console li a:visited	{padding-left: 15px; margin-right: 2em; height: 40px; color: #000; font-weight: bold; text-decoration: none; }
+#sample #console li a:hover		{text-decoration: underline; color: #930;}
+#sample #console li a:active	{color: #300;}
+#sample #console .pdf			{background-image: url(../images/icons/consoleicon-pdf.gif);}
+#sample #console .doc			{background-image: url(../images/icons/consoleicon-doc.gif);}
+#sample #console .slideshow		{background-image: url(../images/icons/consoleicon-slideshow.gif);}
+#sample img						{border: 1px solid #ccc; margin-bottom: 1em;}
+#sample p 						{font-style: italic; text-align: right; color: #999;}
+
+/* Quotations, so far used on Comics Endorsement page  ----------------- */
+#quotes			{position: relative;}
+#quotes h3		{color: #333; line-height: 1.3em; font-size: 110%;}
+#quotes p		{padding-bottom: .5em; margin-bottom: .5em; border-bottom: 1px dotted #ccc;}
+
+/* Portrait for Zip's Last Day Inprog Gallery ----------------- */
+table#cast	{width: 310px; height: 200px; margin: 0; margin-right: 15px; margin-bottom: 5px; border: 0; float: left;}
+table#cast th	{background: url(../images/nav/L2-h4.gif) repeat-x 0 0; color: #999;  border: 0; padding: 5px; margin: 0; text-align: left;}
+table#cast th a , table#portrait th a:visited	{color: #fff; text-decoration: none;}
+table#cast th a:hover					{text-decoration: underline;}
+table#cast img		{width: 150px; height: 150px; margin: 0px 10px 15px 0px; border: 1px solid #000;}
+table#cast td		{color: #000; padding: 15px; padding-bottom: 0px; margin: 0; background-image: url(../images/comics/zip/cast/splatter.gif)}
+table#cast h2		{color: #c00; padding-bottom: 5px; border: 0;}
+
+/* Comic Book Popup Slideshow  ----------------- */
+body.comicart		{}
+#comicart			{position: absolute; padding: 25px 0 0 25px;}
+#comicart	img		{position: absolute; top: 40px; border: 1px solid #999;}
+#comicnav			{position: absolute; top: 15px; left: 25px; border: 0;}
+#comicnav a, #comicnav a:visited	{background: #ffff33; color: #903; border: 1px solid #f90; font-size: 9px; font-weight: bold; padding: 3px; text-decoration: none;}
+#comicnav a:hover					{background: #ffd83c;}
+
+/* Merrill and Client CSS  ----------------- */
+body.popup		{padding: 20px;}
+.galcol			{position: relative; width: 660px; margin-top: .5em;}
+.galcolpic  	{position: absolute; left: 0; width: 400px;}
+.galcolpic img 	{border: 1px solid #ccc;}
+.galcoltxt 		{position: absolute; left: 420px;}
+.galcol p		{line-height: 2;}
+
+/* Bottom padding for Content images shorter than the vertical height of the Nav column  ----------------- */
+#portfolio.illustration	{min-height: 780px; padding-bottom: 20px;}
+#portfolio.print		{min-height: 650px; padding-bottom: 40px;}
+#portfolio.sketch		{min-height: 650px; padding-bottom: 40px;}
+#portfolio.sketch img		{margin: 0 auto;}
+
+/* Debugging */
+.debugRed		{border: 0px dotted red;}
+.debugBlue		{border: 0px dotted blue;}
+.debugGreen		{border: 0px dotted green;}
+.debugPurple	{border: 0px dotted purple;}
+.debugOrange	{border: 0px dotted orange;}
+
+/* Blog-specific */
+#content .blog .entry				{margin-bottom: 1em; padding-bottom: 1em; border-bottom: 4px solid #ccc;}
+#content .blog .entry h3			{margin-bottom: .5em; position: relative;}
+#content .blog .entry h3 a			{text-decoration: none; color: #933; background: url(../images/global/h3-blog.gif) no-repeat left -70px; padding-left: 19px; line-height: 15px;}
+#content .blog .entry h3 a:active	{background-position: left center; color: #000;}
+#content .blog .entry h3 a:hover	{background-position: left top;}
+#content .blog .entry p				{padding-top: 0; margin-top: 0;}
+#content .blog span.dateline		{color: #669; padding-right: 1em;}
+#content .blog .comment				{border: 0px solid #ccc; background-color: #fff; margin-bottom: .5em;}
+#content .blog .comment .post		{border-bottom: 1px dotted #ccc; padding-bottom: 1em; margin: 0; margin-bottom: 1em;}
+#content .blog .comment .post img	{float: left; margin-right: .5em; border: 0;}
+#content .blog .comment-icon.anon-comment-icon	{display: none;}
+#content .blog .txt					{margin: 10px;}
+#content .blog .postComment			{position: relative; margin: 0; margin-top: 2em; border: 0; height: 24px;}	
+#content .blog .postComment	a:link,	#content .blog .postComment	a:visited	{line-height: 24px; font-weight: bold; color: #fff; background: url(../images/icons/arrow-whiteright.gif) no-repeat center right #369; border: 1px solid #036; padding: 6px; padding-right: 15px; text-decoration: none;}	
+#content .blog .postComment	a:hover											{text-decoration: underline;}
+#content .blog .comment-link		{color: #fff; background: url(../images/icons/arrow-whiteright.gif) no-repeat center right #369; list-style: none; padding: 6px; padding-right: 15px; text-decoration: none;}
+#content .blog .comment-link:hover	{background-color: #69c;}
+#content .blog .comment-link:active	{background-color: #039;}
+#content .blog .BlogItemTitle h3	{border: 0; display: block;}
+
+/* Blog-specific v2 */
+#content .blog .entry h2			{margin-bottom: .5em; border: 0; padding-bottom: 0;}
+#content .blog .entry h2 a:link, 
+#content .blog .entry h2 a:visited	{text-decoration: none; color: #933; background: url(../images/global/h3-blog.gif) no-repeat left -63px; padding-left: 19px; line-height: 15px;}
+#content .blog .entry h2 a:hover	{background-position: left 7px; text-decoration: underline;}
+#content .blog .entry h2 a:active	{background-position: left -28px; color: #000;}
+#content .blog .BlogItemTitle h2	{border: 0; display: block;}
+
+#content .blog .sketchcrawlPlaces		{margin-top: 1em; padding-top: 1em; border-top: 1px dotted #ccc;}
+#content .blog .sketchcrawlPlaces h3	{margin-bottom: 0;}
+#content .blog .sketchcrawlPlaces p		{margin-bottom: .5em;}
+
+#content .blog h3 .headerLink			{font-weight: normal; }
+#content .blog h3 .headerLink a:link, 
+#content .blog h3 .headerLink a:visited	{padding-left: 0; background: none; color: #33c; text-decoration: underline;}
+#content .blog h3 .headerLink a:hover	{color: #039; text-decoration: none;}
+#content .blog h3 .headerLink a:active	{color: #003;}
+
+
+/* Resume */
+
+body.resume #content 				{border: 0; margin-bottom: 2em; width: 100%;}
+body.resume #content  h2			{color: #039; border-bottom: 0; margin-bottom: 0;}
+body.resume #content .job			{border: 0; border-bottom: 1px solid #ccc; margin-bottom: 1em; padding-bottom: .5em;}
+body.resume #content .job.last		{border: 0;}
+body.resume #content .job h3		{margin-top: 0; border: 0;}
+body.resume #content .job a			{white-space: nowrap;}
+body.resume #content .job.curr		{background: #ff9 url(../images/global/jobCurr.gif) repeat-x top; border: 1px solid #fc3; padding: 10px 10px 0 10px;}
+
+body.resume #content .section.tech h3	{border-bottom: 1px solid #efefef; padding-bottom: .5em;}
+
+body.resume .adcol .quote .hdr		{margin-bottom: .5em;}
+body.resume .adcol .quote			{margin: 0; padding: 0; border: 0; background: none; width: 100%;}
+body.resume .adcol .quote ul		{margin: 0; margin-bottom: 1em; padding: 0; width: 100%;}
+
+/* Contact MAS, About the Studio */
+.contactMAS				{position: relative; width: 100%; height: 350px; margin-bottom: 1em; margin-top: -9px; border: 1px solid #ccc; background: #efefef;}
+.contactMAS.growth		{background: #fff url(../images/about/dsmGrowth.jpg) no-repeat 0 0;}
+#content .contactMAS.growth ul		{position: absolute; top: 235px; left: 160px; width: 230px; background: transparent;}
+#content .contactMAS.growth ul li	{list-style: none; list-style: none; background: none; padding: 0; margin: 0;}
+#content .contactMAS.growth .txt	{position: absolute; top: 105px; right: 30px; width: 250px;}
+.contactMAS.growth .contactLinks		{position: absolute; left: 12px; top: 97px;}
+.contactMAS.growth .contactLinks img	{width: 50px; height: 50px; border: 0;}
+.contactMAS.growth .contactLinks#sketchIcon			{left: 9px;}
+.contactMAS.growth .contactLinks#printIcon			{left: 73px;}
+.contactMAS.growth .contactLinks#webIcon			{left: 137px;}
+.contactMAS.growth .contactLinks#comicsIcon			{left: 207px;}
+.contactMAS.growth .contactLinks#illustIcon			{left: 271px;}
+.contactMAS.growth .contactLinks#projIcon			{left: 136px; top: 11px;}
+
+/* Download my vCard, About the Studio */
+.download				{position: relative; margin: 0;}
+.download.myVcard		{background: #fff url(../images/icons/vCard.gif) no-repeat 0 0; padding-left: 70px;}
+#content .download.myVcard h4	{margin-bottom: .25em;}
+.download.myVcard p				{padding-bottom: .5em;}
+
+/* Departed/RIP Clients, About the Studio */
+.departed	{display: none;}
+.RIP		{}
+
+/* Current Projects, Medium Styles */
+#current h3							{border-top: 6px solid #ccc; padding-top: .5em; margin-bottom: .5em; padding-bottom: .5em; border-bottom: 1px dotted #ccc;}
+#current #content h4				{color: #039;}
+#current .buttons.inline			{text-align: center;}
+#current .buttons.inline a			{padding-left: 15px; padding-right: 20px; margin-right: 5px;}	
+#current .buttons.inline .dayjob a	{background-color: #9cc269;}
+#current .buttons.inline .active a	{background-color: #b6776b;}
+#current .buttons.inline .ongoing a	{background-color: #d7a34c;}
+#current .buttons.inline .recent a	{background-color: #82a8c2;}
+#current .buttons.inline .ancient a	{background-color: #94a5b0;}
+#current .buttons.inline .dayjob a:hover	{background-color: #88ab57;}
+#current .buttons.inline .active a:hover	{background-color: #a06458;}
+#current .buttons.inline .ongoing a:hover	{background-color: #bf8e3b;}
+#current .buttons.inline .recent a:hover	{background-color: #6d91aa;}
+#current .buttons.inline .ancient a:hover	{background-color: #7e8e99;}
+#current .dayjob h3		{border-color: #9cc269;}
+#current .active h3		{border-color: #b6776b;}
+#current .ongoing h3	{border-color: #d7a34c;}
+#current .recent h3		{border-color: #82a8c2;}
+#current .ancient h3	{border-color: #94a5b0;}
+#current .dayjob, #current .buttons.inline .dayjob	{display: none;}
+
+
+/* Quotes for Thin Column R (Blogs) */
+#content .col.thin .quotes		{background: #efefef url(../images/global/quotes.gif) repeat-y 0 0; padding: 1em 0;}
+#content .col.thin .quotes h3	{text-indent: -9999px; background: transparent url(../images/global/quotes-h3.gif) no-repeat 0 0; height: 80px; margin: 0; padding: 0;}
+#content .col.thin .quotes h4	{margin-bottom: .5em; padding-bottom: 0; color: #339;}
+#content .col.thin .quotes p	{font-style: italic; margin-bottom: 1em;}
+#content .col.thin .quotes p, 
+#content .col.thin .quotes h4	{width: 170px; margin-left: 15px;}
+#content .col.thin .quotes hr	{background: transparent url(../images/global/quotes-hr.gif) no-repeat 5px 0; height: 10px; display: block; border: 0; margin: 1em 0;}
+
+.adcol #ads .quotes		{}
+.adcol #ads .quotes h4	{margin-bottom: .25em; padding-bottom: 0; color: #339; font-family: georgia, times, 'times new roman', serif; font-size: 120%; line-height: 1.3em;}
+.adcol #ads .quotes p	{font-style: italic; margin-bottom: 2em; padding: 0;}
+.adcol #ads .ad ul		{}
+.adcol #ads .ad ul li	{list-style: none; margin-left: 0; padding-left: 12px; margin-bottom: .5em; background: url(../images/global/liBullet.gif) 0 4px no-repeat;}
+
+
+/* Exceptions for H4 bottom margin */
+body#current #content h4, 
+body#popup #content h4			{margin-bottom: .25em;}
+
+/* MAS Web History */
+#content ul.webHistory			{margin: 3em 0 1em; padding-top: 1em; border-top: 6px solid #ccc;}
+#content .webHistory li			{background-image: none; padding: 0;}
+.webHistory .version			{font-weight: bold;}
+#content .webHistory.v1			{border-color: #9cc269;}
+#content .webHistory.v2			{border-color: #5c5ccf;}
+#content .webHistory.v3			{border-color: #88abf2;}
+#content .webHistory.v4			{border-color: #bccbd5;}
+#content .webHistory.v5			{border-color: #ba5351;}
+#content .webHistory.v6			{border-color: #d7a34c;}
+#content .webHistory.v7			{border-color: #82a8c2;}
+#content ul.oneline.webHistoryNav	{margin-left: 5em;}
+
+/* Data TABLEs */
+table.data				{position: relative; clear: both;}
+table.data tr			{vertical-align: top;}
+table.data th, 
+table.data td			{padding: 5px; margin: 0; border-bottom: 1px solid #ccc;}
+table.data td			{text-align: left; border-bottom: 1px dotted #ccc;}
+table.data th			{text-align: left; vertical-align: bottom;}
+table.data tfoot td		{text-align: left; border: 0; font-size: 90%;}
+table.data tfoot td p	{margin-bottom: 0;}
+table.data .plus		{color: #696;}
+table.data .minus		{color: #c03;}
+#content table.data ul	{margin-bottom: 0; padding: 0;}
+
+.data .label		{white-space: nowrap; padding-left: 0;}
+.data .label span	{font-weight: normal;}
+
+/* Social Networking */
+#content .socialnetworks			{position: relative; width: 100%; margin: 2em 0 1em; border: 1px solid #ffe95a; background: #fffbe0; text-align: center;}
+#content .socialnetworks ul			{margin: 5px auto; width: 95%; height: 16px; text-align: left;}
+#content .socialnetworks li			{background-image: none; padding-left: 0; line-height: 16px; display: inline; color: #666; margin-right: 2em;}
+#content .socialnetworks .label		{margin-right: .25em;}
+#content .socialnetworks #diggthis	{background: url(http://digg.com/img/badges/16x16-digg-guy.gif) no-repeat 0 0; padding-left: 22px;}
+
+/* Journal within Picture Pages */
+.portfolioDiv .journal		{position: relative; border-top: 1px solid #ccc; margin-top: 2em; padding-top: 10px;}
+.journal .txt				{}
+#content .h3-norule	h3			{border: 0; margin-top: 0;}
+
+/* Art of the Comic Book: Data TABLE */
+table.data.gradingPolicy .label		{width: 7%;}
+table.data.gradingPolicy .range		{width: 10%; white-space: nowrap;}
+#content table.data.gradingPolicy .range	ul		{margin-left: 0;}
+#content table.data.gradingPolicy .range	ul li	{background-image: none; padding-left: 0; margin-left: 0;}
+
+/* Art of the Comic Book: Schedule */
+#content .scheduleSummer .colummData h3	{border-bottom: 1px solid #999; padding-bottom: .5em;}
+.scheduleSummer .colummData .col_half.l	{border-right: 1px dotted #ccc;}
+
+#content .retroSyllabus				{margin-bottom: 2em;}
+#content .retroSyllabus h3			{background: #94a5b0; color: #fff; margin-top: 1em; padding: 5px;}
+#content .retroSyllabus h4			{}
+#content .retroSyllabus.assignments h3	{background: #b6776b;}
+
+#current .active h3.hdr		{border-color: #b6776b;}
+#current .ongoing h3.hdr	{border-color: #d7a34c;}
+
+/* Art of the Comic Book: Toth v Rude Diagram */
+.diagram		{position: relative; width: 100%; float: left;}
+.diagram .txt	{width: 300px; display: inlne; float: right;}
+
+#content.toth-v-rude .diagram		{min-height: 500px; height:auto !important; height:500px; margin-bottom: 1em;}
+#content.toth-v-rude .diagram h3	{border-bottom: 1px dotted #ccc; padding-bottom: .5em;}
+#content.toth-v-rude .diagram img	{border: 0; float: left; width: 300px; display: inline;}
+#content.toth-v-rude .diagram p.backtotop	{position: absolute; left: 0; top: 480px; widht: 300px;}
+.toth-v-rude .diagram .txt	{width: 400px; margin-top: 10px;}
+
+#content.toth-v-rude .response		{background: #bed9f0 url(../images/global/response-steverude.gif) no-repeat 0 -2px; padding: 10px 0 .5em; margin-bottom: 1em;}
+#content.toth-v-rude .response p 	{padding: 0 10px 0; padding-left: 50px;}
+
+
+/* Back to Landing Page */
+a.backtoLanding			{margin-top: 5px; float: left; width: 100%; border: 1px solid #bfc8e3; background: #f6f6f6 url(../images/icons/backtoLanding.gif) no-repeat 10px center; padding: 10px 0; text-decoration: none; color: #000; display: inline; position: relative;}
+a.backtoLanding:visited	{color: #000;}
+a.backtoLanding:hover	{background-color: #fff; background-image: url(../images/icons/backtoLanding-hover.gif); cursor: pointer; color: #000; text-decoration: underline;}
+a.backtoLanding:active	{background-color: #ccc;}
+a.backtoLanding .link	{margin-bottom: .5em; margin-left: 30px; display: block; color: #039; text-decoration: none;}
+
+#content a.backtoLanding	{width: auto; padding-right: 20px;}
+
+/* Ancient Flash portfolio */
+.flash-portfolio {}
+.flash-portfolio .item {
+	border: 1px solid red;
+	margin-bottom: 2rem;
+}
+
+.flash-portfolio .item object {
+	border: 1px solid blue;
+}
+.flash-portfolio .item.happy-holidays {}
+.flash-portfolio .item.comic-book-gallery {}
+.flash-portfolio .item.spockula object {}
+.flash-portfolio .item.worker-man {}
+.flash-portfolio .item.winter-sam {}
+
+

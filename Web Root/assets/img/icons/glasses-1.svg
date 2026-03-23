@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 60 60">
+	<defs>
+		<style>
+			.st0 {
+				fill: #fff;
+				opacity: .6;
+			}
+			.st1 {
+				stroke-miterlimit: 10;
+			}
+			
+			.st1, .st2 {
+				fill: none;
+				stroke: #142f56;
+				stroke-width: 2px;
+			}
+			.st2 {
+				stroke-linecap: round;
+				stroke-linejoin: round;
+			}
+			.icon-fill {
+				fill: #142f56;
+				opacity: 1;
+			}
+		</style>
+	</defs>
+	<circle class="st0" cx="13.1" cy="39.2" r="12"/>
+	<circle class="st0" cx="47" cy="39.2" r="12"/>
+	<g id="Group_17205">
+		<circle id="Ellipse_2593" class="st1" cx="47" cy="39.1" r="12"/>
+		<circle id="Ellipse_2594" class="st1" cx="13" cy="39.1" r="12"/>
+		<path id="Path_36586" class="st2" d="M14,7.1c-8.3,0-9.1,6.1-9.1,6.1l-3.9,24.9"/>
+		<path id="Path_36587" class="st2" d="M59,38.1l-3.9-24.9s-.8-6.1-9.1-6.1"/>
+		<path id="Path_36588" class="st2" d="M24.4,34.6c1.3-1.7,3.4-2.6,5.6-2.5,4,0,5.5,2.5,5.5,2.5"/>
+	</g>
+</svg>

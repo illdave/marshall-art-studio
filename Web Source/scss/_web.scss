@@ -16,7 +16,6 @@
 		}
 		
 		&.even {
-			background-color: $section-bg-web-dev-even;
 		}
 			
 		&.capabilities {
@@ -46,14 +45,11 @@
 	}
 	
 	.client-details {
-		background: $item-bg;
-		padding: $client-details-padding;
 		color: $item-text-color;
 		margin-bottom: 1.5rem;
 		h3 {
 			color: $item-headings-color;
 			margin-bottom: .5rem;
-			text-align: center;
 		}
 		p {
 			&.footnote {

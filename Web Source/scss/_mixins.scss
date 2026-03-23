@@ -38,6 +38,19 @@
 	}
 }
 
+@mixin accordion-button {
+	font-family: 'Font Awesome Solid';
+	font-size: $font-size-base;
+	content: $icon-chevron-up;			
+	margin-left: $spacer-small;
+	&:hover {
+		color: $cta-link-hover-color;
+	}
+	&:active {
+		color: $cta-link-active-color;
+	}
+}
+
 @mixin list-header {
 	@include list-header-name;
 	@include list-header-border;
@@ -45,7 +58,7 @@
 @mixin list-header-name {
 	font-family: $font-family-headers;
 	font-weight: normal;
-	font-size: $h4-font-size;
+	font-size: $font-size-base;
 	text-transform: uppercase;
 	color: $headings-color;
 	line-height: 1.1rem;
@@ -90,3 +103,21 @@
 	white-space: nowrap;
 	width: 1px;
 }
+
+@mixin category-header {
+	font-family: $font-family-base;
+	font-size: 90%;
+	text-transform: uppercase;
+	line-height: 1rem;
+	display: block;
+	margin-bottom: .5rem !important;
+	padding-bottom: 0 !important;
+}
+
+@mixin inline-right-text {
+	font-family: $font-family-base;
+	font-size: .9rem;
+	text-transform: uppercase;
+	line-height: 1rem;
+}
+

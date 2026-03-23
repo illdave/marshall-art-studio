@@ -2,15 +2,23 @@
 
 section {
 	padding: $section-padding-large;
-	background: $section-bg no-repeat 110% center;
+	background: $section-bg;
 	
 	&.intro {
 		background: $section-intro-bg url("#{$layout-image-path}/section-bg-pinstripes.png") 0 0 repeat;
+		padding: $spacer-large 0 1.5rem;
+		h1 {
+			margin-bottom: $spacer-base;
+		}
+		figure {
+			padding-bottom: 0;
+			margin-bottom: 0;
+		}
 	}
 	&.even {
 		background-color: $section-bg-even;
 		.item, .client-details {
-			background: $item-even-bg;
+			background: transparent;
 		}
 	}	
 	&.no-padding {

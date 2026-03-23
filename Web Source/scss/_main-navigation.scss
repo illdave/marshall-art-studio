@@ -51,13 +51,15 @@
 		border-bottom: $main-nav-border;
 		background: $main-nav-bg;
 		.navbar-nav {
+			column-gap: 1rem;		
 			.nav-link {
 				color: $nav-link-color;
 				background: $nav-link-bg;
 				border: $nav-link-border;
-				padding: .25rem .5rem;
+				padding: .25rem 0;
 				border-radius: .25rem;
 				margin: 0 .25rem;
+				margin-top: $spacer-small;
 				&:hover {
 					color: $nav-link-hover-color;
 					background: $nav-link-hover-bg;
@@ -98,6 +100,8 @@
 			}	
 		}		
 	}
+	
+	
 }
 
 
