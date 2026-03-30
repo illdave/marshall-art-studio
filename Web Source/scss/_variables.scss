@@ -108,6 +108,7 @@ $text-divider-color:						transparentize($text-color, 0.2);
 $link-color:								darken($theme-color-1, 19%);
 $link-hover-color:							lighten($link-color, 20%);
 $link-active-color:							darken($link-color, 20%);
+$h1-color:									$text-color;
 
 $link-img-border:							rem(1px solid $link-color);
 $link-img-border-hover-color:				$link-hover-color;
@@ -210,12 +211,19 @@ $comic-book-font: 							"Spinner Rack Regular";
 $comic-book-font-italic: 					"Spinner Rack Italic";
 $comic-book-font-bold-italic: 				"Spinner Rack Bold Italic";
 
+$varela-round:								"Varela Round";
+$dosis-regular:								"Dosis Regular";
+$dosis-bold:								"Dosis Bold";
+$dosis-extra-bold:							"Dosis Extra Bold";
+$dosis-medium:								"Dosis Medium";
+$dosis-semi-bold:							"Dosis Semi Bold";
+
 $font-family-sans-serif: 					$proxima-nova,"helvetica neue", helvetica, arial, sans-serif;
 $font-family-serif:       					georgia, "times new roman", times, serif;
 $font-family-monospace:      				SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $font-family-base:        					$font-family-sans-serif;
 $font-family-headers:						$proxima-nova-bold;
-$font-family-h1:							$proxima-nova;
+$font-family-h1:							$dosis-semi-bold;
 
 $font-family-italic:						$proxima-nova-italic;
 $font-family-bold:							$proxima-nova-bold;
@@ -396,7 +404,7 @@ $main-nav-brand-width: 						350px;
 $main-nav-brand-width-mobile: 				260px;
 $main-nav-brand-height: 					3rem;
 $main-nav-brand-padding: 					$navbar-brand-padding;
-$main-nav-brand-margin: 					0;
+$main-nav-brand-margin: 					0 $spacer-large 0 0;
 $main-nav-brand-logo-margin: 				$main-nav-brand-margin 0;
 $main-nav-x-padding: 						.5rem;
 $main-navbar-padding: 						1rem;

@@ -31,6 +31,7 @@ h1, .h1 {
 	font-size: $h1-font-size;
 	line-height: $h1-line-height;
 	font-family: $font-family-h1;
+	color: $h1-color;
 	margin-bottom: $spacer-base;
 }
 h2, .h2 {
@@ -141,7 +142,7 @@ ol {
     }	
 	> li > ul {
 		padding-left: 1rem;
-		margin: 1rem 0;
+		margin: $spacer-base	 0;
 		list-style-type: disc;
 		counter-reset: item;
 		> li {
@@ -167,7 +168,7 @@ dl {
 			font-family: $font-family-base;
 			text-transform: none;
 			color: $text-color;
-			margin-top: .5rem;
+			margin-top: $spacer-small;
 		}
 	}
 	&.pullquote {
@@ -304,24 +305,24 @@ blockquote {
 	}
 	&.left, &.float-start {
 		float: left;
-		margin-right: 2rem;
+		margin-right: $spacer-large;
 	}
 	&.right, &.float-end {
 		float: right;
-		margin-left: 2rem;
+		margin-left: $spacer-large;
 	}
 	
 	&.centered {
 		text-align: center;
 		img {
-			margin: 0 auto .5rem;
+			margin: 0 auto $spacer-small;
 		}
 		p {
 			text-align: left;
 		}
 	}
 	img {
-		margin-bottom: .5rem;
+		margin-bottom: $spacer-small;
 	}
 	color: $picture-caption-color;
 	a {
@@ -345,7 +346,7 @@ blockquote {
 		img {
 			border: $border-default;
 			background: white;
-			padding: .5rem;
+			padding: $spacer-small;
 		}
 	}
 	&.no-border {

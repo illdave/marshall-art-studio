@@ -61,9 +61,11 @@
 		}
 		h1 {
 			line-height: $h1-line-height;
+			margin-bottom: $spacer-large;
 		}
 		h2 {
 			line-height: $h2-line-height * 1.1;
+			margin-bottom: $spacer-small;
 		}
 		h3 {
 			line-height: math.div($h2-font-size, 1);
@@ -306,9 +308,11 @@
 			margin-bottom: $spacer-small;
 		}
 		.text {
+			display: flex;
+			flex-direction: column;
 			flex-grow: 1;
 			margin-bottom: 0;
-			.header, .description {
+			.header, .description, .cta{
 				display: block;
 				text-decoration: none;
 				line-height: 1.2rem;
@@ -326,17 +330,25 @@
 						font-family: 'Font Awesome Solid';
 						content: $icon-list-link;			
 						color: $link-color;
-						margin-left: .5rem;
+						margin-left: $spacer-small;
 					}
 				}
 			}
 			.description {
 				color: $text-color;
 				font-size: $font-size-small;
+				flex-grow: 1;
+				a {
+					display: inline;
+				}
 				&.code-soup {
 					margin-top: $spacer-small;
 					color: $code-soup-color;
+					flex-grow: 12;
 				}
+			}
+			.cta {
+				margin-bottom: $spacer-base;
 			}
 		}
 		.button-row {
@@ -381,10 +393,17 @@
 	
 	&.with-background {
 		.feature-card {
-			padding: 1rem;
-			background: $tile-card-bg;	
-			background-size: 40rem;
 			border-radius: $border-radius-base;
+			margin-bottom: $spacer-large;
+			.image {
+				margin-bottom: 0;
+			}
+			.text {
+				background: $tile-card-bg;	
+				background-size: 40rem;
+				padding: $spacer-base;
+				padding-bottom: 0;
+			}
 		}
 	}
 }

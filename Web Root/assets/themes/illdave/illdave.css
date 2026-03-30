@@ -27269,6 +27269,48 @@ https://github.com/lokesh/lightbox2 */
   font-style: normal;
 }
 @font-face {
+  font-family: "Bryant";
+  src: url("../../fonts/bryant/bryant.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Varela Round";
+  src: url("../../fonts/varela-round/varela-round.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dosis Regular";
+  src: url("../../fonts/dosis/dosis-regular.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dosis Bold";
+  src: url("../../fonts/dosis/dosis-bold.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dosis Extra Bold";
+  src: url("../../fonts/dosis/dosis-extra-bold.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dosis Medium";
+  src: url("../../fonts/dosis/dosis-medium.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dosis Semi Bold";
+  src: url("../../fonts/dosis/dosis-semi-bold.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
   font-family: "Font Awesome Solid";
   src: url("../../fonts/font-awesome/fa-solid-900.eot");
   src: url("../../fonts/font-awesome/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../../fonts/font-awesome/fa-solid-900.woff") format("woff"), url("../../fonts/font-awesome/fa-solid-900.woff2") format("woff2"), url("../../fonts/font-awesome/fa-solid-900.ttf") format("truetype"), url("../../fonts/font-awesome/fa-solid-900.svg#fontawesome-free") format("svg");
@@ -27358,9 +27400,11 @@ https://github.com/lokesh/lightbox2 */
 }
 .feature-story-card .text h1, .feature-story-card .text .h1, .lead-story .text h1, .lead-story .text .h1 {
   line-height: 3.6rem;
+  margin-bottom: 2rem;
 }
 .feature-story-card .text h2, .feature-story-card .text .h2, .lead-story .text h2, .lead-story .text .h2 {
   line-height: 1.6rem;
+  margin-bottom: 0.5rem;
 }
 .feature-story-card .text h3, .feature-story-card .text .h3, .lead-story .text h3, .lead-story .text .h3 {
   line-height: 1.6rem;
@@ -27579,10 +27623,12 @@ https://github.com/lokesh/lightbox2 */
   margin-bottom: 0.5rem;
 }
 .feature-cards .feature-card .text {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
   margin-bottom: 0;
 }
-.feature-cards .feature-card .text .header, .feature-cards .feature-card .text .description {
+.feature-cards .feature-card .text .header, .feature-cards .feature-card .text .description, .feature-cards .feature-card .text .cta {
   display: block;
   text-decoration: none;
   line-height: 1.2rem;
@@ -27607,10 +27653,18 @@ https://github.com/lokesh/lightbox2 */
 .feature-cards .feature-card .text .description {
   color: #212529;
   font-size: 90%;
+  flex-grow: 1;
+}
+.feature-cards .feature-card .text .description a {
+  display: inline;
 }
 .feature-cards .feature-card .text .description.code-soup {
   margin-top: 0.5rem;
   color: rgb(131, 0, 78.7124463519);
+  flex-grow: 12;
+}
+.feature-cards .feature-card .text .cta {
+  margin-bottom: 1rem;
 }
 .feature-cards .feature-card .button-row {
   margin-bottom: 1rem;
@@ -27649,10 +27703,17 @@ https://github.com/lokesh/lightbox2 */
   border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
 }
 .feature-cards.with-background .feature-card {
-  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+.feature-cards.with-background .feature-card .image {
+  margin-bottom: 0;
+}
+.feature-cards.with-background .feature-card .text {
   background: rgb(239.7, 247.08, 255);
   background-size: 40rem;
-  border-radius: 0.5rem;
+  padding: 1rem;
+  padding-bottom: 0;
 }
 
 .story-group-tiles .lead-story {
@@ -27918,7 +27979,8 @@ h2,
 h1, .h1 {
   font-size: 4rem;
   line-height: 3.6rem;
-  font-family: "Proxima Nova";
+  font-family: "Dosis Semi Bold";
+  color: #212529;
   margin-bottom: 1rem;
 }
 
@@ -28266,7 +28328,7 @@ pre strong {
   display: flex;
   width: 350px;
   text-indent: -9999px;
-  margin: 0;
+  margin: 0 2rem 0 0;
 }
 .main-navigation .navbar-brand .mas-logo {
   background: no-repeat 0 center;
@@ -28842,6 +28904,9 @@ a.external-site:after {
   min-height: 20rem;
 }
 
+.tiled figure a.tile {
+  margin-bottom: 0.5rem;
+}
 .tiled a.tile {
   background: transparent url("../../img/graphic-design/fpo-gears.jpg") center center no-repeat;
   background-size: cover;
@@ -29075,19 +29140,20 @@ a.external-site:after {
   padding: 0;
 }
 
-.newspaper {
-  position: relative;
-  margin-bottom: 2rem;
-}
-
 .together {
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
   break-inside: avoid;
 }
 
-.newspaper-intro {
+.newspaper {
+  position: relative;
   margin-bottom: 2rem;
+}
+
+.newspaper-intro {
+  border-bottom: 0.0625rem solid #cccccc;
+  margin-bottom: 1rem;
 }
 .newspaper-intro p {
   margin-bottom: 0;
@@ -29103,11 +29169,22 @@ a.external-site:after {
   column-rule: 0.0625rem solid #cccccc;
   margin-bottom: 2rem;
 }
+.newspaper-columns.three-column {
+  column-count: 3;
+}
+.newspaper-columns.four-column {
+  column-count: 4;
+}
 .newspaper-columns .item, .newspaper-columns .rip-job {
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 0;
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
   break-inside: avoid;
+}
+.newspaper-columns .item h2, .newspaper-columns .item .h2, .newspaper-columns .item h3, .newspaper-columns .item .h3, .newspaper-columns .item h4, .newspaper-columns .item .h4, .newspaper-columns .item p, .newspaper-columns .item ul, .newspaper-columns .item ol, .newspaper-columns .item dl, .newspaper-columns .rip-job h2, .newspaper-columns .rip-job .h2, .newspaper-columns .rip-job h3, .newspaper-columns .rip-job .h3, .newspaper-columns .rip-job h4, .newspaper-columns .rip-job .h4, .newspaper-columns .rip-job p, .newspaper-columns .rip-job ul, .newspaper-columns .rip-job ol, .newspaper-columns .rip-job dl {
+  margin-bottom: 0;
+  padding-bottom: 1rem;
 }
 .newspaper-columns .item:last-child, .newspaper-columns .rip-job:last-child {
   border-bottom: 0;
@@ -30245,9 +30322,6 @@ a.external-site:after {
 }
 .blog article header .byline .date time.updated {
   display: none;
-}
-.blog article header .byline + .cta {
-  margin-top: 2rem;
 }
 .blog article header h2 + .byline, .blog article header .h2 + .byline {
   margin-top: -0.5rem;

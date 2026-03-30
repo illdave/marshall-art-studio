@@ -224,6 +224,11 @@ a.external-site {
 }
 
 .tiled {
+	figure {
+		a.tile {
+			margin-bottom: $spacer-small;
+		}
+	}
 	 a {
 		&.tile {
 			background: transparent url("#{$graphic-design-image-path}/fpo-gears.jpg") center center no-repeat;
@@ -480,18 +485,19 @@ a.external-site {
 	max-width: 1px;
 	padding: 0;
 }
-.newspaper {
-	position: relative;
-	margin-bottom: 2rem;
-}
-
 .together {
 	-webkit-column-break-inside: avoid;
 	page-break-inside: avoid;
 	break-inside: avoid;		
 }
-.newspaper-intro {
+
+.newspaper {
+	position: relative;
 	margin-bottom: 2rem;
+}
+.newspaper-intro {
+	border-bottom: $border-light;
+	margin-bottom: $spacer-base;
 	p {
 		margin-bottom: 0;
 	}
@@ -506,11 +512,22 @@ a.external-site {
 	column-fill: auto;
 	column-rule: $border-light;
 	margin-bottom: 2rem;
+	&.three-column {
+		column-count: 3;
+	}
+	&.four-column {
+		column-count: 4;
+	}
 	.item, .rip-job {
-		margin-bottom: $spacer-base;
+		padding-bottom: $spacer-base;
+		margin-bottom: 0;
 		-webkit-column-break-inside: avoid;
 		page-break-inside: avoid;
-		break-inside: avoid;		
+		break-inside: avoid;	
+		h2, h3, h4, p, ul, ol, dl {
+			margin-bottom: 0;
+			padding-bottom: $spacer-base;
+		}	
 		&:last-child {
 			border-bottom: 0;
 			padding-bottom: 0;
