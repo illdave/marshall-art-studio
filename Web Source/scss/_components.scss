@@ -64,8 +64,8 @@
 			margin-bottom: $spacer-large;
 		}
 		h2 {
-			line-height: $h2-line-height * 1.1;
-			margin-bottom: $spacer-small;
+			line-height: $h2-line-height / 1.3;
+			margin-bottom: $spacer-base;
 		}
 		h3 {
 			line-height: math.div($h2-font-size, 1);
@@ -106,7 +106,9 @@
 .multi-link {
 	display: flex;
 	flex-flow: row nowrap;
-	margin-top: $spacer-large;
+	&.has-top-margin {
+		margin-top: $spacer-large;
+	}
 	.icon {
 		flex-shrink: 0;
 		align-content: center;
@@ -152,7 +154,7 @@
 				  content: "|";
 				  color: $gray-lightest;
 				  margin-left: $spacer-small;
-				  margin-right: $spacer-small;
+				  margin-right: 0.2rem;
 				}
 				&:last-child {
 					&::after {
@@ -389,6 +391,11 @@
 				border: $border-default;
 			}
 		}
+		&.image-has-bottom-border {
+			img {
+				border-bottom: $border-default;
+			}
+		}
 	}
 	
 	&.with-background {
@@ -503,7 +510,7 @@
 	}
 }
 
-.link-list, .mulit-column-list {
+.link-list, .multi-column-list {
 	margin-bottom: $spacer-large;
 	&.has-cta {
 		margin-bottom: $spacer-base;

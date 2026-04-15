@@ -37,6 +37,10 @@
 	animation: blink 1s infinite;
 }
 
+.no-break {
+	white-space: nowrap;
+}
+
 .has-right-link, .has-right-text {
 	display: flex;
 	align-items: center;

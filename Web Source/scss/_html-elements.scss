@@ -247,6 +247,7 @@ table, .table {
 	}
 	th {
 		font-family: $font-family-headers;
+		font-weight: normal;
 	}
 	&.table-no-padding, 
 	&.no-padding  {

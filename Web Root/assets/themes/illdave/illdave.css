@@ -27403,8 +27403,8 @@ https://github.com/lokesh/lightbox2 */
   margin-bottom: 2rem;
 }
 .feature-story-card .text h2, .feature-story-card .text .h2, .lead-story .text h2, .lead-story .text .h2 {
-  line-height: 1.6rem;
-  margin-bottom: 0.5rem;
+  line-height: 1.1188811189rem;
+  margin-bottom: 1rem;
 }
 .feature-story-card .text h3, .feature-story-card .text .h3, .lead-story .text h3, .lead-story .text .h3 {
   line-height: 1.6rem;
@@ -27443,6 +27443,8 @@ https://github.com/lokesh/lightbox2 */
 .multi-link {
   display: flex;
   flex-flow: row nowrap;
+}
+.multi-link.has-top-margin {
   margin-top: 2rem;
 }
 .multi-link .icon {
@@ -27491,7 +27493,7 @@ https://github.com/lokesh/lightbox2 */
   content: "|";
   color: rgb(114.75, 114.75, 114.75);
   margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-right: 0.2rem;
 }
 .multi-link .text ul li:last-child::after {
   content: "";
@@ -27702,6 +27704,9 @@ https://github.com/lokesh/lightbox2 */
 .feature-cards .feature-card.image-has-border img {
   border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
 }
+.feature-cards .feature-card.image-has-bottom-border img {
+  border-bottom: 0.0625rem solid rgb(191.25, 191.25, 191.25);
+}
 .feature-cards.with-background .feature-card {
   border-radius: 0.5rem;
   margin-bottom: 2rem;
@@ -27801,13 +27806,13 @@ https://github.com/lokesh/lightbox2 */
   background: rgb(191.25, 191.25, 191.25);
 }
 
-.link-list, .mulit-column-list {
+.link-list, .multi-column-list {
   margin-bottom: 2rem;
 }
-.link-list.has-cta, .mulit-column-list.has-cta {
+.link-list.has-cta, .multi-column-list.has-cta {
   margin-bottom: 1rem;
 }
-.link-list .header, .mulit-column-list .header {
+.link-list .header, .multi-column-list .header {
   padding-bottom: 0.5rem;
   margin-bottom: 0.5rem;
   border-bottom: 0.0625rem solid rgb(191.25, 191.25, 191.25);
@@ -27818,7 +27823,7 @@ https://github.com/lokesh/lightbox2 */
   color: rgb(0, 73.8, 153);
   line-height: 1.1rem;
 }
-.link-list .header .list-description, .mulit-column-list .header .list-description {
+.link-list .header .list-description, .multi-column-list .header .list-description {
   font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
   text-transform: none;
   color: #212529;
@@ -27826,13 +27831,13 @@ https://github.com/lokesh/lightbox2 */
   margin-bottom: 0.25rem;
   font-size: 1rem;
 }
-.link-list dd, .mulit-column-list dd {
+.link-list dd, .multi-column-list dd {
   line-height: 1.1rem;
   line-height: 1.2rem;
   margin-bottom: 0.75rem;
   break-inside: avoid;
 }
-.link-list dd span, .mulit-column-list dd span {
+.link-list dd span, .multi-column-list dd span {
   display: block;
   margin-top: 0.5rem;
   font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
@@ -27840,55 +27845,55 @@ https://github.com/lokesh/lightbox2 */
   color: #212529;
   font-size: 1rem;
 }
-.link-list dd.cta a, .mulit-column-list dd.cta a {
+.link-list dd.cta a, .multi-column-list dd.cta a {
   color: rgb(0, 76.26, 158.1) !important;
 }
-.link-list dd.cta a:hover, .mulit-column-list dd.cta a:hover {
+.link-list dd.cta a:hover, .multi-column-list dd.cta a:hover {
   color: #212529 !important;
 }
-.link-list dd.cta a:after, .mulit-column-list dd.cta a:after {
+.link-list dd.cta a:after, .multi-column-list dd.cta a:after {
   color: rgb(0, 76.26, 158.1);
 }
-.link-list dd.cta:after, .mulit-column-list dd.cta:after {
+.link-list dd.cta:after, .multi-column-list dd.cta:after {
   display: none;
 }
-.link-list ul, .mulit-column-list ul {
+.link-list ul, .multi-column-list ul {
   list-style-type: none;
   padding-left: 0;
 }
-.link-list ul li, .mulit-column-list ul li {
+.link-list ul li, .multi-column-list ul li {
   line-height: 1.4rem;
   break-inside: avoid;
   margin-bottom: 0;
   padding-bottom: 0.5rem;
 }
-.link-list.two-column ul, .mulit-column-list.two-column ul {
+.link-list.two-column ul, .multi-column-list.two-column ul {
   column-count: 2;
 }
-.link-list.three-column ul, .mulit-column-list.three-column ul {
+.link-list.three-column ul, .multi-column-list.three-column ul {
   column-count: 3;
 }
-.link-list.four-column ul, .mulit-column-list.four-column ul {
+.link-list.four-column ul, .multi-column-list.four-column ul {
   column-count: 4;
 }
-.link-list a, .mulit-column-list a {
+.link-list a, .multi-column-list a {
   text-decoration: none;
   color: #212529;
 }
-.link-list a:hover, .mulit-column-list a:hover {
+.link-list a:hover, .multi-column-list a:hover {
   color: rgb(0, 76.26, 158.1);
 }
-.link-list a:after, .mulit-column-list a:after {
+.link-list a:after, .multi-column-list a:after {
   font-family: "Font Awesome Solid";
   font-size: 1rem;
   content: "\f054";
   color: rgb(0, 76.26, 158.1);
   margin-left: 0.5rem;
 }
-.link-list a:after:hover, .mulit-column-list a:after:hover {
+.link-list a:after:hover, .multi-column-list a:after:hover {
   color: #212529;
 }
-.link-list a:after:active, .mulit-column-list a:after:active {
+.link-list a:after:active, .multi-column-list a:after:active {
   color: black;
 }
 
@@ -28186,6 +28191,7 @@ table th:first-child, table td:first-child, .table th:first-child, .table td:fir
 }
 table th, .table th {
   font-family: "Proxima Nova Bold";
+  font-weight: normal;
 }
 table.table-no-padding th, table.table-no-padding td, table.no-padding th, table.no-padding td, .table.table-no-padding th, .table.table-no-padding td, .table.no-padding th, .table.no-padding td {
   padding: 0;
@@ -28310,7 +28316,7 @@ pre strong {
   color: #099;
 }
 
-/* main-navigation -------------------- */
+/* main navigation -------------------- */
 .main-navigation .skip-link {
   color: #fff;
   font-size: 0.75rem;
@@ -28407,6 +28413,12 @@ pre strong {
   content: "\f0c9";
 }
 
+/* side navigation -------------------- */
+.sidenav .links .link-list.left-nav dd.active a {
+  font-family: "Proxima Nova Bold";
+  cursor: default;
+}
+
 /* footer ----------------------------- */
 footer {
   border-top: 0.0625rem solid rgb(191.25, 191.25, 191.25);
@@ -28426,7 +28438,7 @@ section.intro {
   padding: 2rem 0 1.5rem;
 }
 section.intro h1, section.intro .h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 section.intro figure {
   padding-bottom: 0;
@@ -28436,7 +28448,10 @@ section.even {
   background-color: rgb(239.7, 247.08, 255);
 }
 section.even .item, section.even .client-details {
-  background: transparent;
+  background: #fff;
+}
+section.even .feature-cards.with-background .feature-card .text {
+  background: #fff;
 }
 section.no-padding {
   padding: 0;
@@ -28612,10 +28627,10 @@ figure .figure-caption {
 figure.no-border {
   border: 0;
 }
-figure.no-border.images-have-border img {
+figure.no-border.images-have-border img, figure.no-border.image-has-border img {
   border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
 }
-figure.no-border.images-have-border a img {
+figure.no-border.images-have-border a img, figure.no-border.image-has-border a img {
   border: 0.0625rem solid rgb(191.25, 191.25, 191.25) !important;
 }
 figure.image-has-border img {
@@ -28714,6 +28729,10 @@ img.social-media-preview {
 }
 .blink {
   animation: blink 1s infinite;
+}
+
+.no-break {
+  white-space: nowrap;
 }
 
 .has-right-link, .has-right-text {

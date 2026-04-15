@@ -8,7 +8,7 @@ section {
 		background: $section-intro-bg url("#{$layout-image-path}/section-bg-pinstripes.png") 0 0 repeat;
 		padding: $spacer-large 0 1.5rem;
 		h1 {
-			margin-bottom: $spacer-base;
+			margin-bottom: $spacer-large;
 		}
 		figure {
 			padding-bottom: 0;
@@ -18,7 +18,10 @@ section {
 	&.even {
 		background-color: $section-bg-even;
 		.item, .client-details {
-			background: transparent;
+			background: $white;
+		}
+		.feature-cards.with-background .feature-card .text {
+			background: $white;
 		}
 	}	
 	&.no-padding {
@@ -169,7 +172,7 @@ figure {
 	}
 	&.no-border {
 		border: 0;
-		&.images-have-border {
+		&.images-have-border, &.image-has-border {
 			img {
 				border: $border-default;
 			}

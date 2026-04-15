@@ -52,7 +52,7 @@
 		<link href="../assets/themes/illdave/illdave.css" type="text/css" rel="stylesheet">	
 		<script src="../assets/themes/illdave/illdave.js" type="text/javascript"></script>
 	</head>
-	<body class=""><!-- Marshall Art Studio 8.0 -->
+	<body class="dark-mode"><!-- Marshall Art Studio 8.1 -->
 		<header class="main-navigation fixed-top" role="banner">
 			<a href="#main-content" class="visually-hidden-focusable">Skip Content</a>
 			<div class="navbar navbar-expand-lg">
@@ -105,7 +105,7 @@
 				</div>
 			</div>
 		</header>
-		<main class="mas-content web" role="main" id="main-content">
+		<main class="mas-content web boxed" role="main" id="main-content">
 			<section class="intro">
 				<div class="container">
 					<div class="row">
@@ -128,39 +128,45 @@
 					<h2>What I do</h2>
 					<div class="row">
 						<div class="col-12 col-md-4">
-							<div class="list-header">
-								<div class="list-name">Front-End Development</div>
-							</div>						
-							<ul>
-								<li>Responsive design across all devices and browsers</li>
-								<li>Component-based architecture and design systems</li>
-								<li>Performance optimization and scalability</li>
-							</ul>
+							<div class="client-details">
+								<div class="list-header">
+									<div class="list-name">Front-End Development</div>
+								</div>						
+								<ul>
+									<li>Responsive design across all devices and browsers</li>
+									<li>Component-based architecture and design systems</li>
+									<li>Performance optimization and scalability</li>
+								</ul>
+							</div>
 						</div>		
 						<div class="col-12 col-md-4">
-							<div class="list-header">
-								<div class="list-name">Technical Skills</div>
-							</div>						
-							<p>HTML5, CSS3, SCSS/SASS, JavaScript, TypeScript, Git, Bootstrap, Angular, Node.js, PHP, WordPress, Figma, Agile/JIRA</p>
+							<div class="client-details">
+								<div class="list-header">
+									<div class="list-name">Technical Skills</div>
+								</div>						
+								<p>HTML5, CSS3, SCSS/SASS, JavaScript, TypeScript, Git, Bootstrap, Angular, Node.js, PHP, WordPress, Figma, Agile/JIRA</p>
+							</div>
 						</div>
 						<div class="col-12 col-md-4">
-							<div class="list-header">
-								<div class="list-name">UX/UI Design</div>
-							</div>						
-							<ul>
-								<li>Brand systems and visual identity</li>
-								<li>Wireframing and prototyping</li>
-								<li>Cross-functional collaboration</li>
-							</ul>
+							<div class="client-details">
+								<div class="list-header">
+									<div class="list-name">UX/UI Design</div>
+								</div>						
+								<ul>
+									<li>Brand systems and visual identity</li>
+									<li>Wireframing and prototyping</li>
+									<li>Cross-functional collaboration</li>
+								</ul>
+							</div>
 						</div>
 					</div>				
 				</div>
 			</section>
-			<section class="jobs recent even clients">
+			<section class="recent even clients">
 				<div class="container">
 					<h2>Experience</h2>
 					<div class="row gx-4 gx-lg-5">
-						<div class="col-12 col-md-4">
+						<div class="col-12 col-md-4">						
 							<div class="job cvs-digital client-details">
 								<h3>Connecticut Digital Service (CTDS)</h3>
 								<p class="job-span"><a href="ctds/index.html" aria-label="my work at Connecticut Digital Service">Senior UX/UI Front-End Developer and Designer</a></p>
@@ -235,9 +241,9 @@
 				<div class="container">
 					<h2>Earlier work</h2>
 					<p>Early web development projects from a simpler era of table layouts and browser compatibility challenges. These sites reflect the standards and practices of mid-2000s web design.</p>
-					<div class="row feature-cards">
+					<div class="row feature-cards with-background">
 						<div class="col-lg-4">
-							<div class="feature-card">
+							<div class="feature-card image-has-bottom-border">
 								<div class="image">
 									<img src="../assets/img/web-dev/merrill-lynch.png" alt="Merril Lynch website">
 								</div>
@@ -249,7 +255,7 @@
 							</div>
 						</div>
 						<div class="col-lg-4">
-							<div class="feature-card">
+							<div class="feature-card image-has-bottom-border">
 								<div class="image">
 									<img src="../assets/img/web-dev/ltsave.png" alt="LTSave website">
 								</div>
@@ -261,7 +267,7 @@
 							</div>
 						</div>
 						<div class="col-lg-4">
-							<div class="feature-card">
+							<div class="feature-card image-has-bottom-border">
 								<div class="image">
 									<img src="../assets/img/web-dev/carbonite.png" alt="screenshot from my work for Carbonite">
 								</div>
@@ -279,46 +285,38 @@
 				<div class="container">
 					<h2>Archive</h2>
 					<p>Early websites from the desktop-only era. These sites reflect the constraints of their time—unresponsive grids, system fonts, limited CSS, and IE6 compatibility requirements—but they showcase a user-first design philosophy that still guides my work today.</p>
-					<div class="row labeled">
+					<div class="row">
 						<div class="col-12 col-sm-3">
-							<div class="client-image">
+							<figure class="no-border image-has-border">
 								<a href="commerce-high-school/index.html">
 									<img src="../assets/img/web-dev/commerce-high-school.png" alt="archive class of 1980 Commerce High School reunion website">
 								</a>	
-								<div class="labeled">
-									<p>Commerce High School Reunion</p>
-								</div>
-							</div>
+								<figcaption class="figure-caption">Commerce High School Reunion</figcaption>
+							</figure>
 						</div>
 						<div class="col-12 col-sm-3">
-							<div class="client-image">
+							<figure class="no-border image-has-border">
 								<a href="cambridge-comix-festival/index.html">
 									<img src="../assets/img/web-dev/cambridge-comix-festival.png" alt="archive Cambridge Comix Festival website">
 								</a>	
-								<div class="labeled">
-									<p>Cambridge Comix Festival</p>
-								</div>
-							</div>
+								<figcaption class="figure-caption">Cambridge Comix Festival</figcaption>
+							</figure>
 						</div>
 						<div class="col-12 col-sm-3">
-							<div class="client-image">
+							<figure class="no-border image-has-border">
 								<a href="head-for-home/index.html">
 									<img src="../assets/img/web-dev/head-for-home.png" alt="archive WBZ Head for Home website">
 								</a>	
-								<div class="labeled">
-									<p>WBZ Head for Home</p>
-								</div>
-							</div>
+								<figcaption class="figure-caption">WBZ Head for Home</figcaption>
+							</figure>
 						</div>
 						<div class="col-12 col-sm-3">
-							<div class="client-image">
+							<figure class="no-border image-has-border">
 								<a href="eddie-marshall/index.html">
 									<img src="../assets/img/web-dev/eddie-marshall.png" alt="archive Eddie Marshall website">
 								</a>	
-								<div class="labeled">
-									<p>Eddie Marshall</p>
-								</div>
-							</div>
+								<figcaption class="figure-caption">Eddie Marshall</figcaption>
+							</figure>
 						</div>
 					</div>
 				</div>

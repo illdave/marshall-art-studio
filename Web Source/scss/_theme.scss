@@ -16,6 +16,17 @@ $theme-color-6:								$illdave-teal;
 $theme-color-7:								darken($theme-color-3, 5%); // dark blue 
 $theme-color-8: 							#00b1cb; // pastel foam
 
+$gray-darker:            					lighten(#000, 13.5%); // #222
+$gray-dark:              					lighten(#000, 20%);   // #333
+$gray:                   					lighten(#000, 33.5%); // #555
+$gray-lightest:             				lighten(#000, 45%);   // #737373
+$gray-light-med:             				lighten(#000, 55%);   // #bfbfbf
+$gray-light:             					lighten(#000, 75%);   // #bfbfbf
+$gray-light-medium:     					lighten(#000, 80%);   // #ccc
+$gray-lighter:           					lighten(#000, 93.5%); // #eee
+
+$accent-bg-color:							$gray-dark;
+
 $multilink-icon-color: 						$illdave-orange;
 $multilink-bg: 								transparent;
 $multilink-ctds-icon-bg: 					transparentize($white, 0.1);
@@ -147,7 +158,7 @@ $contact-link-color:						$link-color;
 $contact-link-hover-color:					$link-hover-color;
 $contact-link-active-color:					$link-active-color;
 
-$tile-card-bg: 								lighten($item-bg, 10%);
+$tile-card-bg: 								$accent-bg-color;
 $tile-card-bg-light: 						lighten($tile-card-bg, 10%);
 $tile-card-hover-bg: 						lighten($tile-card-bg, 2%);
 
@@ -160,6 +171,9 @@ $accordion-button-bg: 						$black;
 $accordion-button-bg-collapsed:				$black;
 $accordion-body-color: 						$text-color;
 $accordion-body-bg: 						$tile-card-bg;
+
+$h1-font-size:                				$font-size-base * 3.0;
+
 
 .dark-mode {
 	background: $body-bg;
@@ -176,6 +190,14 @@ $accordion-body-bg: 						$tile-card-bg;
 	h1, h2, h3, h4, dl dt, strong {
 		color: $headings-color;
 	}
+	
+	h1, .h1 {
+		font-size: $h1-font-size;
+		line-height: $h1-line-height;
+		font-family: $font-family-h1;
+		margin-bottom: $spacer-base;
+	}
+		
 	p, li, dd {
 		color: $text-color;
 	}
@@ -660,12 +682,14 @@ $accordion-body-bg: 						$tile-card-bg;
 		}
 		&.with-background {
 			.feature-card {
-				background: $tile-card-bg;	
+				.text {
+					background: $tile-card-bg;	
+				}
 			}
 		}
 	}
 
-	.link-list, .mulit-column-list {
+	.link-list, .multi-column-list {
 		.header {
 			border-bottom: $border-default;
 			color: $text-color;
@@ -1106,7 +1130,6 @@ $accordion-body-bg: 						$tile-card-bg;
 	.blog {
 		&.index {
 			article {
-			
 				&.blog-preview {
 					a {
 						.header, .description, img {
@@ -1202,6 +1225,9 @@ $accordion-body-bg: 						$tile-card-bg;
 				}
 			}
 			header {
+				h1 {
+					font-size: $h1-font-size;
+				}
 				.byline {
 					color: $gray-light-med;
 				}
