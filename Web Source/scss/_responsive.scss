@@ -4,6 +4,32 @@
 	.mas-client .row > div {
 		flex: auto;
 	}
+	
+	
+$h1-font-size-mobile:                		$h1-font-size / 1.2;
+$h2-font-size-mobile:                		$font-size-base * 1.6;
+$h1-line-height-mobile:                		$h1-font-size-mobile / 1.2;
+$h2-line-height-mobile:                		$h2-font-size-mobile / 1.1;
+	
+	
+	h1, .h1 {
+		font-size: $h1-font-size-mobile;
+		line-height: $h1-line-height-mobile;
+	}
+	h2, .h2 {
+		font-size: $h2-font-size;
+	}
+	
+	
+
+	.feature-story-card .text h1, 
+	.feature-story-card .text .h1, 
+	.lead-story .text h1, 
+	.lead-story .text .h1 {
+		line-height: $h1-line-height-mobile;
+		margin-bottom: $spacer-base;
+	}	
+	
 	table, .table {
 		th, td {
 			display: block;

@@ -27360,6 +27360,12 @@ https://github.com/lokesh/lightbox2 */
 .feature-story-card.has-no-bottom-margin, .lead-story.has-no-bottom-margin {
   margin-bottom: 0 !important;
 }
+.feature-story-card.has-background, .lead-story.has-background {
+  background: rgb(239.7, 247.08, 255) url("../../img/layout/section-bg-pinstripes.png") 0 0 repeat;
+  padding: 2rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem !important;
+}
 .feature-story-card.multi .text ul, .lead-story.multi .text ul {
   padding-left: 0;
 }
@@ -27403,7 +27409,7 @@ https://github.com/lokesh/lightbox2 */
   margin-bottom: 2rem;
 }
 .feature-story-card .text h2, .feature-story-card .text .h2, .lead-story .text h2, .lead-story .text .h2 {
-  line-height: 1.1188811189rem;
+  line-height: 1.4545454545rem;
   margin-bottom: 1rem;
 }
 .feature-story-card .text h3, .feature-story-card .text .h3, .lead-story .text h3, .lead-story .text .h3 {
@@ -27640,7 +27646,7 @@ https://github.com/lokesh/lightbox2 */
   font-size: 1.2rem;
   text-transform: uppercase;
   color: rgb(0, 73.8, 153);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 .feature-cards .feature-card .text .header a {
   text-transform: uppercase;
@@ -28657,6 +28663,12 @@ figure.full-width img {
   border: 0.0625rem solid rgb(191.25, 191.25, 191.25);
 }
 
+.has-top-border {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 0.0625rem solid rgb(191.25, 191.25, 191.25);
+}
+
 .has-bottom-border {
   margin-bottom: 1rem;
   border-bottom: 0.0625rem solid rgb(191.25, 191.25, 191.25);
@@ -28713,6 +28725,10 @@ img.social-media-preview {
   line-height: 20rem;
   margin-bottom: 0;
   text-align: center;
+}
+
+.sticky-top {
+  margin-bottom: 1rem;
 }
 
 /* blink tag */
@@ -30312,7 +30328,9 @@ a.external-site:after {
 }
 .blog article header {
   margin-bottom: 0.5rem;
-  border-bottom: none;
+}
+.blog article header.large-bottom-margin {
+  margin-bottom: 2rem;
 }
 .blog article header h1, .blog article header .h1 {
   font-size: 4rem;
@@ -30328,7 +30346,7 @@ a.external-site:after {
 }
 .blog article header .byline {
   font-size: 90%;
-  text-align: left;
+  text-align: right;
   margin-bottom: 0;
   color: rgb(85.425, 85.425, 85.425);
 }
@@ -30479,6 +30497,20 @@ a.external-site:after {
 @media (max-width: 576px) {
   .mas-client .row > div {
     flex: auto;
+  }
+  h1, .h1 {
+    font-size: 3.3333333333rem;
+    line-height: 2.7777777778rem;
+  }
+  h2, .h2 {
+    font-size: 1.6rem;
+  }
+  .feature-story-card .text h1,
+  .feature-story-card .text .h1,
+  .lead-story .text h1,
+  .lead-story .text .h1 {
+    line-height: 2.7777777778rem;
+    margin-bottom: 1rem;
   }
   table th, table td, .table th, .table td {
     display: block;

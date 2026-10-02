@@ -162,8 +162,9 @@
 		}
 		header {
 			margin-bottom: $spacer-small;
-			border-bottom: none;
-			
+			&.large-bottom-margin {
+				margin-bottom: $spacer-large;
+			}			
 			h1 {
 				font-size: $h1-font-size;
 			}
@@ -178,7 +179,7 @@
 			}
 			.byline {
 				font-size: $font-size-small;
-				text-align: left;
+				text-align: right;
 				margin-bottom: 0;
 				color: $gray;
 				.author {

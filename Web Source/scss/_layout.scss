@@ -216,10 +216,17 @@ figure {
 	}
 }
 
+.has-top-border {
+	margin-top: $spacer-base;
+	padding-top: $spacer-base;
+	border-top: $border-default;
+}
+
 .has-bottom-border {
-	margin-bottom: 1rem;
+	margin-bottom: $spacer-base;
 	border-bottom: $border-default;
 }
+
 
 .modal {
 	.modal-body {
